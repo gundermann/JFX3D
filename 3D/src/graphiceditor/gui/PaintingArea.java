@@ -4,7 +4,6 @@ import graphiceditor.graphicobjects.Painting;
 
 import java.util.List;
 
-import javafx.scene.Group;
 import javafx.scene.Node;
 
 public interface PaintingArea {
@@ -21,9 +20,6 @@ public interface PaintingArea {
 
   void finishPainting();
 
-  void enableRotation();
+  List<Node> getAllGraphicObjects();
 
-  List<Group> getAllGraphicObjects();
-
-  void add( Node shape );
 }

@@ -1,6 +1,6 @@
 package graphiceditor.gui;
 
-import graphiceditor.PaintingAreaFactory;
+import graphiceditor.ModellingAreaFactory;
 import graphiceditor.graphicobjects.Painting;
 import graphiceditor.sample.Cube;
 import javafx.fxml.FXML;
@@ -11,11 +11,11 @@ public class ControllerEditor {
   @FXML
   private BorderPane content;
 
-  private GUIPaintingArea paintingArea;
+  private ModellingArea paintingArea;
 
   @FXML
   public void initNewObject() {
-    paintingArea = PaintingAreaFactory.getInstance().createDimensionArea();
+    paintingArea = ModellingAreaFactory.getInstance().createModellingArea();
   }
 
   @FXML

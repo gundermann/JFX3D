@@ -4,17 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javafx.scene.Node;
-import javafx.scene.layout.Pane;
 
-public class GUIPaintingArea extends Pane {
+public class GUIPaintingArea extends GUIDimensionArea {
 
   private Node actualPainting;
 
   private final List<Node> allGraphicObjects = new ArrayList<Node>();
 
-  public GUIPaintingArea() {
-    setStyle( "-fx-background-color:white;" );
-  }
+  // public GUIPaintingArea() {
+  // setStyle( "-fx-background-color:white;" );
+  // }
 
   public Node getActualPainting() {
     return actualPainting;
@@ -22,7 +21,7 @@ public class GUIPaintingArea extends Pane {
 
   public void setActualPainting( Node actualPainting ) {
     this.actualPainting = actualPainting;
-    getChildren().add( actualPainting );
+    add( actualPainting );
   }
 
   public List<Node> getAllGraphicObjects() {
@@ -33,4 +32,5 @@ public class GUIPaintingArea extends Pane {
     allGraphicObjects.add( actualPainting );
     actualPainting = null;
   }
+
 }

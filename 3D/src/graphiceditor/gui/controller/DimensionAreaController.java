@@ -1,12 +1,13 @@
-package graphiceditor.gui;
+package graphiceditor.gui.controller;
 
 import graphiceditor.RotationHandlerFactory;
+import graphiceditor.gui.DimensionArea;
+import graphiceditor.gui.GUIDimensionArea;
 import graphiceditor.handler.AbstractMouseDragRotationHandler;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
 
 public class DimensionAreaController implements DimensionArea {
 
@@ -15,11 +16,14 @@ public class DimensionAreaController implements DimensionArea {
   private EventHandler<MouseEvent> mouseDragRotationHandler;
 
   public DimensionAreaController() {
-    stage = new GUIDimensionArea();
+    stage = getNewGUIInstance();
   }
 
-  @Override
-  public Stage getUI() {
+  protected GUIDimensionArea getNewGUIInstance() {
+    return new GUIDimensionArea();
+  }
+
+  protected GUIDimensionArea getUI() {
     return stage;
   }
 
@@ -40,6 +44,7 @@ public class DimensionAreaController implements DimensionArea {
   }
 
   private void setMouseDragRotationHandler( AbstractMouseDragRotationHandler mouseDragRotationHandler ) {
+    removeMouseDragRotationHandler();
     this.mouseDragRotationHandler = mouseDragRotationHandler;
     stage.addEventHandler( MouseEvent.MOUSE_DRAGGED, this.mouseDragRotationHandler );
   }
@@ -59,6 +64,16 @@ public class DimensionAreaController implements DimensionArea {
   public void enableYRotation() {
     setMouseDragRotationHandler( RotationHandlerFactory.getInstance().createHorizontalRotationHandler(
         stage.getYRotationProperty() ) );
+  }
+
+  @Override
+  public void disableRotation() {
+    removeMouseDragRotationHandler();
+  }
+
+  private void removeMouseDragRotationHandler() {
+    if ( mouseDragRotationHandler != null )
+      stage.removeEventHandler( MouseEvent.MOUSE_DRAGGED, mouseDragRotationHandler );
   }
 
 }

@@ -6,7 +6,7 @@ import java.util.List;
 
 import javafx.scene.Node;
 
-public interface PaintingArea {
+public interface PaintingArea extends DimensionArea {
 
   GUIPaintingArea getUI();
 

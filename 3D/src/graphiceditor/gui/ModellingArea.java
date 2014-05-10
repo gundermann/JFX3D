@@ -6,8 +6,6 @@ public interface ModellingArea {
 
   void add( Node shape );
 
-  DimensionArea getDimensionArea();
-
   PaintingArea getPaintingArea();
 
 }

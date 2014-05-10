@@ -1,5 +1,7 @@
 package graphiceditor.gui;
 
+import graphiceditor.gui.controller.PaintingMenuController;
+
 import java.io.IOException;
 
 import javafx.fxml.FXMLLoader;
@@ -12,7 +14,12 @@ import javafx.stage.StageStyle;
 
 public class GUIPaintingMenu extends Stage {
 
+  private static GUIPaintingMenu _instance;
+
+  private final PaintingMenuController controller;
+
   public GUIPaintingMenu( PaintingMenuController paintingMenuController ) {
+    controller = paintingMenuController;
     FXMLLoader fxmlLoader = new FXMLLoader( getClass().getResource( "fxml/paintingmenu.fxml" ) );
     fxmlLoader.setController( paintingMenuController );
     AnchorPane page;
@@ -29,6 +36,22 @@ public class GUIPaintingMenu extends Stage {
     catch ( IOException e ) {
       e.printStackTrace();
     }
+  }
+
+  public static GUIPaintingMenu getInstance() {
+    if ( _instance == null ) {
+      _instance = new GUIPaintingMenu( new PaintingMenuController() );
+    }
+    return _instance;
+
+  }
+
+  public void setPaintingArea( PaintingArea paintingArea ) {
+    controller.setPaintingArea( paintingArea );
+  }
+
+  public void disable() {
+    getScene().getRoot().setDisable( true );
   }
 
 }

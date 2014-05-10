@@ -1,7 +1,7 @@
 package graphiceditor;
 
 import graphiceditor.gui.ModellingArea;
-import graphiceditor.gui.ModellingAreaController;
+import graphiceditor.gui.controller.ModellingAreaController;
 
 public class ModellingAreaFactory {
 
@@ -16,4 +16,5 @@ public class ModellingAreaFactory {
   public ModellingArea createModellingArea() {
     return new ModellingAreaController();
   }
+
 }

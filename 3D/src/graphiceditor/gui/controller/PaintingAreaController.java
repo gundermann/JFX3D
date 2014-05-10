@@ -1,7 +1,9 @@
-package graphiceditor.gui;
+package graphiceditor.gui.controller;
 
 import graphiceditor.PaintingListenerFactory;
 import graphiceditor.graphicobjects.Painting;
+import graphiceditor.gui.GUIPaintingArea;
+import graphiceditor.gui.PaintingArea;
 
 import java.util.List;
 

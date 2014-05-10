@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.paint.*?>
 
-<AnchorPane id="AnchorPane" xmlns:fx="http://javafx.com/fxml" fx:controller="graphiceditor.gui.ControllerEditor">
+<AnchorPane id="AnchorPane" xmlns:fx="http://javafx.com/fxml" fx:controller="graphiceditor.gui.controller.EditorController">
   <children>
     <BorderPane fx:id="content" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <top>
@@ -33,11 +33,11 @@
                 </Menu>
               </menus>
             </MenuBar>
-            <ToolBar AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="39.0">
+            <ToolBar id="btDimensionMenu" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="39.0">
               <items>
                 <Button alignment="TOP_LEFT" contentDisplay="CENTER" mnemonicParsing="false" onAction="#initNewObject" text="New Object" />
-                <ToggleButton contentDisplay="CENTER" mnemonicParsing="false" onAction="#toggleDimensionMenu" text="Dimension Menu" />
-                <ToggleButton mnemonicParsing="false" onAction="#togglePaintingArea" text="PaintingArea" />
+                <ToggleButton fx:id="btDimensionMenu" contentDisplay="CENTER" disable="true" mnemonicParsing="false" onAction="#toggleDimensionMenu" text="Dimension Menu" />
+                <ToggleButton disable="true" mnemonicParsing="false" onAction="#togglePaintingMenu" text="PaintingArea" />
               </items>
             </ToolBar>
           </children>

@@ -33,4 +33,5 @@ public class GUIPaintingArea extends Pane {
     allGraphicObjects.add( actualPainting );
     actualPainting = null;
   }
+
 }

@@ -1,5 +1,8 @@
-package graphiceditor.gui;
+package graphiceditor.gui.controller;
 
+import graphiceditor.gui.DimensionArea;
+import graphiceditor.gui.ModellingArea;
+import graphiceditor.gui.PaintingArea;
 import javafx.scene.Node;
 
 public class ModellingAreaController implements ModellingArea {

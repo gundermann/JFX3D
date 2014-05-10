@@ -1,6 +1,8 @@
-package graphiceditor.gui;
+package graphiceditor.gui.controller;
 
 import graphiceditor.RotationHandlerFactory;
+import graphiceditor.gui.DimensionArea;
+import graphiceditor.gui.GUIDimensionArea;
 import graphiceditor.handler.AbstractMouseDragRotationHandler;
 import javafx.event.EventHandler;
 import javafx.scene.Node;

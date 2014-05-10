@@ -11,7 +11,6 @@ public class Object3DImpl extends Group implements Object3D {
 
   @Override
   public List<Node> getPartObjects() {
-    // TODO Auto-generated method stub
     return null;
   }
 

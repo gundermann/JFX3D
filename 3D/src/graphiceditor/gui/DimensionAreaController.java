@@ -1,6 +1,7 @@
 package graphiceditor.gui;
 
-import graphiceditor.handler.MouseDragZRotationHandler;
+import graphiceditor.RotationHandlerFactory;
+import graphiceditor.handler.AbstractMouseDragRotationHandler;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.input.MouseEvent;
@@ -34,10 +35,11 @@ public class DimensionAreaController implements DimensionArea {
 
   @Override
   public void enableZRotation() {
-    setMouseDragRotationHandler( new MouseDragZRotationHandler( stage.getZRotationProperty() ) );
+    setMouseDragRotationHandler( RotationHandlerFactory.getInstance().createHorizontalRotationHandler(
+        stage.getZRotationProperty() ) );
   }
 
-  private void setMouseDragRotationHandler( MouseDragZRotationHandler mouseDragRotationHandler ) {
+  private void setMouseDragRotationHandler( AbstractMouseDragRotationHandler mouseDragRotationHandler ) {
     this.mouseDragRotationHandler = mouseDragRotationHandler;
     stage.addEventHandler( MouseEvent.MOUSE_DRAGGED, this.mouseDragRotationHandler );
   }
@@ -45,6 +47,18 @@ public class DimensionAreaController implements DimensionArea {
   @Override
   public void setMainPane( Pane mainPane ) {
     stage.setMainPane( mainPane );
+  }
+
+  @Override
+  public void enableXRotation() {
+    setMouseDragRotationHandler( RotationHandlerFactory.getInstance().createHorizontalRotationHandler(
+        stage.getXRotationProperty() ) );
+  }
+
+  @Override
+  public void enableYRotation() {
+    setMouseDragRotationHandler( RotationHandlerFactory.getInstance().createVerticalRotationHandler(
+        stage.getYRotationProperty() ) );
   }
 
 }

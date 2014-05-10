@@ -34,9 +34,13 @@ public class GUIDimensionArea extends Stage {
     mainPane.prefWidthProperty().bind( getScene().widthProperty() );
     mainPane.prefHeightProperty().bind( getScene().heightProperty() );
     final Rotate rootRotateX = RotateBuilder.create().pivotX( 0 ).pivotY( 0 ).pivotZ( 0 ).axis( Rotate.X_AXIS ).build();
+    rootRotateX.pivotXProperty().bind( mainPane.widthProperty().divide( 2 ) );
+    rootRotateX.pivotYProperty().bind( mainPane.heightProperty().divide( 2 ) );
     rootRotateX.angleProperty().bind( rootAngleX );
 
-    final Rotate rootRotateY = RotateBuilder.create().pivotX( 0 ).pivotY( 0 ).pivotZ( 0 ).axis( Rotate.Y_AXIS ).build();
+    final Rotate rootRotateY = RotateBuilder.create().pivotZ( 0 ).axis( Rotate.Y_AXIS ).build();
+    rootRotateY.pivotXProperty().bind( mainPane.widthProperty().divide( 2 ) );
+    rootRotateY.pivotYProperty().bind( mainPane.heightProperty().divide( 2 ) );
     rootRotateY.angleProperty().bind( rootAngleY );
 
     final Rotate rootRotateZ = RotateBuilder.create().pivotZ( 0 ).axis( Rotate.Z_AXIS ).build();
@@ -72,6 +76,14 @@ public class GUIDimensionArea extends Stage {
 
   public DoubleProperty getZRotationProperty() {
     return rootAngleZ;
+  }
+
+  public DoubleProperty getXRotationProperty() {
+    return rootAngleX;
+  }
+
+  public DoubleProperty getYRotationProperty() {
+    return rootAngleY;
   }
 
 }

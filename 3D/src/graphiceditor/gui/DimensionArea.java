@@ -14,5 +14,9 @@ public interface DimensionArea {
 
   void enableZRotation();
 
+  void enableXRotation();
+
+  void enableYRotation();
+
   void setMainPane( Pane mainPane );
 }

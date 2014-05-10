@@ -2,12 +2,15 @@ package graphiceditor.gui;
 
 import javafx.scene.Node;
 import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
 public interface DimensionArea {
 
-  public Pane getMainPane();
+  Stage getUI();
 
-  public void add( Node shape );
+  Pane getMainPane();
+
+  void add( Node shape );
 
   void enableRotation();
 

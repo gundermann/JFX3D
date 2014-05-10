@@ -11,7 +11,7 @@ import javafx.scene.transform.Rotate;
 import javafx.scene.transform.RotateBuilder;
 import javafx.stage.Stage;
 
-public class GUIDimensionArea extends Stage implements DimensionArea {
+public class GUIDimensionArea extends Stage {
 
   public DoubleProperty rootAngleX = new SimpleDoubleProperty();
 
@@ -45,7 +45,6 @@ public class GUIDimensionArea extends Stage implements DimensionArea {
     return mainPane;
   }
 
-  @Override
   public void setMainPane( Pane mainPane ) {
     hide();
     this.mainPane = mainPane;
@@ -56,19 +55,12 @@ public class GUIDimensionArea extends Stage implements DimensionArea {
     show();
   }
 
-  @Override
   public Pane getMainPane() {
     return mainPane;
   }
 
-  @Override
   public void add( Node shape ) {
     mainPane.getChildren().add( shape );
   }
 
-  @Override
-  public void enableRotation() {
-    // TODO Auto-generated method stub
-
-  }
 }

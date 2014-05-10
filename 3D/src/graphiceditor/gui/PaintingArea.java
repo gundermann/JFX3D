@@ -8,6 +8,8 @@ import javafx.scene.Node;
 
 public interface PaintingArea {
 
+  GUIPaintingArea getUI();
+
   void initPainting( Painting painting );
 
   void startPainting();

@@ -2,7 +2,6 @@ package graphiceditor.gui;
 
 import graphiceditor.graphicobjects.Painting;
 import javafx.scene.Node;
-import javafx.scene.layout.Pane;
 
 public class ModellingAreaImpl implements ModellingArea {
 
@@ -11,9 +10,9 @@ public class ModellingAreaImpl implements ModellingArea {
   private final PaintingArea paintingArea;
 
   public ModellingAreaImpl() {
-    dimensionArea = new GUIDimensionArea();
-    paintingArea = new GUIPaintingArea();
-    dimensionArea.setMainPane( (Pane) paintingArea );
+    dimensionArea = new DimensionAreaController();
+    paintingArea = new PaintingAreaController();
+    dimensionArea.setMainPane( paintingArea.getUI() );
   }
 
   @Override

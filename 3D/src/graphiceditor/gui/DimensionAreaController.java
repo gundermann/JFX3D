@@ -51,13 +51,13 @@ public class DimensionAreaController implements DimensionArea {
 
   @Override
   public void enableXRotation() {
-    setMouseDragRotationHandler( RotationHandlerFactory.getInstance().createHorizontalRotationHandler(
+    setMouseDragRotationHandler( RotationHandlerFactory.getInstance().createVerticalRotationHandler(
         stage.getXRotationProperty() ) );
   }
 
   @Override
   public void enableYRotation() {
-    setMouseDragRotationHandler( RotationHandlerFactory.getInstance().createVerticalRotationHandler(
+    setMouseDragRotationHandler( RotationHandlerFactory.getInstance().createHorizontalRotationHandler(
         stage.getYRotationProperty() ) );
   }
 

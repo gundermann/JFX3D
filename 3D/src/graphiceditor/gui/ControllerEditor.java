@@ -1,7 +1,6 @@
 package graphiceditor.gui;
 
 import graphiceditor.ModellingAreaFactory;
-import graphiceditor.graphicobjects.Painting;
 import graphiceditor.sample.Cube;
 import javafx.fxml.FXML;
 import javafx.scene.layout.BorderPane;
@@ -11,25 +10,26 @@ public class ControllerEditor {
   @FXML
   private BorderPane content;
 
-  private ModellingArea paintingArea;
+  private ModellingArea modellingArea;
 
   @FXML
   public void initNewObject() {
-    paintingArea = ModellingAreaFactory.getInstance().createModellingArea();
-  }
-
-  @FXML
-  public void toggleZRotation() {
-    paintingArea.enableZRotation();
+    modellingArea = ModellingAreaFactory.getInstance().createModellingArea();
   }
 
   @FXML
   public void loadSample() {
-    paintingArea.add( new Cube() );
+    modellingArea.add( new Cube() );
   }
 
   @FXML
-  public void selectPaintRect() {
-    paintingArea.initPainting( Painting.Rectangle );
+  public void toggleDimensionMenu() {
+    new DimensionMenuController( modellingArea.getDimensionArea() );
   }
+
+  @FXML
+  public void togglePaintingMenu() {
+    new PaintingMenuController( modellingArea.getPaintingArea() );
+  }
+
 }

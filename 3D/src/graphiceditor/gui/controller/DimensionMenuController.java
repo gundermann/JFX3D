@@ -26,11 +26,12 @@ public class DimensionMenuController {
   public void toggleXRotation() {
     if ( !btXRotation.isSelected() ) {
       dimensionArea.disableRotation();
+      MenuDisabler.setDisableForRotation( false );
       enableRotationButtons();
     }
     else {
       dimensionArea.enableXRotation();
-      MenuDisabler.disableForRotation();
+      MenuDisabler.setDisableForRotation( true );
       btYRotation.setDisable( true );
       btZRotation.setDisable( true );
     }
@@ -46,11 +47,12 @@ public class DimensionMenuController {
   public void toggleYRotation() {
     if ( !btYRotation.isSelected() ) {
       dimensionArea.disableRotation();
+      MenuDisabler.setDisableForRotation( false );
       enableRotationButtons();
     }
     else {
       dimensionArea.enableYRotation();
-      MenuDisabler.disableForRotation();
+      MenuDisabler.setDisableForRotation( true );
       btXRotation.setDisable( true );
       btZRotation.setDisable( true );
     }
@@ -60,11 +62,12 @@ public class DimensionMenuController {
   public void toggleZRotation() {
     if ( !btZRotation.isSelected() ) {
       dimensionArea.disableRotation();
+      MenuDisabler.setDisableForRotation( false );
       enableRotationButtons();
     }
     else {
       dimensionArea.enableZRotation();
-      MenuDisabler.disableForRotation();
+      MenuDisabler.setDisableForRotation( true );
       btYRotation.setDisable( true );
       btXRotation.setDisable( true );
     }

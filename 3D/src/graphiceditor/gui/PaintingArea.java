@@ -1,9 +1,6 @@
 package graphiceditor.gui;
 
 import graphiceditor.graphicobjects.Painting;
-
-import java.util.List;
-
 import javafx.scene.Node;
 
 public interface PaintingArea extends DimensionArea {
@@ -22,6 +19,6 @@ public interface PaintingArea extends DimensionArea {
 
   void finishPainting();
 
-  List<Node> getAllGraphicObjects();
+  void setActualPaintingById( int selectedIndex );
 
 }

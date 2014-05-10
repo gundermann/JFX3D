@@ -4,8 +4,10 @@ import graphiceditor.PaintingListenerFactory;
 import graphiceditor.graphicobjects.Painting;
 import graphiceditor.gui.GUIDimensionArea;
 import graphiceditor.gui.GUIPaintingArea;
+import graphiceditor.gui.GUIPaintingMenu;
 import graphiceditor.gui.PaintingArea;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javafx.event.EventHandler;
@@ -38,17 +40,13 @@ public class PaintingAreaController extends DimensionAreaController implements P
     getUI().saveActualPaintingIntoGraphicObjects();
     getUI().removeEventHandler( MouseEvent.MOUSE_MOVED, mouseMoveHandler );
     getUI().removeEventHandler( MouseEvent.MOUSE_CLICKED, mouseClickHandler );
+    sendUpdate();
   }
 
   @Override
   public void startPainting() {
     setMouseClickHandler( PaintingListenerFactory.getInstance().createPaintingFinishListener( this ) );
     setMouseMoveHandler( PaintingListenerFactory.getInstance().createPaintingListener( this ) );
-  }
-
-  @Override
-  public List<Node> getAllGraphicObjects() {
-    return getUI().getAllGraphicObjects();
   }
 
   @Override
@@ -80,5 +78,19 @@ public class PaintingAreaController extends DimensionAreaController implements P
   @Override
   protected GUIDimensionArea getNewGUIInstance() {
     return new GUIPaintingArea();
+  }
+
+  public void sendUpdate() {
+    // FIXME use binding
+    List<String> graphicObjectStrings = new ArrayList<String>();
+    for ( Node graphicObject : getUI().getAllGraphicObjects() ) {
+      graphicObjectStrings.add( graphicObject.toString() );
+    }
+    GUIPaintingMenu.getInstance().updateComponents( graphicObjectStrings );
+  }
+
+  @Override
+  public void setActualPaintingById( int selectedIndex ) {
+    setActualPainting( getUI().getAllGraphicObjects().get( selectedIndex ) );
   }
 }

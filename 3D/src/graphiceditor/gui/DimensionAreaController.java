@@ -1,12 +1,17 @@
 package graphiceditor.gui;
 
+import graphiceditor.handler.MouseDragZRotationHandler;
+import javafx.event.EventHandler;
 import javafx.scene.Node;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class DimensionAreaController implements DimensionArea {
 
   private final GUIDimensionArea stage;
+
+  private EventHandler<MouseEvent> mouseDragRotationHandler;
 
   public DimensionAreaController() {
     stage = new GUIDimensionArea();
@@ -28,8 +33,13 @@ public class DimensionAreaController implements DimensionArea {
   }
 
   @Override
-  public void enableRotation() {
+  public void enableZRotation() {
+    setMouseDragRotationHandler( new MouseDragZRotationHandler( stage.getZRotationProperty() ) );
+  }
 
+  private void setMouseDragRotationHandler( MouseDragZRotationHandler mouseDragRotationHandler ) {
+    this.mouseDragRotationHandler = mouseDragRotationHandler;
+    stage.addEventHandler( MouseEvent.MOUSE_DRAGGED, this.mouseDragRotationHandler );
   }
 
   @Override

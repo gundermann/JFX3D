@@ -13,9 +13,11 @@ import javafx.stage.Stage;
 
 public class GUIDimensionArea extends Stage {
 
-  public DoubleProperty rootAngleX = new SimpleDoubleProperty();
+  private final DoubleProperty rootAngleX = new SimpleDoubleProperty();
 
-  public DoubleProperty rootAngleY = new SimpleDoubleProperty();
+  private final DoubleProperty rootAngleY = new SimpleDoubleProperty();
+
+  private final DoubleProperty rootAngleZ = new SimpleDoubleProperty();
 
   private Pane mainPane;
 
@@ -36,7 +38,12 @@ public class GUIDimensionArea extends Stage {
 
     final Rotate rootRotateY = RotateBuilder.create().pivotX( 0 ).pivotY( 0 ).pivotZ( 0 ).axis( Rotate.Y_AXIS ).build();
     rootRotateY.angleProperty().bind( rootAngleY );
-    mainPane.getTransforms().addAll( rootRotateX, rootRotateY );
+
+    final Rotate rootRotateZ = RotateBuilder.create().pivotZ( 0 ).axis( Rotate.Z_AXIS ).build();
+    rootRotateZ.pivotXProperty().bind( mainPane.widthProperty().divide( 2 ) );
+    rootRotateZ.pivotYProperty().bind( mainPane.heightProperty().divide( 2 ) );
+    rootRotateZ.angleProperty().bind( rootAngleZ );
+    mainPane.getTransforms().addAll( rootRotateX, rootRotateY, rootRotateZ );
   }
 
   public Pane createRoot() {
@@ -61,6 +68,10 @@ public class GUIDimensionArea extends Stage {
 
   public void add( Node shape ) {
     mainPane.getChildren().add( shape );
+  }
+
+  public DoubleProperty getZRotationProperty() {
+    return rootAngleZ;
   }
 
 }

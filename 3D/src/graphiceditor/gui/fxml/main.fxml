@@ -120,7 +120,7 @@
             <ToolBar layoutY="39.0" prefWidth="148.00009999999747" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
               <items>
                 <Button mnemonicParsing="false" onAction="#initNewObject" text="New Object" />
-                <ToggleButton mnemonicParsing="false" onAction="#toggleRotation" text="Rotation" />
+                <ToggleButton mnemonicParsing="false" onAction="#toggleZRotation" text="Z-Rotation" />
               </items>
             </ToolBar>
           </children>

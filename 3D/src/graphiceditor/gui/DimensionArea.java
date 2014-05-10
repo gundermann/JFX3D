@@ -12,7 +12,7 @@ public interface DimensionArea {
 
   void add( Node shape );
 
-  void enableRotation();
+  void enableZRotation();
 
   void setMainPane( Pane mainPane );
 }

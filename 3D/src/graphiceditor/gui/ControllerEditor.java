@@ -19,8 +19,8 @@ public class ControllerEditor {
   }
 
   @FXML
-  public void toggleRotation() {
-    paintingArea.enableRotation();
+  public void toggleZRotation() {
+    paintingArea.enableZRotation();
   }
 
   @FXML

@@ -7,7 +7,8 @@ public interface ModellingArea {
 
   void initPainting( Painting painting );
 
-  void enableRotation();
+  void enableZRotation();
 
   void add( Node shape );
+
 }

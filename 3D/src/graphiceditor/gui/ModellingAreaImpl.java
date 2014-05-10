@@ -21,8 +21,8 @@ public class ModellingAreaImpl implements ModellingArea {
   }
 
   @Override
-  public void enableRotation() {
-    dimensionArea.enableRotation();
+  public void enableZRotation() {
+    dimensionArea.enableZRotation();
   }
 
   @Override

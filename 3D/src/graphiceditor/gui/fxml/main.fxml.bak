@@ -14,9 +14,9 @@
         <VBox prefWidth="600.0" />
       </bottom>
       <left>
-        <VBox prefHeight="200.0" prefWidth="100.0">
+        <AnchorPane prefHeight="200.0" prefWidth="200.0">
           <children>
-            <Accordion>
+            <Accordion minWidth="158.0" prefWidth="186.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
               <expandedPane>
                 <TitledPane fx:id="x1" animated="false" text="Tools">
                   <content>
@@ -53,7 +53,7 @@
               </panes>
             </Accordion>
           </children>
-        </VBox>
+        </AnchorPane>
       </left>
       <right>
         <VBox prefHeight="200.0" prefWidth="100.0">

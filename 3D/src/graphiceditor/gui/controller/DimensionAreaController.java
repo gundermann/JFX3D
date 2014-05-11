@@ -7,6 +7,7 @@ import graphiceditor.handler.AbstractMouseDragRotationHandler;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
 public class DimensionAreaController implements DimensionArea {
@@ -50,7 +51,7 @@ public class DimensionAreaController implements DimensionArea {
   }
 
   @Override
-  public void setMainPane( Pane mainPane ) {
+  public void setMainPane( AnchorPane mainPane ) {
     stage.setMainPane( mainPane );
   }
 

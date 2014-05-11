@@ -2,9 +2,6 @@ package graphiceditor.gui.controller;
 
 import graphiceditor.graphicobjects.Painting;
 import graphiceditor.gui.PaintingArea;
-
-import java.util.List;
-
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 
@@ -31,10 +28,11 @@ public class PaintingMenuController {
 
   public void setPaintingArea( PaintingArea paintingArea ) {
     this.actualPaintingArea = paintingArea;
+    updateComponents();
   }
 
-  public void updateComponents( List<String> allGraphicObjects ) {
-    lvComponents.getItems().setAll( allGraphicObjects );
+  public void updateComponents() {
+    lvComponents.getItems().setAll( this.actualPaintingArea.getAllGraphicObjects() );
   }
 
 }

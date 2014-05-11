@@ -3,7 +3,6 @@ package graphiceditor.gui;
 import graphiceditor.gui.controller.PaintingMenuController;
 
 import java.io.IOException;
-import java.util.List;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.PerspectiveCameraBuilder;
@@ -55,8 +54,8 @@ public class GUIPaintingMenu extends Stage {
     getScene().getRoot().setDisable( disable );
   }
 
-  public void updateComponents( List<String> allGraphicObjects ) {
-    controller.updateComponents( allGraphicObjects );
+  public void updateComponents() {
+    controller.updateComponents();
   }
 
 }

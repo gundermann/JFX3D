@@ -6,6 +6,7 @@ import javafx.scene.Node;
 import javafx.scene.PerspectiveCameraBuilder;
 import javafx.scene.Scene;
 import javafx.scene.SceneBuilder;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.transform.Rotate;
 import javafx.scene.transform.RotateBuilder;
@@ -19,7 +20,7 @@ public class GUIDimensionArea extends Stage {
 
   private final DoubleProperty rootAngleZ = new SimpleDoubleProperty();
 
-  private Pane mainPane;
+  private AnchorPane mainPane;
 
   public GUIDimensionArea() {
     Scene scene = SceneBuilder.create().root( createRoot() ).camera( PerspectiveCameraBuilder.create().build() )
@@ -50,13 +51,13 @@ public class GUIDimensionArea extends Stage {
     mainPane.getTransforms().addAll( rootRotateX, rootRotateY, rootRotateZ );
   }
 
-  public Pane createRoot() {
-    mainPane = new Pane();
+  public AnchorPane createRoot() {
+    mainPane = new AnchorPane();
 
     return mainPane;
   }
 
-  public void setMainPane( Pane mainPane ) {
+  public void setMainPane( AnchorPane mainPane ) {
     hide();
     this.mainPane = mainPane;
     Scene scene = SceneBuilder.create().root( mainPane ).camera( PerspectiveCameraBuilder.create().build() )

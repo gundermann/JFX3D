@@ -40,7 +40,7 @@ public class PaintingAreaController extends DimensionAreaController implements P
     getUI().saveActualPaintingIntoGraphicObjects();
     getUI().removeEventHandler( MouseEvent.MOUSE_MOVED, mouseMoveHandler );
     getUI().removeEventHandler( MouseEvent.MOUSE_CLICKED, mouseClickHandler );
-    sendUpdate();
+    GUIPaintingMenu.getInstance().updateComponents();
   }
 
   @Override
@@ -80,17 +80,17 @@ public class PaintingAreaController extends DimensionAreaController implements P
     return new GUIPaintingArea();
   }
 
-  public void sendUpdate() {
-    // FIXME use binding
+  @Override
+  public void setActualPaintingById( int selectedIndex ) {
+    setActualPainting( getUI().getAllGraphicObjects().get( selectedIndex ) );
+  }
+
+  @Override
+  public List<String> getAllGraphicObjects() {
     List<String> graphicObjectStrings = new ArrayList<String>();
     for ( Node graphicObject : getUI().getAllGraphicObjects() ) {
       graphicObjectStrings.add( graphicObject.toString() );
     }
-    GUIPaintingMenu.getInstance().updateComponents( graphicObjectStrings );
-  }
-
-  @Override
-  public void setActualPaintingById( int selectedIndex ) {
-    setActualPainting( getUI().getAllGraphicObjects().get( selectedIndex ) );
+    return graphicObjectStrings;
   }
 }

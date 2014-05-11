@@ -35,7 +35,7 @@
         <Button alignment="TOP_LEFT" contentDisplay="CENTER" mnemonicParsing="false" onAction="#initNewObject" text="New Object" />
         <ToggleButton fx:id="btDimensionMenu" contentDisplay="CENTER" disable="true" mnemonicParsing="false" onAction="#toggleDimensionMenu" text="Dimension Menu" />
         <ToggleButton id="btPaintingArea" fx:id="btPaintingMenu" disable="true" mnemonicParsing="false" onAction="#togglePaintingMenu" text="PaintingArea" />
-        <ChoiceBox fx:id="paintingAreaSelection" disable="true" onMouseClicked="#selectPaintingArea" />
+        <ChoiceBox fx:id="paintingAreaSelection" disable="true" />
       </items>
     </ToolBar>
   </children>

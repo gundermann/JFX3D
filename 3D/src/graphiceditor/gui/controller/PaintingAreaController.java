@@ -2,16 +2,19 @@ package graphiceditor.gui.controller;
 
 import graphiceditor.PaintingListenerFactory;
 import graphiceditor.graphicobjects.Painting;
+import graphiceditor.gui.GUIDimensionArea;
 import graphiceditor.gui.GUIPaintingArea;
+import graphiceditor.gui.GUIPaintingMenu;
 import graphiceditor.gui.PaintingArea;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.input.MouseEvent;
 
-public class PaintingAreaController implements PaintingArea {
+public class PaintingAreaController extends DimensionAreaController implements PaintingArea {
 
   private Painting paintingMode = Painting.None;
 
@@ -19,30 +22,25 @@ public class PaintingAreaController implements PaintingArea {
 
   private EventHandler<MouseEvent> mouseClickHandler;
 
-  private final GUIPaintingArea pane;
-
-  public PaintingAreaController() {
-    pane = new GUIPaintingArea();
-  }
-
   public void setMouseMoveHandler( EventHandler<MouseEvent> listener ) {
-    pane.addEventHandler( MouseEvent.MOUSE_MOVED, listener );
+    getUI().addEventHandler( MouseEvent.MOUSE_MOVED, listener );
     mouseMoveHandler = listener;
   }
 
   public void setMouseClickHandler( EventHandler<MouseEvent> listener ) {
     if ( mouseClickHandler != null )
-      pane.removeEventHandler( MouseEvent.MOUSE_CLICKED, mouseClickHandler );
-    pane.addEventHandler( MouseEvent.MOUSE_CLICKED, listener );
+      getUI().removeEventHandler( MouseEvent.MOUSE_CLICKED, mouseClickHandler );
+    getUI().addEventHandler( MouseEvent.MOUSE_CLICKED, listener );
     mouseClickHandler = listener;
   }
 
   @Override
   public void finishPainting() {
     paintingMode = Painting.None;
-    pane.saveActualPaintingIntoGraphicObjects();
-    pane.removeEventHandler( MouseEvent.MOUSE_MOVED, mouseMoveHandler );
-    pane.removeEventHandler( MouseEvent.MOUSE_CLICKED, mouseClickHandler );
+    getUI().saveActualPaintingIntoGraphicObjects();
+    getUI().removeEventHandler( MouseEvent.MOUSE_MOVED, mouseMoveHandler );
+    getUI().removeEventHandler( MouseEvent.MOUSE_CLICKED, mouseClickHandler );
+    GUIPaintingMenu.getInstance().updateComponents();
   }
 
   @Override
@@ -52,23 +50,18 @@ public class PaintingAreaController implements PaintingArea {
   }
 
   @Override
-  public List<Node> getAllGraphicObjects() {
-    return pane.getAllGraphicObjects();
-  }
-
-  @Override
   public Painting getPaintingMode() {
     return paintingMode;
   }
 
   @Override
   public Node getActualPainting() {
-    return pane.getActualPainting();
+    return getUI().getActualPainting();
   }
 
   @Override
   public void setActualPainting( Node painting ) {
-    pane.setActualPainting( painting );
+    getUI().setActualPainting( painting );
   }
 
   @Override
@@ -79,7 +72,25 @@ public class PaintingAreaController implements PaintingArea {
 
   @Override
   public GUIPaintingArea getUI() {
-    return pane;
+    return (GUIPaintingArea) super.getUI();
   }
 
+  @Override
+  protected GUIDimensionArea getNewGUIInstance() {
+    return new GUIPaintingArea();
+  }
+
+  @Override
+  public void setActualPaintingById( int selectedIndex ) {
+    setActualPainting( getUI().getAllGraphicObjects().get( selectedIndex ) );
+  }
+
+  @Override
+  public List<String> getAllGraphicObjects() {
+    List<String> graphicObjectStrings = new ArrayList<String>();
+    for ( Node graphicObject : getUI().getAllGraphicObjects() ) {
+      graphicObjectStrings.add( graphicObject.toString() );
+    }
+    return graphicObjectStrings;
+  }
 }

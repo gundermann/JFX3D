@@ -16,7 +16,9 @@
               <children>
                 <GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                   <children>
-                    <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#enableXRotaion" text="X-Rotation" textAlignment="CENTER" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER" />
+                    <ToggleButton fx:id="btXRotation" contentDisplay="CENTER" mnemonicParsing="false" onAction="#toggleXRotation" text="X-Rotation" textAlignment="CENTER" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER" />
+                    <ToggleButton fx:id="btYRotation" contentDisplay="CENTER" mnemonicParsing="false" onAction="#toggleYRotation" text="Y-Rotation" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                    <ToggleButton mnemonicParsing="false" onAction="#toggleZRotation" text="Z-Rotation" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
                   </children>
                   <columnConstraints>
                     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />

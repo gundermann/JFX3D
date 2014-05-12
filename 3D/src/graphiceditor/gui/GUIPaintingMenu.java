@@ -50,8 +50,12 @@ public class GUIPaintingMenu extends Stage {
     controller.setPaintingArea( paintingArea );
   }
 
-  public void disable() {
-    getScene().getRoot().setDisable( true );
+  public void setDisable( boolean disable ) {
+    getScene().getRoot().setDisable( disable );
+  }
+
+  public void updateComponents() {
+    controller.updateComponents();
   }
 
 }

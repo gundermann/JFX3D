@@ -12,7 +12,7 @@ public class Launch extends Application {
 
   @Override
   public void start( Stage primeStage ) throws Exception {
-    GUIEditor.bringToFront();
+    GUIEditor.getInstance().toFront();
   }
 
 }

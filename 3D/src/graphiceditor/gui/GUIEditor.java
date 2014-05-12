@@ -33,11 +33,11 @@ public class GUIEditor extends Stage {
     }
   }
 
-  public static void bringToFront() {
+  public static GUIEditor getInstance() {
     if ( _instance == null ) {
       _instance = new GUIEditor();
     }
-    _instance.toFront();
+    return _instance;
   }
 
 }

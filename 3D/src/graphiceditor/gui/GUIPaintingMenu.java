@@ -9,10 +9,9 @@ import javafx.scene.PerspectiveCameraBuilder;
 import javafx.scene.Scene;
 import javafx.scene.SceneBuilder;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-public class GUIPaintingMenu extends Stage {
+public class GUIPaintingMenu extends AbstractGUIMenu {
 
   private static GUIPaintingMenu _instance;
 
@@ -41,6 +40,9 @@ public class GUIPaintingMenu extends Stage {
   public static GUIPaintingMenu getInstance() {
     if ( _instance == null ) {
       _instance = new GUIPaintingMenu( new PaintingMenuController() );
+    }
+    if ( !_instance.isVisible() ) {
+      _instance.setVisible( false );
     }
     return _instance;
 

@@ -48,6 +48,11 @@ public class GUIDimensionArea extends Stage {
     rootRotateZ.pivotXProperty().bind( mainPane.widthProperty().divide( 2 ) );
     rootRotateZ.pivotYProperty().bind( mainPane.heightProperty().divide( 2 ) );
     rootRotateZ.angleProperty().bind( rootAngleZ );
+
+    rootAngleX.set( 0 );
+    rootAngleY.set( 0 );
+    rootAngleZ.set( 0 );
+
     mainPane.getTransforms().addAll( rootRotateX, rootRotateY, rootRotateZ );
   }
 

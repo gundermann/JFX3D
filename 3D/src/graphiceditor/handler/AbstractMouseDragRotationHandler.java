@@ -10,6 +10,8 @@ public abstract class AbstractMouseDragRotationHandler implements EventHandler<M
 
   private final MouseMovement mouseMovement;
 
+  private double previousMousePosition = -1;
+
   public AbstractMouseDragRotationHandler( DoubleProperty rootAngle, MouseMovement mouseMovement ) {
     this.rootAngle = rootAngle;
     this.mouseMovement = mouseMovement;
@@ -18,11 +20,17 @@ public abstract class AbstractMouseDragRotationHandler implements EventHandler<M
   @Override
   public void handle( MouseEvent mouseEvent ) {
     if ( mouseMovement == MouseMovement.Horizontal ) {
-      rootAngle.set( mouseEvent.getSceneX() );
+      rotate( mouseEvent.getSceneX() );
     }
     else if ( mouseMovement == MouseMovement.Vertical ) {
-      rootAngle.set( mouseEvent.getSceneY() );
+      rotate( mouseEvent.getSceneY() );
     }
   }
 
+  private void rotate( double sceneCoordinate ) {
+    if ( previousMousePosition >= 0 ) {
+      rootAngle.set( rootAngle.get() + sceneCoordinate - previousMousePosition );
+    }
+    previousMousePosition = sceneCoordinate;
+  }
 }

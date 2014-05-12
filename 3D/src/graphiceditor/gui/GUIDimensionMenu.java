@@ -9,10 +9,9 @@ import javafx.scene.PerspectiveCameraBuilder;
 import javafx.scene.Scene;
 import javafx.scene.SceneBuilder;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-public class GUIDimensionMenu extends Stage {
+public class GUIDimensionMenu extends AbstractGUIMenu {
 
   private static GUIDimensionMenu _instance;
 
@@ -41,6 +40,9 @@ public class GUIDimensionMenu extends Stage {
   public static GUIDimensionMenu getInstance() {
     if ( _instance == null ) {
       _instance = new GUIDimensionMenu( new DimensionMenuController() );
+    }
+    if ( !_instance.isVisible() ) {
+      _instance.setVisible( false );
     }
     return _instance;
   }

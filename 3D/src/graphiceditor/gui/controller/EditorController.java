@@ -62,22 +62,22 @@ public class EditorController implements Initializable {
   @FXML
   public void toggleDimensionMenu() {
     if ( !btDimensionMenu.isSelected() ) {
-      GUIDimensionMenu.getInstance().hide();
+      GUIDimensionMenu.getInstance().setVisible( false );
     }
     else {
-      GUIDimensionMenu.getInstance().toFront();
       GUIDimensionMenu.getInstance().setDimensionArea( getSelectedPaintingArea() );
+      GUIDimensionMenu.getInstance().setVisible( true );
     }
   }
 
   @FXML
   public void togglePaintingMenu() {
     if ( !btPaintingMenu.isSelected() ) {
-      GUIPaintingMenu.getInstance().hide();
+      GUIPaintingMenu.getInstance().setVisible( false );
     }
     else {
-      GUIPaintingMenu.getInstance().toFront();
       GUIPaintingMenu.getInstance().setPaintingArea( getSelectedPaintingArea() );
+      GUIPaintingMenu.getInstance().setVisible( true );
     }
   }
 

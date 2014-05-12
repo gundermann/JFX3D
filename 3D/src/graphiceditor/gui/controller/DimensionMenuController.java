@@ -3,73 +3,86 @@ package graphiceditor.gui.controller;
 import graphiceditor.gui.DimensionArea;
 import graphiceditor.gui.MenuDisabler;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.ToggleButton;
 
 public class DimensionMenuController {
 
-  private DimensionArea dimensionArea;
+	private DimensionArea dimensionArea;
 
-  @FXML
-  private ToggleButton btXRotation;
+	@FXML
+	private ToggleButton btXRotation;
 
-  @FXML
-  private ToggleButton btYRotation;
+	@FXML
+	private ToggleButton btYRotation;
 
-  @FXML
-  private ToggleButton btZRotation;
+	@FXML
+	private ToggleButton btZRotation;
 
-  public void setDimensionArea( DimensionArea dimensionArea ) {
-    this.dimensionArea = dimensionArea;
-  }
+	@FXML
+	private Label lbXRotation;
 
-  @FXML
-  public void toggleXRotation() {
-    if ( !btXRotation.isSelected() ) {
-      dimensionArea.disableRotation();
-      MenuDisabler.setDisableForRotation( false );
-      enableRotationButtons();
-    }
-    else {
-      dimensionArea.enableXRotation();
-      MenuDisabler.setDisableForRotation( true );
-      btYRotation.setDisable( true );
-      btZRotation.setDisable( true );
-    }
-  }
+	@FXML
+	private Label lbYRotation;
 
-  private void enableRotationButtons() {
-    btXRotation.setDisable( false );
-    btYRotation.setDisable( false );
-    btZRotation.setDisable( false );
-  }
+	@FXML
+	private Label lbZRotation;
 
-  @FXML
-  public void toggleYRotation() {
-    if ( !btYRotation.isSelected() ) {
-      dimensionArea.disableRotation();
-      MenuDisabler.setDisableForRotation( false );
-      enableRotationButtons();
-    }
-    else {
-      dimensionArea.enableYRotation();
-      MenuDisabler.setDisableForRotation( true );
-      btXRotation.setDisable( true );
-      btZRotation.setDisable( true );
-    }
-  }
+	public void setDimensionArea(DimensionArea dimensionArea) {
+		this.dimensionArea = dimensionArea;
+		lbXRotation.textProperty().bind(dimensionArea.getXRotationTextProperty());
+		lbYRotation.textProperty().bind(dimensionArea.getYRotationTextProperty());
+		lbZRotation.textProperty().bind(dimensionArea.getZRotationTextProperty());
+	}
 
-  @FXML
-  public void toggleZRotation() {
-    if ( !btZRotation.isSelected() ) {
-      dimensionArea.disableRotation();
-      MenuDisabler.setDisableForRotation( false );
-      enableRotationButtons();
-    }
-    else {
-      dimensionArea.enableZRotation();
-      MenuDisabler.setDisableForRotation( true );
-      btYRotation.setDisable( true );
-      btXRotation.setDisable( true );
-    }
-  }
+	@FXML
+	public void toggleXRotation() {
+		if (!btXRotation.isSelected()) {
+			dimensionArea.disableRotation();
+			MenuDisabler.setDisableForRotation(false);
+			enableRotationButtons();
+		} else {
+			dimensionArea.enableXRotation();
+			MenuDisabler.setDisableForRotation(true);
+			btYRotation.setDisable(true);
+			btZRotation.setDisable(true);
+		}
+	}
+
+	private void enableRotationButtons() {
+		btXRotation.setDisable(false);
+		btYRotation.setDisable(false);
+		btZRotation.setDisable(false);
+	}
+
+	@FXML
+	public void toggleYRotation() {
+		if (!btYRotation.isSelected()) {
+			dimensionArea.disableRotation();
+			MenuDisabler.setDisableForRotation(false);
+			enableRotationButtons();
+		} else {
+			dimensionArea.enableYRotation();
+			MenuDisabler.setDisableForRotation(true);
+			btXRotation.setDisable(true);
+			btZRotation.setDisable(true);
+		}
+	}
+
+	@FXML
+	public void toggleZRotation() {
+		if (!btZRotation.isSelected()) {
+			dimensionArea.disableRotation();
+			MenuDisabler.setDisableForRotation(false);
+			enableRotationButtons();
+		} else {
+			dimensionArea.enableZRotation();
+			MenuDisabler.setDisableForRotation(true);
+			btYRotation.setDisable(true);
+			btXRotation.setDisable(true);
+		}
+	}
+	
+
+
 }

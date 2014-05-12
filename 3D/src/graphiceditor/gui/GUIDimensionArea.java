@@ -14,82 +14,85 @@ import javafx.stage.Stage;
 
 public class GUIDimensionArea extends Stage {
 
-  private final DoubleProperty rootAngleX = new SimpleDoubleProperty();
+	private final DoubleProperty rootAngleX = new SimpleDoubleProperty();
 
-  private final DoubleProperty rootAngleY = new SimpleDoubleProperty();
+	private final DoubleProperty rootAngleY = new SimpleDoubleProperty();
 
-  private final DoubleProperty rootAngleZ = new SimpleDoubleProperty();
+	private final DoubleProperty rootAngleZ = new SimpleDoubleProperty();
 
-  private AnchorPane mainPane;
+	private AnchorPane mainPane;
 
-  public GUIDimensionArea() {
-    Scene scene = SceneBuilder.create().root( createRoot() ).camera( PerspectiveCameraBuilder.create().build() )
-        .depthBuffer( true ).build();
-    // scene.setFill( Color.BLUE );
-    setScene( scene );
-    setProperties();
-    show();
-  }
+	public GUIDimensionArea() {
+		Scene scene = SceneBuilder.create().root(createRoot())
+				.camera(PerspectiveCameraBuilder.create().build())
+				.depthBuffer(true).build();
+		// scene.setFill( Color.BLUE );
+		setScene(scene);
+		setProperties();
+		show();
+	}
 
-  private void setProperties() {
-    mainPane.prefWidthProperty().bind( getScene().widthProperty() );
-    mainPane.prefHeightProperty().bind( getScene().heightProperty() );
-    final Rotate rootRotateX = RotateBuilder.create().pivotX( 0 ).pivotY( 0 ).pivotZ( 0 ).axis( Rotate.X_AXIS ).build();
-    rootRotateX.pivotXProperty().bind( mainPane.widthProperty().divide( 2 ) );
-    rootRotateX.pivotYProperty().bind( mainPane.heightProperty().divide( 2 ) );
-    rootRotateX.angleProperty().bind( rootAngleX );
+	private void setProperties() {
+		mainPane.prefWidthProperty().bind(getScene().widthProperty());
+		mainPane.prefHeightProperty().bind(getScene().heightProperty());
 
-    final Rotate rootRotateY = RotateBuilder.create().pivotZ( 0 ).axis( Rotate.Y_AXIS ).build();
-    rootRotateY.pivotXProperty().bind( mainPane.widthProperty().divide( 2 ) );
-    rootRotateY.pivotYProperty().bind( mainPane.heightProperty().divide( 2 ) );
-    rootRotateY.angleProperty().bind( rootAngleY );
+		
+	}
 
-    final Rotate rootRotateZ = RotateBuilder.create().pivotZ( 0 ).axis( Rotate.Z_AXIS ).build();
-    rootRotateZ.pivotXProperty().bind( mainPane.widthProperty().divide( 2 ) );
-    rootRotateZ.pivotYProperty().bind( mainPane.heightProperty().divide( 2 ) );
-    rootRotateZ.angleProperty().bind( rootAngleZ );
+	public AnchorPane createRoot() {
+		mainPane = new AnchorPane();
 
-    rootAngleX.set( 0 );
-    rootAngleY.set( 0 );
-    rootAngleZ.set( 0 );
+		return mainPane;
+	}
 
-    mainPane.getTransforms().addAll( rootRotateX, rootRotateY, rootRotateZ );
-  }
+	public void setMainPane(AnchorPane mainPane) {
+		hide();
+		this.mainPane = mainPane;
+		Scene scene = SceneBuilder.create().root(mainPane)
+				.camera(PerspectiveCameraBuilder.create().build())
+				.depthBuffer(true).build();
+		setScene(scene);
+		setProperties();
+		show();
+	}
 
-  public AnchorPane createRoot() {
-    mainPane = new AnchorPane();
+	public Pane getMainPane() {
+		return mainPane;
+	}
 
-    return mainPane;
-  }
+	public void add(Node shape) {
+		final Rotate rootRotateX = RotateBuilder.create().pivotX(0).pivotY(0)
+				.pivotZ(0).axis(Rotate.X_AXIS).build();
+		rootRotateX.pivotXProperty().bind(mainPane.widthProperty().divide(2));
+		rootRotateX.pivotYProperty().bind(mainPane.heightProperty().divide(2));
+		rootRotateX.angleProperty().bind(rootAngleX.add(rootAngleX.getValue()));
 
-  public void setMainPane( AnchorPane mainPane ) {
-    hide();
-    this.mainPane = mainPane;
-    Scene scene = SceneBuilder.create().root( mainPane ).camera( PerspectiveCameraBuilder.create().build() )
-        .depthBuffer( true ).build();
-    setScene( scene );
-    setProperties();
-    show();
-  }
+		final Rotate rootRotateY = RotateBuilder.create().pivotZ(0)
+				.axis(Rotate.Y_AXIS).build();
+		rootRotateY.pivotXProperty().bind(mainPane.widthProperty().divide(2));
+		rootRotateY.pivotYProperty().bind(mainPane.heightProperty().divide(2));
+		rootRotateY.angleProperty().bind(rootAngleY.add(rootAngleY.getValue()));
 
-  public Pane getMainPane() {
-    return mainPane;
-  }
+		final Rotate rootRotateZ = RotateBuilder.create().pivotZ(0)
+				.axis(Rotate.Z_AXIS).build();
+		rootRotateZ.pivotXProperty().bind(mainPane.widthProperty().divide(2));
+		rootRotateZ.pivotYProperty().bind(mainPane.heightProperty().divide(2));
+		rootRotateZ.angleProperty().bind(rootAngleZ.add(rootAngleZ.getValue()));
 
-  public void add( Node shape ) {
-    mainPane.getChildren().add( shape );
-  }
+		shape.getTransforms().addAll(rootRotateX, rootRotateY, rootRotateZ);
+		mainPane.getChildren().add(shape);
+	}
 
-  public DoubleProperty getZRotationProperty() {
-    return rootAngleZ;
-  }
+	public DoubleProperty getZRotationProperty() {
+		return rootAngleZ;
+	}
 
-  public DoubleProperty getXRotationProperty() {
-    return rootAngleX;
-  }
+	public DoubleProperty getXRotationProperty() {
+		return rootAngleX;
+	}
 
-  public DoubleProperty getYRotationProperty() {
-    return rootAngleY;
-  }
+	public DoubleProperty getYRotationProperty() {
+		return rootAngleY;
+	}
 
 }

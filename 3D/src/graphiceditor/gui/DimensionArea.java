@@ -1,22 +1,30 @@
 package graphiceditor.gui;
 
+import javafx.beans.value.ObservableValue;
 import javafx.scene.Node;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
 public interface DimensionArea {
 
-  Pane getMainPane();
+	Pane getMainPane();
 
-  void add( Node shape );
+	void add(Node shape);
 
-  void enableZRotation();
+	void enableZRotation();
 
-  void enableXRotation();
+	void enableXRotation();
 
-  void enableYRotation();
+	void enableYRotation();
 
-  void setMainPane( AnchorPane mainPane );
+	void setMainPane(AnchorPane mainPane);
 
-  void disableRotation();
+	void disableRotation();
+
+	ObservableValue<? extends String> getXRotationTextProperty();
+
+	ObservableValue<? extends String> getYRotationTextProperty();
+
+	ObservableValue<? extends String> getZRotationTextProperty();
+
 }

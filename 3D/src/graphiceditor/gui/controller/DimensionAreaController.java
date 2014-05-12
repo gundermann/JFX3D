@@ -17,6 +17,8 @@ public class DimensionAreaController implements DimensionArea {
 
 	private EventHandler<MouseEvent> mouseDragRotationHandler;
 
+	private AbstractMouseDragRotationHandler mouseReleaseRotationHandler;
+
 	public DimensionAreaController() {
 		gui = getNewGUIInstance();
 	}
@@ -41,16 +43,19 @@ public class DimensionAreaController implements DimensionArea {
 
 	@Override
 	public void enableZRotation() {
-		setMouseDragRotationHandler(RotationHandlerFactory.getInstance()
+		setMouseRotationHandler(RotationHandlerFactory.getInstance()
 				.createHorizontalRotationHandler(gui.getZRotationProperty()));
 	}
 
-	private void setMouseDragRotationHandler(
-			AbstractMouseDragRotationHandler mouseDragRotationHandler) {
-		removeMouseDragRotationHandler();
-		this.mouseDragRotationHandler = mouseDragRotationHandler;
+	private void setMouseRotationHandler(
+			AbstractMouseDragRotationHandler mouseRotationHandler) {
+		removeMouseRotationHandler();
+		this.mouseDragRotationHandler = mouseRotationHandler;
+		this.mouseReleaseRotationHandler = mouseRotationHandler;
 		gui.addEventHandler(MouseEvent.MOUSE_DRAGGED,
 				this.mouseDragRotationHandler);
+		gui.addEventHandler(MouseEvent.MOUSE_RELEASED,
+				this.mouseReleaseRotationHandler);
 	}
 
 	@Override
@@ -60,25 +65,28 @@ public class DimensionAreaController implements DimensionArea {
 
 	@Override
 	public void enableXRotation() {
-		setMouseDragRotationHandler(RotationHandlerFactory.getInstance()
+		setMouseRotationHandler(RotationHandlerFactory.getInstance()
 				.createVerticalRotationHandler(gui.getXRotationProperty()));
 	}
 
 	@Override
 	public void enableYRotation() {
-		setMouseDragRotationHandler(RotationHandlerFactory.getInstance()
+		setMouseRotationHandler(RotationHandlerFactory.getInstance()
 				.createHorizontalRotationHandler(gui.getYRotationProperty()));
 	}
 
 	@Override
 	public void disableRotation() {
-		removeMouseDragRotationHandler();
+		removeMouseRotationHandler();
 	}
 
-	private void removeMouseDragRotationHandler() {
+	private void removeMouseRotationHandler() {
 		if (mouseDragRotationHandler != null)
 			gui.removeEventHandler(MouseEvent.MOUSE_DRAGGED,
 					mouseDragRotationHandler);
+		if (mouseReleaseRotationHandler != null)
+			gui.removeEventHandler(MouseEvent.MOUSE_RELEASED,
+					mouseReleaseRotationHandler);
 	}
 
 	@Override
@@ -89,12 +97,11 @@ public class DimensionAreaController implements DimensionArea {
 	@Override
 	public ObservableValue<? extends String> getYRotationTextProperty() {
 		return gui.getYRotationProperty().asString();
-		}
+	}
 
 	@Override
 	public ObservableValue<? extends String> getZRotationTextProperty() {
 		return gui.getZRotationProperty().asString();
 	}
-
 
 }

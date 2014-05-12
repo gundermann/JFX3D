@@ -1,7 +1,7 @@
 package graphiceditor.gui;
 
+import graphiceditor.gui.property.RotationProperty;
 import javafx.beans.property.DoubleProperty;
-import javafx.beans.property.SimpleDoubleProperty;
 import javafx.scene.Node;
 import javafx.scene.PerspectiveCameraBuilder;
 import javafx.scene.Scene;
@@ -14,11 +14,11 @@ import javafx.stage.Stage;
 
 public class GUIDimensionArea extends Stage {
 
-	private final DoubleProperty rootAngleX = new SimpleDoubleProperty();
+	private final RotationProperty rootAngleX = new RotationProperty();
 
-	private final DoubleProperty rootAngleY = new SimpleDoubleProperty();
+	private final RotationProperty rootAngleY = new RotationProperty();
 
-	private final DoubleProperty rootAngleZ = new SimpleDoubleProperty();
+	private final RotationProperty rootAngleZ = new RotationProperty();
 
 	private AnchorPane mainPane;
 

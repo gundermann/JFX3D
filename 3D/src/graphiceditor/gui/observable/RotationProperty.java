@@ -1,4 +1,4 @@
-package graphiceditor.gui.property;
+package graphiceditor.gui.observable;
 
 import javafx.beans.property.SimpleDoubleProperty;
 

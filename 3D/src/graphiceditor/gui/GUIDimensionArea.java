@@ -1,18 +1,26 @@
 package graphiceditor.gui;
 
-import graphiceditor.gui.property.RotationProperty;
+import graphiceditor.graphicobjects.Object3D;
+import graphiceditor.gui.observable.AngleProperty;
+import graphiceditor.gui.observable.RotationProperty;
+import graphiceditor.gui.transform.Rotation;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import javafx.beans.property.DoubleProperty;
-import javafx.scene.Node;
+import javafx.geometry.Point3D;
+import javafx.geometry.Point3DBuilder;
 import javafx.scene.PerspectiveCameraBuilder;
 import javafx.scene.Scene;
 import javafx.scene.SceneBuilder;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.transform.Rotate;
-import javafx.scene.transform.RotateBuilder;
 import javafx.stage.Stage;
 
 public class GUIDimensionArea extends Stage {
+
+	private final Point3D xAxis;
 
 	private final RotationProperty rootAngleX = new RotationProperty();
 
@@ -20,7 +28,27 @@ public class GUIDimensionArea extends Stage {
 
 	private final RotationProperty rootAngleZ = new RotationProperty();
 
+	private final List<Object3D> allGraphicObjects = new ArrayList<Object3D>();
+
+	public List<Object3D> getAllGraphicObjects() {
+		return allGraphicObjects;
+	}
+
+	private final double pivotX;
+
+	private final double pivotY;
+
 	private AnchorPane mainPane;
+
+	private Point3D yAxis;
+
+	private Point3D zAxis;
+
+	private Rotation rootRotateX;
+
+	private Rotation rootRotateY;
+
+	private Rotation rootRotateZ;
 
 	public GUIDimensionArea() {
 		Scene scene = SceneBuilder.create().root(createRoot())
@@ -30,18 +58,31 @@ public class GUIDimensionArea extends Stage {
 		setScene(scene);
 		setProperties();
 		show();
+		pivotX = this.getWidth() / 2;
+		pivotY = this.getHeight() / 2;
+		xAxis = Point3DBuilder.create().x(pivotX).y(0).z(0).build();
+		yAxis = Point3DBuilder.create().x(0).y(pivotY).z(0).build();
+		zAxis = Point3DBuilder.create().x(0).y(0).z(1).build();
+		rootRotateX = new Rotation(xAxis, new AngleProperty(
+				rootAngleX), pivotX, pivotY);
+
+		rootRotateY = new Rotation(yAxis, new AngleProperty(
+				rootAngleY), pivotX, pivotY);
+
+		rootRotateZ = new Rotation(zAxis, new AngleProperty(
+				rootAngleZ), pivotX, pivotY);
+
+		mainPane.getTransforms().addAll(rootRotateX, rootRotateY, rootRotateZ);
 	}
 
 	private void setProperties() {
 		mainPane.prefWidthProperty().bind(getScene().widthProperty());
 		mainPane.prefHeightProperty().bind(getScene().heightProperty());
 
-		
 	}
 
 	public AnchorPane createRoot() {
 		mainPane = new AnchorPane();
-
 		return mainPane;
 	}
 
@@ -60,27 +101,18 @@ public class GUIDimensionArea extends Stage {
 		return mainPane;
 	}
 
-	public void add(Node shape) {
-		final Rotate rootRotateX = RotateBuilder.create().pivotX(0).pivotY(0)
-				.pivotZ(0).axis(Rotate.X_AXIS).build();
-		rootRotateX.pivotXProperty().bind(mainPane.widthProperty().divide(2));
-		rootRotateX.pivotYProperty().bind(mainPane.heightProperty().divide(2));
-		rootRotateX.angleProperty().bind(rootAngleX.add(rootAngleX.getValue()));
+	public void add(Object3D shape) {
+		final Rotation rotateX = new Rotation(xAxis, new AngleProperty(
+				rootAngleX), pivotX, pivotY);
 
-		final Rotate rootRotateY = RotateBuilder.create().pivotZ(0)
-				.axis(Rotate.Y_AXIS).build();
-		rootRotateY.pivotXProperty().bind(mainPane.widthProperty().divide(2));
-		rootRotateY.pivotYProperty().bind(mainPane.heightProperty().divide(2));
-		rootRotateY.angleProperty().bind(rootAngleY.add(rootAngleY.getValue()));
+		final Rotation rotateY = new Rotation(yAxis, new AngleProperty(
+				rootAngleY), pivotX, pivotY);
 
-		final Rotate rootRotateZ = RotateBuilder.create().pivotZ(0)
-				.axis(Rotate.Z_AXIS).build();
-		rootRotateZ.pivotXProperty().bind(mainPane.widthProperty().divide(2));
-		rootRotateZ.pivotYProperty().bind(mainPane.heightProperty().divide(2));
-		rootRotateZ.angleProperty().bind(rootAngleZ.add(rootAngleZ.getValue()));
+		final Rotation rotateZ = new Rotation(zAxis, new AngleProperty(
+				rootAngleZ), pivotX, pivotY);
 
-		shape.getTransforms().addAll(rootRotateX, rootRotateY, rootRotateZ);
-		mainPane.getChildren().add(shape);
+		shape.addTransforms(rotateX, rotateY, rotateZ);
+		mainPane.getChildren().add(shape.asNode());
 	}
 
 	public DoubleProperty getZRotationProperty() {
@@ -95,4 +127,21 @@ public class GUIDimensionArea extends Stage {
 		return rootAngleY;
 	}
 
+	public void enableXRotation() {
+		rootRotateX.enable();
+	}
+
+	public void enableYRotation() {
+		rootRotateY.enable();
+	}
+
+	public void enableZRotation() {
+		rootRotateZ.enable();
+	}
+
+	public void disableRotation() {
+		rootRotateX.disable();
+		rootRotateY.disable();
+		rootRotateZ.disable();
+	}
 }

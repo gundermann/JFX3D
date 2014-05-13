@@ -1,10 +1,9 @@
 package graphiceditor.gui;
 
+import graphiceditor.graphicobjects.Object3D;
 import graphiceditor.graphicobjects.Painting;
 
 import java.util.List;
-
-import javafx.scene.Node;
 
 public interface PaintingArea extends DimensionArea {
 
@@ -16,9 +15,9 @@ public interface PaintingArea extends DimensionArea {
 
   Painting getPaintingMode();
 
-  Node getActualPainting();
+  Object3D getActualPainting();
 
-  void setActualPainting( Node painting );
+  void setActualPainting( Object3D painting );
 
   void finishPainting();
 

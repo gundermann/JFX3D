@@ -1,12 +1,12 @@
 package graphiceditor.gui.controller;
 
 import graphiceditor.RotationHandlerFactory;
+import graphiceditor.graphicobjects.Object3D;
 import graphiceditor.gui.DimensionArea;
 import graphiceditor.gui.GUIDimensionArea;
 import graphiceditor.handler.AbstractMouseDragRotationHandler;
 import javafx.beans.value.ObservableValue;
 import javafx.event.EventHandler;
-import javafx.scene.Node;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -37,12 +37,13 @@ public class DimensionAreaController implements DimensionArea {
 	}
 
 	@Override
-	public void add(Node shape) {
+	public void add(Object3D shape) {
 		gui.add(shape);
 	}
 
 	@Override
 	public void enableZRotation() {
+		gui.enableZRotation();
 		setMouseRotationHandler(RotationHandlerFactory.getInstance()
 				.createHorizontalRotationHandler(gui.getZRotationProperty()));
 	}
@@ -65,18 +66,21 @@ public class DimensionAreaController implements DimensionArea {
 
 	@Override
 	public void enableXRotation() {
+		gui.enableXRotation();
 		setMouseRotationHandler(RotationHandlerFactory.getInstance()
 				.createVerticalRotationHandler(gui.getXRotationProperty()));
 	}
 
 	@Override
 	public void enableYRotation() {
+		gui.enableYRotation();
 		setMouseRotationHandler(RotationHandlerFactory.getInstance()
 				.createHorizontalRotationHandler(gui.getYRotationProperty()));
 	}
 
 	@Override
 	public void disableRotation() {
+		gui.disableRotation();
 		removeMouseRotationHandler();
 	}
 

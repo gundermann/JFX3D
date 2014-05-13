@@ -1,17 +1,15 @@
 package graphiceditor.graphicobjects.impl;
 
 import graphiceditor.graphicobjects.Object3D;
-
-import java.util.List;
-
-import javafx.scene.Group;
 import javafx.scene.Node;
 
-public class Object3DImpl extends Group implements Object3D {
+public abstract class Object3DImpl extends Node implements Object3D {
 
-  @Override
-  public List<Node> getPartObjects() {
-    return null;
-  }
+	@Override
+	public Node asNode() {
+		return this;
+	}
+
+
 
 }

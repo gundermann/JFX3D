@@ -1,6 +1,5 @@
 package graphiceditor.sample;
 
-import graphiceditor.graphicobjects.impl.Object3DImpl;
 import javafx.geometry.Point3D;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -8,7 +7,7 @@ import javafx.scene.shape.RectangleBuilder;
 import javafx.scene.transform.Rotate;
 import javafx.scene.transform.RotateBuilder;
 
-public class Cube extends Object3DImpl {
+public class Cube extends ComplexObject3DImpl {
 
   public Cube() {
     final Rectangle side1 = RectangleBuilder.create().x( -100 ).y( -100 ).width( 200 ).height( 200 ).fill( Color.RED )

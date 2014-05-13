@@ -1,35 +1,24 @@
 package graphiceditor.gui;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import javafx.scene.Node;
+import graphiceditor.graphicobjects.Object3D;
 
 public class GUIPaintingArea extends GUIDimensionArea {
 
-  private Node actualPainting;
+  private Object3D actualPainting;
 
-  private final List<Node> allGraphicObjects = new ArrayList<Node>();
-
-  // public GUIPaintingArea() {
-  // setStyle( "-fx-background-color:white;" );
-  // }
-
-  public Node getActualPainting() {
+  public Object3D getActualPainting() {
     return actualPainting;
   }
 
-  public void setActualPainting( Node actualPainting ) {
+  public void setActualPainting( Object3D actualPainting ) {
     this.actualPainting = actualPainting;
     add( actualPainting );
   }
 
-  public List<Node> getAllGraphicObjects() {
-    return allGraphicObjects;
-  }
+  
 
   public void saveActualPaintingIntoGraphicObjects() {
-    allGraphicObjects.add( actualPainting );
+    getAllGraphicObjects().add( actualPainting );
     actualPainting = null;
   }
 

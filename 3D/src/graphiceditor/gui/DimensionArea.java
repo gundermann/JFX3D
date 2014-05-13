@@ -1,7 +1,7 @@
 package graphiceditor.gui;
 
+import graphiceditor.graphicobjects.Object3D;
 import javafx.beans.value.ObservableValue;
-import javafx.scene.Node;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
@@ -9,7 +9,7 @@ public interface DimensionArea {
 
 	Pane getMainPane();
 
-	void add(Node shape);
+	void add(Object3D shape);
 
 	void enableZRotation();
 

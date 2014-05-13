@@ -1,6 +1,7 @@
 package graphiceditor.gui.controller;
 
 import graphiceditor.PaintingListenerFactory;
+import graphiceditor.graphicobjects.Object3D;
 import graphiceditor.graphicobjects.Painting;
 import graphiceditor.gui.GUIDimensionArea;
 import graphiceditor.gui.GUIPaintingArea;
@@ -11,7 +12,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javafx.event.EventHandler;
-import javafx.scene.Node;
 import javafx.scene.input.MouseEvent;
 
 public class PaintingAreaController extends DimensionAreaController implements PaintingArea {
@@ -55,12 +55,12 @@ public class PaintingAreaController extends DimensionAreaController implements P
   }
 
   @Override
-  public Node getActualPainting() {
+  public Object3D getActualPainting() {
     return getUI().getActualPainting();
   }
 
   @Override
-  public void setActualPainting( Node painting ) {
+  public void setActualPainting( Object3D painting ) {
     getUI().setActualPainting( painting );
   }
 
@@ -88,7 +88,7 @@ public class PaintingAreaController extends DimensionAreaController implements P
   @Override
   public List<String> getAllGraphicObjects() {
     List<String> graphicObjectStrings = new ArrayList<String>();
-    for ( Node graphicObject : getUI().getAllGraphicObjects() ) {
+    for ( Object3D graphicObject : getUI().getAllGraphicObjects() ) {
       graphicObjectStrings.add( graphicObject.toString() );
     }
     return graphicObjectStrings;

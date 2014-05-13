@@ -37,6 +37,7 @@ public abstract class AbstractMouseDragRotationHandler implements
 		if (previousMousePosition >= 0) {
 			rootAngle.set(rootAngle.get() + sceneCoordinate
 					- previousMousePosition);
+			
 		}
 		previousMousePosition = sceneCoordinate;
 	}

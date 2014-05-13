@@ -13,16 +13,22 @@ public class ComplexObject3DImpl extends Group implements Object3D{
 	}
 
 	@Override
-	public void updateTransforms() {
+	public void addTransforms(Rotation rootRotateX, Rotation rootRotateY,
+			Rotation rootRotateZ) {
+		getTransforms().addAll(rootRotateX, rootRotateY, rootRotateZ);
+	}
+
+	@Override
+	public void enableRotation() {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void setTransforms(Rotation rotateX, Rotation rotateY,
-			Rotation rotateZ) {
+	public void disableRotation() {
 		// TODO Auto-generated method stub
 		
 	}
+
 
 }

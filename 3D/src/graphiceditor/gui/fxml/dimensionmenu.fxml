@@ -6,35 +6,39 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.paint.*?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns:fx="http://javafx.com/fxml">
+<AnchorPane id="AnchorPane" xmlns:fx="http://javafx.com/fxml">
   <children>
-    <Accordion prefWidth="258.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-53.0" AnchorPane.topAnchor="0.0">
+    <Accordion AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
       <expandedPane>
         <TitledPane fx:id="x2" animated="false" text="Info">
           <content>
-            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+            <AnchorPane id="Content">
               <children>
                 <GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                   <children>
                     <Label text="X-Rotation:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="0" />
                     <Label text="Y-Rotation:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
                     <Label text="Z-Rotation:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
-                    <Label id="xRotation" fx:id="lbXRotation" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-                    <Label id="lb" fx:id="lbYRotation" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                    <Label fx:id="lbZRotation" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                    <Slider orientation="VERTICAL" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                    <Label id="xRotation" fx:id="lbXRotation" text="0.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                    <Label id="lb" fx:id="lbYRotation" text="0.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                    <Label fx:id="lbZRotation" text="0.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                     <Slider GridPane.columnIndex="2" GridPane.rowIndex="1" />
                     <Slider GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                    <Slider GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                    <Button mnemonicParsing="false" onAction="#resetDimensions" text="Reset Dimension" GridPane.columnIndex="0" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                    <Button mnemonicParsing="false" onAction="#showAxisOfElement" text="Show Axis" GridPane.columnIndex="0" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
                   </children>
                   <columnConstraints>
-                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    <ColumnConstraints hgrow="SOMETIMES" />
                     <ColumnConstraints hgrow="SOMETIMES" />
                     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   </columnConstraints>
                   <rowConstraints>
-                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     <RowConstraints vgrow="SOMETIMES" />
-                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints vgrow="SOMETIMES" />
+                    <RowConstraints vgrow="SOMETIMES" />
+                    <RowConstraints vgrow="SOMETIMES" />
+                    <RowConstraints vgrow="SOMETIMES" />
                   </rowConstraints>
                 </GridPane>
               </children>
@@ -45,7 +49,7 @@
       <panes>
         <TitledPane fx:id="x1" animated="false" text="Mouse Rotation">
           <content>
-            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+            <AnchorPane id="Content">
               <children>
                 <GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                   <children>

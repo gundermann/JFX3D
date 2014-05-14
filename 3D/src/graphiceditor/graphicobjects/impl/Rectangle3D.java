@@ -7,8 +7,6 @@ import javafx.scene.shape.Rectangle;
 
 public class Rectangle3D extends Rectangle implements Object3D{
 
-
-
 	private Rotation rotateX;
 	private Rotation rotateY;
 	private Rotation rotateZ;

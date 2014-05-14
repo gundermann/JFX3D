@@ -108,4 +108,13 @@ public class DimensionAreaController implements DimensionArea {
 		return gui.getZRotationProperty().asString();
 	}
 
+	@Override
+	public void resetDimensions() {
+		gui.resetDimensions();
+	}
+
+	@Override
+	public void showAxis() {
+		getUI().showAxis();
+	}
 }

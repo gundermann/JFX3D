@@ -28,7 +28,7 @@ public class GUIPaintingMenu extends AbstractGUIMenu {
           .depthBuffer( true ).build();
       setScene( scene );
       initStyle( StageStyle.UNDECORATED );
-      setX( 200 );
+      setX( 400 );
       setY( 0 );
       show();
     }

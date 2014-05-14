@@ -25,4 +25,6 @@ public interface PaintingArea extends DimensionArea {
 
   List<String> getAllGraphicObjects();
 
+	
+
 }

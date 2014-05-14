@@ -27,4 +27,8 @@ public interface DimensionArea {
 
 	ObservableValue<? extends String> getZRotationTextProperty();
 
+	void resetDimensions();
+
+	void showAxis();
+
 }

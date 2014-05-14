@@ -36,6 +36,15 @@ public class DimensionMenuController {
 	}
 
 	@FXML
+	public void resetDimensions(){
+		dimensionArea.resetDimensions();
+	}
+	 @FXML
+	  public void showAxisOfElement(){
+		dimensionArea.showAxis();
+	  }
+	
+	@FXML
 	public void toggleXRotation() {
 		if (!btXRotation.isSelected()) {
 			dimensionArea.disableRotation();

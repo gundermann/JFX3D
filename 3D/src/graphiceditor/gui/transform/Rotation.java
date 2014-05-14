@@ -1,31 +1,29 @@
 package graphiceditor.gui.transform;
 
-import graphiceditor.gui.observable.AngleProperty;
-import javafx.geometry.Point3D;
 import javafx.scene.transform.Rotate;
 
 public class Rotation extends Rotate {
 
-	private AngleProperty angleProperty;
+	private Axis rotationAxis;
 
-	public Rotation(Point3D rotationAxis, AngleProperty angleProperty,
-			double pivotX, double pivotY) {
-		this.angleProperty = angleProperty;
+	public Rotation(Axis rotationAxis) {
+		this.rotationAxis = rotationAxis;
 		
-		axisProperty().set(rotationAxis);
-		pivotXProperty().set(pivotX);
-		pivotYProperty().set(pivotY);
-		pivotZProperty().set(0);
-		angleProperty().set(angleProperty.get());
+		axisProperty().set(rotationAxis.getDirectionPoint());
+		pivotXProperty().set(rotationAxis.getPivotX());
+		pivotYProperty().set(rotationAxis.getPivotY());
+		pivotZProperty().set(rotationAxis.getPivotZ());
+		angleProperty().set(rotationAxis.getActualAngle());
 	}
 	
 	public void enable(){
-		angleProperty().bind(angleProperty);
+		rotationAxis.enableRotation();
+		angleProperty().bind(rotationAxis.getAngleProperty());
 	}
 
 	public void disable() {
 		angleProperty().unbind();
-		angleProperty().set(angleProperty.get());
+		angleProperty().set(rotationAxis.getActualAngle());
 	}
 
 }

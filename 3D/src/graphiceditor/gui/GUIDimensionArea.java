@@ -3,6 +3,8 @@ package graphiceditor.gui;
 import graphiceditor.graphicobjects.Object3D;
 import graphiceditor.gui.observable.AngleProperty;
 import graphiceditor.gui.observable.RotationProperty;
+import graphiceditor.gui.transform.Axis;
+import graphiceditor.gui.transform.PaintableAxis;
 import graphiceditor.gui.transform.Rotation;
 
 import java.util.ArrayList;
@@ -20,7 +22,11 @@ import javafx.stage.Stage;
 
 public class GUIDimensionArea extends Stage {
 
-	private final Point3D xAxis;
+	private final PaintableAxis xAxis;
+
+	private final PaintableAxis yAxis;
+
+	private final PaintableAxis zAxis;
 
 	private final RotationProperty rootAngleX = new RotationProperty();
 
@@ -30,19 +36,9 @@ public class GUIDimensionArea extends Stage {
 
 	private final List<Object3D> allGraphicObjects = new ArrayList<Object3D>();
 
-	public List<Object3D> getAllGraphicObjects() {
-		return allGraphicObjects;
-	}
-
-	private final double pivotX;
-
-	private final double pivotY;
+	private final Point3D pivot;
 
 	private AnchorPane mainPane;
-
-	private Point3D yAxis;
-
-	private Point3D zAxis;
 
 	private Rotation rootRotateX;
 
@@ -57,22 +53,23 @@ public class GUIDimensionArea extends Stage {
 		// scene.setFill( Color.BLUE );
 		setScene(scene);
 		setProperties();
+		centerOnScreen();
 		show();
-		pivotX = this.getWidth() / 2;
-		pivotY = this.getHeight() / 2;
-		xAxis = Point3DBuilder.create().x(pivotX).y(0).z(0).build();
-		yAxis = Point3DBuilder.create().x(0).y(pivotY).z(0).build();
-		zAxis = Point3DBuilder.create().x(0).y(0).z(1).build();
-		rootRotateX = new Rotation(xAxis, new AngleProperty(
-				rootAngleX), pivotX, pivotY);
+		pivot = Point3DBuilder.create().x(this.getWidth() / 2)
+				.y(this.getHeight() / 2).z(0).build();
 
-		rootRotateY = new Rotation(yAxis, new AngleProperty(
-				rootAngleY), pivotX, pivotY);
-
-		rootRotateZ = new Rotation(zAxis, new AngleProperty(
-				rootAngleZ), pivotX, pivotY);
+		xAxis = new PaintableAxis(pivot, Axis.X, new AngleProperty(rootAngleX));
+		yAxis = new PaintableAxis(pivot, Axis.Y, new AngleProperty(rootAngleY));
+		zAxis = new PaintableAxis(pivot, Axis.Z, new AngleProperty(rootAngleZ));
+		rootRotateX = new Rotation(xAxis);
+		rootRotateY = new Rotation(yAxis);
+		rootRotateZ = new Rotation(zAxis);
 
 		mainPane.getTransforms().addAll(rootRotateX, rootRotateY, rootRotateZ);
+	}
+
+	public List<Object3D> getAllGraphicObjects() {
+		return allGraphicObjects;
 	}
 
 	private void setProperties() {
@@ -102,16 +99,16 @@ public class GUIDimensionArea extends Stage {
 	}
 
 	public void add(Object3D shape) {
-		final Rotation rotateX = new Rotation(xAxis, new AngleProperty(
-				rootAngleX), pivotX, pivotY);
+		final Rotation rotateX = new Rotation(xAxis);
 
-		final Rotation rotateY = new Rotation(yAxis, new AngleProperty(
-				rootAngleY), pivotX, pivotY);
-
-		final Rotation rotateZ = new Rotation(zAxis, new AngleProperty(
-				rootAngleZ), pivotX, pivotY);
-
-		shape.addTransforms(rotateX, rotateY, rotateZ);
+		// final Rotation rotateY = new Rotation(yAxis, new AngleProperty(
+		// rootAngleY), pivotX, pivotY);
+		//
+		// final Rotation rotateZ = new Rotation(zAxis, new AngleProperty(
+		// rootAngleZ), pivotX, pivotY);
+		// , rotateY, rotateZ
+		// addTransforms(rotateX);
+		shape.getTransforms().add(rotateX);
 		mainPane.getChildren().add(shape.asNode());
 	}
 
@@ -143,5 +140,17 @@ public class GUIDimensionArea extends Stage {
 		rootRotateX.disable();
 		rootRotateY.disable();
 		rootRotateZ.disable();
+	}
+
+	public void resetDimensions() {
+		rootAngleX.set(0);
+		rootAngleY.set(0);
+		rootAngleZ.set(0);
+	}
+
+	public void showAxis() {
+		mainPane.getChildren().add(xAxis.getAxisShape());
+		mainPane.getChildren().add(yAxis.getAxisShape());
+		mainPane.getChildren().add(zAxis.getAxisShape());
 	}
 }

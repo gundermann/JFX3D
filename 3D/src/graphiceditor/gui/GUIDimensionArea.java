@@ -1,11 +1,11 @@
 package graphiceditor.gui;
 
-import graphiceditor.graphicobjects.Object3D;
-import graphiceditor.gui.observable.AngleProperty;
-import graphiceditor.gui.observable.RotationProperty;
-import graphiceditor.gui.transform.Axis;
-import graphiceditor.gui.transform.PaintableAxis;
-import graphiceditor.gui.transform.Rotation;
+import graphiceditor.business.Object3D;
+import graphiceditor.domainspecific.RotationBundle;
+import graphiceditor.domainspecific.values.Axis;
+import graphiceditor.domainspecific.values.PaintableAxis;
+import graphiceditor.domainspecific.values.observable.AngleProperty;
+import graphiceditor.domainspecific.values.observable.RotationProperty;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,12 +21,8 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class GUIDimensionArea extends Stage {
-
-	private final PaintableAxis xAxis;
-
-	private final PaintableAxis yAxis;
-
-	private final PaintableAxis zAxis;
+	
+	private final RotationBundle rotationBundle;
 
 	private final RotationProperty rootAngleX = new RotationProperty();
 
@@ -40,17 +36,10 @@ public class GUIDimensionArea extends Stage {
 
 	private AnchorPane mainPane;
 
-	private Rotation rootRotateX;
-
-	private Rotation rootRotateY;
-
-	private Rotation rootRotateZ;
-
 	public GUIDimensionArea() {
 		Scene scene = SceneBuilder.create().root(createRoot())
 				.camera(PerspectiveCameraBuilder.create().build())
 				.depthBuffer(true).build();
-		// scene.setFill( Color.BLUE );
 		setScene(scene);
 		setProperties();
 		centerOnScreen();
@@ -58,14 +47,13 @@ public class GUIDimensionArea extends Stage {
 		pivot = Point3DBuilder.create().x(this.getWidth() / 2)
 				.y(this.getHeight() / 2).z(0).build();
 
-		xAxis = new PaintableAxis(pivot, Axis.X, new AngleProperty(rootAngleX));
-		yAxis = new PaintableAxis(pivot, Axis.Y, new AngleProperty(rootAngleY));
-		zAxis = new PaintableAxis(pivot, Axis.Z, new AngleProperty(rootAngleZ));
-		rootRotateX = new Rotation(xAxis);
-		rootRotateY = new Rotation(yAxis);
-		rootRotateZ = new Rotation(zAxis);
+		rotationBundle = new RotationBundle();
+		PaintableAxis xAxis = new PaintableAxis(pivot, Axis.X, new AngleProperty(rootAngleX));
+		PaintableAxis yAxis = new PaintableAxis(pivot, Axis.Y, new AngleProperty(rootAngleY));
+		PaintableAxis zAxis = new PaintableAxis(pivot, Axis.Z, new AngleProperty(rootAngleZ));
+		rotationBundle.addRotationOfAxis(xAxis, yAxis, zAxis);
 
-		mainPane.getTransforms().addAll(rootRotateX, rootRotateY, rootRotateZ);
+		mainPane.getTransforms().addAll(rotationBundle.getRotation(0), rotationBundle.getRotation(1), rotationBundle.getRotation(2));
 	}
 
 	public List<Object3D> getAllGraphicObjects() {
@@ -99,7 +87,7 @@ public class GUIDimensionArea extends Stage {
 	}
 
 	public void add(Object3D shape) {
-		final Rotation rotateX = new Rotation(xAxis);
+//		final Rotation rotateX = new Rotation(xAxis);
 
 		// final Rotation rotateY = new Rotation(yAxis, new AngleProperty(
 		// rootAngleY), pivotX, pivotY);
@@ -108,7 +96,7 @@ public class GUIDimensionArea extends Stage {
 		// rootAngleZ), pivotX, pivotY);
 		// , rotateY, rotateZ
 		// addTransforms(rotateX);
-		shape.getTransforms().add(rotateX);
+//		shape.getTransforms().add(rotateX);
 		mainPane.getChildren().add(shape.asNode());
 	}
 
@@ -125,21 +113,19 @@ public class GUIDimensionArea extends Stage {
 	}
 
 	public void enableXRotation() {
-		rootRotateX.enable();
+		rotationBundle.getRotation(0).enable();
 	}
 
 	public void enableYRotation() {
-		rootRotateY.enable();
+		rotationBundle.getRotation(1).enable();
 	}
 
 	public void enableZRotation() {
-		rootRotateZ.enable();
+		rotationBundle.getRotation(2).enable();
 	}
 
 	public void disableRotation() {
-		rootRotateX.disable();
-		rootRotateY.disable();
-		rootRotateZ.disable();
+		rotationBundle.disableAll();
 	}
 
 	public void resetDimensions() {
@@ -149,8 +135,8 @@ public class GUIDimensionArea extends Stage {
 	}
 
 	public void showAxis() {
-		mainPane.getChildren().add(xAxis.getAxisShape());
-		mainPane.getChildren().add(yAxis.getAxisShape());
-		mainPane.getChildren().add(zAxis.getAxisShape());
+		mainPane.getChildren().add(rotationBundle.getAxis(0).getAxisShape());
+		mainPane.getChildren().add(rotationBundle.getAxis(1).getAxisShape());
+		mainPane.getChildren().add(rotationBundle.getAxis(2).getAxisShape());
 	}
 }

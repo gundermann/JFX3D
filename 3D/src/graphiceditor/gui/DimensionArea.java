@@ -1,6 +1,6 @@
 package graphiceditor.gui;
 
-import graphiceditor.graphicobjects.Object3D;
+import graphiceditor.business.Object3D;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;

@@ -1,4 +1,4 @@
-package graphiceditor.graphicobjects;
+package graphiceditor.business;
 
 import java.awt.BorderLayout;
 import java.awt.Color;

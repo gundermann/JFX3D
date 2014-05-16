@@ -1,8 +1,8 @@
 package graphiceditor.gui.controller;
 
 import graphiceditor.PaintingListenerFactory;
-import graphiceditor.graphicobjects.Object3D;
-import graphiceditor.graphicobjects.Painting;
+import graphiceditor.business.Object3D;
+import graphiceditor.business.Painting;
 import graphiceditor.gui.GUIDimensionArea;
 import graphiceditor.gui.GUIPaintingArea;
 import graphiceditor.gui.GUIPaintingMenu;

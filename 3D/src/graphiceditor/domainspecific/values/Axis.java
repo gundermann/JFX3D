@@ -1,6 +1,6 @@
-package graphiceditor.gui.transform;
+package graphiceditor.domainspecific.values;
 
-import graphiceditor.gui.observable.AngleProperty;
+import graphiceditor.domainspecific.values.observable.AngleProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.geometry.Point3D;
 import javafx.geometry.Point3DBuilder;
@@ -48,8 +48,9 @@ public class Axis {
 		return angleProperty.get();
 	}
 
-	public void enableRotation() {
-
+	//Wenn um eine andere Achse gedreht wird, verändert sich hier die Richtung der Achse
+	//Pivot bleibt immer gleich --> Vorerst refactorn, damit man noch durchsieht.
+	public void updateDirection() {
 	}
 
 	public ObservableValue<? extends Number> getAngleProperty() {

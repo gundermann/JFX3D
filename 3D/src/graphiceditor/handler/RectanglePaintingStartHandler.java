@@ -1,7 +1,7 @@
 package graphiceditor.handler;
 
 import graphiceditor.RectangleBuilder;
-import graphiceditor.graphicobjects.impl.Rectangle3D;
+import graphiceditor.business.impl.Rectangle3D;
 import graphiceditor.gui.PaintingArea;
 import javafx.scene.input.MouseEvent;
 

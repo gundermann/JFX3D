@@ -1,6 +1,6 @@
 package graphiceditor;
 
-import graphiceditor.graphicobjects.impl.Rectangle3D;
+import graphiceditor.business.impl.Rectangle3D;
 
 public class RectangleBuilder {
 

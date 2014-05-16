@@ -1,7 +1,7 @@
 package graphiceditor.gui.property.test;
 
 import static org.junit.Assert.*;
-import graphiceditor.gui.observable.RotationProperty;
+import graphiceditor.domainspecific.values.observable.RotationProperty;
 
 import org.junit.Before;
 import org.junit.Test;

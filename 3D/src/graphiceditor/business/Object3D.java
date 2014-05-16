@@ -1,6 +1,6 @@
-package graphiceditor.graphicobjects;
+package graphiceditor.business;
 
-import graphiceditor.gui.transform.Rotation;
+import graphiceditor.domainspecific.values.Rotation;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
 import javafx.scene.transform.Transform;

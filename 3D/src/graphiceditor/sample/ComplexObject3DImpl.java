@@ -1,7 +1,7 @@
 package graphiceditor.sample;
 
-import graphiceditor.graphicobjects.Object3D;
-import graphiceditor.gui.transform.Rotation;
+import graphiceditor.business.Object3D;
+import graphiceditor.domainspecific.values.Rotation;
 import javafx.scene.Group;
 import javafx.scene.Node;
 

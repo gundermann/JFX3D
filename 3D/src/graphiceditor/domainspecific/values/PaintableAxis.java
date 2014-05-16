@@ -1,6 +1,6 @@
-package graphiceditor.gui.transform;
+package graphiceditor.domainspecific.values;
 
-import graphiceditor.gui.observable.AngleProperty;
+import graphiceditor.domainspecific.values.observable.AngleProperty;
 import javafx.geometry.Point3D;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;

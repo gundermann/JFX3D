@@ -1,6 +1,7 @@
-package graphiceditor.gui;
+package graphiceditor.menu.dimension;
 
-import graphiceditor.gui.controller.DimensionMenuController;
+import graphiceditor.gui.DimensionArea;
+import graphiceditor.menu.AbstractGUIMenu;
 
 import java.io.IOException;
 
@@ -19,7 +20,7 @@ public class GUIDimensionMenu extends AbstractGUIMenu {
 
   public GUIDimensionMenu( DimensionMenuController dimensionMenuController ) {
     controller = dimensionMenuController;
-    FXMLLoader fxmlLoader = new FXMLLoader( getClass().getResource( "fxml/dimensionmenu.fxml" ) );
+    FXMLLoader fxmlLoader = new FXMLLoader( getClass().getResource( "dimensionmenu.fxml" ) );
     fxmlLoader.setController( dimensionMenuController );
     AnchorPane page;
     try {

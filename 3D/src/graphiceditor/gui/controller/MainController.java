@@ -1,9 +1,10 @@
 package graphiceditor.gui.controller;
 
 import graphiceditor.PaintingAreaFactory;
-import graphiceditor.gui.GUIDimensionMenu;
-import graphiceditor.gui.GUIPaintingMenu;
 import graphiceditor.gui.PaintingArea;
+import graphiceditor.menu.dimension.GUIDimensionMenu;
+import graphiceditor.menu.manipulating.GUIManipulatingMenu;
+import graphiceditor.menu.painting.GUIPaintingMenu;
 import graphiceditor.sample.Cube;
 
 import java.net.URL;
@@ -18,7 +19,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.ToggleButton;
 
-public class EditorController implements Initializable {
+public class MainController implements Initializable {
 
   @FXML
   private ToggleButton btDimensionMenu;
@@ -30,6 +31,9 @@ public class EditorController implements Initializable {
   private ChoiceBox<String> paintingAreaSelection;
 
   private final List<PaintingArea> paintingAreas = new ArrayList<PaintingArea>();
+
+  @FXML
+  public ToggleButton btManipulatingMenu;
 
   @FXML
   public void initNewObject() {
@@ -67,6 +71,17 @@ public class EditorController implements Initializable {
     else {
       GUIDimensionMenu.getInstance().setDimensionArea( getSelectedPaintingArea() );
       GUIDimensionMenu.getInstance().setVisible( true );
+    }
+  }
+  
+  @FXML
+  public void toggleManipulatingMenu() {
+    if ( !btManipulatingMenu.isSelected() ) {
+      GUIManipulatingMenu.getInstance().setVisible( false );
+    }
+    else {
+      GUIManipulatingMenu.getInstance().setPaintingArea( getSelectedPaintingArea() );
+      GUIManipulatingMenu.getInstance().setVisible( true );
     }
   }
 

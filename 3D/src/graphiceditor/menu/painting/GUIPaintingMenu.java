@@ -1,6 +1,7 @@
-package graphiceditor.gui;
+package graphiceditor.menu.painting;
 
-import graphiceditor.gui.controller.PaintingMenuController;
+import graphiceditor.gui.PaintingArea;
+import graphiceditor.menu.AbstractGUIMenu;
 
 import java.io.IOException;
 
@@ -19,7 +20,7 @@ public class GUIPaintingMenu extends AbstractGUIMenu {
 
   public GUIPaintingMenu( PaintingMenuController paintingMenuController ) {
     controller = paintingMenuController;
-    FXMLLoader fxmlLoader = new FXMLLoader( getClass().getResource( "fxml/paintingmenu.fxml" ) );
+    FXMLLoader fxmlLoader = new FXMLLoader( getClass().getResource( "paintingmenu.fxml" ) );
     fxmlLoader.setController( paintingMenuController );
     AnchorPane page;
     try {

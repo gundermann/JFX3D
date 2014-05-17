@@ -11,11 +11,11 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-public class GUIEditor extends Stage {
+public class GUIMain extends Stage {
 
-  private static GUIEditor _instance;
+  private static GUIMain _instance;
 
-  public GUIEditor() {
+  public GUIMain() {
     FXMLLoader fxmlLoader = new FXMLLoader( getClass().getResource( "fxml/main.fxml" ) );
     AnchorPane page;
     try {
@@ -33,9 +33,9 @@ public class GUIEditor extends Stage {
     }
   }
 
-  public static GUIEditor getInstance() {
+  public static GUIMain getInstance() {
     if ( _instance == null ) {
-      _instance = new GUIEditor();
+      _instance = new GUIMain();
     }
     return _instance;
   }

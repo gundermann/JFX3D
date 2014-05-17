@@ -97,6 +97,8 @@ public class GUIDimensionArea extends Stage {
 		// , rotateY, rotateZ
 		// addTransforms(rotateX);
 //		shape.getTransforms().add(rotateX);
+		
+		if(!getAllGraphicObjects().contains(shape))
 		mainPane.getChildren().add(shape.asNode());
 	}
 

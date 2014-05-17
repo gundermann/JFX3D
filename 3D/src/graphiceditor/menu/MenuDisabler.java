@@ -1,4 +1,6 @@
-package graphiceditor.gui;
+package graphiceditor.menu;
+
+import graphiceditor.menu.painting.GUIPaintingMenu;
 
 public class MenuDisabler {
 

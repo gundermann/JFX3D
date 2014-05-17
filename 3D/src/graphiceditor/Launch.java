@@ -1,6 +1,6 @@
 package graphiceditor;
 
-import graphiceditor.gui.GUIEditor;
+import graphiceditor.gui.GUIMain;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -12,7 +12,7 @@ public class Launch extends Application {
 
   @Override
   public void start( Stage primeStage ) throws Exception {
-    GUIEditor.getInstance().toFront();
+    GUIMain.getInstance().toFront();
   }
 
 }

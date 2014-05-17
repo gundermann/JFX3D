@@ -5,8 +5,8 @@ import graphiceditor.business.Object3D;
 import graphiceditor.business.Painting;
 import graphiceditor.gui.GUIDimensionArea;
 import graphiceditor.gui.GUIPaintingArea;
-import graphiceditor.gui.GUIPaintingMenu;
 import graphiceditor.gui.PaintingArea;
+import graphiceditor.menu.painting.GUIPaintingMenu;
 
 import java.util.ArrayList;
 import java.util.List;

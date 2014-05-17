@@ -1,7 +1,7 @@
-package graphiceditor.gui.controller;
+package graphiceditor.menu.dimension;
 
 import graphiceditor.gui.DimensionArea;
-import graphiceditor.gui.MenuDisabler;
+import graphiceditor.menu.MenuDisabler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ToggleButton;

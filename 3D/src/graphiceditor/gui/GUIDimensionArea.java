@@ -42,7 +42,6 @@ public class GUIDimensionArea extends Stage {
 				.depthBuffer(true).build();
 		setScene(scene);
 		setProperties();
-		centerOnScreen();
 		show();
 		pivot = Point3DBuilder.create().x(this.getWidth() / 2)
 				.y(this.getHeight() / 2).z(0).build();
@@ -54,6 +53,7 @@ public class GUIDimensionArea extends Stage {
 		rotationBundle.addRotationOfAxis(xAxis, yAxis, zAxis);
 
 		mainPane.getTransforms().addAll(rotationBundle.getRotation(0), rotationBundle.getRotation(1), rotationBundle.getRotation(2));
+		centerOnScreen();
 	}
 
 	public List<Object3D> getAllGraphicObjects() {

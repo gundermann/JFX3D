@@ -25,7 +25,8 @@ public class GUIMain extends Stage {
       setScene( scene );
       initStyle( StageStyle.UNDECORATED );
       show();
-      setX( Toolkit.getDefaultToolkit().getScreenSize().getWidth() - scene.getWidth() );
+      setWidth(Toolkit.getDefaultToolkit().getScreenSize().getWidth());
+      setX( 0 );
       setY( 0 );
     }
     catch ( IOException e ) {

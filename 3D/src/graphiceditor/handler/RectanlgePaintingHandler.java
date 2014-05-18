@@ -15,24 +15,24 @@ public class RectanlgePaintingHandler implements PaintingHandler {
   @Override
   public void handle( MouseEvent event ) {
     if ( event.getY() > beginningY )
-      rect.setHeight( event.getY() - rect.getY() );
+      rect.setHeight( event.getY() - rect.layoutYProperty().get() );
     else {
       rect.setHeight( beginningY - event.getY() );
-      rect.setY( event.getY() );
+      rect.layoutYProperty().set( event.getY() );
     }
 
     if ( event.getX() > beginningX )
-      rect.setWidth( event.getX() - rect.getX() );
+      rect.setWidth( event.getX() - rect.layoutXProperty().get() );
     else {
       rect.setWidth( beginningX - event.getX() );
-      rect.setX( event.getX() );
+      rect.layoutXProperty().set( event.getX() );
     }
   }
 
   @Override
   public void setPaintingArea( PaintingArea paintingArea ) {
     this.rect = (Rectangle) paintingArea.getActualPainting();
-    beginningX = rect.getX();
-    beginningY = rect.getY();
+    beginningX = rect.layoutXProperty().get();
+    beginningY = rect.layoutYProperty().get();
   }
 }

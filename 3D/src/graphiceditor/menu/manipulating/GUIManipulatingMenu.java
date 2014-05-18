@@ -1,5 +1,6 @@
 package graphiceditor.menu.manipulating;
 
+import graphiceditor.business.Object3D;
 import graphiceditor.gui.PaintingArea;
 import graphiceditor.menu.AbstractGUIMenu;
 
@@ -30,7 +31,7 @@ public class GUIManipulatingMenu extends AbstractGUIMenu {
 			ManipulatingMenuController manipulatingMenuController) {
 		controller = manipulatingMenuController;
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(
-				"manipulatingmenu.fxml"));
+				"manipulatingmanu.fxml"));
 		fxmlLoader.setController(manipulatingMenuController);
 		AnchorPane page;
 		try {
@@ -40,7 +41,7 @@ public class GUIManipulatingMenu extends AbstractGUIMenu {
 					.depthBuffer(true).build();
 			setScene(scene);
 			initStyle(StageStyle.UNDECORATED);
-			setX(400);
+			setX(800);
 			setY(0);
 			show();
 		} catch (IOException e) {
@@ -56,7 +57,7 @@ public class GUIManipulatingMenu extends AbstractGUIMenu {
 		getScene().getRoot().setDisable(disable);
 	}
 
-	public void updateComponents() {
-		controller.updateComponents();
+	public void setActualPainting(Object3D painting) {
+		controller.setActualPainting(painting);
 	}
 }

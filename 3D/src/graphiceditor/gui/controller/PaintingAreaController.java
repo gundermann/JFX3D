@@ -6,6 +6,7 @@ import graphiceditor.business.Painting;
 import graphiceditor.gui.GUIDimensionArea;
 import graphiceditor.gui.GUIPaintingArea;
 import graphiceditor.gui.PaintingArea;
+import graphiceditor.menu.manipulating.GUIManipulatingMenu;
 import graphiceditor.menu.painting.GUIPaintingMenu;
 
 import java.util.ArrayList;
@@ -88,6 +89,7 @@ public class PaintingAreaController extends DimensionAreaController implements
 	@Override
 	public void setActualPaintingById(int selectedIndex) {
 		setActualPainting(getUI().getAllGraphicObjects().get(selectedIndex));
+		GUIManipulatingMenu.getInstance().setActualPainting(getActualPainting());
 	}
 
 	@Override

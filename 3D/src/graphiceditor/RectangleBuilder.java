@@ -15,12 +15,12 @@ public class RectangleBuilder {
 	}
 
 	public RectangleBuilder x(double x) {
-		rect.setX(x);
+		rect.setupX(x);
 		return this;
 	}
 	
 	public RectangleBuilder y(double y) {
-		rect.setY(y);
+		rect.setupY(y);
 		return this;
 	}
 

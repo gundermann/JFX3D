@@ -2,14 +2,17 @@ package graphiceditor.business.impl;
 
 import graphiceditor.business.Object3D;
 import graphiceditor.domainspecific.values.Rotation;
+import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.value.ObservableValue;
 import javafx.scene.Node;
 import javafx.scene.shape.Rectangle;
 
-public class Rectangle3D extends Rectangle implements Object3D{
+public class Rectangle3D extends Rectangle implements Object3D {
 
 	private Rotation rotateX;
 	private Rotation rotateY;
 	private Rotation rotateZ;
+	private SimpleDoubleProperty layoutZProperty = new SimpleDoubleProperty();
 
 	@Override
 	public Node asNode() {
@@ -27,13 +30,52 @@ public class Rectangle3D extends Rectangle implements Object3D{
 
 	@Override
 	public void enableRotation() {
-		
+
 	}
 
 	@Override
 	public void disableRotation() {
-		
-		
+
+	}
+
+	@Override
+	public void moveX(int i) {
+		layoutXProperty().set(layoutXProperty().get() + i);
+	}
+
+	@Override
+	public void moveZ(int i) {
+		translateZProperty().set(translateZProperty().get() + i);
+	}
+
+	@Override
+	public void moveY(int i) {
+		layoutYProperty().set(layoutYProperty().get() + i);
+	}
+
+	@Override
+	public ObservableValue<? extends String> getXPositionProperty() {
+		return layoutXProperty().asString();
+	}
+
+	@Override
+	public ObservableValue<? extends String> getYPositionProperty() {
+		return layoutYProperty().asString();
+	}
+
+	@Override
+	public ObservableValue<? extends String> getZPositionProperty() {
+		return translateZProperty().asString();
+	}
+
+	public void setupX(double x) {
+		setX(0);
+		layoutXProperty().set(x);
+	}
+
+	public void setupY(double y) {
+		setY(0);
+		layoutYProperty().set(y);
 	}
 
 }

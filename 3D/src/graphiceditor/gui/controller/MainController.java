@@ -45,6 +45,7 @@ public class MainController implements Initializable {
     paintingAreaSelection.setDisable( false );
     btDimensionMenu.setDisable( false );
     btPaintingMenu.setDisable( false );
+    btManipulatingMenu.setDisable(false);
   }
 
   public PaintingArea getSelectedPaintingArea() {

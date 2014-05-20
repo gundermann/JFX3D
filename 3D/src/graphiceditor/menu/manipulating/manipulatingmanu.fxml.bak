@@ -31,13 +31,13 @@
                     <Button mnemonicParsing="false" onAction="#removeWidth" text="-" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
                     <Button mnemonicParsing="false" onAction="#addHeight" text="+" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
                     <Button mnemonicParsing="false" onAction="#addWidth" text="+" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
-                    <TextField fx:id="editHeight" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
-                    <TextField fx:id="editWidth" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
+                    <TextField fx:id="editHeight" maxWidth="100.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+                    <TextField fx:id="editWidth" maxWidth="100.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
                   </children>
                   <columnConstraints>
-                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    <ColumnConstraints hgrow="SOMETIMES" />
+                    <ColumnConstraints hgrow="SOMETIMES" />
+                    <ColumnConstraints hgrow="SOMETIMES" />
                   </columnConstraints>
                   <rowConstraints>
                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -59,6 +59,15 @@
         <TitledPane fx:id="x2" animated="false" text="Rotation">
           <content>
             <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+          </content>
+        </TitledPane>
+        <TitledPane animated="false" expanded="false" text="Components">
+          <content>
+            <AnchorPane id="Content">
+              <children>
+                <ListView fx:id="lvComponents" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+              </children>
+            </AnchorPane>
           </content>
         </TitledPane>
       </panes>

@@ -22,6 +22,9 @@ public class GUIManipulatingMenu extends AbstractGUIMenu {
 			_instance = new GUIManipulatingMenu(
 					new ManipulatingMenuController());
 		}
+		 if ( !_instance.isVisible() ) {
+		      _instance.setVisible( false );
+		    }
 		return _instance;
 	}
 
@@ -59,5 +62,9 @@ public class GUIManipulatingMenu extends AbstractGUIMenu {
 
 	public void setActualPainting(Object3D painting) {
 		controller.setActualPainting(painting);
+	}
+
+	public void updateComponents() {
+		controller.updateComponents();
 	}
 }

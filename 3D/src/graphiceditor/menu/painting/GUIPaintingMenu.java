@@ -57,8 +57,4 @@ public class GUIPaintingMenu extends AbstractGUIMenu {
     getScene().getRoot().setDisable( disable );
   }
 
-  public void updateComponents() {
-    controller.updateComponents();
-  }
-
 }

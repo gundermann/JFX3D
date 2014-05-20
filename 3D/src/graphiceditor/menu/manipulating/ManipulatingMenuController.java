@@ -1,15 +1,11 @@
 package graphiceditor.menu.manipulating;
 
-import java.net.URL;
-import java.util.ResourceBundle;
-
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.util.StringConverter;
 import graphiceditor.business.Object3D;
 import graphiceditor.gui.PaintingArea;
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 
 public class ManipulatingMenuController{
 
@@ -23,14 +19,29 @@ public class ManipulatingMenuController{
 	public TextField editHeight;
 	@FXML
 	public TextField editWidth;
+	@FXML
+	private ListView<String> lvComponents;
 
-	private PaintingArea paintingArea;
+	private PaintingArea actualPaintingArea;
 	private Object3D painting;
 
 	public void setPaintingArea(PaintingArea paintingArea) {
-		this.paintingArea = paintingArea;
+		this.actualPaintingArea = paintingArea;
+		updateComponents();
 	}
 
+	public void updateComponents() {
+		lvComponents.getItems().setAll(
+				this.actualPaintingArea.getAllGraphicObjects());
+	}
+
+
+	@FXML
+	public void componentSelected() {
+		actualPaintingArea.setActualPaintingById(lvComponents
+				.getSelectionModel().getSelectedIndex());
+	}
+	
 	@FXML
 	public void removeHeight() {
 		painting.changeHeight(-1);
@@ -48,7 +59,7 @@ public class ManipulatingMenuController{
 
 	@FXML
 	public void addWidth() {
-		painting.changeWidth(-1);
+		painting.changeWidth(1);
 	}
 
 	@FXML

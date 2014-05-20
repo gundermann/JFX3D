@@ -9,14 +9,6 @@ public class PaintingMenuController {
 
 	private PaintingArea actualPaintingArea;
 
-	@FXML
-	private ListView<String> lvComponents;
-
-	@FXML
-	public void componentSelected() {
-		actualPaintingArea.setActualPaintingById(lvComponents
-				.getSelectionModel().getSelectedIndex());
-	}
 
 	@FXML
 	public void selectPaintRect() {
@@ -25,12 +17,7 @@ public class PaintingMenuController {
 
 	public void setPaintingArea(PaintingArea paintingArea) {
 		this.actualPaintingArea = paintingArea;
-		updateComponents();
 	}
 
-	public void updateComponents() {
-		lvComponents.getItems().setAll(
-				this.actualPaintingArea.getAllGraphicObjects());
-	}
-
+	
 }

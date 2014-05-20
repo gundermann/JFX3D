@@ -56,6 +56,7 @@ public class MainController implements Initializable {
   public void selectPaintingArea() {
     GUIDimensionMenu.getInstance().setDimensionArea( getSelectedPaintingArea() );
     GUIPaintingMenu.getInstance().setPaintingArea( getSelectedPaintingArea() );
+    GUIManipulatingMenu.getInstance().setPaintingArea( getSelectedPaintingArea() );
     getSelectedPaintingArea().getUI().toFront();
   }
 

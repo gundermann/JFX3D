@@ -10,6 +10,17 @@
   <children>
     <Accordion AnchorPane.bottomAnchor="-0.5" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.5">
       <expandedPane>
+        <TitledPane fx:id="x3" animated="false" text="Components">
+          <content>
+            <AnchorPane id="Content">
+              <children>
+                <ListView fx:id="lvComponents" onMouseClicked="#componentSelected" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+              </children>
+            </AnchorPane>
+          </content>
+        </TitledPane>
+      </expandedPane>
+      <panes>
         <TitledPane fx:id="x1" animated="false" text="Moving">
           <content>
             <AnchorPane id="Content">
@@ -53,14 +64,12 @@
             </AnchorPane>
           </content>
         </TitledPane>
-      </expandedPane>
-      <panes>
-        <fx:reference source="x1" />
         <TitledPane fx:id="x2" animated="false" text="Rotation">
           <content>
             <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
           </content>
         </TitledPane>
+        <fx:reference source="x3" />
       </panes>
     </Accordion>
   </children>

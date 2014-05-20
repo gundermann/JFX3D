@@ -10,17 +10,6 @@
   <children>
     <Accordion AnchorPane.bottomAnchor="-0.5" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.5">
       <expandedPane>
-        <TitledPane fx:id="x2" animated="false" text="Components">
-          <content>
-            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-              <children>
-                <ListView id="" fx:id="lvComponents" onMouseClicked="#componentSelected" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-              </children>
-            </AnchorPane>
-          </content>
-        </TitledPane>
-      </expandedPane>
-      <panes>
         <TitledPane fx:id="x1" animated="false" text="Tools">
           <content>
             <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
@@ -45,7 +34,9 @@
             </AnchorPane>
           </content>
         </TitledPane>
-        <fx:reference source="x2" />
+      </expandedPane>
+      <panes>
+        <fx:reference source="x1" />
       </panes>
     </Accordion>
   </children>

@@ -3,7 +3,6 @@ package graphiceditor.business.impl;
 import graphiceditor.business.Object3D;
 import graphiceditor.domainspecific.values.Rotation;
 import javafx.beans.property.DoubleProperty;
-import javafx.beans.property.Property;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.Node;
 import javafx.scene.shape.Rectangle;

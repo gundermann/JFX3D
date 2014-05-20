@@ -43,7 +43,7 @@ public class PaintingAreaController extends DimensionAreaController implements
 		getUI().saveActualPaintingIntoGraphicObjects();
 		getUI().removeEventHandler(MouseEvent.MOUSE_MOVED, mouseMoveHandler);
 		getUI().removeEventHandler(MouseEvent.MOUSE_CLICKED, mouseClickHandler);
-		GUIPaintingMenu.getInstance().updateComponents();
+		GUIManipulatingMenu.getInstance().updateComponents();
 	}
 
 	@Override

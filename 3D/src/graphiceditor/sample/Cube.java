@@ -41,5 +41,8 @@ public class Cube extends ComplexObject3DImpl {
         .fill( Color.YELLOW ).build();
 
     getChildren().addAll( side1, side2, side3, side4, side5, side6 );
+    
+    setLayoutX(500);
+    setLayoutY(200);
   }
 }

@@ -2,7 +2,8 @@ package graphiceditor.business.impl;
 
 import graphiceditor.business.Object3D;
 import graphiceditor.domainspecific.values.Rotation;
-import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.Property;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.Node;
 import javafx.scene.shape.Rectangle;
@@ -12,7 +13,6 @@ public class Rectangle3D extends Rectangle implements Object3D {
 	private Rotation rotateX;
 	private Rotation rotateY;
 	private Rotation rotateZ;
-	private SimpleDoubleProperty layoutZProperty = new SimpleDoubleProperty();
 
 	@Override
 	public Node asNode() {
@@ -76,6 +76,26 @@ public class Rectangle3D extends Rectangle implements Object3D {
 	public void setupY(double y) {
 		setY(0);
 		layoutYProperty().set(y);
+	}
+
+	@Override
+	public void changeWidth(int i) {
+		setWidth(getWidth() + i);
+	}
+
+	@Override
+	public void changeHeight(int i) {
+		setHeight(getHeight() + i);
+	}
+
+	@Override
+	public DoubleProperty getHeightProperty() {
+		return heightProperty();
+	}
+
+	@Override
+	public DoubleProperty getWidthProperty() {
+		return widthProperty();
 	}
 
 }

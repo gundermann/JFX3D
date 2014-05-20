@@ -1,6 +1,8 @@
 package graphiceditor.business;
 
 import graphiceditor.domainspecific.values.Rotation;
+import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.Property;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
@@ -30,4 +32,13 @@ public interface Object3D {
 	ObservableValue<? extends String> getYPositionProperty();
 	
 	ObservableValue<? extends String> getZPositionProperty();
+
+	void changeWidth(int i);
+
+	void changeHeight(int i);
+
+	DoubleProperty getHeightProperty();
+
+	DoubleProperty getWidthProperty();
+
 }

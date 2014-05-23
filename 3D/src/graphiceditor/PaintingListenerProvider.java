@@ -1,7 +1,7 @@
 package graphiceditor;
 
 import graphiceditor.handler.PaintingHandler;
-import graphiceditor.handler.RectanglePaintingStartHandler;
+import graphiceditor.handler.PaintingStartHandler;
 import graphiceditor.handler.RectanlgePaintingHandler;
 
 import java.util.HashMap;
@@ -11,7 +11,7 @@ public class PaintingListenerProvider {
 
   public static Map<Painting, Class<? extends PaintingHandler>> getPaintingStartListener() {
     Map<Painting, Class<? extends PaintingHandler>> paintingStartListener = new HashMap<Painting, Class<? extends PaintingHandler>>();
-    paintingStartListener.put( Painting.Rectangle, RectanglePaintingStartHandler.class );
+    paintingStartListener.put( Painting.Rectangle, PaintingStartHandler.class );
     return paintingStartListener;
   }
 

@@ -41,4 +41,8 @@ public interface Object3D {
 
 	DoubleProperty getWidthProperty();
 
+	void setupX(double x);
+
+	void setupY(double y);
+
 }

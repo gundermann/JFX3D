@@ -1,20 +1,19 @@
 package graphiceditor.menu.manipulating;
 
-import graphiceditor.business.Object3D;
 import graphiceditor.gui.PaintingArea;
+import graphiceditor.shapes.Object3D;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
 public class ManipulatingMenuController{
 
 	@FXML
-	public Label xPosition;
+	public TextField xPosition;
 	@FXML
-	public Label yPosition;
+	public TextField yPosition;
 	@FXML
-	public Label zPosition;
+	public TextField zPosition;
 	@FXML
 	public TextField editHeight;
 	@FXML

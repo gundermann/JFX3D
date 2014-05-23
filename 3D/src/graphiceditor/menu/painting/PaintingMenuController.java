@@ -1,6 +1,6 @@
 package graphiceditor.menu.painting;
 
-import graphiceditor.business.Painting;
+import graphiceditor.Painting;
 import graphiceditor.gui.PaintingArea;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;

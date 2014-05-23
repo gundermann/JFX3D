@@ -1,4 +1,4 @@
-package graphiceditor.business;
+package graphiceditor;
 
 public enum Painting {
   Rectangle, None

@@ -31,7 +31,7 @@ public class RectanlgePaintingHandler implements PaintingHandler {
 
   @Override
   public void setPaintingArea( PaintingArea paintingArea ) {
-    this.rect = (Rectangle) paintingArea.getActualPainting();
+    this.rect = (Rectangle) paintingArea.getActualPainting().asNode();
     beginningX = rect.layoutXProperty().get();
     beginningY = rect.layoutYProperty().get();
   }

@@ -1,6 +1,6 @@
 package graphiceditor.gui;
 
-import graphiceditor.business.Object3D;
+import graphiceditor.shapes.Object3D;
 
 public class GUIPaintingArea extends GUIDimensionArea {
 

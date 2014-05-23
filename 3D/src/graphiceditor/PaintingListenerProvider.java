@@ -1,6 +1,5 @@
 package graphiceditor;
 
-import graphiceditor.business.Painting;
 import graphiceditor.handler.PaintingHandler;
 import graphiceditor.handler.RectanglePaintingStartHandler;
 import graphiceditor.handler.RectanlgePaintingHandler;

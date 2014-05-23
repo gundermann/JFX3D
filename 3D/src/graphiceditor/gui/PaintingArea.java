@@ -1,7 +1,7 @@
 package graphiceditor.gui;
 
-import graphiceditor.business.Object3D;
-import graphiceditor.business.Painting;
+import graphiceditor.Painting;
+import graphiceditor.shapes.Object3D;
 
 import java.util.List;
 

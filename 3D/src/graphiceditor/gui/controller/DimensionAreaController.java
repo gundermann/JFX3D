@@ -1,10 +1,10 @@
 package graphiceditor.gui.controller;
 
 import graphiceditor.RotationHandlerFactory;
-import graphiceditor.business.Object3D;
 import graphiceditor.gui.DimensionArea;
 import graphiceditor.gui.GUIDimensionArea;
 import graphiceditor.handler.AbstractMouseDragRotationHandler;
+import graphiceditor.shapes.Object3D;
 import javafx.beans.value.ObservableValue;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;

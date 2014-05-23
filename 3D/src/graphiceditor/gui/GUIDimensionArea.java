@@ -1,11 +1,11 @@
 package graphiceditor.gui;
 
-import graphiceditor.business.Object3D;
 import graphiceditor.domainspecific.RotationBundle;
 import graphiceditor.domainspecific.values.Axis;
 import graphiceditor.domainspecific.values.PaintableAxis;
 import graphiceditor.domainspecific.values.observable.AngleProperty;
 import graphiceditor.domainspecific.values.observable.RotationProperty;
+import graphiceditor.shapes.Object3D;
 
 import java.util.ArrayList;
 import java.util.List;

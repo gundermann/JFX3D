@@ -1,7 +1,7 @@
 package graphiceditor.sample;
 
-import graphiceditor.business.Object3D;
 import graphiceditor.domainspecific.values.Rotation;
+import graphiceditor.shapes.Object3D;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.Property;
 import javafx.beans.value.ObservableValue;

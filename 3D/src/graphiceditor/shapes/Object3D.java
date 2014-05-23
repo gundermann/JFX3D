@@ -1,4 +1,4 @@
-package graphiceditor.business;
+package graphiceditor.shapes;
 
 import graphiceditor.domainspecific.values.Rotation;
 import javafx.beans.property.DoubleProperty;

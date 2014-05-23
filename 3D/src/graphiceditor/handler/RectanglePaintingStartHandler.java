@@ -1,8 +1,8 @@
 package graphiceditor.handler;
 
 import graphiceditor.RectangleBuilder;
-import graphiceditor.business.impl.Rectangle3D;
 import graphiceditor.gui.PaintingArea;
+import graphiceditor.shapes.impl.Rectangle3D;
 import javafx.scene.input.MouseEvent;
 
 public class RectanglePaintingStartHandler implements PaintingHandler {

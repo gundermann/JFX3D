@@ -1,8 +1,8 @@
 package graphiceditor.menu.manipulating;
 
-import graphiceditor.business.Object3D;
 import graphiceditor.gui.PaintingArea;
 import graphiceditor.menu.AbstractGUIMenu;
+import graphiceditor.shapes.Object3D;
 
 import java.io.IOException;
 

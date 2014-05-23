@@ -2,6 +2,7 @@ package graphiceditor.menu.manipulating;
 
 import graphiceditor.gui.PaintingArea;
 import graphiceditor.shapes.Object3D;
+import graphiceditor.util.NumberToStringConverter;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
@@ -93,11 +94,11 @@ public class ManipulatingMenuController{
 
 	public void setActualPainting(Object3D painting) {
 		this.painting = painting;
-		xPosition.textProperty().bind(painting.getXPositionProperty());
-		yPosition.textProperty().bind(painting.getYPositionProperty());
-		zPosition.textProperty().bind(painting.getZPositionProperty());
-		editHeight.textProperty().bindBidirectional(painting.getHeightProperty(), new MyNumberToStringConverter());
-		editWidth.textProperty().bindBidirectional(painting.getWidthProperty(), new MyNumberToStringConverter());
+		xPosition.textProperty().bindBidirectional(painting.getXPositionProperty(), new NumberToStringConverter());
+		yPosition.textProperty().bindBidirectional(painting.getYPositionProperty(), new NumberToStringConverter());
+		zPosition.textProperty().bindBidirectional(painting.getZPositionProperty(), new NumberToStringConverter());
+		editHeight.textProperty().bindBidirectional(painting.getHeightProperty(), new NumberToStringConverter());
+		editWidth.textProperty().bindBidirectional(painting.getWidthProperty(), new NumberToStringConverter());
 	}
 
 }

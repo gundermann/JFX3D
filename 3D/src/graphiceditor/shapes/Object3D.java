@@ -27,11 +27,11 @@ public interface Object3D {
 
 	void moveY(int i);
 
-	ObservableValue<? extends String> getXPositionProperty();
+	DoubleProperty getXPositionProperty();
 	
-	ObservableValue<? extends String> getYPositionProperty();
+	DoubleProperty getYPositionProperty();
 	
-	ObservableValue<? extends String> getZPositionProperty();
+	DoubleProperty getZPositionProperty();
 
 	void changeWidth(int i);
 

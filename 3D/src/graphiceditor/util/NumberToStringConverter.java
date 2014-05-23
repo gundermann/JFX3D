@@ -1,8 +1,8 @@
-package graphiceditor.menu.manipulating;
+package graphiceditor.util;
 
 import javafx.util.StringConverter;
 
-public class MyNumberToStringConverter extends StringConverter<Number> {
+public class NumberToStringConverter extends StringConverter<Number> {
 
 	@Override
 	public Double fromString(String s) {

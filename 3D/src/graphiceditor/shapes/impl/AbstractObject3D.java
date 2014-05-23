@@ -2,7 +2,7 @@ package graphiceditor.shapes.impl;
 
 import graphiceditor.domainspecific.values.Rotation;
 import graphiceditor.shapes.Object3D;
-import javafx.beans.value.ObservableValue;
+import javafx.beans.property.DoubleProperty;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
 import javafx.scene.transform.Transform;
@@ -59,18 +59,18 @@ public abstract class AbstractObject3D implements Object3D {
 	}
 
 	@Override
-	public ObservableValue<? extends String> getXPositionProperty() {
-		return node.layoutXProperty().asString();
+	public DoubleProperty getXPositionProperty() {
+		return node.layoutXProperty();
 	}
 
 	@Override
-	public ObservableValue<? extends String> getYPositionProperty() {
-		return node.layoutYProperty().asString();
+	public DoubleProperty getYPositionProperty() {
+		return node.layoutYProperty();
 	}
 
 	@Override
-	public ObservableValue<? extends String> getZPositionProperty() {
-		return node.translateZProperty().asString();
+	public DoubleProperty getZPositionProperty() {
+		return node.translateZProperty();
 	}
 	
 	@Override

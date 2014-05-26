@@ -24,7 +24,7 @@
                     <Button mnemonicParsing="false" onAction="#removeY" text="Y -" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
                     <Button mnemonicParsing="false" onAction="#addY" text="Y +" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
                     <Button mnemonicParsing="false" onAction="#addZ" text="Z +" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-                    <Button mnemonicParsing="false" text="Z -" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                    <Button mnemonicParsing="false" onAction="#removeZ" text="Z -" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
                     <Label text="Height" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
                     <Label text="Width" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
                     <Button mnemonicParsing="false" onAction="#removeHeight" text="-" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="4" />

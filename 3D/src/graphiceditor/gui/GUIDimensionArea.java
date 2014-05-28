@@ -87,17 +87,6 @@ public class GUIDimensionArea extends Stage {
 	}
 
 	public void add(Object3D shape) {
-//		final Rotation rotateX = new Rotation(xAxis);
-
-		// final Rotation rotateY = new Rotation(yAxis, new AngleProperty(
-		// rootAngleY), pivotX, pivotY);
-		//
-		// final Rotation rotateZ = new Rotation(zAxis, new AngleProperty(
-		// rootAngleZ), pivotX, pivotY);
-		// , rotateY, rotateZ
-		// addTransforms(rotateX);
-//		shape.getTransforms().add(rotateX);
-		
 		if(!getAllGraphicObjects().contains(shape))
 		mainPane.getChildren().add(shape.asNode());
 	}

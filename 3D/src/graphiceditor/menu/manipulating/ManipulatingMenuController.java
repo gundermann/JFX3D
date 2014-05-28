@@ -16,6 +16,12 @@ public class ManipulatingMenuController{
 	@FXML
 	public TextField zPosition;
 	@FXML
+	public TextField xRotation;
+	@FXML
+	public TextField yRotation;
+	@FXML
+	public TextField zRotation;
+	@FXML
 	public TextField editHeight;
 	@FXML
 	public TextField editWidth;
@@ -91,12 +97,45 @@ public class ManipulatingMenuController{
 	public void addZ() {
 		painting.moveZ(1);
 	}
+	
+	@FXML
+	public void removeXRotation() {
+		painting.rotateX(-1);
+	}
+
+	@FXML
+	public void removeYRotation() {
+		painting.rotateY(-1);
+	}
+
+	@FXML
+	public void removeZRotation() {
+		painting.rotateZ(-1);
+	}
+
+	@FXML
+	public void addXRotation() {
+		painting.rotateX(1);
+	}
+
+	@FXML
+	public void addYRotation() {
+		painting.rotateY(1);
+	}
+
+	@FXML
+	public void addZRotation() {
+		painting.rotateZ(1);
+	}
 
 	public void setActualPainting(Object3D painting) {
 		this.painting = painting;
 		xPosition.textProperty().bindBidirectional(painting.getXPositionProperty(), new NumberToStringConverter());
 		yPosition.textProperty().bindBidirectional(painting.getYPositionProperty(), new NumberToStringConverter());
 		zPosition.textProperty().bindBidirectional(painting.getZPositionProperty(), new NumberToStringConverter());
+		xRotation.textProperty().bindBidirectional(painting.getXRotationProperty(), new NumberToStringConverter());
+		yRotation.textProperty().bindBidirectional(painting.getYRotationProperty(), new NumberToStringConverter());
+		zRotation.textProperty().bindBidirectional(painting.getZRotationProperty(), new NumberToStringConverter());
 		editHeight.textProperty().bindBidirectional(painting.getHeightProperty(), new NumberToStringConverter());
 		editWidth.textProperty().bindBidirectional(painting.getWidthProperty(), new NumberToStringConverter());
 	}

@@ -9,17 +9,14 @@ import java.util.List;
 
 public class RotationBundle {
 
-//	private final AxisBundle axisBundle;
 	private List<Rotation> rotationList;
 
 	public RotationBundle() {
-//		this.axisBundle = new AxisBundle();
 		rotationList = new ArrayList<Rotation>();
 	}
 
 	public void addRotationOfAxis(Axis... axis) {
 		for (Axis newAxis : axis) {
-//			axisBundle.addAxis(newAxis);
 			Rotation newRotation = new Rotation(newAxis);
 			rotationList.add(newRotation);
 		}

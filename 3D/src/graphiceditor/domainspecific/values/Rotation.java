@@ -13,6 +13,7 @@ public class Rotation extends Rotate {
 		pivotYProperty().set(rotationAxis.getPivotY());
 		pivotZProperty().set(rotationAxis.getPivotZ());
 		angleProperty().set(rotationAxis.getActualAngle());
+		enable();
 	}
 	
 	public void enable(){

@@ -2,8 +2,6 @@ package graphiceditor.shapes;
 
 import graphiceditor.domainspecific.values.Rotation;
 import javafx.beans.property.DoubleProperty;
-import javafx.beans.property.Property;
-import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
 import javafx.scene.transform.Transform;
@@ -44,5 +42,17 @@ public interface Object3D {
 	void setupX(double x);
 
 	void setupY(double y);
+
+	void rotateX(int i);
+	
+	void rotateY(int i);
+	
+	void rotateZ(int i);
+
+	DoubleProperty getXRotationProperty();
+	
+	DoubleProperty getYRotationProperty();
+	
+	DoubleProperty getZRotationProperty();
 
 }

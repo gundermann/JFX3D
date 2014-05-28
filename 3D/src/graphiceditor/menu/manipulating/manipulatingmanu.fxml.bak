@@ -10,11 +10,33 @@
   <children>
     <Accordion AnchorPane.bottomAnchor="-0.5" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.5">
       <expandedPane>
-        <TitledPane fx:id="x3" animated="false" text="Components">
+        <TitledPane fx:id="x2" animated="false" text="Rotation">
           <content>
             <AnchorPane id="Content">
               <children>
-                <ListView fx:id="lvComponents" onMouseClicked="#componentSelected" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                <GridPane AnchorPane.leftAnchor="0.0">
+                  <children>
+                    <Button id="removeRotation" mnemonicParsing="false" onAction="#removeXRotation" text="X -" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                    <Button id="removeYRotation" mnemonicParsing="false" onAction="#removeYRotation" text="Y -" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                    <Button id="removeZRotation" mnemonicParsing="false" onAction="removeZRotation" text="Z -" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                    <Button mnemonicParsing="false" text="X +" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                    <Button mnemonicParsing="false" text="Y +" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                    <Button mnemonicParsing="false" text="Z +" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                    <TextField fx:id="xRotation" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                    <TextField fx:id="yRotation" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                    <TextField fx:id="zRotation" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  </children>
+                  <columnConstraints>
+                    <ColumnConstraints hgrow="SOMETIMES" />
+                    <ColumnConstraints hgrow="SOMETIMES" />
+                    <ColumnConstraints hgrow="SOMETIMES" />
+                  </columnConstraints>
+                  <rowConstraints>
+                    <RowConstraints vgrow="SOMETIMES" />
+                    <RowConstraints vgrow="SOMETIMES" />
+                    <RowConstraints vgrow="SOMETIMES" />
+                  </rowConstraints>
+                </GridPane>
               </children>
             </AnchorPane>
           </content>
@@ -27,15 +49,15 @@
               <children>
                 <GridPane AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                   <children>
-                    <Label fx:id="xPosition" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
-                    <Label fx:id="yPosition" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-                    <Label fx:id="zPosition" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                    <TextField fx:id="xPosition" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
+                    <TextField fx:id="yPosition" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                    <TextField fx:id="zPosition" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
                     <Button mnemonicParsing="false" onAction="#removeX" text="X -" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
                     <Button mnemonicParsing="false" onAction="#addX" text="X +" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
                     <Button mnemonicParsing="false" onAction="#removeY" text="Y -" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
                     <Button mnemonicParsing="false" onAction="#addY" text="Y +" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
                     <Button mnemonicParsing="false" onAction="#addZ" text="Z +" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-                    <Button mnemonicParsing="false" text="Z -" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                    <Button mnemonicParsing="false" onAction="#removeZ" text="Z -" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
                     <Label text="Height" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
                     <Label text="Width" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
                     <Button mnemonicParsing="false" onAction="#removeHeight" text="-" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
@@ -46,9 +68,9 @@
                     <TextField fx:id="editWidth" maxWidth="100.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
                   </children>
                   <columnConstraints>
-                    <ColumnConstraints hgrow="SOMETIMES" />
-                    <ColumnConstraints hgrow="SOMETIMES" />
-                    <ColumnConstraints hgrow="SOMETIMES" />
+                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" />
+                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" />
+                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" />
                   </columnConstraints>
                   <rowConstraints>
                     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -64,12 +86,16 @@
             </AnchorPane>
           </content>
         </TitledPane>
-        <TitledPane fx:id="x2" animated="false" text="Rotation">
+        <fx:reference source="x2" />
+        <TitledPane fx:id="x3" animated="false" text="Components">
           <content>
-            <AnchorPane id="Content" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            <AnchorPane id="Content">
+              <children>
+                <ListView fx:id="lvComponents" onMouseClicked="#componentSelected" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+              </children>
+            </AnchorPane>
           </content>
         </TitledPane>
-        <fx:reference source="x3" />
       </panes>
     </Accordion>
   </children>

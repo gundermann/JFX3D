@@ -1,12 +1,13 @@
 package graphiceditor.handler;
 
 import graphiceditor.gui.PaintingArea;
+import graphiceditor.shapes.impl.Rectangle3D;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.shape.Rectangle;
 
 public class RectanlgePaintingHandler implements PaintingHandler {
 
-  private Rectangle rect;
+  private Rectangle3D rect;
 
   private double beginningX;
 
@@ -15,24 +16,24 @@ public class RectanlgePaintingHandler implements PaintingHandler {
   @Override
   public void handle( MouseEvent event ) {
     if ( event.getY() > beginningY )
-      rect.setHeight( event.getY() - rect.layoutYProperty().get() );
+      rect.changeHeightTo( event.getY() - rect.getYPositionProperty().get() );
     else {
-      rect.setHeight( beginningY - event.getY() );
-      rect.layoutYProperty().set( event.getY() );
+      rect.changeHeightTo( beginningY - event.getY() );
+      rect.getYPositionProperty().set( event.getY() );
     }
 
     if ( event.getX() > beginningX )
-      rect.setWidth( event.getX() - rect.layoutXProperty().get() );
+      rect.changeWidthTo( event.getX() - rect.getXPositionProperty().get() );
     else {
-      rect.setWidth( beginningX - event.getX() );
-      rect.layoutXProperty().set( event.getX() );
+      rect.changeWidthTo( beginningX - event.getX() );
+      rect.getXPositionProperty().set( event.getX() );
     }
   }
 
   @Override
   public void setPaintingArea( PaintingArea paintingArea ) {
-    this.rect = (Rectangle) paintingArea.getActualPainting().asNode();
-    beginningX = rect.layoutXProperty().get();
-    beginningY = rect.layoutYProperty().get();
+    this.rect = (Rectangle3D) paintingArea.getActualPainting();
+    beginningX = rect.getXPositionProperty().get();
+    beginningY = rect.getYPositionProperty().get();
   }
 }

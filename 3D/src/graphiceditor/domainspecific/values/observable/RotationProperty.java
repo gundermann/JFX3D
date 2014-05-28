@@ -11,12 +11,15 @@ public class RotationProperty extends SimpleDoubleProperty {
 
 	@Override
 	public void setValue(Number value) {
-		super.setValue(convertAngle(value.doubleValue()));
+		super.setValue(convertAngle(value == null ? null : value.doubleValue()));
 	}
 
-	private double convertAngle(double value) {
+	private double convertAngle(Double value) {
 		double convertedValue = 0.0;
-
+		if(value == null){
+			return convertedValue;
+		}
+		
 		if (-180 < value && value <= 180.0) {
 			convertedValue = value;
 		} else {

@@ -10,37 +10,47 @@ import javafx.scene.shape.Rectangle;
 
 public class Rectangle3D extends AbstractObject3D {
 
-	 public void setupX(double x) {
-		 ((Rectangle) node).setX(0);
-		 ((Rectangle) node).layoutXProperty().set(x);
-	 }
-	
-	 public void setupY(double y) {
-		 ((Rectangle) node).setY(0);
-		 ((Rectangle) node).layoutYProperty().set(y);
-	 }
-	
+	public void setupX(double x) {
+		((Rectangle) node).setX(0);
+		((Rectangle) node).layoutXProperty().set(x);
+		refreshTransforms();
+	}
+
+	public void setupY(double y) {
+		((Rectangle) node).setY(0);
+		((Rectangle) node).layoutYProperty().set(y);
+		refreshTransforms();
+	}
+
 	@Override
 	public void changeWidth(int i) {
-		((Rectangle) node).setWidth(((Rectangle) node).getWidth() + i);
-		setupRotation();
+		changeWidthTo(((Rectangle) node).getWidth() + i);
+	}
+
+	public void changeWidthTo(double newWidth) {
+		((Rectangle) node).widthProperty().set(newWidth);
+		refreshTransforms();
+	}
+
+	public void changeHeightTo(double newHeight) {
+		((Rectangle) node).heightProperty().set(newHeight);
+		refreshTransforms();
 	}
 
 	@Override
 	public void changeHeight(int i) {
-		((Rectangle) node).setHeight(((Rectangle) node).getHeight() + i);
-		setupRotation();
+		changeHeightTo(((Rectangle) node).getHeight() + i);
 	}
-	
-	 @Override
-	 public DoubleProperty getHeightProperty() {
-	 return ((Rectangle) node).heightProperty();
-	 }
-	
-	 @Override
-	 public DoubleProperty getWidthProperty() {
-	 return ((Rectangle) node).widthProperty();
-	 }
+
+	@Override
+	public DoubleProperty getHeightProperty() {
+		return ((Rectangle) node).heightProperty();
+	}
+
+	@Override
+	public DoubleProperty getWidthProperty() {
+		return ((Rectangle) node).widthProperty();
+	}
 
 	@Override
 	protected Class<? extends Node> getNodeClass() {
@@ -48,18 +58,30 @@ public class Rectangle3D extends AbstractObject3D {
 	}
 
 	@Override
-	public void setupRotation() {
-		Point3D pivot = Point3DBuilder
+	protected Point3D getPivot() {
+		return Point3DBuilder
 				.create()
-				.x((getXPositionProperty().get() + getWidthProperty().get()) / 2)
-				.y((getYPositionProperty().get() + getHeightProperty()
-						.get()) / 2).build();
-		rotationBundle.addRotationOfAxis(new Axis(pivot, Axis.X,
+				.x(getXPositionProperty().get()
+						+ (getWidthProperty().get() / 2))
+				.y(getYPositionProperty().get()
+						+ (getHeightProperty().get() / 2)).build();
+	}
+
+	@Override
+	public String toString() {
+		return "Rectangle";
+	}
+
+	@Override
+	protected void refreshTransforms() {
+		rotationBundle.clear();
+		rotationBundle.addRotationOfAxis(new Axis(getPivot(), Axis.X,
 				new AngleProperty(xRotationProperty)));
-		rotationBundle.addRotationOfAxis(new Axis(pivot, Axis.Y,
+		rotationBundle.addRotationOfAxis(new Axis(getPivot(), Axis.Y,
 				new AngleProperty(yRotationProperty)));
-		rotationBundle.addRotationOfAxis(new Axis(pivot, Axis.Z,
-				new AngleProperty(zRotationProperty)));		
+		rotationBundle.addRotationOfAxis(new Axis(getPivot(), Axis.Z,
+				new AngleProperty(zRotationProperty)));
+		super.refreshTransforms();
 	}
 
 }

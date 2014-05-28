@@ -117,4 +117,9 @@ public class DimensionAreaController implements DimensionArea {
 	public void showAxis() {
 		getUI().showAxis();
 	}
+	
+	@Override
+	public String toString() {
+		return "Dimesion Area";
+	}
 }

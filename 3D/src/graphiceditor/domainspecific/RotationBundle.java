@@ -35,4 +35,9 @@ public class RotationBundle {
 	public PaintableAxis getAxis(int axisIndex) {
 		return (PaintableAxis) rotationList.get(axisIndex).getRotationAxis();
 	}
+
+	public void clear() {
+		rotationList.clear();
+	}
+
 }

@@ -130,4 +130,5 @@ public class GUIDimensionArea extends Stage {
 		mainPane.getChildren().add(rotationBundle.getAxis(1).getAxisShape());
 		mainPane.getChildren().add(rotationBundle.getAxis(2).getAxisShape());
 	}
+
 }

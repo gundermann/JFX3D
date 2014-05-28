@@ -1,6 +1,5 @@
 package graphiceditor.shapes;
 
-import graphiceditor.domainspecific.values.Rotation;
 import javafx.beans.property.DoubleProperty;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
@@ -11,13 +10,6 @@ public interface Object3D {
 	ObservableList<Transform> getTransforms();
 
 	Node asNode();
-	
-	void addTransforms(Rotation rootRotateX, Rotation rootRotateY,
-			Rotation rootRotateZ);
-
-	void enableRotation();
-	
-	void disableRotation();
 
 	void moveX(int i);
 

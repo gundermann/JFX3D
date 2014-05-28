@@ -1,11 +1,11 @@
 package graphiceditor.shapes.impl;
 
 import graphiceditor.domainspecific.RotationBundle;
-import graphiceditor.domainspecific.values.Rotation;
 import graphiceditor.domainspecific.values.observable.RotationProperty;
 import graphiceditor.shapes.Object3D;
 import javafx.beans.property.DoubleProperty;
 import javafx.collections.ObservableList;
+import javafx.geometry.Point3D;
 import javafx.scene.Node;
 import javafx.scene.transform.Transform;
 
@@ -23,37 +23,25 @@ public abstract class AbstractObject3D implements Object3D {
 	public AbstractObject3D() {
 		try {
 			node = getNodeClass().newInstance();
-			setupRotation();
-			addTransforms(rotationBundle.getRotation(X),
-					rotationBundle.getRotation(Y), rotationBundle.getRotation(Z));
+			refreshTransforms();
 		} catch (InstantiationException | IllegalAccessException e) {
 			e.printStackTrace();
 		}
 	}
 
-	abstract public void setupRotation();
-
+	protected void refreshTransforms(){
+		getTransforms().clear();
+		getTransforms().addAll(rotationBundle.getRotation(X),
+				rotationBundle.getRotation(Y),
+				rotationBundle.getRotation(Z));
+		logPivot();
+	}
+	
 	abstract protected Class<? extends Node> getNodeClass();
 
 	@Override
 	public Node asNode() {
 		return node;
-	}
-
-	@Override
-	public void addTransforms(Rotation rotateX, Rotation rotateY,
-			Rotation rotateZ) {
-		getTransforms().addAll(rotateX, rotateY, rotateZ);
-	}
-
-	@Override
-	public void enableRotation() {
-
-	}
-
-	@Override
-	public void disableRotation() {
-
 	}
 
 	@Override
@@ -74,8 +62,14 @@ public abstract class AbstractObject3D implements Object3D {
 	@Override
 	public void rotateX(int i) {
 		xRotationProperty.set(xRotationProperty.getValue() + i);
-
 	}
+
+	private void logPivot() {
+		System.out.println(getPivot().getX() + "|" + getPivot().getY() + "|"
+				+ getPivot().getZ());
+	}
+
+	abstract protected Point3D getPivot();
 
 	@Override
 	public void rotateY(int i) {

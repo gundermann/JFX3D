@@ -1,48 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?language javascript?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.paint.*?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns:fx="http://javafx.com/fxml">
+<AnchorPane id="AnchorPane" prefHeight="300.0" xmlns:fx="http://javafx.com/fxml">
   <children>
     <Accordion AnchorPane.bottomAnchor="-0.5" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.5">
       <expandedPane>
-        <TitledPane fx:id="x2" animated="false" text="Rotation">
-          <content>
-            <AnchorPane id="Content">
-              <children>
-                <GridPane AnchorPane.leftAnchor="0.0">
-                  <children>
-                    <Button id="removeRotation" mnemonicParsing="false" onAction="#removeXRotation" text="X -" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-                    <Button id="removeYRotation" mnemonicParsing="false" onAction="#removeYRotation" text="Y -" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-                    <Button id="removeZRotation" mnemonicParsing="false" onAction="removeZRotation" text="Z -" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-                    <Button mnemonicParsing="false" text="X +" GridPane.columnIndex="2" GridPane.rowIndex="0" />
-                    <Button mnemonicParsing="false" text="Y +" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                    <Button mnemonicParsing="false" text="Z +" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                    <TextField fx:id="xRotation" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-                    <TextField fx:id="yRotation" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                    <TextField fx:id="zRotation" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  </children>
-                  <columnConstraints>
-                    <ColumnConstraints hgrow="SOMETIMES" />
-                    <ColumnConstraints hgrow="SOMETIMES" />
-                    <ColumnConstraints hgrow="SOMETIMES" />
-                  </columnConstraints>
-                  <rowConstraints>
-                    <RowConstraints vgrow="SOMETIMES" />
-                    <RowConstraints vgrow="SOMETIMES" />
-                    <RowConstraints vgrow="SOMETIMES" />
-                  </rowConstraints>
-                </GridPane>
-              </children>
-            </AnchorPane>
-          </content>
-        </TitledPane>
-      </expandedPane>
-      <panes>
         <TitledPane fx:id="x1" animated="false" text="Moving">
           <content>
             <AnchorPane id="Content">
@@ -86,7 +54,40 @@
             </AnchorPane>
           </content>
         </TitledPane>
-        <fx:reference source="x2" />
+      </expandedPane>
+      <panes>
+        <fx:reference source="x1" />
+        <TitledPane fx:id="x2" animated="false" text="Rotation">
+          <content>
+            <AnchorPane id="Content">
+              <children>
+                <GridPane AnchorPane.leftAnchor="0.0">
+                  <children>
+                    <Button id="removeRotation" mnemonicParsing="false" onAction="#removeXRotation" text="X -" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                    <Button id="removeYRotation" mnemonicParsing="false" onAction="#removeYRotation" text="Y -" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                    <Button id="removeZRotation" mnemonicParsing="false" onAction="#removeZRotation" text="Z -" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                    <Button mnemonicParsing="false" onAction="#addXRotation" text="X +" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                    <Button mnemonicParsing="false" onAction="#addYRotation" text="Y +" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                    <Button mnemonicParsing="false" onAction="#addZRotation" text="Z +" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                    <TextField fx:id="xRotation" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                    <TextField fx:id="yRotation" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                    <TextField fx:id="zRotation" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  </children>
+                  <columnConstraints>
+                    <ColumnConstraints hgrow="SOMETIMES" />
+                    <ColumnConstraints hgrow="SOMETIMES" />
+                    <ColumnConstraints hgrow="SOMETIMES" />
+                  </columnConstraints>
+                  <rowConstraints>
+                    <RowConstraints vgrow="SOMETIMES" />
+                    <RowConstraints vgrow="SOMETIMES" />
+                    <RowConstraints vgrow="SOMETIMES" />
+                  </rowConstraints>
+                </GridPane>
+              </children>
+            </AnchorPane>
+          </content>
+        </TitledPane>
         <TitledPane fx:id="x3" animated="false" text="Components">
           <content>
             <AnchorPane id="Content">

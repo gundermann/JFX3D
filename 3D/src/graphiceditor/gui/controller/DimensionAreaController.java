@@ -118,8 +118,4 @@ public class DimensionAreaController implements DimensionArea {
 		getUI().showAxis();
 	}
 	
-	@Override
-	public String toString() {
-		return "Dimesion Area";
-	}
 }

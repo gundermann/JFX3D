@@ -6,11 +6,14 @@ import graphiceditor.menu.dimension.GUIDimensionMenu;
 import graphiceditor.menu.manipulating.GUIManipulatingMenu;
 import graphiceditor.menu.painting.GUIPaintingMenu;
 import graphiceditor.sample.Cube;
+import graphicloader.Graphic3DLoader;
 
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+
+import org.mockito.internal.util.collections.Sets;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -63,6 +66,12 @@ public class MainController implements Initializable {
   @FXML
   public void loadSample() {
     getSelectedPaintingArea().add( new Cube() );
+  }
+  
+  @FXML
+  public void load(){
+	  initNewObject();
+	  getSelectedPaintingArea().addAll(Graphic3DLoader.getShapesFromLoader());
   }
 
   @FXML

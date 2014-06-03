@@ -100,4 +100,11 @@ public class PaintingAreaController extends DimensionAreaController implements
 		return graphicObjectStrings;
 	}
 
+	@Override
+	public void addAll(List<Object3D> objects) {
+		for(Object3D object3D : objects){
+			add(object3D);
+		}
+	}
+
 }

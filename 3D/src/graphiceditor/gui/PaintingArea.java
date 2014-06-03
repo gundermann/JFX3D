@@ -25,6 +25,8 @@ public interface PaintingArea extends DimensionArea {
 
   List<String> getAllGraphicObjects();
 
+	void addAll(List<Object3D> shapesFromLoader);
+
 	
 
 }

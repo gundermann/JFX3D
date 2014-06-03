@@ -3,7 +3,6 @@ package graphiceditor.handler;
 import graphiceditor.gui.PaintingArea;
 import graphiceditor.shapes.impl.Rectangle3D;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.shape.Rectangle;
 
 public class RectanlgePaintingHandler implements PaintingHandler {
 

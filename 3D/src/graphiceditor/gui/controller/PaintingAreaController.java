@@ -6,7 +6,6 @@ import graphiceditor.gui.GUIDimensionArea;
 import graphiceditor.gui.GUIPaintingArea;
 import graphiceditor.gui.PaintingArea;
 import graphiceditor.menu.manipulating.GUIManipulatingMenu;
-import graphiceditor.menu.painting.GUIPaintingMenu;
 import graphiceditor.shapes.Object3D;
 
 import java.util.ArrayList;

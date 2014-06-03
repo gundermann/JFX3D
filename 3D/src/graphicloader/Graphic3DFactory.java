@@ -1,37 +1,21 @@
-/*   $HeadURL$
- * ----------------------------------------------------------------------------
- *     (c) by data experts gmbh
- *            Postfach 1130
- *            Woldegker Str. 12
- *            17001 Neubrandenburg
- * ----------------------------------------------------------------------------
- *     Dieses Dokument und die hierin enthaltenen Informationen unterliegen
- *     dem Urheberrecht und duerfen ohne die schriftliche Genehmigung des
- *     Herausgebers weder als ganzes noch in Teilen dupliziert, reproduziert
- *     oder manipuliert werden.
- * ----------------------------------------------------------------------------
- *     $Id$
- * ----------------------------------------------------------------------------
- */
 package graphicloader;
 
-import java.io.File;
+import graphiceditor.shapes.Object3D;
+import graphicloader.prefs.ShapePreference;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import javafx.scene.Node;
-import javafx.scene.shape.Rectangle;
-
-// ---- Importe ---------------------------------------------------------------
 public class Graphic3DFactory {
 
-  public static List<Node> convertPreferenceTo3DGraphic( File file ) {
-    List<Node> pixelNodes = new ArrayList<Node>();
-    for ( PixelPreference pixelPreference : getPixelPreferencesFromFile( file ) ) {
-      Rectangle point = pixelPreference.createPoint();
-      pixelNodes.add( point );
-    }
+	public static List<Object3D> convertPreferencesTo3DGraphics(List<ShapePreference> prefs) {
+		List<Object3D> graphicObjects = new ArrayList<Object3D>();
+		for (ShapePreference preference : prefs) {
+			Object3D point = preference.createShape();
+			graphicObjects.add(point);
+		}
 
-    return pixelNodes;
-  }
+		return graphicObjects;
+	}
+
 }

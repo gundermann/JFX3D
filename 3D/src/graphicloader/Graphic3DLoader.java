@@ -1,5 +1,8 @@
 package graphicloader;
 
+import graphicloader.prefs.RectPreference;
+import graphicloader.prefs.ShapePreference;
+
 import java.awt.Color;
 import java.io.File;
 import java.io.IOException;
@@ -26,8 +29,18 @@ public class Graphic3DLoader {
 
   private static final String COLOR = "color";
 
-  public static List<PixelPreference> loadPixelPreferencesFromFile( File file ) {
-    List<PixelPreference> pixelPreferenceList = new ArrayList<PixelPreference>();
+private static final String WIDTH = "width";
+
+private static final String HEIGHT = "height";
+
+private static final String XR = "xr";
+
+private static final String YR = "yr";
+
+private static final String ZR = "zr";
+
+  public static List<ShapePreference> loadPreferencesFromFile( File file ) {
+    List<ShapePreference> pixelPreferenceList = new ArrayList<ShapePreference>();
     DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
     try {
       DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
@@ -48,14 +61,19 @@ public class Graphic3DLoader {
     return pixelPreferenceList;
   }
 
-  private static PixelPreference convertToPreference( Node item ) {
-    PixelPreference pixelPreference = new PixelPreference();
+  private static ShapePreference convertToPreference( Node item ) {
+	  RectPreference pixelPreference = new RectPreference();
     if ( item.getNodeType() == Node.ELEMENT_NODE ) {
 
       Element element = (Element) item;
-      pixelPreference.setX( Double.parseDouble( element.getAttribute( X ) ) );
-      pixelPreference.setY( Double.parseDouble( element.getAttribute( Y ) ) );
-      pixelPreference.setZ( Double.parseDouble( element.getAttribute( Z ) ) );
+      pixelPreference.setBeginningX( Double.parseDouble( element.getAttribute( X ) ) );
+      pixelPreference.setBeginningY( Double.parseDouble( element.getAttribute( Y ) ) );
+      pixelPreference.setBeginningZ( Double.parseDouble( element.getAttribute( Z ) ) );
+      pixelPreference.setWidth(Double.parseDouble( element.getAttribute( WIDTH ) ));
+      pixelPreference.setHeight(Double.parseDouble( element.getAttribute( HEIGHT ) ));
+      pixelPreference.setRotationX(Integer.parseInt( element.getAttribute( XR ) ));
+      pixelPreference.setRotationY(Integer.parseInt( element.getAttribute( YR ) ));
+      pixelPreference.setRotationZ(Integer.parseInt( element.getAttribute( ZR ) ));
       Color rgb = hex2Rgb( element.getAttribute( COLOR ) );
       pixelPreference.setRed( rgb.getRed() );
       pixelPreference.setGreen( rgb.getGreen() );

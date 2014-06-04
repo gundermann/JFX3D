@@ -6,8 +6,10 @@ import graphiceditor.menu.dimension.GUIDimensionMenu;
 import graphiceditor.menu.manipulating.GUIManipulatingMenu;
 import graphiceditor.menu.painting.GUIPaintingMenu;
 import graphiceditor.sample.Cube;
+import graphiceditor.shapes.Object3D;
 import graphicloader.Graphic3DLoader;
 
+import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -77,8 +79,10 @@ public class MainController implements Initializable {
 
 	@FXML
 	public void load() {
-		initNewObject();
-		getSelectedPaintingArea().addAll(Graphic3DLoader.getShapesFromLoader());
+		File file = Graphic3DLoader.getFile();
+		PaintingAreaFactory.getInstance().load(this, file.getName());
+		List<Object3D> shapesFromLoader = Graphic3DLoader.getShapesFromLoader(file);
+		getSelectedPaintingArea().addAll(shapesFromLoader);
 	}
 
 	@FXML

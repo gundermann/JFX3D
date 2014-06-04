@@ -21,7 +21,7 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class GUIDimensionArea extends Stage {
-	
+
 	private final RotationBundle rotationBundle;
 
 	private final RotationProperty rootAngleX = new RotationProperty();
@@ -47,12 +47,16 @@ public class GUIDimensionArea extends Stage {
 				.y(this.getHeight() / 2).z(0).build();
 
 		rotationBundle = new RotationBundle();
-		PaintableAxis xAxis = new PaintableAxis(pivot, Axis.X, new AngleProperty(rootAngleX));
-		PaintableAxis yAxis = new PaintableAxis(pivot, Axis.Y, new AngleProperty(rootAngleY));
-		PaintableAxis zAxis = new PaintableAxis(pivot, Axis.Z, new AngleProperty(rootAngleZ));
+		PaintableAxis xAxis = new PaintableAxis(pivot, Axis.X,
+				new AngleProperty(rootAngleX));
+		PaintableAxis yAxis = new PaintableAxis(pivot, Axis.Y,
+				new AngleProperty(rootAngleY));
+		PaintableAxis zAxis = new PaintableAxis(pivot, Axis.Z,
+				new AngleProperty(rootAngleZ));
 		rotationBundle.addRotationOfAxis(xAxis, yAxis, zAxis);
 
-		mainPane.getTransforms().addAll(rotationBundle.getRotation(0), rotationBundle.getRotation(1), rotationBundle.getRotation(2));
+		mainPane.getTransforms().addAll(rotationBundle.getRotation(0),
+				rotationBundle.getRotation(1), rotationBundle.getRotation(2));
 		centerOnScreen();
 	}
 
@@ -63,7 +67,6 @@ public class GUIDimensionArea extends Stage {
 	private void setProperties() {
 		mainPane.prefWidthProperty().bind(getScene().widthProperty());
 		mainPane.prefHeightProperty().bind(getScene().heightProperty());
-
 	}
 
 	public AnchorPane createRoot() {
@@ -87,8 +90,11 @@ public class GUIDimensionArea extends Stage {
 	}
 
 	public void add(Object3D shape) {
-		if(!getAllGraphicObjects().contains(shape))
-		mainPane.getChildren().add(shape.asNode());
+		if (!getAllGraphicObjects().contains(shape)) {
+			mainPane.getChildren().add(shape.asNode());
+			allGraphicObjects.add(shape);
+		}
+
 	}
 
 	public DoubleProperty getZRotationProperty() {

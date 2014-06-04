@@ -24,6 +24,11 @@ public class PaintingAreaFactory {
 		return true;
 	}
 
+	public void load(MainController mainController, String name){
+		paintingAreaContainer = mainController;
+		createPaintingArea(name);
+	}
+	
 	public void initCreation(MainController mainController) {
 		paintingAreaContainer = mainController;
 		new TextFieldDialog(this);

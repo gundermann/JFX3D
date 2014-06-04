@@ -45,7 +45,7 @@ public class PaintingAreaController extends DimensionAreaController implements
 	@Override
 	public void finishPainting() {
 		paintingMode = Painting.None;
-		getUI().saveActualPaintingIntoGraphicObjects();
+		getUI().resetActualPainting();
 		getUI().removeEventHandler(MouseEvent.MOUSE_MOVED, mouseMoveHandler);
 		getUI().removeEventHandler(MouseEvent.MOUSE_CLICKED, mouseClickHandler);
 		GUIManipulatingMenu.getInstance().updateComponents();

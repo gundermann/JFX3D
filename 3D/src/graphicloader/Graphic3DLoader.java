@@ -101,11 +101,13 @@ public class Graphic3DLoader {
 						colorStr.substring(5, 7), 16));
 	}
 
-	public static List<Object3D> getShapesFromLoader() {
-		FileChooser filechooser = new FileChooser();
-		File file = filechooser.showOpenDialog(new Stage());
-		return Graphic3DFactory
-				.convertPreferencesTo3DGraphics(loadPreferencesFromFile(file));
+	public static List<Object3D> getShapesFromLoader(File file) {
+		List<ShapePreference> preferences = loadPreferencesFromFile(file);
+		return Graphic3DFactory.convertPreferencesTo3DGraphics(preferences);
+	}
 
+	public static File getFile() {
+		FileChooser filechooser = new FileChooser();
+		return filechooser.showOpenDialog(new Stage());
 	}
 }

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+
+<AnchorPane id="AnchorPane" xmlns:fx="http://javafx.com/fxml">
+  <children>
+    <GridPane AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+      <children>
+        <Label text="Bitte geben Sie eine Dateinamen ein." GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="0" GridPane.rowSpan="1" />
+        <TextField GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="1" />
+        <Button mnemonicParsing="false" onAction="#cancel" text="Cancel" GridPane.columnIndex="1" GridPane.rowIndex="2">
+          <GridPane.margin>
+            <Insets fx:id="x1" />
+          </GridPane.margin>
+        </Button>
+        <Button mnemonicParsing="false" onAction="#ok" text="Ok" GridPane.columnIndex="0" GridPane.margin="$x1" GridPane.rowIndex="2" />
+      </children>
+      <columnConstraints>
+        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" percentWidth="50.0" />
+        <ColumnConstraints halignment="CENTER" hgrow="NEVER" percentWidth="50.0" />
+      </columnConstraints>
+      <rowConstraints>
+        <RowConstraints vgrow="SOMETIMES" />
+        <RowConstraints vgrow="SOMETIMES" />
+        <RowConstraints valignment="CENTER" vgrow="ALWAYS" />
+      </rowConstraints>
+    </GridPane>
+  </children>
+</AnchorPane>

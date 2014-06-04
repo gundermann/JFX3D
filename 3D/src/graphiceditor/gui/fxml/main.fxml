@@ -16,7 +16,7 @@
           <items>
             <MenuItem mnemonicParsing="false" onAction="#load" text="Load" />
             <MenuItem mnemonicParsing="false" onAction="#loadSample" text="Load Sample" />
-            <MenuItem mnemonicParsing="false" text="Close" />
+            <MenuItem mnemonicParsing="false" onAction="#close" text="Close" />
           </items>
         </Menu>
         <Menu mnemonicParsing="false" text="Edit">

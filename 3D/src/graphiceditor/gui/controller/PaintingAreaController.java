@@ -18,10 +18,16 @@ public class PaintingAreaController extends DimensionAreaController implements
 		PaintingArea {
 
 	private Painting paintingMode = Painting.None;
+	
+	final private String name;
 
 	private EventHandler<MouseEvent> mouseMoveHandler;
 
 	private EventHandler<MouseEvent> mouseClickHandler;
+
+	public PaintingAreaController(String name) {
+		this.name= name; 
+	}
 
 	public void setMouseMoveHandler(EventHandler<MouseEvent> listener) {
 		getUI().addEventHandler(MouseEvent.MOUSE_MOVED, listener);
@@ -106,5 +112,11 @@ public class PaintingAreaController extends DimensionAreaController implements
 			add(object3D);
 		}
 	}
+	
+	@Override
+	public String toString() {
+		return name;
+	}
+
 
 }

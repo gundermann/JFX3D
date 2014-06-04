@@ -7,26 +7,24 @@ import java.util.List;
 
 public interface PaintingArea extends DimensionArea {
 
-  GUIPaintingArea getUI();
+	GUIPaintingArea getUI();
 
-  void initPainting( Painting painting );
+	void initPainting(Painting painting);
 
-  void startPainting();
+	void startPainting();
 
-  Painting getPaintingMode();
+	Painting getPaintingMode();
 
-  Object3D getActualPainting();
+	Object3D getActualPainting();
 
-  void setActualPainting( Object3D painting );
+	void setActualPainting(Object3D painting);
 
-  void finishPainting();
+	void finishPainting();
 
-  void setActualPaintingById( int selectedIndex );
+	void setActualPaintingById(int selectedIndex);
 
-  List<String> getAllGraphicObjects();
+	List<String> getAllGraphicObjects();
 
 	void addAll(List<Object3D> shapesFromLoader);
-
-	
 
 }

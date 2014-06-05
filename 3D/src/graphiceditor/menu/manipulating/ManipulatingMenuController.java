@@ -7,7 +7,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
-public class ManipulatingMenuController{
+public class ManipulatingMenuController {
 
 	@FXML
 	public TextField xPosition;
@@ -41,13 +41,15 @@ public class ManipulatingMenuController{
 				this.actualPaintingArea.getAllGraphicObjects());
 	}
 
-
 	@FXML
 	public void componentSelected() {
+		if (painting != null){
+			unbindProperties();
+		}
 		actualPaintingArea.setActualPaintingById(lvComponents
 				.getSelectionModel().getSelectedIndex());
 	}
-	
+
 	@FXML
 	public void removeHeight() {
 		painting.changeHeight(-1);
@@ -97,7 +99,7 @@ public class ManipulatingMenuController{
 	public void addZ() {
 		painting.moveZ(1);
 	}
-	
+
 	@FXML
 	public void removeXRotation() {
 		painting.rotateX(-1);
@@ -130,14 +132,46 @@ public class ManipulatingMenuController{
 
 	public void setActualPainting(Object3D painting) {
 		this.painting = painting;
-		xPosition.textProperty().bindBidirectional(painting.getXPositionProperty(), new NumberToStringConverter());
-		yPosition.textProperty().bindBidirectional(painting.getYPositionProperty(), new NumberToStringConverter());
-		zPosition.textProperty().bindBidirectional(painting.getZPositionProperty(), new NumberToStringConverter());
-		xRotation.textProperty().bindBidirectional(painting.getXRotationProperty(), new NumberToStringConverter());
-		yRotation.textProperty().bindBidirectional(painting.getYRotationProperty(), new NumberToStringConverter());
-		zRotation.textProperty().bindBidirectional(painting.getZRotationProperty(), new NumberToStringConverter());
-		editHeight.textProperty().bindBidirectional(painting.getHeightProperty(), new NumberToStringConverter());
-		editWidth.textProperty().bindBidirectional(painting.getWidthProperty(), new NumberToStringConverter());
+		bindProperties();
+	}
+
+	private void bindProperties() {
+		xPosition.textProperty().bindBidirectional(
+				painting.getXPositionProperty(), new NumberToStringConverter());
+		yPosition.textProperty().bindBidirectional(
+				painting.getYPositionProperty(), new NumberToStringConverter());
+		zPosition.textProperty().bindBidirectional(
+				painting.getZPositionProperty(), new NumberToStringConverter());
+		xRotation.textProperty().bindBidirectional(
+				painting.getXRotationProperty(), new NumberToStringConverter());
+		yRotation.textProperty().bindBidirectional(
+				painting.getYRotationProperty(), new NumberToStringConverter());
+		zRotation.textProperty().bindBidirectional(
+				painting.getZRotationProperty(), new NumberToStringConverter());
+		editHeight.textProperty().bindBidirectional(
+				painting.getHeightProperty(), new NumberToStringConverter());
+		editWidth.textProperty().bindBidirectional(painting.getWidthProperty(),
+				new NumberToStringConverter());
+	}
+
+	private void unbindProperties() {
+		xPosition.textProperty().unbindBidirectional(
+				painting.getXPositionProperty());
+		yPosition.textProperty().unbindBidirectional(
+				painting.getYPositionProperty());
+		zPosition.textProperty().unbindBidirectional(
+				painting.getZPositionProperty());
+		xRotation.textProperty().unbindBidirectional(
+				painting.getXRotationProperty());
+		yRotation.textProperty().unbindBidirectional(
+				painting.getYRotationProperty());
+		zRotation.textProperty().unbindBidirectional(
+				painting.getZRotationProperty());
+		editHeight.textProperty().unbindBidirectional(
+				painting.getHeightProperty());
+		editWidth.textProperty().unbindBidirectional(
+				painting.getWidthProperty());
+
 	}
 
 }

@@ -3,9 +3,9 @@ package graphicloader.test;
 import static org.junit.Assert.assertTrue;
 import graphiceditor.shapes.Object3D;
 import graphiceditor.shapes.impl.Rectangle3D;
-import graphicloader.PreferenceFactory;
-import graphicloader.prefs.RectPreference;
-import graphicloader.prefs.ShapePreference;
+import graphicpersister.PreferenceFactory;
+import graphicpersister.prefs.RectPreference;
+import graphicpersister.prefs.ShapePreference;
 
 import org.junit.Before;
 import org.junit.Test;

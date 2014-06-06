@@ -1,9 +1,9 @@
-package graphicloader;
+package graphicpersister;
 
 import graphiceditor.gui.PaintingArea;
 import graphiceditor.shapes.Object3D;
-import graphicloader.prefs.RectPreference;
-import graphicloader.prefs.ShapePreference;
+import graphicpersister.prefs.RectPreference;
+import graphicpersister.prefs.ShapePreference;
 
 import java.io.File;
 import java.io.IOException;

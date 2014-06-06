@@ -7,8 +7,8 @@ import graphiceditor.menu.manipulating.GUIManipulatingMenu;
 import graphiceditor.menu.painting.GUIPaintingMenu;
 import graphiceditor.sample.Cube;
 import graphiceditor.shapes.Object3D;
-import graphicloader.Graphic3DLoader;
-import graphicloader.Graphic3DSaver;
+import graphicpersister.Graphic3DLoader;
+import graphicpersister.Graphic3DSaver;
 
 import java.io.File;
 import java.net.URL;
@@ -46,7 +46,6 @@ public class MainController implements Initializable {
 	}
 
 	public void addArea(PaintingArea paintingArea) {
-
 		paintingAreas.add(paintingArea);
 		// FIXME use binding
 		paintingAreaSelection.getItems().add(paintingArea.toString());

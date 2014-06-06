@@ -1,9 +1,9 @@
-package graphicloader;
+package graphicpersister;
 
 import graphiceditor.shapes.Object3D;
 import graphiceditor.shapes.impl.Rectangle3D;
-import graphicloader.prefs.RectPreference;
-import graphicloader.prefs.ShapePreference;
+import graphicpersister.prefs.RectPreference;
+import graphicpersister.prefs.ShapePreference;
 
 public class PreferenceFactory {
 

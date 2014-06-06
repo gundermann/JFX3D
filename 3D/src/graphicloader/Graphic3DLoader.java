@@ -25,9 +25,16 @@ import org.xml.sax.SAXException;
 
 public class Graphic3DLoader extends AbstractGraphic3DPersister {
 
+	private static Graphic3DLoader _instance;
 	
+	public static Graphic3DLoader getInstace() {
+		if(_instance == null){
+			_instance = new Graphic3DLoader();
+		}
+		return _instance;
+	}
 
-	public static List<ShapePreference> loadPreferencesFromFile(File file) {
+	public List<ShapePreference> loadPreferencesFromFile(File file) {
 		List<ShapePreference> pixelPreferenceList = new ArrayList<ShapePreference>();
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 		try {
@@ -49,7 +56,7 @@ public class Graphic3DLoader extends AbstractGraphic3DPersister {
 		return pixelPreferenceList;
 	}
 
-	private static ShapePreference convertToPreference(Node item) {
+	private ShapePreference convertToPreference(Node item) {
 		RectPreference pixelPreference = new RectPreference();
 		if (item.getNodeType() == Node.ELEMENT_NODE) {
 
@@ -79,18 +86,18 @@ public class Graphic3DLoader extends AbstractGraphic3DPersister {
 		return pixelPreference;
 	}
 
-	public static Color hex2Rgb(String colorStr) {
+	public Color hex2Rgb(String colorStr) {
 		return new Color(Integer.valueOf(colorStr.substring(1, 3), 16),
 				Integer.valueOf(colorStr.substring(3, 5), 16), Integer.valueOf(
 						colorStr.substring(5, 7), 16));
 	}
 
-	public static List<Object3D> getShapesFromLoader(File file) {
+	public List<Object3D> getShapesFromLoader(File file) {
 		List<ShapePreference> preferences = loadPreferencesFromFile(file);
 		return Graphic3DFactory.convertPreferencesTo3DGraphics(preferences);
 	}
 
-	public static File getFile() {
+	public File initLoading() {
 		FileChooser filechooser = new FileChooser();
 		return filechooser.showOpenDialog(new Stage());
 	}

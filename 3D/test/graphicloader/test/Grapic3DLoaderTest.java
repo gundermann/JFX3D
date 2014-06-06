@@ -15,20 +15,22 @@ public class Grapic3DLoaderTest {
 
   private File testFile;
 
+  private Graphic3DLoader loader;
   @Before
   public void setup() {
     testFile = new File( "test/graphicloader/test/test.dxml" );
+    loader = Graphic3DLoader.getInstace();
   }
 
   @Test
   public void testPreferenceCount() {
-    List<ShapePreference> preferencesFromFile = Graphic3DLoader.loadPreferencesFromFile( testFile );
+    List<ShapePreference> preferencesFromFile = loader.loadPreferencesFromFile( testFile );
     assertTrue( "Falsche Anzahl gelesen", preferencesFromFile.size() == 1 );
   }
 
   @Test
   public void testPixelPreferencesFromPixel() {
-    List<ShapePreference> preferencesFromFile = Graphic3DLoader.loadPreferencesFromFile( testFile );
+    List<ShapePreference> preferencesFromFile = loader.loadPreferencesFromFile( testFile );
     RectPreference pixelPreference = (RectPreference) preferencesFromFile.get( 0 );
     assertTrue( "Falsche X-Coordiante", pixelPreference.getBeginningX() == 123 );
     assertTrue( "Falsche Y-Coordiante", pixelPreference.getBeginningY() == 321 );

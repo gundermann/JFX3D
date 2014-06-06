@@ -80,9 +80,9 @@ public class MainController implements Initializable {
 
 	@FXML
 	public void load() {
-		File file = Graphic3DLoader.getFile();
+		File file = Graphic3DLoader.getInstace().initLoading();
 		PaintingAreaFactory.getInstance().load(this, file.getName());
-		List<Object3D> shapesFromLoader = Graphic3DLoader.getShapesFromLoader(file);
+		List<Object3D> shapesFromLoader = Graphic3DLoader.getInstace().getShapesFromLoader(file);
 		getSelectedPaintingArea().addAll(shapesFromLoader);
 	}
 	

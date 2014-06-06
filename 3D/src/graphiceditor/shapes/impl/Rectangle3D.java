@@ -59,12 +59,9 @@ public class Rectangle3D extends AbstractObject3D {
 
 	@Override
 	protected Point3D getPivot() {
-		return Point3DBuilder
-				.create()
-				.x(getXPositionProperty().get()
-						+ (getWidthProperty().get() / 2))
-				.y(getYPositionProperty().get()
-						+ (getHeightProperty().get() / 2)).build();
+		return Point3DBuilder.create().x(getXPositionProperty().get())
+				.y(getYPositionProperty().get())
+				.z(getZPositionProperty().get()).build();
 	}
 
 	@Override

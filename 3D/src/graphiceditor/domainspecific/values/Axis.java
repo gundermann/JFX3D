@@ -48,11 +48,6 @@ public class Axis {
 		return angleProperty.get();
 	}
 
-	//Wenn um eine andere Achse gedreht wird, verändert sich hier die Richtung der Achse
-	//Pivot bleibt immer gleich --> Vorerst refactorn, damit man noch durchsieht.
-	public void updateDirection() {
-	}
-
 	public ObservableValue<? extends Number> getAngleProperty() {
 		return angleProperty;
 	}

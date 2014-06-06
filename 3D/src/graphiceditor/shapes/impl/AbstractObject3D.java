@@ -30,8 +30,7 @@ public abstract class AbstractObject3D implements Object3D {
 	}
 
 	protected void refreshTransforms(){
-		getTransforms().clear();
-		getTransforms().addAll(rotationBundle.getRotation(X),
+		getTransforms().setAll(rotationBundle.getRotation(X),
 				rotationBundle.getRotation(Y),
 				rotationBundle.getRotation(Z));
 		logPivot();

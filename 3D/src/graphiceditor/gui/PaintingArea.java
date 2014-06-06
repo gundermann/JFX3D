@@ -23,7 +23,9 @@ public interface PaintingArea extends DimensionArea {
 
 	void setActualPaintingById(int selectedIndex);
 
-	List<String> getAllGraphicObjects();
+	List<String> getAllGraphicObjectsAsString();
+	
+	List<Object3D> getAllGraphicObjects();
 
 	void addAll(List<Object3D> shapesFromLoader);
 

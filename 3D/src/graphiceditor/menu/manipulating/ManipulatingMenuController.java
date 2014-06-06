@@ -38,7 +38,7 @@ public class ManipulatingMenuController {
 
 	public void updateComponents() {
 		lvComponents.getItems().setAll(
-				this.actualPaintingArea.getAllGraphicObjects());
+				this.actualPaintingArea.getAllGraphicObjectsAsString());
 	}
 
 	@FXML

@@ -23,25 +23,9 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-public class Graphic3DLoader {
+public class Graphic3DLoader extends AbstractGraphic3DPersister {
 
-	private static final String X = "x-coordinate";
-
-	private static final String Y = "y-coordinate";
-
-	private static final String Z = "z-coordinate";
-
-	private static final String COLOR = "color";
-
-	private static final String WIDTH = "width";
-
-	private static final String HEIGHT = "height";
-
-	private static final String XR = "xr";
-
-	private static final String YR = "yr";
-
-	private static final String ZR = "zr";
+	
 
 	public static List<ShapePreference> loadPreferencesFromFile(File file) {
 		List<ShapePreference> pixelPreferenceList = new ArrayList<ShapePreference>();
@@ -86,10 +70,10 @@ public class Graphic3DLoader {
 					.getAttribute(YR)));
 			pixelPreference.setRotationZ(Integer.parseInt(element
 					.getAttribute(ZR)));
-			Color rgb = hex2Rgb(element.getAttribute(COLOR));
-			pixelPreference.setRed(rgb.getRed());
-			pixelPreference.setGreen(rgb.getGreen());
-			pixelPreference.setBlue(rgb.getBlue());
+//			Color rgb = hex2Rgb(element.getAttribute(COLOR));
+//			pixelPreference.setRed(rgb.getRed());
+//			pixelPreference.setGreen(rgb.getGreen());
+//			pixelPreference.setBlue(rgb.getBlue());
 		}
 
 		return pixelPreference;

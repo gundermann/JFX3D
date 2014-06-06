@@ -98,7 +98,7 @@ public class PaintingAreaController extends DimensionAreaController implements
 	}
 
 	@Override
-	public List<String> getAllGraphicObjects() {
+	public List<String> getAllGraphicObjectsAsString() {
 		List<String> graphicObjectStrings = new ArrayList<String>();
 		for (Object3D graphicObject : getUI().getAllGraphicObjects()) {
 			graphicObjectStrings.add(graphicObject.toString());
@@ -116,6 +116,11 @@ public class PaintingAreaController extends DimensionAreaController implements
 	@Override
 	public String toString() {
 		return name;
+	}
+
+	@Override
+	public List<Object3D> getAllGraphicObjects() {
+		return getUI().getAllGraphicObjects();
 	}
 
 

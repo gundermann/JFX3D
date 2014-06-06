@@ -1,5 +1,7 @@
 package graphiceditor.gui;
 
+import java.util.List;
+
 import graphiceditor.shapes.Object3D;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.layout.AnchorPane;
@@ -30,5 +32,5 @@ public interface DimensionArea {
 	void resetDimensions();
 
 	void showAxis();
-
+	
 }

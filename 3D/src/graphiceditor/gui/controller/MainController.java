@@ -8,6 +8,7 @@ import graphiceditor.menu.painting.GUIPaintingMenu;
 import graphiceditor.sample.Cube;
 import graphiceditor.shapes.Object3D;
 import graphicloader.Graphic3DLoader;
+import graphicloader.Graphic3DSaver;
 
 import java.io.File;
 import java.net.URL;
@@ -83,6 +84,11 @@ public class MainController implements Initializable {
 		PaintingAreaFactory.getInstance().load(this, file.getName());
 		List<Object3D> shapesFromLoader = Graphic3DLoader.getShapesFromLoader(file);
 		getSelectedPaintingArea().addAll(shapesFromLoader);
+	}
+	
+	@FXML 
+	public void save(){
+		Graphic3DSaver.getInstance().initSaving(getSelectedPaintingArea());
 	}
 
 	@FXML

@@ -40,4 +40,10 @@ public class RotationBundle {
 		rotationList.clear();
 	}
 
+	public void resetAll() {
+		for(Rotation rotation : rotationList){
+			rotation.setAngle(0);
+		}
+	}
+
 }

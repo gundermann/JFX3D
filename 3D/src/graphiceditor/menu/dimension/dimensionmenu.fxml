@@ -19,9 +19,9 @@
                     <Label text="X-Rotation:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="0" />
                     <Label text="Y-Rotation:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
                     <Label text="Z-Rotation:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
-                    <Label id="xRotation" fx:id="lbXRotation" text="0.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-                    <Label id="lb" fx:id="lbYRotation" text="0.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                    <Label fx:id="lbZRotation" text="0.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                    <Label id="xRotation" fx:id="lbXRotation" minWidth="50.0" text="0.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                    <Label id="lb" fx:id="lbYRotation" minWidth="50.0" text="0.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                    <Label fx:id="lbZRotation" minWidth="50.0" text="0.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                     <Slider GridPane.columnIndex="2" GridPane.rowIndex="1" />
                     <Slider GridPane.columnIndex="2" GridPane.rowIndex="2" />
                     <Slider GridPane.columnIndex="2" GridPane.rowIndex="0" />

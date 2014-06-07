@@ -1,7 +1,6 @@
 package graphiceditor.sample;
 
 import javafx.geometry.Point3D;
-import javafx.scene.Group;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.RectangleBuilder;

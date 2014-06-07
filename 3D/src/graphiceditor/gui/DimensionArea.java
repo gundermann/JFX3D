@@ -1,7 +1,7 @@
 package graphiceditor.gui;
 
 import graphiceditor.shapes.Object3D;
-import javafx.beans.value.ObservableValue;
+import javafx.beans.property.Property;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
@@ -21,14 +21,14 @@ public interface DimensionArea {
 
 	void disableRotation();
 
-	ObservableValue<? extends String> getXRotationTextProperty();
+	Property<Number> getXRotationProperty();
 
-	ObservableValue<? extends String> getYRotationTextProperty();
+	Property<Number> getYRotationProperty();
 
-	ObservableValue<? extends String> getZRotationTextProperty();
+	Property<Number> getZRotationProperty();
 
 	void resetDimensions();
 
 	void showAxis();
-	
+
 }

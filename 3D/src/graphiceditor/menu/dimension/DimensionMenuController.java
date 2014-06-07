@@ -5,8 +5,9 @@ import graphiceditor.menu.MenuDisabler;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.ToggleButton;
+import javafx.util.converter.NumberStringConverter;
 
-public class DimensionMenuController {
+public class DimensionMenuController{
 
 	private DimensionArea dimensionArea;
 
@@ -30,9 +31,9 @@ public class DimensionMenuController {
 
 	public void setDimensionArea(DimensionArea dimensionArea) {
 		this.dimensionArea = dimensionArea;
-		lbXRotation.textProperty().bind(dimensionArea.getXRotationTextProperty());
-		lbYRotation.textProperty().bind(dimensionArea.getYRotationTextProperty());
-		lbZRotation.textProperty().bind(dimensionArea.getZRotationTextProperty());
+		lbXRotation.textProperty().bindBidirectional(dimensionArea.getXRotationProperty(), new NumberStringConverter());
+		lbYRotation.textProperty().bindBidirectional(dimensionArea.getYRotationProperty(), new NumberStringConverter());
+		lbZRotation.textProperty().bindBidirectional(dimensionArea.getZRotationProperty(), new NumberStringConverter());;
 	}
 
 	@FXML
@@ -91,7 +92,5 @@ public class DimensionMenuController {
 			btXRotation.setDisable(true);
 		}
 	}
-	
-
 
 }

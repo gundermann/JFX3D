@@ -5,7 +5,7 @@ import graphiceditor.gui.DimensionArea;
 import graphiceditor.gui.GUIDimensionArea;
 import graphiceditor.handler.AbstractMouseDragRotationHandler;
 import graphiceditor.shapes.Object3D;
-import javafx.beans.value.ObservableValue;
+import javafx.beans.property.Property;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -94,18 +94,18 @@ public class DimensionAreaController implements DimensionArea {
 	}
 
 	@Override
-	public ObservableValue<? extends String> getXRotationTextProperty() {
-		return gui.getXRotationProperty().asString();
+	public Property<Number> getXRotationProperty() {
+		return gui.getXRotationProperty();
 	}
 
 	@Override
-	public ObservableValue<? extends String> getYRotationTextProperty() {
-		return gui.getYRotationProperty().asString();
+	public Property<Number> getYRotationProperty() {
+		return gui.getYRotationProperty();
 	}
 
 	@Override
-	public ObservableValue<? extends String> getZRotationTextProperty() {
-		return gui.getZRotationProperty().asString();
+	public Property<Number> getZRotationProperty() {
+		return gui.getZRotationProperty();
 	}
 
 	@Override

@@ -12,7 +12,7 @@
     <GridPane AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
       <children>
         <Label text="Der verwendete Name existiert bereits." GridPane.columnIndex="0" GridPane.rowIndex="0" GridPane.rowSpan="1" />
-        <Button mnemonicParsing="false" onAction="#ok" text="Ok" GridPane.columnIndex="0" GridPane.rowIndex="1">
+        <Button defaultButton="true" mnemonicParsing="false" onAction="#ok" text="Ok" GridPane.columnIndex="0" GridPane.rowIndex="1">
           <GridPane.margin>
             <Insets fx:id="x1" />
           </GridPane.margin>

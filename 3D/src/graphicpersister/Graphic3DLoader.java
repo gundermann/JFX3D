@@ -26,9 +26,9 @@ import org.xml.sax.SAXException;
 public class Graphic3DLoader extends AbstractGraphic3DPersister {
 
 	private static Graphic3DLoader _instance;
-	
+
 	public static Graphic3DLoader getInstace() {
-		if(_instance == null){
+		if (_instance == null) {
 			_instance = new Graphic3DLoader();
 		}
 		return _instance;
@@ -45,9 +45,14 @@ public class Graphic3DLoader extends AbstractGraphic3DPersister {
 
 			NodeList graphicList = doc.getChildNodes();
 
+			if (graphicList.item(0).getNodeName().equals(ROOT)) {
+				graphicList = graphicList.item(0).getChildNodes();
+			}
 			for (int temp = 0; temp < graphicList.getLength(); temp++) {
-				pixelPreferenceList.add(convertToPreference(graphicList
-						.item(temp)));
+				ShapePreference convertedPreference = convertToPreference(graphicList
+						.item(temp));
+				if (convertedPreference != null)
+					pixelPreferenceList.add(convertedPreference);
 
 			}
 		} catch (SAXException | IOException | ParserConfigurationException e) {
@@ -57,33 +62,35 @@ public class Graphic3DLoader extends AbstractGraphic3DPersister {
 	}
 
 	private ShapePreference convertToPreference(Node item) {
-		RectPreference pixelPreference = new RectPreference();
-		if (item.getNodeType() == Node.ELEMENT_NODE) {
+		if (item.getNodeName().equals(RECT)) {
+			RectPreference pixelPreference = new RectPreference();
+			if (item.getNodeType() == Node.ELEMENT_NODE) {
 
-			Element element = (Element) item;
-			pixelPreference.setBeginningX(Double.parseDouble(element
-					.getAttribute(X)));
-			pixelPreference.setBeginningY(Double.parseDouble(element
-					.getAttribute(Y)));
-			pixelPreference.setBeginningZ(Double.parseDouble(element
-					.getAttribute(Z)));
-			pixelPreference.setWidth(Double.parseDouble(element
-					.getAttribute(WIDTH)));
-			pixelPreference.setHeight(Double.parseDouble(element
-					.getAttribute(HEIGHT)));
-			pixelPreference.setRotationX(Integer.parseInt(element
-					.getAttribute(XR)));
-			pixelPreference.setRotationY(Integer.parseInt(element
-					.getAttribute(YR)));
-			pixelPreference.setRotationZ(Integer.parseInt(element
-					.getAttribute(ZR)));
-//			Color rgb = hex2Rgb(element.getAttribute(COLOR));
-//			pixelPreference.setRed(rgb.getRed());
-//			pixelPreference.setGreen(rgb.getGreen());
-//			pixelPreference.setBlue(rgb.getBlue());
-		}
-
-		return pixelPreference;
+				Element element = (Element) item;
+				pixelPreference.setBeginningX(Double.parseDouble(element
+						.getAttribute(X)));
+				pixelPreference.setBeginningY(Double.parseDouble(element
+						.getAttribute(Y)));
+				pixelPreference.setBeginningZ(Double.parseDouble(element
+						.getAttribute(Z)));
+				pixelPreference.setWidth(Double.parseDouble(element
+						.getAttribute(WIDTH)));
+				pixelPreference.setHeight(Double.parseDouble(element
+						.getAttribute(HEIGHT)));
+				pixelPreference.setRotationX(Integer.parseInt(element
+						.getAttribute(XR)));
+				pixelPreference.setRotationY(Integer.parseInt(element
+						.getAttribute(YR)));
+				pixelPreference.setRotationZ(Integer.parseInt(element
+						.getAttribute(ZR)));
+				// Color rgb = hex2Rgb(element.getAttribute(COLOR));
+				// pixelPreference.setRed(rgb.getRed());
+				// pixelPreference.setGreen(rgb.getGreen());
+				// pixelPreference.setBlue(rgb.getBlue());
+			}
+			return pixelPreference;
+		} else
+			return null;
 	}
 
 	public Color hex2Rgb(String colorStr) {

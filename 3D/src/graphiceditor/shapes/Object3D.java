@@ -11,11 +11,11 @@ public interface Object3D {
 
 	Node asNode();
 
-	void moveX(int i);
+	void moveX(double i);
 
-	void moveZ(int i);
+	void moveZ(double i);
 
-	void moveY(int i);
+	void moveY(double i);
 
 	DoubleProperty getXPositionProperty();
 

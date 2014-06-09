@@ -32,6 +32,7 @@ public class RectPreference implements ShapePreference {
 		Rectangle3D rect = new Rectangle3D();
 		rect.setupX(beginningX);
 		rect.setupY(beginningY);
+		rect.moveZ(beginningZ);
 		rect.getWidthProperty().set(width);
 		rect.getHeightProperty().set(height);
 		rect.rotateX(rotationX);

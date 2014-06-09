@@ -1,1 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><rect x-coordinate="123" y-coordinate="321" z-coordinate="0" height="100" width="100" xr="45" yr="90" zr="2" color="#FFFFFF"/>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<shape_definition>
+<rect x-coordinate="123" y-coordinate="321" z-coordinate="0" height="100" width="100" xr="45" yr="90" zr="2" color="#FFFFFF"/>
+</shape_definition>

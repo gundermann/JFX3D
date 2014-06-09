@@ -44,17 +44,17 @@ public abstract class AbstractObject3D implements Object3D {
 	}
 
 	@Override
-	public void moveX(int i) {
+	public void moveX(double i) {
 		node.layoutXProperty().set(node.layoutXProperty().get() + i);
 	}
 
 	@Override
-	public void moveZ(int i) {
-		node.translateZProperty().set(node.translateZProperty().get() + i);
+	public void moveZ(double beginningZ) {
+		node.translateZProperty().set(node.translateZProperty().get() + beginningZ);
 	}
 
 	@Override
-	public void moveY(int i) {
+	public void moveY(double i) {
 		node.layoutYProperty().set(node.layoutYProperty().get() + i);
 	}
 

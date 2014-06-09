@@ -61,9 +61,11 @@ public class Graphic3DSaver extends AbstractGraphic3DPersister {
 			dBuilder = dbFactory.newDocumentBuilder();
 			doc = dBuilder.newDocument();
 
+			Element root = doc.createElement(ROOT);
+			doc.appendChild(root);
 			for (ShapePreference pref : pixelPreferences) {
 				Element element = buildElement(pref, doc);
-				doc.appendChild(element);
+				root.appendChild(element);
 			}
 			return doc;
 		} catch (ParserConfigurationException e) {

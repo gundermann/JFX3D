@@ -50,24 +50,6 @@ public class ComplexObject3DImpl extends Group implements Object3D {
 	}
 
 	@Override
-	public void moveX(int i) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void moveZ(int i) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void moveY(int i) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
 	public DoubleProperty getXPositionProperty() {
 		// TODO Auto-generated method stub
 		return null;
@@ -129,6 +111,24 @@ public class ComplexObject3DImpl extends Group implements Object3D {
 
 	@Override
 	public void changeWidthTo(double d) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void moveX(double i) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void moveZ(double i) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void moveY(double i) {
 		// TODO Auto-generated method stub
 		
 	}

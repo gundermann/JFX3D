@@ -3,6 +3,9 @@ package graphiceditor;
 import graphiceditor.gui.PaintingArea;
 import graphiceditor.handler.PaintingFinishedHandler;
 import graphiceditor.handler.PaintingHandler;
+import graphiceditor.handler.PaintingStartHandler;
+import graphiceditor.handler.ShapePaintingHandler;
+import graphiceditor.shapes.Object3D;
 
 public class PaintingListenerFactory {
 
@@ -15,30 +18,23 @@ public class PaintingListenerFactory {
   }
 
   public PaintingHandler createPaintingStartListener( PaintingArea paintingArea ) {
-    Class<? extends PaintingHandler> listenerClass = PaintingListenerProvider.getPaintingStartListener().get(
+    Class<? extends Object3D> shapeClass = PaintingProvider.getPaintingClasses().get(
         paintingArea.getPaintingMode() );
-    return initPainingHandler( listenerClass, paintingArea );
+    PaintingStartHandler paintingStartHandler = new PaintingStartHandler(shapeClass);
+    paintingStartHandler.setPaintingArea(paintingArea);
+    return paintingStartHandler;
   }
 
   public PaintingHandler createPaintingListener( PaintingArea paintingArea ) {
-    Class<? extends PaintingHandler> listenerClass = PaintingListenerProvider.getPaintingListener().get(
-        paintingArea.getPaintingMode() );
-    return initPainingHandler( listenerClass, paintingArea );
+	  ShapePaintingHandler paintingHandler = new ShapePaintingHandler();
+	  paintingHandler.setPaintingArea(paintingArea);
+    return paintingHandler;
   }
 
   public PaintingHandler createPaintingFinishListener( PaintingArea paintingArea ) {
-    return initPainingHandler( PaintingFinishedHandler.class, paintingArea );
+	  PaintingFinishedHandler paintingFinishedHandler = new PaintingFinishedHandler();
+	  paintingFinishedHandler.setPaintingArea(paintingArea);
+    return paintingFinishedHandler;
   }
 
-  private PaintingHandler initPainingHandler( Class<? extends PaintingHandler> listenerClass, PaintingArea paintingArea ) {
-    PaintingHandler paintingHandler = null;
-    try {
-      paintingHandler = listenerClass.newInstance();
-      paintingHandler.setPaintingArea( paintingArea );
-    }
-    catch ( InstantiationException | IllegalAccessException e ) {
-      e.printStackTrace();
-    }
-    return paintingHandler;
-  }
 }

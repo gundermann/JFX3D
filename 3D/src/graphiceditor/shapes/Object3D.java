@@ -18,13 +18,15 @@ public interface Object3D {
 	void moveY(int i);
 
 	DoubleProperty getXPositionProperty();
-	
+
 	DoubleProperty getYPositionProperty();
-	
+
 	DoubleProperty getZPositionProperty();
 
+	@Deprecated
 	void changeWidth(int i);
 
+	@Deprecated
 	void changeHeight(int i);
 
 	DoubleProperty getHeightProperty();
@@ -36,15 +38,19 @@ public interface Object3D {
 	void setupY(double y);
 
 	void rotateX(int i);
-	
+
 	void rotateY(int i);
-	
+
 	void rotateZ(int i);
 
 	DoubleProperty getXRotationProperty();
-	
+
 	DoubleProperty getYRotationProperty();
-	
+
 	DoubleProperty getZRotationProperty();
+
+	void changeHeightTo(double d);
+
+	void changeWidthTo(double d);
 
 }

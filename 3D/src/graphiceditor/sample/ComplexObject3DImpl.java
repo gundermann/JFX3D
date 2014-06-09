@@ -121,6 +121,18 @@ public class ComplexObject3DImpl extends Group implements Object3D {
 		return null;
 	}
 
+	@Override
+	public void changeHeightTo(double d) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void changeWidthTo(double d) {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 
 

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dxml" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="shape_definition">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="rect">
+          <xs:complexType>
+            <xs:attribute name="x-coordinate" type="xs:double" />
+            <xs:attribute name="y-coordinate" type="xs:double" />
+            <xs:attribute name="z-coordinate" type="xs:double" />
+            <xs:attribute name="height" type="xs:double" />
+            <xs:attribute name="width" type="xs:double" />
+            <xs:attribute name="xr" type="xs:double" />
+            <xs:attribute name="yr" type="xs:double" />
+            <xs:attribute name="zr" type="xs:double" />
+            <xs:attribute name="color" type="xs:string" />
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

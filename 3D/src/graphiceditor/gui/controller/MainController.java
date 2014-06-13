@@ -5,7 +5,6 @@ import graphiceditor.gui.PaintingArea;
 import graphiceditor.menu.dimension.GUIDimensionMenu;
 import graphiceditor.menu.manipulating.GUIManipulatingMenu;
 import graphiceditor.menu.painting.GUIPaintingMenu;
-import graphiceditor.sample.Cube;
 import graphiceditor.shapes.Object3D;
 import graphicpersister.Graphic3DLoader;
 import graphicpersister.Graphic3DSaver;
@@ -70,11 +69,6 @@ public class MainController implements Initializable {
 		GUIManipulatingMenu.getInstance().setPaintingArea(
 				getSelectedPaintingArea());
 		getSelectedPaintingArea().getUI().toFront();
-	}
-
-	@FXML
-	public void loadSample() {
-		getSelectedPaintingArea().add(new Cube());
 	}
 
 	@FXML

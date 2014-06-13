@@ -14,34 +14,11 @@ public class Axis {
 	public static final Point3D Z = Point3DBuilder.create().x(0).y(0).z(1000)
 			.build();
 	private AngleProperty angleProperty;
-	private Point3D pivot;
-	private Point3D direction;
-
-	public Axis(Point3D pivot, Point3D direction, AngleProperty angleProperty) {
-		this.pivot = pivot;
-		this.direction = direction;
+	private Point3D axis;
+	
+	public Axis( Point3D axis, AngleProperty angleProperty) {
+		this.axis = axis;
 		this.angleProperty = angleProperty;
-	}
-
-	public Axis(Point3D pivot, Point3D direction, AngleProperty angleProperty,
-			double width) {
-		new Axis(pivot, direction, angleProperty);
-	}
-
-	public Point3D getDirectionPoint() {
-		return this.direction;
-	}
-
-	public double getPivotX() {
-		return pivot.getX();
-	}
-
-	public double getPivotY() {
-		return pivot.getY();
-	}
-
-	public double getPivotZ() {
-		return pivot.getZ();
 	}
 
 	public double getActualAngle() {
@@ -52,4 +29,8 @@ public class Axis {
 		return angleProperty;
 	}
 
+	public Point3D getAxis() {
+		return axis;
+	}
+	
 }

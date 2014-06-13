@@ -8,32 +8,19 @@ public class ShapePaintingHandler implements PaintingHandler {
 
 	private Object3D shape;
 
-	private double beginningX;
+	private double initinalX;
 
-	private double beginningY;
+	private double initinalY;
 
 	@Override
 	public void handle(MouseEvent event) {
-		if (event.getY() > beginningY)
-			shape.changeHeightTo(event.getY()
-					- shape.getYPositionProperty().get());
-		else {
-			shape.changeHeightTo(beginningY - event.getY());
-			shape.getYPositionProperty().set(event.getY());
-		}
-
-		if (event.getX() > beginningX)
-			shape.changeWidthTo(event.getX() - shape.getXPositionProperty().get());
-		else {
-			shape.changeWidthTo(beginningX - event.getX());
-			shape.getXPositionProperty().set(event.getX());
-		}
+		shape.paint(event.getX(), event.getY(), initinalX, initinalY);
 	}
 
 	@Override
 	public void setPaintingArea(PaintingArea paintingArea) {
 		this.shape = paintingArea.getActualPainting();
-		beginningX = shape.getXPositionProperty().get();
-		beginningY = shape.getYPositionProperty().get();
+		initinalX = shape.getXPositionProperty().get();
+		initinalY = shape.getYPositionProperty().get();
 	}
 }

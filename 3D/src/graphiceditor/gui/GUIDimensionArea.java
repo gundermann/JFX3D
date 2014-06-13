@@ -1,7 +1,6 @@
 package graphiceditor.gui;
 
 import graphiceditor.domainspecific.RotationBundle;
-import graphiceditor.domainspecific.values.Axis;
 import graphiceditor.domainspecific.values.PaintableAxis;
 import graphiceditor.domainspecific.values.observable.AngleProperty;
 import graphiceditor.domainspecific.values.observable.RotationProperty;
@@ -18,6 +17,7 @@ import javafx.scene.Scene;
 import javafx.scene.SceneBuilder;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.transform.Rotate;
 import javafx.stage.Stage;
 
 public class GUIDimensionArea extends Stage {
@@ -47,11 +47,12 @@ public class GUIDimensionArea extends Stage {
 				.y(this.getHeight() / 2).z(0).build();
 
 		rotationBundle = new RotationBundle();
-		PaintableAxis xAxis = new PaintableAxis(pivot, Axis.X,
+		rotationBundle.setPivot(pivot);
+		PaintableAxis xAxis = new PaintableAxis(Rotate.X_AXIS,
 				new AngleProperty(rootAngleX));
-		PaintableAxis yAxis = new PaintableAxis(pivot, Axis.Y,
+		PaintableAxis yAxis = new PaintableAxis(Rotate.Y_AXIS,
 				new AngleProperty(rootAngleY));
-		PaintableAxis zAxis = new PaintableAxis(pivot, Axis.Z,
+		PaintableAxis zAxis = new PaintableAxis(Rotate.Z_AXIS,
 				new AngleProperty(rootAngleZ));
 		rotationBundle.addRotationOfAxis(xAxis, yAxis, zAxis);
 

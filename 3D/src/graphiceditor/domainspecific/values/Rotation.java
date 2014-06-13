@@ -8,10 +8,7 @@ public class Rotation extends Rotate {
 
 	public Rotation(Axis rotationAxis) {
 		this.rotationAxis = rotationAxis;
-		axisProperty().set(rotationAxis.getDirectionPoint());
-		pivotXProperty().set(rotationAxis.getPivotX());
-		pivotYProperty().set(rotationAxis.getPivotY());
-		pivotZProperty().set(rotationAxis.getPivotZ());
+		axisProperty().set(rotationAxis.getAxis());
 		angleProperty().set(rotationAxis.getActualAngle());
 		enable();
 	}

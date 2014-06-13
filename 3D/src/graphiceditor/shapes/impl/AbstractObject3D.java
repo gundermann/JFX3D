@@ -33,7 +33,7 @@ public abstract class AbstractObject3D implements Object3D {
 		getTransforms().setAll(rotationBundle.getRotation(X),
 				rotationBundle.getRotation(Y),
 				rotationBundle.getRotation(Z));
-		logPivot();
+//		logPivot();
 	}
 	
 	abstract protected Class<? extends Node> getNodeClass();
@@ -63,12 +63,12 @@ public abstract class AbstractObject3D implements Object3D {
 		xRotationProperty.set(xRotationProperty.getValue() + i);
 	}
 
-	private void logPivot() {
-		System.out.println(getPivot().getX() + "|" + getPivot().getY() + "|"
-				+ getPivot().getZ());
-	}
+//	private void logPivot() {
+//		System.out.println(getPivot().getX() + "|" + getPivot().getY() + "|"
+//				+ getPivot().getZ());
+//	}
 
-	abstract protected Point3D getPivot();
+//	abstract protected Point3D getPivot();
 
 	@Override
 	public void rotateY(int i) {

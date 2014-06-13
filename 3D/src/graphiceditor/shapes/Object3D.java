@@ -53,4 +53,6 @@ public interface Object3D {
 
 	void changeWidthTo(double d);
 
+	void paint(double x, double y, double initinalX, double initinalY);
+
 }

@@ -3,10 +3,9 @@ package graphiceditor.shapes.impl;
 import graphiceditor.domainspecific.values.Axis;
 import graphiceditor.domainspecific.values.observable.AngleProperty;
 import javafx.beans.property.DoubleProperty;
-import javafx.geometry.Point3D;
-import javafx.geometry.Point3DBuilder;
 import javafx.scene.Node;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.transform.Rotate;
 
 public class Rectangle3D extends AbstractObject3D {
 
@@ -58,13 +57,6 @@ public class Rectangle3D extends AbstractObject3D {
 	}
 
 	@Override
-	protected Point3D getPivot() {
-		return Point3DBuilder.create().x(getXPositionProperty().get())
-				.y(getYPositionProperty().get())
-				.z(getZPositionProperty().get()).build();
-	}
-
-	@Override
 	public String toString() {
 		return "Rectangle";
 	}
@@ -72,13 +64,30 @@ public class Rectangle3D extends AbstractObject3D {
 	@Override
 	protected void refreshTransforms() {
 		rotationBundle.clear();
-		rotationBundle.addRotationOfAxis(new Axis(getPivot(), Axis.X,
+		rotationBundle.addRotationOfAxis(new Axis(Rotate.X_AXIS,
 				new AngleProperty(xRotationProperty)));
-		rotationBundle.addRotationOfAxis(new Axis(getPivot(), Axis.Y,
+		rotationBundle.addRotationOfAxis(new Axis(Rotate.Y_AXIS,
 				new AngleProperty(yRotationProperty)));
-		rotationBundle.addRotationOfAxis(new Axis(getPivot(), Axis.Z,
+		rotationBundle.addRotationOfAxis(new Axis(Rotate.Z_AXIS,
 				new AngleProperty(zRotationProperty)));
 		super.refreshTransforms();
 	}
+
+	@Override
+	public void paint(double x, double y, double initinalX, double initinalY) {
+		if (y > initinalY)
+			changeHeightTo(y - initinalY);
+		else {
+			changeHeightTo(initinalY - y);
+			getYPositionProperty().set(y);
+		}
+		if (x > initinalX)
+			changeWidthTo(x - initinalX);
+		else {
+			changeWidthTo(initinalX - x);
+			getXPositionProperty().set(x);
+		}
+	}
+
 
 }

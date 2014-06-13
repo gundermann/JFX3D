@@ -52,22 +52,22 @@ public class ManipulatingMenuController {
 
 	@FXML
 	public void removeHeight() {
-		painting.changeHeight(-1);
+		painting.changeHeightTo(painting.getHeightProperty().get()-1);
 	}
 
 	@FXML
 	public void addHeight() {
-		painting.changeHeight(1);
+		painting.changeHeightTo(painting.getHeightProperty().get()+1);
 	}
 
 	@FXML
 	public void removeWidth() {
-		painting.changeWidth(-1);
+		painting.changeWidthTo(painting.getWidthProperty().get()-1);
 	}
 
 	@FXML
 	public void addWidth() {
-		painting.changeWidth(1);
+		painting.changeWidthTo(painting.getWidthProperty().get()+1);
 	}
 
 	@FXML

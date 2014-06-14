@@ -5,7 +5,6 @@ import graphiceditor.domainspecific.values.observable.RotationProperty;
 import graphiceditor.shapes.Object3D;
 import javafx.beans.property.DoubleProperty;
 import javafx.collections.ObservableList;
-import javafx.geometry.Point3D;
 import javafx.scene.Node;
 import javafx.scene.transform.Transform;
 

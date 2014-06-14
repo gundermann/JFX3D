@@ -7,10 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javafx.geometry.Point3D;
-import javafx.geometry.Point3DBuilder;
-import javafx.scene.Node;
-import javafx.scene.shape.Line;
-import javafx.scene.shape.LineBuilder;
 
 public class RotationBundle {
 

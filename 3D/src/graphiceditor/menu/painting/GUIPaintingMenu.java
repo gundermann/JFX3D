@@ -30,7 +30,7 @@ public class GUIPaintingMenu extends AbstractGUIMenu {
       setScene( scene );
       initStyle( StageStyle.UNDECORATED );
       setX( 0 );
-      setY( 250 );
+      setY( 310 );
       show();
     }
     catch ( IOException e ) {

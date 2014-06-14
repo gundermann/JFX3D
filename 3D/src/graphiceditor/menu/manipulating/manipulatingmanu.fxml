@@ -3,6 +3,7 @@
 <?language javascript?>
 <?import java.lang.*?>
 <?import java.util.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.paint.*?>
@@ -11,43 +12,85 @@
   <children>
     <Accordion AnchorPane.bottomAnchor="-0.5" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.5">
       <expandedPane>
-        <TitledPane fx:id="x1" animated="false" text="Moving">
+        <TitledPane fx:id="x1" animated="false" text="Properties">
           <content>
             <AnchorPane id="Content">
               <children>
-                <GridPane AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                <GridPane>
                   <children>
-                    <TextField fx:id="xPosition" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
-                    <TextField fx:id="yPosition" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-                    <TextField fx:id="zPosition" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-                    <Button mnemonicParsing="false" onAction="#removeX" text="X -" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
-                    <Button mnemonicParsing="false" onAction="#addX" text="X +" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
-                    <Button mnemonicParsing="false" onAction="#removeY" text="Y -" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-                    <Button mnemonicParsing="false" onAction="#addY" text="Y +" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-                    <Button mnemonicParsing="false" onAction="#addZ" text="Z +" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-                    <Button mnemonicParsing="false" onAction="#removeZ" text="Z -" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-                    <Label text="Height" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-                    <Label text="Width" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
-                    <Button mnemonicParsing="false" onAction="#removeHeight" text="-" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
-                    <Button mnemonicParsing="false" onAction="#removeWidth" text="-" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
-                    <Button mnemonicParsing="false" onAction="#addHeight" text="+" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
-                    <Button mnemonicParsing="false" onAction="#addWidth" text="+" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
-                    <TextField fx:id="editHeight" maxWidth="100.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
-                    <TextField fx:id="editWidth" maxWidth="100.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
+                    <GridPane GridPane.columnIndex="0" GridPane.rowIndex="0">
+                      <children>
+                        <TextField fx:id="xPosition" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                        <TextField fx:id="yPosition" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                        <TextField fx:id="zPosition" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                        <Button mnemonicParsing="false" onAction="#removeX" text="X -" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                        <Button mnemonicParsing="false" onAction="#addX" text="X +" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                        <Button mnemonicParsing="false" onAction="#removeY" text="Y -" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                        <Button mnemonicParsing="false" onAction="#addY" text="Y +" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                        <Button mnemonicParsing="false" onAction="#addZ" text="Z +" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                        <Button mnemonicParsing="false" onAction="#removeZ" text="Z -" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                        <Label text="Height" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+                          <GridPane.margin>
+                            <Insets top="5.0" fx:id="x2" />
+                          </GridPane.margin>
+                        </Label>
+                        <Label text="Width" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.margin="$x2" GridPane.rowIndex="6" />
+                        <Button mnemonicParsing="false" onAction="#removeHeight" text="-" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+                        <Button mnemonicParsing="false" onAction="#removeWidth" text="-" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="7" />
+                        <Button mnemonicParsing="false" onAction="#addHeight" text="+" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+                        <Button mnemonicParsing="false" onAction="#addWidth" text="+" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="7" />
+                        <TextField fx:id="editHeight" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+                        <TextField fx:id="editWidth" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="7" />
+                        <Label text="Position" GridPane.columnIndex="0" GridPane.columnSpan="3" GridPane.margin="$x2" GridPane.rowIndex="0" GridPane.valignment="CENTER" />
+                      </children>
+                      <columnConstraints>
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" />
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" />
+                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" />
+                      </columnConstraints>
+                      <rowConstraints>
+                        <RowConstraints vgrow="SOMETIMES" />
+                        <RowConstraints vgrow="SOMETIMES" />
+                        <RowConstraints vgrow="SOMETIMES" />
+                        <RowConstraints vgrow="SOMETIMES" />
+                        <RowConstraints vgrow="SOMETIMES" />
+                        <RowConstraints vgrow="SOMETIMES" />
+                        <RowConstraints vgrow="SOMETIMES" />
+                        <RowConstraints vgrow="SOMETIMES" />
+                      </rowConstraints>
+                    </GridPane>
+                    <GridPane GridPane.columnIndex="0" GridPane.rowIndex="1">
+                      <children>
+                        <Label text="Rotation" GridPane.columnIndex="0" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.margin="$x2" GridPane.rowIndex="0" GridPane.valignment="CENTER" />
+                        <Button id="removeRotation" mnemonicParsing="false" onAction="#removeXRotation" text="X -" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                        <Button id="removeYRotation" mnemonicParsing="false" onAction="#removeYRotation" text="Y -" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                        <Button id="removeZRotation" mnemonicParsing="false" onAction="#removeZRotation" text="Z -" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                        <Button mnemonicParsing="false" onAction="#addXRotation" text="X +" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                        <Button mnemonicParsing="false" onAction="#addYRotation" text="Y +" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <Button mnemonicParsing="false" onAction="#addZRotation" text="Z +" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                        <TextField fx:id="xRotation" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="yRotation" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <TextField fx:id="zRotation" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                      </children>
+                      <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" />
+                        <ColumnConstraints hgrow="SOMETIMES" />
+                        <ColumnConstraints hgrow="SOMETIMES" />
+                      </columnConstraints>
+                      <rowConstraints>
+                        <RowConstraints vgrow="SOMETIMES" />
+                        <RowConstraints vgrow="SOMETIMES" />
+                        <RowConstraints vgrow="SOMETIMES" />
+                        <RowConstraints vgrow="SOMETIMES" />
+                      </rowConstraints>
+                    </GridPane>
                   </children>
                   <columnConstraints>
-                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" />
-                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" />
-                    <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" />
+                    <ColumnConstraints hgrow="SOMETIMES" />
                   </columnConstraints>
                   <rowConstraints>
-                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    <RowConstraints vgrow="SOMETIMES" />
+                    <RowConstraints vgrow="SOMETIMES" />
                   </rowConstraints>
                 </GridPane>
               </children>
@@ -57,42 +100,11 @@
       </expandedPane>
       <panes>
         <fx:reference source="x1" />
-        <TitledPane fx:id="x2" animated="false" text="Rotation">
-          <content>
-            <AnchorPane id="Content">
-              <children>
-                <GridPane AnchorPane.leftAnchor="0.0">
-                  <children>
-                    <Button id="removeRotation" mnemonicParsing="false" onAction="#removeXRotation" text="X -" GridPane.columnIndex="0" GridPane.rowIndex="0" />
-                    <Button id="removeYRotation" mnemonicParsing="false" onAction="#removeYRotation" text="Y -" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-                    <Button id="removeZRotation" mnemonicParsing="false" onAction="#removeZRotation" text="Z -" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-                    <Button mnemonicParsing="false" onAction="#addXRotation" text="X +" GridPane.columnIndex="2" GridPane.rowIndex="0" />
-                    <Button mnemonicParsing="false" onAction="#addYRotation" text="Y +" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                    <Button mnemonicParsing="false" onAction="#addZRotation" text="Z +" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                    <TextField fx:id="xRotation" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-                    <TextField fx:id="yRotation" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                    <TextField fx:id="zRotation" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  </children>
-                  <columnConstraints>
-                    <ColumnConstraints hgrow="SOMETIMES" />
-                    <ColumnConstraints hgrow="SOMETIMES" />
-                    <ColumnConstraints hgrow="SOMETIMES" />
-                  </columnConstraints>
-                  <rowConstraints>
-                    <RowConstraints vgrow="SOMETIMES" />
-                    <RowConstraints vgrow="SOMETIMES" />
-                    <RowConstraints vgrow="SOMETIMES" />
-                  </rowConstraints>
-                </GridPane>
-              </children>
-            </AnchorPane>
-          </content>
-        </TitledPane>
         <TitledPane fx:id="x3" animated="false" text="Components">
           <content>
             <AnchorPane id="Content">
               <children>
-                <ListView fx:id="lvComponents" onMouseClicked="#componentSelected" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                <ListView fx:id="lvComponents" maxHeight="291.0" onMouseClicked="#componentSelected" prefHeight="291.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
               </children>
             </AnchorPane>
           </content>

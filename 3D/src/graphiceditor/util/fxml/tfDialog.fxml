@@ -11,7 +11,7 @@
   <children>
     <GridPane AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
       <children>
-        <Label text="Bitte geben Sie eine Dateinamen ein." GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="0" GridPane.rowSpan="1" />
+        <Label text="Insert name." GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="0" GridPane.rowSpan="1" />
         <TextField fx:id="tf" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="1" />
         <Button cancelButton="true" mnemonicParsing="false" onAction="#cancel" text="Cancel" GridPane.columnIndex="1" GridPane.rowIndex="2">
           <GridPane.margin>

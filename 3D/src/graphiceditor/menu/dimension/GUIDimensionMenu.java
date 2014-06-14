@@ -30,7 +30,7 @@ public class GUIDimensionMenu extends AbstractGUIMenu {
       setScene( scene );
       initStyle( StageStyle.UNDECORATED );
       setX( 0 );
-      setY( 75 );
+      setY( 70 );
       show();
     }
     catch ( IOException e ) {

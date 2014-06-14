@@ -45,7 +45,7 @@ public class GUIManipulatingMenu extends AbstractGUIMenu {
 			setScene(scene);
 			initStyle(StageStyle.UNDECORATED);
 			setX(0);
-			setY(500);
+			setY(510);
 			show();
 		} catch (IOException e) {
 			e.printStackTrace();

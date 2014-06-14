@@ -2,30 +2,54 @@
 
 <?import java.lang.*?>
 <?import java.util.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.paint.*?>
 
 <AnchorPane id="AnchorPane" xmlns:fx="http://javafx.com/fxml">
   <children>
-    <Accordion AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-      <expandedPane>
-        <TitledPane fx:id="x2" animated="false" text="Info">
-          <content>
-            <AnchorPane id="Content">
+    <TitledPane fx:id="x1" collapsible="false" text="Dimensions">
+      <content>
+        <AnchorPane id="Content">
+          <children>
+            <GridPane>
               <children>
-                <GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                <GridPane GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+                  <children>
+                    <ToggleButton fx:id="btYRotation" contentDisplay="CENTER" mnemonicParsing="false" onAction="#toggleYRotation" text="Y-Rotation" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                      <GridPane.margin>
+                        <Insets bottom="5.0" top="5.0" fx:id="x2" />
+                      </GridPane.margin>
+                    </ToggleButton>
+                    <ToggleButton fx:id="btZRotation" mnemonicParsing="false" onAction="#toggleZRotation" text="Z-Rotation" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.margin="$x2" GridPane.rowIndex="2" />
+                    <ToggleButton fx:id="btXRotation" contentDisplay="CENTER" mnemonicParsing="false" onAction="#toggleXRotation" text="X-Rotation" textAlignment="CENTER" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.margin="$x2" GridPane.rowIndex="0" />
+                  </children>
+                  <columnConstraints>
+                    <ColumnConstraints hgrow="SOMETIMES" />
+                  </columnConstraints>
+                  <rowConstraints>
+                    <RowConstraints vgrow="SOMETIMES" />
+                    <RowConstraints vgrow="SOMETIMES" />
+                    <RowConstraints vgrow="SOMETIMES" />
+                  </rowConstraints>
+                </GridPane>
+                <GridPane prefHeight="95.0" GridPane.columnIndex="0" GridPane.rowIndex="1">
                   <children>
                     <Label text="X-Rotation:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="0" />
                     <Label text="Y-Rotation:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
                     <Label text="Z-Rotation:" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
-                    <Label id="xRotation" fx:id="lbXRotation" minWidth="50.0" text="0.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
-                    <Label id="lb" fx:id="lbYRotation" minWidth="50.0" text="0.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                    <Label fx:id="lbZRotation" minWidth="50.0" text="0.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                    <Label id="xRotation" fx:id="lbXRotation" minWidth="80.0" text="0.0" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                    <Label id="lb" fx:id="lbYRotation" minWidth="80.0" prefWidth="50.0" text="0.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                    <Label fx:id="lbZRotation" minWidth="80.0" text="0.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                     <Slider fx:id="slYRotation" max="180.0" min="-179.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                     <Slider fx:id="slZRotation" max="180.0" min="-179.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                     <Slider fx:id="slXRotation" max="180.0" min="-179.0" GridPane.columnIndex="2" GridPane.rowIndex="0" />
-                    <Button mnemonicParsing="false" onAction="#resetDimensions" text="Reset Dimension" GridPane.columnIndex="0" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                    <Button mnemonicParsing="false" onAction="#resetDimensions" text="Reset Dimension" GridPane.columnIndex="0" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                      <GridPane.margin>
+                        <Insets bottom="5.0" top="5.0" fx:id="x2" />
+                      </GridPane.margin>
+                    </Button>
                   </children>
                   <columnConstraints>
                     <ColumnConstraints hgrow="SOMETIMES" />
@@ -41,36 +65,17 @@
                   </rowConstraints>
                 </GridPane>
               </children>
-            </AnchorPane>
-          </content>
-        </TitledPane>
-      </expandedPane>
-      <panes>
-        <TitledPane fx:id="x1" animated="false" text="Mouse Rotation">
-          <content>
-            <AnchorPane id="Content">
-              <children>
-                <GridPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                  <children>
-                    <ToggleButton fx:id="btXRotation" contentDisplay="CENTER" mnemonicParsing="false" onAction="#toggleXRotation" text="X-Rotation" textAlignment="CENTER" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
-                    <ToggleButton fx:id="btYRotation" contentDisplay="CENTER" mnemonicParsing="false" onAction="#toggleYRotation" text="Y-Rotation" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-                    <ToggleButton fx:id="btZRotation" mnemonicParsing="false" onAction="#toggleZRotation" text="Z-Rotation" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-                  </children>
-                  <columnConstraints>
-                    <ColumnConstraints hgrow="SOMETIMES" />
-                  </columnConstraints>
-                  <rowConstraints>
-                    <RowConstraints vgrow="SOMETIMES" />
-                    <RowConstraints vgrow="SOMETIMES" />
-                    <RowConstraints vgrow="SOMETIMES" />
-                  </rowConstraints>
-                </GridPane>
-              </children>
-            </AnchorPane>
-          </content>
-        </TitledPane>
-        <fx:reference source="x2" />
-      </panes>
-    </Accordion>
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints vgrow="SOMETIMES" />
+                <RowConstraints vgrow="SOMETIMES" />
+              </rowConstraints>
+            </GridPane>
+          </children>
+        </AnchorPane>
+      </content>
+    </TitledPane>
   </children>
 </AnchorPane>

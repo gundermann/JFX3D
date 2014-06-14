@@ -13,12 +13,12 @@
       <children>
         <Label text="Bitte geben Sie eine Dateinamen ein." GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="0" GridPane.rowSpan="1" />
         <TextField fx:id="tf" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="1" />
-        <Button mnemonicParsing="false" onAction="#cancel" text="Cancel" GridPane.columnIndex="1" GridPane.rowIndex="2">
+        <Button cancelButton="true" mnemonicParsing="false" onAction="#cancel" text="Cancel" GridPane.columnIndex="1" GridPane.rowIndex="2">
           <GridPane.margin>
             <Insets fx:id="x1" />
           </GridPane.margin>
         </Button>
-        <Button mnemonicParsing="false" onAction="#ok" text="Ok" GridPane.columnIndex="0" GridPane.margin="$x1" GridPane.rowIndex="2" />
+        <Button defaultButton="true" mnemonicParsing="false" onAction="#ok" text="Ok" GridPane.columnIndex="0" GridPane.margin="$x1" GridPane.rowIndex="2" />
       </children>
       <columnConstraints>
         <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" percentWidth="50.0" />

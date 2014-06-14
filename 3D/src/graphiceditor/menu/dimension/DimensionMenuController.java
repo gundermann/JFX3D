@@ -83,11 +83,6 @@ public class DimensionMenuController implements Initializable {
 	}
 
 	@FXML
-	public void showAxisOfElement() {
-		dimensionArea.showAxis();
-	}
-
-	@FXML
 	public void toggleXRotation() {
 		if (!btXRotation.isSelected()) {
 			dimensionArea.disableRotation();

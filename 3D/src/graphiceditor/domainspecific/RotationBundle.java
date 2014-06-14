@@ -1,13 +1,16 @@
 package graphiceditor.domainspecific;
 
 import graphiceditor.domainspecific.values.Axis;
-import graphiceditor.domainspecific.values.PaintableAxis;
 import graphiceditor.domainspecific.values.Rotation;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import javafx.geometry.Point3D;
+import javafx.geometry.Point3DBuilder;
+import javafx.scene.Node;
+import javafx.scene.shape.Line;
+import javafx.scene.shape.LineBuilder;
 
 public class RotationBundle {
 
@@ -38,8 +41,8 @@ public class RotationBundle {
 		}
 	}
 
-	public PaintableAxis getAxis(int axisIndex) {
-		return (PaintableAxis) rotationList.get(axisIndex).getRotationAxis();
+	public Axis getAxis(int axisIndex) {
+		return rotationList.get(axisIndex).getRotationAxis();
 	}
 
 	public void clear() {
@@ -64,5 +67,4 @@ public class RotationBundle {
 			rotation.setPivotZ(pivot.getZ());
 		}
 	}
-
 }

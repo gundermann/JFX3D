@@ -26,7 +26,6 @@
                     <Slider fx:id="slZRotation" max="180.0" min="-179.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                     <Slider fx:id="slXRotation" max="180.0" min="-179.0" GridPane.columnIndex="2" GridPane.rowIndex="0" />
                     <Button mnemonicParsing="false" onAction="#resetDimensions" text="Reset Dimension" GridPane.columnIndex="0" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
-                    <Button mnemonicParsing="false" onAction="#showAxisOfElement" text="Show Axis" GridPane.columnIndex="0" GridPane.columnSpan="2147483647" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
                   </children>
                   <columnConstraints>
                     <ColumnConstraints hgrow="SOMETIMES" />

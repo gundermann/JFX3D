@@ -1,7 +1,7 @@
 package graphiceditor.gui;
 
 import graphiceditor.domainspecific.RotationBundle;
-import graphiceditor.domainspecific.values.PaintableAxis;
+import graphiceditor.domainspecific.values.Axis;
 import graphiceditor.domainspecific.values.observable.AngleProperty;
 import graphiceditor.domainspecific.values.observable.RotationProperty;
 import graphiceditor.shapes.Object3D;
@@ -48,11 +48,11 @@ public class GUIDimensionArea extends Stage {
 
 		rotationBundle = new RotationBundle();
 		rotationBundle.setPivot(pivot);
-		PaintableAxis xAxis = new PaintableAxis(Rotate.X_AXIS,
+		Axis xAxis = new Axis(Rotate.X_AXIS,
 				new AngleProperty(rootAngleX));
-		PaintableAxis yAxis = new PaintableAxis(Rotate.Y_AXIS,
+		Axis yAxis = new Axis(Rotate.Y_AXIS,
 				new AngleProperty(rootAngleY));
-		PaintableAxis zAxis = new PaintableAxis(Rotate.Z_AXIS,
+		Axis zAxis = new Axis(Rotate.Z_AXIS,
 				new AngleProperty(rootAngleZ));
 		rotationBundle.addRotationOfAxis(xAxis, yAxis, zAxis);
 
@@ -130,12 +130,6 @@ public class GUIDimensionArea extends Stage {
 		rootAngleX.set(0);
 		rootAngleY.set(0);
 		rootAngleZ.set(0);
-	}
-
-	public void showAxis() {
-		mainPane.getChildren().add(rotationBundle.getAxis(0).getAxisShape());
-		mainPane.getChildren().add(rotationBundle.getAxis(1).getAxisShape());
-		mainPane.getChildren().add(rotationBundle.getAxis(2).getAxisShape());
 	}
 
 }

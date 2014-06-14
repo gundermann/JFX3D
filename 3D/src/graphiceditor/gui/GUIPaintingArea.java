@@ -19,10 +19,4 @@ public class GUIPaintingArea extends GUIDimensionArea {
 		actualPainting = null;
 	}
 
-	public void showAxis() {
-		if (actualPainting == null) {
-			super.showAxis();
-		}
-	}
-
 }

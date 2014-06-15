@@ -12,17 +12,6 @@
   <children>
     <Accordion AnchorPane.bottomAnchor="-0.5" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.5">
       <expandedPane>
-        <TitledPane fx:id="x3" animated="false" text="Components">
-          <content>
-            <AnchorPane id="Content" maxHeight="421.0" minHeight="421.0">
-              <children>
-                <ListView fx:id="lvComponents" maxHeight="291.0" onMouseClicked="#componentSelected" prefHeight="291.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-              </children>
-            </AnchorPane>
-          </content>
-        </TitledPane>
-      </expandedPane>
-      <panes>
         <TitledPane fx:id="x1" animated="false" text="Properties">
           <content>
             <AnchorPane id="Content">
@@ -108,9 +97,9 @@
                         <Label text="Red:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
                         <Label text="Green:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
                         <Label text="Blue:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
-                        <Slider blockIncrement="1.0" max="255.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-                        <Slider blockIncrement="1.0" max="255.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                        <Slider blockIncrement="1.0" max="255.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                        <Slider fx:id="redSlider" blockIncrement="1.0" max="255.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                        <Slider fx:id="greenSlider" blockIncrement="1.0" max="255.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <Slider fx:id="blueSlider" blockIncrement="1.0" max="255.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
                       </children>
                       <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" />
@@ -141,7 +130,18 @@
             </AnchorPane>
           </content>
         </TitledPane>
-        <fx:reference source="x3" />
+      </expandedPane>
+      <panes>
+        <fx:reference source="x1" />
+        <TitledPane fx:id="x3" animated="false" text="Components">
+          <content>
+            <AnchorPane id="Content" maxHeight="421.0" minHeight="421.0">
+              <children>
+                <ListView fx:id="lvComponents" maxHeight="291.0" onMouseClicked="#componentSelected" prefHeight="291.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+              </children>
+            </AnchorPane>
+          </content>
+        </TitledPane>
       </panes>
     </Accordion>
   </children>

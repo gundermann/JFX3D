@@ -19,16 +19,6 @@
             <MenuItem mnemonicParsing="false" onAction="#close" text="Close" />
           </items>
         </Menu>
-        <Menu mnemonicParsing="false" text="Edit">
-          <items>
-            <MenuItem mnemonicParsing="false" text="Delete" />
-          </items>
-        </Menu>
-        <Menu mnemonicParsing="false" text="Help">
-          <items>
-            <MenuItem mnemonicParsing="false" text="About" />
-          </items>
-        </Menu>
       </menus>
     </MenuBar>
     <ToolBar id="btDimensionMenu" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="29.0">

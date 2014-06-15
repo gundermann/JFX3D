@@ -16,7 +16,7 @@ public class ColorProperty extends SimpleDoubleProperty {
 
 	@Override
 	public void setValue(Number value) {
-		if(isValid(value.doubleValue()))
+		if(value != null ? isValid(value.doubleValue()) : false)
 		super.setValue(value.doubleValue());
 	}
 

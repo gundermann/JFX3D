@@ -30,6 +30,9 @@ public class Graphic3DFactoryTest {
 			assertTrue(object.getXRotationProperty().getValue() == 90);
 			assertTrue(object.getYRotationProperty().getValue() == 90);
 			assertTrue(object.getZRotationProperty().getValue() == 90);
+			assertTrue(object.getColor().getR().getValue() == 0);
+			assertTrue(object.getColor().getG().getValue() == 0);
+			assertTrue(object.getColor().getB().getValue() == 0);
 		}
 	}
 

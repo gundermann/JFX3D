@@ -1,5 +1,7 @@
 package graphicpersister.prefs;
 
+import java.awt.Color;
+
 import graphiceditor.shapes.impl.Rectangle3D;
 
 public class RectPreference implements ShapePreference {
@@ -38,6 +40,9 @@ public class RectPreference implements ShapePreference {
 		rect.rotateX(rotationX);
 		rect.rotateY(rotationY);
 		rect.rotateZ(rotationZ);
+		rect.getColor().getR().set(red);
+		rect.getColor().getG().set(green);
+		rect.getColor().getB().set(blue);
 		return rect;
 	}
 
@@ -128,5 +133,7 @@ public class RectPreference implements ShapePreference {
 	public void setBlue(int blue) {
 		this.blue = blue;
 	}
+
+	
 
 }

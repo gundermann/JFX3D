@@ -24,6 +24,9 @@ public class PreferenceFactory {
 		pref.setRotationX(object3d.getXRotationProperty().getValue().intValue());
 		pref.setRotationY(object3d.getYRotationProperty().getValue().intValue());
 		pref.setRotationZ(object3d.getZRotationProperty().getValue().intValue());
+		pref.setRed(object3d.getColor().getR().getValue().intValue());
+		pref.setGreen(object3d.getColor().getG().getValue().intValue());
+		pref.setBlue(object3d.getColor().getB().getValue().intValue());
 		return pref;
 	}
 

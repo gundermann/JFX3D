@@ -5,6 +5,7 @@ import graphiceditor.shapes.Object3D;
 import graphicpersister.prefs.RectPreference;
 import graphicpersister.prefs.ShapePreference;
 
+import java.awt.Color;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -14,6 +15,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
 
+import javax.xml.bind.annotation.adapters.HexBinaryAdapter;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -92,9 +94,23 @@ public class Graphic3DSaver extends AbstractGraphic3DPersister {
 				String.valueOf(((RectPreference) pref).getRotationY()));
 		element.setAttribute(ZR,
 				String.valueOf(((RectPreference) pref).getRotationZ()));
+		element.setAttribute(COLOR,Rgb2hex(((RectPreference) pref)));
 		return element;
 	}
 
+	public String Rgb2hex(RectPreference pref) {
+		StringBuilder c = new StringBuilder("#");
+		if(pref.getRed() <= 16)
+			c.append(0);
+		c.append(Integer.toHexString(pref.getRed()));
+		if(pref.getGreen() <= 16)
+			c.append(0);
+		c.append(Integer.toHexString(pref.getGreen()));
+		if(pref.getBlue() <= 16)
+			c.append(0);
+		c.append(Integer.toHexString(pref.getBlue()));
+		return c.toString();
+	}
 	public void initSaving(PaintingArea paintingArea) {
 		FileChooser fc = new FileChooser();
 		List<String> extentions = new ArrayList<String>();

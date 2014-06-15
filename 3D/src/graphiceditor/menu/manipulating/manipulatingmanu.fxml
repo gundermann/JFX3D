@@ -84,11 +84,44 @@
                         <RowConstraints vgrow="SOMETIMES" />
                       </rowConstraints>
                     </GridPane>
+                    <GridPane GridPane.columnIndex="0" GridPane.rowIndex="2">
+                      <children>
+                        <Label text="Color" GridPane.columnIndex="0" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.valignment="CENTER">
+                          <GridPane.margin>
+                            <Insets top="5.0" fx:id="x2" />
+                          </GridPane.margin>
+                        </Label>
+                        <TextField id="xRotation" fx:id="red" maxWidth="50.0" minWidth="50.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                        <TextField id="yRotation" fx:id="green" maxWidth="50.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                        <TextField id="zRotation" fx:id="blue" maxWidth="50.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+                        <Label text="Red:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                        <Label text="Green:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                        <Label text="Blue:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                        <Slider fx:id="redSlider" blockIncrement="1.0" max="255.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                        <Slider fx:id="greenSlider" blockIncrement="1.0" max="255.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                        <Slider fx:id="blueSlider" blockIncrement="1.0" max="255.0" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                      </children>
+                      <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" />
+                        <ColumnConstraints hgrow="SOMETIMES" />
+                        <ColumnConstraints hgrow="SOMETIMES" />
+                      </columnConstraints>
+                      <padding>
+                        <Insets bottom="2.0" />
+                      </padding>
+                      <rowConstraints>
+                        <RowConstraints vgrow="SOMETIMES" />
+                        <RowConstraints vgrow="SOMETIMES" />
+                        <RowConstraints vgrow="SOMETIMES" />
+                        <RowConstraints vgrow="SOMETIMES" />
+                      </rowConstraints>
+                    </GridPane>
                   </children>
                   <columnConstraints>
                     <ColumnConstraints hgrow="SOMETIMES" />
                   </columnConstraints>
                   <rowConstraints>
+                    <RowConstraints vgrow="SOMETIMES" />
                     <RowConstraints vgrow="SOMETIMES" />
                     <RowConstraints vgrow="SOMETIMES" />
                   </rowConstraints>
@@ -102,7 +135,7 @@
         <fx:reference source="x1" />
         <TitledPane fx:id="x3" animated="false" text="Components">
           <content>
-            <AnchorPane id="Content">
+            <AnchorPane id="Content" maxHeight="421.0" minHeight="421.0">
               <children>
                 <ListView fx:id="lvComponents" maxHeight="291.0" onMouseClicked="#componentSelected" prefHeight="291.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
               </children>

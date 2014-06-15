@@ -1,5 +1,6 @@
 package graphiceditor.shapes;
 
+import graphiceditor.domainspecific.values.observable.ShapeColor;
 import javafx.beans.property.DoubleProperty;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
@@ -23,11 +24,7 @@ public interface Object3D {
 
 	DoubleProperty getZPositionProperty();
 
-	@Deprecated
-	void changeWidth(int i);
-
-	@Deprecated
-	void changeHeight(int i);
+	ShapeColor getColor();
 
 	DoubleProperty getHeightProperty();
 

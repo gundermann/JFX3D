@@ -2,10 +2,13 @@ package graphiceditor.shapes.impl;
 
 import graphiceditor.domainspecific.RotationBundle;
 import graphiceditor.domainspecific.values.observable.RotationProperty;
+import graphiceditor.domainspecific.values.observable.ShapeColor;
 import graphiceditor.shapes.Object3D;
 import javafx.beans.property.DoubleProperty;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Shape;
 import javafx.scene.transform.Transform;
 
 public abstract class AbstractObject3D implements Object3D {
@@ -13,29 +16,29 @@ public abstract class AbstractObject3D implements Object3D {
 	private static final int Z = 2;
 	private static final int Y = 1;
 	private static final int X = 0;
-	protected Node node;
+	protected Shape node;
 	RotationBundle rotationBundle = new RotationBundle();
 	protected RotationProperty xRotationProperty = new RotationProperty();
 	protected RotationProperty yRotationProperty = new RotationProperty();
 	protected RotationProperty zRotationProperty = new RotationProperty();
+	private ShapeColor color = new ShapeColor();
 
 	public AbstractObject3D() {
 		try {
-			node = getNodeClass().newInstance();
+			node = getShapeClass().newInstance();
+			node.fillProperty().bind(color);
 			refreshTransforms();
 		} catch (InstantiationException | IllegalAccessException e) {
 			e.printStackTrace();
 		}
 	}
 
-	protected void refreshTransforms(){
+	protected void refreshTransforms() {
 		getTransforms().setAll(rotationBundle.getRotation(X),
-				rotationBundle.getRotation(Y),
-				rotationBundle.getRotation(Z));
-//		logPivot();
+				rotationBundle.getRotation(Y), rotationBundle.getRotation(Z));
 	}
-	
-	abstract protected Class<? extends Node> getNodeClass();
+
+	abstract protected Class<? extends Shape> getShapeClass();
 
 	@Override
 	public Node asNode() {
@@ -49,7 +52,8 @@ public abstract class AbstractObject3D implements Object3D {
 
 	@Override
 	public void moveZ(double beginningZ) {
-		node.translateZProperty().set(node.translateZProperty().get() + beginningZ);
+		node.translateZProperty().set(
+				node.translateZProperty().get() + beginningZ);
 	}
 
 	@Override
@@ -61,13 +65,6 @@ public abstract class AbstractObject3D implements Object3D {
 	public void rotateX(int i) {
 		xRotationProperty.set(xRotationProperty.getValue() + i);
 	}
-
-//	private void logPivot() {
-//		System.out.println(getPivot().getX() + "|" + getPivot().getY() + "|"
-//				+ getPivot().getZ());
-//	}
-
-//	abstract protected Point3D getPivot();
 
 	@Override
 	public void rotateY(int i) {
@@ -114,4 +111,8 @@ public abstract class AbstractObject3D implements Object3D {
 		return node.getTransforms();
 	}
 
+	@Override
+	public ShapeColor getColor() {
+		return color;
+	}
 }

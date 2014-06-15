@@ -20,8 +20,8 @@ public class PreferenceFactoryTest {
 		object3D.setupX(100);
 		object3D.setupY(100);
 		object3D.moveZ(100);
-		object3D.changeHeight(100);
-		object3D.changeWidth(100);
+		object3D.changeHeightTo(100);
+		object3D.changeWidthTo(100);
 		object3D.rotateX(90);
 		object3D.rotateY(90);
 		object3D.rotateZ(90);

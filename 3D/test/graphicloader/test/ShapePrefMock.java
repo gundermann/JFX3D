@@ -14,8 +14,8 @@ public class ShapePrefMock {
 		object.setupX(100);
 		object.setupY(100);
 		object.moveZ(100);
-		object.changeHeight(100);
-		object.changeWidth(100);
+		object.changeHeightTo(100);
+		object.changeWidthTo(100);
 		object.rotateX(90);
 		object.rotateY(90);
 		object.rotateZ(90);

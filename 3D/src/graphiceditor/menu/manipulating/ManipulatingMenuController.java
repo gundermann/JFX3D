@@ -5,6 +5,7 @@ import graphiceditor.shapes.Object3D;
 import graphiceditor.util.NumberToStringConverter;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
+import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 
 public class ManipulatingMenuController {
@@ -26,6 +27,18 @@ public class ManipulatingMenuController {
 	@FXML
 	public TextField editWidth;
 	@FXML
+	public TextField red;
+	@FXML
+	public TextField green;
+	@FXML
+	public TextField blue;
+	@FXML
+	public Slider redSlider;
+	@FXML
+	public Slider greenSlider;
+	@FXML
+	public Slider blueSlider;
+	@FXML
 	private ListView<String> lvComponents;
 
 	private PaintingArea actualPaintingArea;
@@ -43,7 +56,7 @@ public class ManipulatingMenuController {
 
 	@FXML
 	public void componentSelected() {
-		if (painting != null){
+		if (painting != null) {
 			unbindProperties();
 		}
 		actualPaintingArea.setActualPaintingById(lvComponents
@@ -52,22 +65,22 @@ public class ManipulatingMenuController {
 
 	@FXML
 	public void removeHeight() {
-		painting.changeHeightTo(painting.getHeightProperty().get()-1);
+		painting.changeHeightTo(painting.getHeightProperty().get() - 1);
 	}
 
 	@FXML
 	public void addHeight() {
-		painting.changeHeightTo(painting.getHeightProperty().get()+1);
+		painting.changeHeightTo(painting.getHeightProperty().get() + 1);
 	}
 
 	@FXML
 	public void removeWidth() {
-		painting.changeWidthTo(painting.getWidthProperty().get()-1);
+		painting.changeWidthTo(painting.getWidthProperty().get() - 1);
 	}
 
 	@FXML
 	public void addWidth() {
-		painting.changeWidthTo(painting.getWidthProperty().get()+1);
+		painting.changeWidthTo(painting.getWidthProperty().get() + 1);
 	}
 
 	@FXML
@@ -152,6 +165,12 @@ public class ManipulatingMenuController {
 				painting.getHeightProperty(), new NumberToStringConverter());
 		editWidth.textProperty().bindBidirectional(painting.getWidthProperty(),
 				new NumberToStringConverter());
+		red.textProperty().bindBidirectional(painting.getColor().getR(),
+				new NumberToStringConverter());
+		green.textProperty().bindBidirectional(painting.getColor().getG(),
+				new NumberToStringConverter());
+		blue.textProperty().bindBidirectional(painting.getColor().getB(),
+				new NumberToStringConverter());
 	}
 
 	private void unbindProperties() {
@@ -171,7 +190,9 @@ public class ManipulatingMenuController {
 				painting.getHeightProperty());
 		editWidth.textProperty().unbindBidirectional(
 				painting.getWidthProperty());
-
+		red.textProperty().unbindBidirectional(painting.getColor().getR());
+		green.textProperty().unbindBidirectional(painting.getColor().getG());
+		blue.textProperty().unbindBidirectional(painting.getColor().getB());
 	}
 
 }

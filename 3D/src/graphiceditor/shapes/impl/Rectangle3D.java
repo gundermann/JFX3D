@@ -3,8 +3,8 @@ package graphiceditor.shapes.impl;
 import graphiceditor.domainspecific.values.Axis;
 import graphiceditor.domainspecific.values.observable.AngleProperty;
 import javafx.beans.property.DoubleProperty;
-import javafx.scene.Node;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.shape.Shape;
 import javafx.scene.transform.Rotate;
 
 public class Rectangle3D extends AbstractObject3D {
@@ -21,11 +21,6 @@ public class Rectangle3D extends AbstractObject3D {
 		refreshTransforms();
 	}
 
-	@Override
-	public void changeWidth(int i) {
-		changeWidthTo(((Rectangle) node).getWidth() + i);
-	}
-
 	public void changeWidthTo(double newWidth) {
 		((Rectangle) node).widthProperty().set(newWidth);
 		refreshTransforms();
@@ -34,11 +29,6 @@ public class Rectangle3D extends AbstractObject3D {
 	public void changeHeightTo(double newHeight) {
 		((Rectangle) node).heightProperty().set(newHeight);
 		refreshTransforms();
-	}
-
-	@Override
-	public void changeHeight(int i) {
-		changeHeightTo(((Rectangle) node).getHeight() + i);
 	}
 
 	@Override
@@ -52,7 +42,7 @@ public class Rectangle3D extends AbstractObject3D {
 	}
 
 	@Override
-	protected Class<? extends Node> getNodeClass() {
+	protected Class<? extends Shape> getShapeClass() {
 		return Rectangle.class;
 	}
 

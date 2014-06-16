@@ -7,7 +7,6 @@ import graphiceditor.shapes.Object3D;
 import javafx.beans.property.DoubleProperty;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
-import javafx.scene.paint.Color;
 import javafx.scene.shape.Shape;
 import javafx.scene.transform.Transform;
 
@@ -114,5 +113,14 @@ public abstract class AbstractObject3D implements Object3D {
 	@Override
 	public ShapeColor getColor() {
 		return color;
+	}
+
+	@Override
+	public void setSelected(boolean selected) {
+		if (selected) {
+			node.setStyle("-fx-stroke: red; -fx-stroke-width: 5; -fx-stroke-dash-array: 12 2 4 2; -fx-stroke-dash-offset: 6; -fx-stroke-line-cap: butt;");
+		} else {
+			node.setStyle("-fx-stroke-width: 0;");
+		}
 	}
 }

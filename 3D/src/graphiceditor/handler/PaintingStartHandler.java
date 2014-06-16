@@ -25,6 +25,5 @@ public class PaintingStartHandler implements PaintingHandler {
 	@Override
 	public void setPaintingArea(PaintingArea paintingArea) {
 		this.paintingArea = paintingArea;
-
 	}
 }

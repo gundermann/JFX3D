@@ -18,7 +18,7 @@ public class PaintingAreaController extends DimensionAreaController implements
 		PaintingArea {
 
 	private Painting paintingMode = Painting.None;
-	
+
 	final private String name;
 
 	private EventHandler<MouseEvent> mouseMoveHandler;
@@ -26,7 +26,7 @@ public class PaintingAreaController extends DimensionAreaController implements
 	private EventHandler<MouseEvent> mouseClickHandler;
 
 	public PaintingAreaController(String name) {
-		this.name= name; 
+		this.name = name;
 	}
 
 	public void setMouseMoveHandler(EventHandler<MouseEvent> listener) {
@@ -71,6 +71,9 @@ public class PaintingAreaController extends DimensionAreaController implements
 
 	@Override
 	public void setActualPainting(Object3D painting) {
+		if(getActualPainting() != null)
+			getActualPainting().setSelected(false);
+		painting.setSelected(true);
 		getUI().setActualPainting(painting);
 	}
 
@@ -93,8 +96,11 @@ public class PaintingAreaController extends DimensionAreaController implements
 
 	@Override
 	public void setActualPaintingById(int selectedIndex) {
+		if (getActualPainting() != null)
+			getActualPainting().setSelected(false);
 		setActualPainting(getUI().getAllGraphicObjects().get(selectedIndex));
-		GUIManipulatingMenu.getInstance().setActualPainting(getActualPainting());
+		GUIManipulatingMenu.getInstance()
+				.setActualPainting(getActualPainting());
 	}
 
 	@Override
@@ -108,11 +114,11 @@ public class PaintingAreaController extends DimensionAreaController implements
 
 	@Override
 	public void addAll(List<Object3D> objects) {
-		for(Object3D object3D : objects){
+		for (Object3D object3D : objects) {
 			add(object3D);
 		}
 	}
-	
+
 	@Override
 	public String toString() {
 		return name;
@@ -122,6 +128,5 @@ public class PaintingAreaController extends DimensionAreaController implements
 	public List<Object3D> getAllGraphicObjects() {
 		return getUI().getAllGraphicObjects();
 	}
-
 
 }

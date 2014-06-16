@@ -18,6 +18,8 @@ public interface Object3D {
 
 	void moveY(double i);
 
+	void setSelected(boolean selected);
+	
 	DoubleProperty getXPositionProperty();
 
 	DoubleProperty getYPositionProperty();

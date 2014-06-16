@@ -16,6 +16,7 @@ public class GUIPaintingArea extends GUIDimensionArea {
 	}
 
 	public void resetActualPainting() {
+		actualPainting.setSelected(false);
 		actualPainting = null;
 	}
 

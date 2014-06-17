@@ -19,7 +19,7 @@ public class ShapePaintingHandler implements PaintingHandler {
 
 	@Override
 	public void setPaintingArea(PaintingArea paintingArea) {
-		this.shape = paintingArea.getActualPainting();
+		this.shape = (Object3D) paintingArea.getActualPainting();
 		initinalX = shape.getXPositionProperty().get();
 		initinalY = shape.getYPositionProperty().get();
 	}

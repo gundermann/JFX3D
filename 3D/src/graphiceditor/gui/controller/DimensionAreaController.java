@@ -4,7 +4,7 @@ import graphiceditor.RotationHandlerFactory;
 import graphiceditor.gui.DimensionArea;
 import graphiceditor.gui.GUIDimensionArea;
 import graphiceditor.handler.AbstractMouseDragRotationHandler;
-import graphiceditor.shapes.Object3D;
+import graphiceditor.shapes.CommonObject3D;
 import javafx.beans.property.Property;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
@@ -37,7 +37,7 @@ public class DimensionAreaController implements DimensionArea {
 	}
 
 	@Override
-	public void add(Object3D shape) {
+	public void add(CommonObject3D shape) {
 		gui.add(shape);
 	}
 

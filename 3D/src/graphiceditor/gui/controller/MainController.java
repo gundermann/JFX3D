@@ -5,7 +5,7 @@ import graphiceditor.gui.PaintingArea;
 import graphiceditor.menu.dimension.GUIDimensionMenu;
 import graphiceditor.menu.manipulating.GUIManipulatingMenu;
 import graphiceditor.menu.painting.GUIPaintingMenu;
-import graphiceditor.shapes.Object3D;
+import graphiceditor.shapes.CommonObject3D;
 import graphicpersistenshandler.Graphic3DLoader;
 import graphicpersistenshandler.Graphic3DSaver;
 import graphicpersistenshandler.GraphicInserter;
@@ -81,7 +81,7 @@ public class MainController implements Initializable {
 	public void load() {
 		File file = Graphic3DLoader.getInstace().initLoading();
 		PaintingAreaFactory.getInstance().load(this, file.getName());
-		List<Object3D> shapesFromLoader = Graphic3DLoader.getInstace()
+		List<CommonObject3D> shapesFromLoader = Graphic3DLoader.getInstace()
 				.getShapesFromLoader(file);
 		getSelectedPaintingArea().addAll(shapesFromLoader);
 	}

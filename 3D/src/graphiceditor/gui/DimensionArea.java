@@ -1,6 +1,6 @@
 package graphiceditor.gui;
 
-import graphiceditor.shapes.Object3D;
+import graphiceditor.shapes.CommonObject3D;
 import javafx.beans.property.Property;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -9,7 +9,7 @@ public interface DimensionArea {
 
 	Pane getMainPane();
 
-	void add(Object3D shape);
+	void add(CommonObject3D shape);
 
 	void enableZRotation();
 

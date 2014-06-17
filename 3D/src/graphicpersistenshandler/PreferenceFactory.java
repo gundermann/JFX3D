@@ -1,13 +1,13 @@
 package graphicpersistenshandler;
 
-import graphiceditor.shapes.Object3D;
+import graphiceditor.shapes.CommonObject3D;
 import graphiceditor.shapes.impl.Rectangle3D;
 import graphicpersistenshandler.prefs.RectPreference;
 import graphicpersistenshandler.prefs.ShapePreference;
 
 public class PreferenceFactory {
 
-	public static ShapePreference createPrefFromObject3D(Object3D object3d) {
+	public static ShapePreference createPrefFromObject3D(CommonObject3D object3d) {
 		if(object3d instanceof Rectangle3D){
 			return createRectPref((Rectangle3D) object3d);
 		}

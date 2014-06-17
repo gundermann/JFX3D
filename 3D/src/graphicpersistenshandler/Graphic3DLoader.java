@@ -1,6 +1,6 @@
 package graphicpersistenshandler;
 
-import graphiceditor.shapes.Object3D;
+import graphiceditor.shapes.CommonObject3D;
 import graphicpersistenshandler.prefs.RectPreference;
 import graphicpersistenshandler.prefs.ShapePreference;
 
@@ -99,7 +99,7 @@ public class Graphic3DLoader extends AbstractGraphic3DPersister {
 						colorStr.substring(5, 7), 16));
 	}
 
-	public List<Object3D> getShapesFromLoader(File file) {
+	public List<CommonObject3D> getShapesFromLoader(File file) {
 		List<ShapePreference> preferences = loadPreferencesFromFile(file);
 		return Graphic3DFactory.convertPreferencesTo3DGraphics(preferences);
 	}

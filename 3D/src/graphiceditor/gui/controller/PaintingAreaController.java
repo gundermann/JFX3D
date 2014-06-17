@@ -6,7 +6,7 @@ import graphiceditor.gui.GUIDimensionArea;
 import graphiceditor.gui.GUIPaintingArea;
 import graphiceditor.gui.PaintingArea;
 import graphiceditor.menu.manipulating.GUIManipulatingMenu;
-import graphiceditor.shapes.Object3D;
+import graphiceditor.shapes.CommonObject3D;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -65,12 +65,12 @@ public class PaintingAreaController extends DimensionAreaController implements
 	}
 
 	@Override
-	public Object3D getActualPainting() {
+	public CommonObject3D getActualPainting() {
 		return getUI().getActualPainting();
 	}
 
 	@Override
-	public void setActualPainting(Object3D painting) {
+	public void setActualPainting(CommonObject3D painting) {
 		if(getActualPainting() != null)
 			getActualPainting().setSelected(false);
 		painting.setSelected(true);
@@ -106,15 +106,15 @@ public class PaintingAreaController extends DimensionAreaController implements
 	@Override
 	public List<String> getAllGraphicObjectsAsString() {
 		List<String> graphicObjectStrings = new ArrayList<String>();
-		for (Object3D graphicObject : getUI().getAllGraphicObjects()) {
+		for (CommonObject3D graphicObject : getUI().getAllGraphicObjects()) {
 			graphicObjectStrings.add(graphicObject.toString());
 		}
 		return graphicObjectStrings;
 	}
 
 	@Override
-	public void addAll(List<Object3D> objects) {
-		for (Object3D object3D : objects) {
+	public void addAll(List<CommonObject3D> objects) {
+		for (CommonObject3D object3D : objects) {
 			add(object3D);
 		}
 	}
@@ -125,7 +125,7 @@ public class PaintingAreaController extends DimensionAreaController implements
 	}
 
 	@Override
-	public List<Object3D> getAllGraphicObjects() {
+	public List<CommonObject3D> getAllGraphicObjects() {
 		return getUI().getAllGraphicObjects();
 	}
 

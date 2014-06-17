@@ -37,7 +37,7 @@ public class Object3DBuilder {
 	}
 
 
-	public static CommonObject3D createKomplexShape(List<Object3D> shapes, String title) {
+	public static CommonObject3D createKomplexShape(List<CommonObject3D> shapes, String title) {
 		return new ComplexObject3DImpl(shapes, title);
 	}
 

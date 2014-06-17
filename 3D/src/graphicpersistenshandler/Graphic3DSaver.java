@@ -1,11 +1,10 @@
 package graphicpersistenshandler;
 
 import graphiceditor.gui.PaintingArea;
-import graphiceditor.shapes.Object3D;
+import graphiceditor.shapes.CommonObject3D;
 import graphicpersistenshandler.prefs.RectPreference;
 import graphicpersistenshandler.prefs.ShapePreference;
 
-import java.awt.Color;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -15,7 +14,6 @@ import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import javafx.stage.Stage;
 
-import javax.xml.bind.annotation.adapters.HexBinaryAdapter;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -128,7 +126,7 @@ public class Graphic3DSaver extends AbstractGraphic3DPersister {
 
 	public void savePaintingArea(PaintingArea paintingArea, File file) {
 		List<ShapePreference> shapePreferences = new ArrayList<ShapePreference>();
-		for (Object3D graphicObject : paintingArea.getAllGraphicObjects()) {
+		for (CommonObject3D graphicObject : paintingArea.getAllGraphicObjects()) {
 			ShapePreference pref = PreferenceFactory
 					.createPrefFromObject3D(graphicObject);
 			shapePreferences.add(pref);

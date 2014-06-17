@@ -4,7 +4,7 @@ import graphiceditor.domainspecific.RotationBundle;
 import graphiceditor.domainspecific.values.Axis;
 import graphiceditor.domainspecific.values.observable.AngleProperty;
 import graphiceditor.domainspecific.values.observable.RotationProperty;
-import graphiceditor.shapes.Object3D;
+import graphiceditor.shapes.CommonObject3D;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +30,7 @@ public class GUIDimensionArea extends Stage {
 
 	private final RotationProperty rootAngleZ = new RotationProperty();
 
-	private final List<Object3D> allGraphicObjects = new ArrayList<Object3D>();
+	private final List<CommonObject3D> allGraphicObjects = new ArrayList<CommonObject3D>();
 
 	private final Point3D pivot;
 
@@ -61,7 +61,7 @@ public class GUIDimensionArea extends Stage {
 		centerOnScreen();
 	}
 
-	public List<Object3D> getAllGraphicObjects() {
+	public List<CommonObject3D> getAllGraphicObjects() {
 		return allGraphicObjects;
 	}
 
@@ -90,7 +90,7 @@ public class GUIDimensionArea extends Stage {
 		return mainPane;
 	}
 
-	public void add(Object3D shape) {
+	public void add(CommonObject3D shape) {
 		if (!getAllGraphicObjects().contains(shape)) {
 			mainPane.getChildren().add(shape.asNode());
 			allGraphicObjects.add(shape);

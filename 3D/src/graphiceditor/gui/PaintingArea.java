@@ -1,7 +1,7 @@
 package graphiceditor.gui;
 
 import graphiceditor.Painting;
-import graphiceditor.shapes.Object3D;
+import graphiceditor.shapes.CommonObject3D;
 
 import java.util.List;
 
@@ -15,9 +15,9 @@ public interface PaintingArea extends DimensionArea {
 
 	Painting getPaintingMode();
 
-	Object3D getActualPainting();
+	CommonObject3D getActualPainting();
 
-	void setActualPainting(Object3D painting);
+	void setActualPainting(CommonObject3D painting);
 
 	void finishPainting();
 
@@ -25,8 +25,8 @@ public interface PaintingArea extends DimensionArea {
 
 	List<String> getAllGraphicObjectsAsString();
 	
-	List<Object3D> getAllGraphicObjects();
+	List<CommonObject3D> getAllGraphicObjects();
 
-	void addAll(List<Object3D> shapesFromLoader);
+	void addAll(List<CommonObject3D> shapesFromLoader);
 
 }

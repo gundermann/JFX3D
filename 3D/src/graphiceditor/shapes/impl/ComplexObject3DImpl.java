@@ -1,6 +1,6 @@
 package graphiceditor.shapes.impl;
 
-import graphiceditor.shapes.Object3D;
+import graphiceditor.shapes.CommonObject3D;
 
 import java.util.List;
 
@@ -10,15 +10,15 @@ import javafx.scene.Node;
 
 public class ComplexObject3DImpl extends AbstractObject3DImpl  {
 
-	private List<Object3D> shapes;
+	private List<CommonObject3D> shapes;
 	private Group shape;
 	
 
-	public ComplexObject3DImpl(List<Object3D> shapes, String title) {
+	public ComplexObject3DImpl(List<CommonObject3D> shapes, String title) {
 		super(title);
 		this.shapes = shapes;
 		shape = GroupBuilder.create().build();
-		for(Object3D o : shapes){
+		for(CommonObject3D o : shapes){
 			shape.getChildren().add(o.asNode());
 		}
 	}
@@ -30,7 +30,7 @@ public class ComplexObject3DImpl extends AbstractObject3DImpl  {
 
 	@Override
 	public void setSelected(boolean selected) {
-		for(Object3D o : shapes){
+		for(CommonObject3D o : shapes){
 			o.setSelected(selected);
 		}
 	}

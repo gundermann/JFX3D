@@ -1,11 +1,11 @@
 package graphiceditor.menu.manipulating;
 
 import graphiceditor.gui.PaintingArea;
+import graphiceditor.shapes.CommonObject3D;
 import graphiceditor.shapes.Object3D;
 import graphiceditor.util.NumberToStringConverter;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
-import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 
 public class ManipulatingMenuController {
@@ -33,16 +33,10 @@ public class ManipulatingMenuController {
 	@FXML
 	public TextField blue;
 	@FXML
-	public Slider redSlider;
-	@FXML
-	public Slider greenSlider;
-	@FXML
-	public Slider blueSlider;
-	@FXML
 	private ListView<String> lvComponents;
 
 	private PaintingArea actualPaintingArea;
-	private Object3D painting;
+	private CommonObject3D painting;
 
 	public void setPaintingArea(PaintingArea paintingArea) {
 		this.actualPaintingArea = paintingArea;
@@ -65,22 +59,26 @@ public class ManipulatingMenuController {
 
 	@FXML
 	public void removeHeight() {
-		painting.changeHeightTo(painting.getHeightProperty().get() - 1);
+		((Object3D) painting).changeHeightTo(((Object3D) painting)
+				.getHeightProperty().get() - 1);
 	}
 
 	@FXML
 	public void addHeight() {
-		painting.changeHeightTo(painting.getHeightProperty().get() + 1);
+		((Object3D) painting).changeHeightTo(((Object3D) painting)
+				.getHeightProperty().get() + 1);
 	}
 
 	@FXML
 	public void removeWidth() {
-		painting.changeWidthTo(painting.getWidthProperty().get() - 1);
+		((Object3D) painting).changeWidthTo(((Object3D) painting)
+				.getWidthProperty().get() - 1);
 	}
 
 	@FXML
 	public void addWidth() {
-		painting.changeWidthTo(painting.getWidthProperty().get() + 1);
+		((Object3D) painting).changeWidthTo(((Object3D) painting)
+				.getWidthProperty().get() + 1);
 	}
 
 	@FXML
@@ -143,9 +141,19 @@ public class ManipulatingMenuController {
 		painting.rotateZ(1);
 	}
 
-	public void setActualPainting(Object3D painting) {
+	public void setActualPainting(CommonObject3D painting) {
 		this.painting = painting;
+		setEditableProperties();
 		bindProperties();
+	}
+
+	private void setEditableProperties() {
+		boolean isObject3D = (painting instanceof Object3D);
+		editHeight.setDisable(!isObject3D);
+		editWidth.setDisable(!isObject3D);
+		red.setDisable(!isObject3D);
+		green.setDisable(!isObject3D);
+		blue.setDisable(!isObject3D);
 	}
 
 	private void bindProperties() {
@@ -161,16 +169,24 @@ public class ManipulatingMenuController {
 				painting.getYRotationProperty(), new NumberToStringConverter());
 		zRotation.textProperty().bindBidirectional(
 				painting.getZRotationProperty(), new NumberToStringConverter());
-		editHeight.textProperty().bindBidirectional(
-				painting.getHeightProperty(), new NumberToStringConverter());
-		editWidth.textProperty().bindBidirectional(painting.getWidthProperty(),
-				new NumberToStringConverter());
-		red.textProperty().bindBidirectional(painting.getColor().getR(),
-				new NumberToStringConverter());
-		green.textProperty().bindBidirectional(painting.getColor().getG(),
-				new NumberToStringConverter());
-		blue.textProperty().bindBidirectional(painting.getColor().getB(),
-				new NumberToStringConverter());
+
+		if (painting instanceof Object3D) {
+			editHeight.textProperty().bindBidirectional(
+					((Object3D) painting).getHeightProperty(),
+					new NumberToStringConverter());
+			editWidth.textProperty().bindBidirectional(
+					((Object3D) painting).getWidthProperty(),
+					new NumberToStringConverter());
+			red.textProperty().bindBidirectional(
+					((Object3D) painting).getColor().getR(),
+					new NumberToStringConverter());
+			green.textProperty().bindBidirectional(
+					((Object3D) painting).getColor().getG(),
+					new NumberToStringConverter());
+			blue.textProperty().bindBidirectional(
+					((Object3D) painting).getColor().getB(),
+					new NumberToStringConverter());
+		}
 	}
 
 	private void unbindProperties() {
@@ -186,13 +202,18 @@ public class ManipulatingMenuController {
 				painting.getYRotationProperty());
 		zRotation.textProperty().unbindBidirectional(
 				painting.getZRotationProperty());
-		editHeight.textProperty().unbindBidirectional(
-				painting.getHeightProperty());
-		editWidth.textProperty().unbindBidirectional(
-				painting.getWidthProperty());
-		red.textProperty().unbindBidirectional(painting.getColor().getR());
-		green.textProperty().unbindBidirectional(painting.getColor().getG());
-		blue.textProperty().unbindBidirectional(painting.getColor().getB());
+		if (painting instanceof Object3D) {
+			editHeight.textProperty().unbindBidirectional(
+					((Object3D) painting).getHeightProperty());
+			editWidth.textProperty().unbindBidirectional(
+					((Object3D) painting).getWidthProperty());
+			red.textProperty().unbindBidirectional(
+					((Object3D) painting).getColor().getR());
+			green.textProperty().unbindBidirectional(
+					((Object3D) painting).getColor().getG());
+			blue.textProperty().unbindBidirectional(
+					((Object3D) painting).getColor().getB());
+		}
 	}
 
 }

@@ -2,7 +2,7 @@ package graphiceditor.menu.manipulating;
 
 import graphiceditor.gui.PaintingArea;
 import graphiceditor.menu.AbstractGUIMenu;
-import graphiceditor.shapes.Object3D;
+import graphiceditor.shapes.CommonObject3D;
 
 import java.io.IOException;
 
@@ -60,7 +60,7 @@ public class GUIManipulatingMenu extends AbstractGUIMenu {
 		getScene().getRoot().setDisable(disable);
 	}
 
-	public void setActualPainting(Object3D painting) {
+	public void setActualPainting(CommonObject3D painting) {
 		controller.setActualPainting(painting);
 	}
 

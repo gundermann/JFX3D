@@ -7,8 +7,12 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
 import javafx.scene.transform.Rotate;
 
-public class Rectangle3D extends AbstractObject3D {
+public class Rectangle3D extends AbstractPaintableObject3D {
 
+	public Rectangle3D(){
+		super("Rectangle");
+	}
+	
 	public void setupX(double x) {
 		((Rectangle) node).setX(0);
 		((Rectangle) node).layoutXProperty().set(x);
@@ -46,10 +50,6 @@ public class Rectangle3D extends AbstractObject3D {
 		return Rectangle.class;
 	}
 
-	@Override
-	public String toString() {
-		return "Rectangle";
-	}
 
 	@Override
 	protected void refreshTransforms() {

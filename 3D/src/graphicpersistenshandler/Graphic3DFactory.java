@@ -1,7 +1,7 @@
-package graphicpersister;
+package graphicpersistenshandler;
 
 import graphiceditor.shapes.Object3D;
-import graphicpersister.prefs.ShapePreference;
+import graphicpersistenshandler.prefs.ShapePreference;
 
 import java.util.ArrayList;
 import java.util.List;

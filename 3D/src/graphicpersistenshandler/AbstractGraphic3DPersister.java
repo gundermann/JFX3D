@@ -1,4 +1,4 @@
-package graphicpersister;
+package graphicpersistenshandler;
 
 public abstract class AbstractGraphic3DPersister {
 

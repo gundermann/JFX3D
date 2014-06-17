@@ -1,9 +1,9 @@
 package graphicloader.test;
 
 import static org.junit.Assert.assertTrue;
-import graphicpersister.Graphic3DLoader;
-import graphicpersister.prefs.RectPreference;
-import graphicpersister.prefs.ShapePreference;
+import graphicpersistenshandler.Graphic3DLoader;
+import graphicpersistenshandler.prefs.RectPreference;
+import graphicpersistenshandler.prefs.ShapePreference;
 
 import java.io.File;
 import java.util.List;

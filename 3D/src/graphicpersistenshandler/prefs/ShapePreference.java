@@ -1,4 +1,4 @@
-package graphicpersister.prefs;
+package graphicpersistenshandler.prefs;
 
 import graphiceditor.shapes.Object3D;
 

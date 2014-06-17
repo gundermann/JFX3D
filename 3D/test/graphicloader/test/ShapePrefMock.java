@@ -4,7 +4,7 @@ import org.mockito.Mockito;
 
 import graphiceditor.shapes.Object3D;
 import graphiceditor.shapes.impl.Rectangle3D;
-import graphicpersister.prefs.ShapePreference;
+import graphicpersistenshandler.prefs.ShapePreference;
 
 public class ShapePrefMock {
 

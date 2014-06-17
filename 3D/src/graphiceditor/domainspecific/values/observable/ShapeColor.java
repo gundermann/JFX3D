@@ -1,6 +1,5 @@
 package graphiceditor.domainspecific.values.observable;
 
-import javafx.beans.InvalidationListener;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.beans.value.ObservableValueBase;

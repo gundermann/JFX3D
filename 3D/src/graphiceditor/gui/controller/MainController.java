@@ -6,8 +6,9 @@ import graphiceditor.menu.dimension.GUIDimensionMenu;
 import graphiceditor.menu.manipulating.GUIManipulatingMenu;
 import graphiceditor.menu.painting.GUIPaintingMenu;
 import graphiceditor.shapes.Object3D;
-import graphicpersister.Graphic3DLoader;
-import graphicpersister.Graphic3DSaver;
+import graphicpersistenshandler.Graphic3DLoader;
+import graphicpersistenshandler.Graphic3DSaver;
+import graphicpersistenshandler.GraphicInserter;
 
 import java.io.File;
 import java.net.URL;
@@ -72,15 +73,21 @@ public class MainController implements Initializable {
 	}
 
 	@FXML
+	public void initInsertFromFile() {
+		GraphicInserter.getInstance().insertFromFile(getSelectedPaintingArea());
+	}
+
+	@FXML
 	public void load() {
 		File file = Graphic3DLoader.getInstace().initLoading();
 		PaintingAreaFactory.getInstance().load(this, file.getName());
-		List<Object3D> shapesFromLoader = Graphic3DLoader.getInstace().getShapesFromLoader(file);
+		List<Object3D> shapesFromLoader = Graphic3DLoader.getInstace()
+				.getShapesFromLoader(file);
 		getSelectedPaintingArea().addAll(shapesFromLoader);
 	}
-	
-	@FXML 
-	public void save(){
+
+	@FXML
+	public void save() {
 		Graphic3DSaver.getInstance().initSaving(getSelectedPaintingArea());
 	}
 

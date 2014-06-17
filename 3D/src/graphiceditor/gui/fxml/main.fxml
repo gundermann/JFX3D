@@ -14,16 +14,22 @@
       <menus>
         <Menu mnemonicParsing="false" text="File">
           <items>
-            <MenuItem mnemonicParsing="false" onAction="#load" text="Load" />
-            <MenuItem mnemonicParsing="false" onAction="#save" text="Save" />
+            <MenuItem mnemonicParsing="false" onAction="#load" text="Load ..." />
+            <MenuItem mnemonicParsing="false" onAction="#save" text="Save ..." />
             <MenuItem mnemonicParsing="false" onAction="#close" text="Close" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Painting Area">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#initNewObject" text="New" />
+            <MenuItem mnemonicParsing="false" onAction="#initInsertFromFile" text="Instert from file ..." />
           </items>
         </Menu>
       </menus>
     </MenuBar>
     <ToolBar id="btDimensionMenu" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="29.0">
       <items>
-        <Button alignment="TOP_LEFT" contentDisplay="CENTER" mnemonicParsing="false" onAction="#initNewObject" text="New Object" />
+        <Button alignment="TOP_LEFT" contentDisplay="CENTER" mnemonicParsing="false" onAction="#initNewObject" text="New Painting Area" />
         <ToggleButton fx:id="btDimensionMenu" contentDisplay="CENTER" disable="true" mnemonicParsing="false" onAction="#toggleDimensionMenu" text="Dimension Menu" />
         <ToggleButton id="btPaintingArea" fx:id="btPaintingMenu" disable="true" mnemonicParsing="false" onAction="#togglePaintingMenu" text="Painting Menu" />
         <ToggleButton fx:id="btManipulatingMenu" disable="true" mnemonicParsing="false" onAction="#toggleManipulatingMenu" text="Manipulating Menu" />

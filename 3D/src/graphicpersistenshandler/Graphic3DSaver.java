@@ -1,9 +1,9 @@
-package graphicpersister;
+package graphicpersistenshandler;
 
 import graphiceditor.gui.PaintingArea;
 import graphiceditor.shapes.Object3D;
-import graphicpersister.prefs.RectPreference;
-import graphicpersister.prefs.ShapePreference;
+import graphicpersistenshandler.prefs.RectPreference;
+import graphicpersistenshandler.prefs.ShapePreference;
 
 import java.awt.Color;
 import java.io.File;

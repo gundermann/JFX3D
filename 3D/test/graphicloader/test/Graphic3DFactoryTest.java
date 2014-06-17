@@ -2,8 +2,8 @@ package graphicloader.test;
 
 import static org.junit.Assert.assertTrue;
 import graphiceditor.shapes.Object3D;
-import graphicpersister.Graphic3DFactory;
-import graphicpersister.prefs.ShapePreference;
+import graphicpersistenshandler.Graphic3DFactory;
+import graphicpersistenshandler.prefs.ShapePreference;
 
 import java.util.ArrayList;
 import java.util.List;

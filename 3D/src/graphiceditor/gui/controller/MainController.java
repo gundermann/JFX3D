@@ -6,9 +6,9 @@ import graphiceditor.menu.dimension.GUIDimensionMenu;
 import graphiceditor.menu.manipulating.GUIManipulatingMenu;
 import graphiceditor.menu.painting.GUIPaintingMenu;
 import graphiceditor.shapes.CommonObject3D;
+import graphiceditor.util.ComplexGraphicInserter;
 import graphicpersistenshandler.Graphic3DLoader;
 import graphicpersistenshandler.Graphic3DSaver;
-import graphicpersistenshandler.GraphicInserter;
 
 import java.io.File;
 import java.net.URL;
@@ -74,7 +74,7 @@ public class MainController implements Initializable {
 
 	@FXML
 	public void initInsertFromFile() {
-		GraphicInserter.getInstance().insertFromFile(getSelectedPaintingArea());
+		ComplexGraphicInserter.getInstance().insertFromFile(getSelectedPaintingArea());
 	}
 
 	@FXML

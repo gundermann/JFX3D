@@ -16,13 +16,17 @@ public interface CommonObject3D {
 	void moveY(double i);
 
 	void setSelected(boolean selected);
-	
+
+	DoubleProperty getHeightProperty();
+
+	DoubleProperty getWidthProperty();
+
 	DoubleProperty getXPositionProperty();
 
 	DoubleProperty getYPositionProperty();
 
 	DoubleProperty getZPositionProperty();
-	
+
 	void rotateX(int i);
 
 	void rotateY(int i);

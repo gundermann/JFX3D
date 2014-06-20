@@ -2,7 +2,6 @@ package graphiceditor.shapes.impl;
 
 import graphiceditor.domainspecific.values.observable.ShapeColor;
 import graphiceditor.shapes.Object3D;
-import javafx.scene.Node;
 import javafx.scene.shape.Shape;
 
 public abstract class AbstractPaintableObject3D extends AbstractObject3DImpl
@@ -26,7 +25,7 @@ public abstract class AbstractPaintableObject3D extends AbstractObject3DImpl
 	abstract protected Class<? extends Shape> getShapeClass();
 
 	@Override
-	public Node asNode() {
+	public Shape asNode() {
 		return node;
 	}
 

@@ -169,14 +169,13 @@ public class ManipulatingMenuController {
 				painting.getYRotationProperty(), new NumberToStringConverter());
 		zRotation.textProperty().bindBidirectional(
 				painting.getZRotationProperty(), new NumberToStringConverter());
-
+		editHeight.textProperty().bindBidirectional(
+				painting.getHeightProperty(),
+				new NumberToStringConverter());
+		editWidth.textProperty().bindBidirectional(
+				painting.getWidthProperty(),
+				new NumberToStringConverter());
 		if (painting instanceof Object3D) {
-			editHeight.textProperty().bindBidirectional(
-					((Object3D) painting).getHeightProperty(),
-					new NumberToStringConverter());
-			editWidth.textProperty().bindBidirectional(
-					((Object3D) painting).getWidthProperty(),
-					new NumberToStringConverter());
 			red.textProperty().bindBidirectional(
 					((Object3D) painting).getColor().getR(),
 					new NumberToStringConverter());
@@ -202,11 +201,11 @@ public class ManipulatingMenuController {
 				painting.getYRotationProperty());
 		zRotation.textProperty().unbindBidirectional(
 				painting.getZRotationProperty());
+		editHeight.textProperty().unbindBidirectional(
+				((Object3D) painting).getHeightProperty());
+		editWidth.textProperty().unbindBidirectional(
+				((Object3D) painting).getWidthProperty());
 		if (painting instanceof Object3D) {
-			editHeight.textProperty().unbindBidirectional(
-					((Object3D) painting).getHeightProperty());
-			editWidth.textProperty().unbindBidirectional(
-					((Object3D) painting).getWidthProperty());
 			red.textProperty().unbindBidirectional(
 					((Object3D) painting).getColor().getR());
 			green.textProperty().unbindBidirectional(

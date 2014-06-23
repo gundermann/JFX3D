@@ -4,6 +4,7 @@ import graphiceditor.domainspecific.RotationBundle;
 import graphiceditor.domainspecific.values.Axis;
 import graphiceditor.domainspecific.values.observable.AngleProperty;
 import graphiceditor.domainspecific.values.observable.RotationProperty;
+import graphiceditor.menu.components.GUIComponentsMenu;
 import graphiceditor.shapes.CommonObject3D;
 
 import java.util.ArrayList;
@@ -94,6 +95,7 @@ public class GUIDimensionArea extends Stage {
 		if (!getAllGraphicObjects().contains(shape)) {
 			mainPane.getChildren().add(shape.asNode());
 			allGraphicObjects.add(shape);
+			GUIComponentsMenu.getInstance().updateComponents();
 		}
 
 	}

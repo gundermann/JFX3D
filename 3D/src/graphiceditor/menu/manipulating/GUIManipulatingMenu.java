@@ -1,13 +1,12 @@
 package graphiceditor.menu.manipulating;
 
-import graphiceditor.gui.PaintingArea;
 import graphiceditor.menu.AbstractGUIMenu;
 import graphiceditor.shapes.CommonObject3D;
+import graphiceditor.shapes.Object3D;
 
 import java.io.IOException;
 
 import javafx.fxml.FXMLLoader;
-import javafx.scene.PerspectiveCameraBuilder;
 import javafx.scene.Scene;
 import javafx.scene.SceneBuilder;
 import javafx.scene.layout.AnchorPane;
@@ -19,52 +18,67 @@ public class GUIManipulatingMenu extends AbstractGUIMenu {
 
 	public static GUIManipulatingMenu getInstance() {
 		if (_instance == null) {
-			_instance = new GUIManipulatingMenu(
-					new ManipulatingMenuController());
+			_instance = new GUIManipulatingMenu();
 		}
-		 if ( !_instance.isVisible() ) {
-		      _instance.setVisible( false );
-		    }
+		if (!_instance.isVisible()) {
+			_instance.setVisible(false);
+		}
 		return _instance;
 	}
 
-	private ManipulatingMenuController controller;
+	private ComplexManipulatingMenuController controller;
+	private Scene scene;
 
-	public GUIManipulatingMenu(
-			ManipulatingMenuController manipulatingMenuController) {
-		controller = manipulatingMenuController;
+	public GUIManipulatingMenu() {
+		scene = SceneBuilder.create().build();
+		setScene(scene);
+		initStyle(StageStyle.UNDECORATED);
+		setX(0);
+		setY(510);
+		if (controller == null)
+			switchToComplexMode();
+		show();
+	}
+
+	public void setActualPainting(CommonObject3D painting) {
+		if (painting instanceof Object3D)
+			switchToObject3DMode();
+		else
+			switchToComplexMode();
+		controller.setActualPainting(painting);
+	}
+
+	private void switchToComplexMode() {
+		controller = new ComplexManipulatingMenuController();
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(
-				"manipulatingmanu.fxml"));
-		fxmlLoader.setController(manipulatingMenuController);
+				"complexmanipulatingmenu.fxml"));
+		fxmlLoader.setController(controller);
 		AnchorPane page;
 		try {
 			page = (AnchorPane) fxmlLoader.load();
-			Scene scene = SceneBuilder.create().root(page)
-					.camera(PerspectiveCameraBuilder.create().build())
-					.depthBuffer(true).build();
+			scene.setRoot(page);
 			setScene(scene);
-			initStyle(StageStyle.UNDECORATED);
-			setX(0);
-			setY(510);
-			show();
+			setHeight(500);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 
-	public void setPaintingArea(PaintingArea paintingArea) {
-		controller.setPaintingArea(paintingArea);
+	private void switchToObject3DMode() {
+		controller = new ManipulatingMenuController();
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(
+				"manipulatingmenu.fxml"));
+		fxmlLoader.setController(controller);
+		AnchorPane page;
+		try {
+			page = (AnchorPane) fxmlLoader.load();
+			scene = SceneBuilder.create().root(page).build();
+			setScene(scene);
+			setHeight(500);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
 	}
 
-	public void setDisable(boolean disable) {
-		getScene().getRoot().setDisable(disable);
-	}
-
-	public void setActualPainting(CommonObject3D painting) {
-		controller.setActualPainting(painting);
-	}
-
-	public void updateComponents() {
-		controller.updateComponents();
-	}
 }

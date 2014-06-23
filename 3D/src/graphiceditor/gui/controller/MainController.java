@@ -2,6 +2,7 @@ package graphiceditor.gui.controller;
 
 import graphiceditor.PaintingAreaFactory;
 import graphiceditor.gui.PaintingArea;
+import graphiceditor.menu.components.GUIComponentsMenu;
 import graphiceditor.menu.dimension.GUIDimensionMenu;
 import graphiceditor.menu.manipulating.GUIManipulatingMenu;
 import graphiceditor.menu.painting.GUIPaintingMenu;
@@ -41,6 +42,9 @@ public class MainController implements Initializable {
 	public ToggleButton btManipulatingMenu;
 
 	@FXML
+	private ToggleButton btComponentsMenu;
+
+	@FXML
 	public void initNewObject() {
 		PaintingAreaFactory.getInstance().initCreation(this);
 	}
@@ -54,6 +58,7 @@ public class MainController implements Initializable {
 		btDimensionMenu.setDisable(false);
 		btPaintingMenu.setDisable(false);
 		btManipulatingMenu.setDisable(false);
+		btComponentsMenu.setDisable(false);
 	}
 
 	public PaintingArea getSelectedPaintingArea() {
@@ -67,14 +72,15 @@ public class MainController implements Initializable {
 				getSelectedPaintingArea());
 		GUIPaintingMenu.getInstance()
 				.setPaintingArea(getSelectedPaintingArea());
-		GUIManipulatingMenu.getInstance().setPaintingArea(
+		GUIComponentsMenu.getInstance().setPaintingArea(
 				getSelectedPaintingArea());
 		getSelectedPaintingArea().getUI().toFront();
 	}
 
 	@FXML
 	public void initInsertFromFile() {
-		ComplexGraphicInserter.getInstance().insertFromFile(getSelectedPaintingArea());
+		ComplexGraphicInserter.getInstance().insertFromFile(
+				getSelectedPaintingArea());
 	}
 
 	@FXML
@@ -107,8 +113,6 @@ public class MainController implements Initializable {
 		if (!btManipulatingMenu.isSelected()) {
 			GUIManipulatingMenu.getInstance().setVisible(false);
 		} else {
-			GUIManipulatingMenu.getInstance().setPaintingArea(
-					getSelectedPaintingArea());
 			GUIManipulatingMenu.getInstance().setVisible(true);
 		}
 	}
@@ -121,6 +125,17 @@ public class MainController implements Initializable {
 			GUIPaintingMenu.getInstance().setPaintingArea(
 					getSelectedPaintingArea());
 			GUIPaintingMenu.getInstance().setVisible(true);
+		}
+	}
+
+	@FXML
+	public void toggleComponentsMenu() {
+		if (!btComponentsMenu.isSelected()) {
+			GUIComponentsMenu.getInstance().setVisible(false);
+		} else {
+			GUIComponentsMenu.getInstance().setPaintingArea(
+					getSelectedPaintingArea());
+			GUIComponentsMenu.getInstance().setVisible(true);
 		}
 	}
 

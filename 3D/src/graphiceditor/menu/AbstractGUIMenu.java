@@ -5,7 +5,6 @@ import javafx.stage.Stage;
 public abstract class AbstractGUIMenu extends Stage {
 
 	private boolean visible = false;
-//	private PaintingArea paintingArea;
 
 	public boolean isVisible() {
 		return visible;
@@ -19,9 +18,5 @@ public abstract class AbstractGUIMenu extends Stage {
 			this.hide();
 		}
 	}
-
-//	public void setPaintingArea(PaintingArea selectedPaintingArea) {
-//		this.paintingArea = selectedPaintingArea;
-//	}
 
 }

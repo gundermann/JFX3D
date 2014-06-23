@@ -14,8 +14,8 @@
       <menus>
         <Menu mnemonicParsing="false" text="File">
           <items>
-            <MenuItem mnemonicParsing="false" onAction="#load" text="Load" />
-            <MenuItem mnemonicParsing="false" onAction="#save" text="Save" />
+            <MenuItem mnemonicParsing="false" onAction="#load" text="Load ..." />
+            <MenuItem mnemonicParsing="false" onAction="#save" text="Save ..." />
             <MenuItem mnemonicParsing="false" onAction="#close" text="Close" />
           </items>
         </Menu>
@@ -33,6 +33,7 @@
         <ToggleButton fx:id="btDimensionMenu" contentDisplay="CENTER" disable="true" mnemonicParsing="false" onAction="#toggleDimensionMenu" text="Dimension Menu" />
         <ToggleButton id="btPaintingArea" fx:id="btPaintingMenu" disable="true" mnemonicParsing="false" onAction="#togglePaintingMenu" text="Painting Menu" />
         <ToggleButton fx:id="btManipulatingMenu" disable="true" mnemonicParsing="false" onAction="#toggleManipulatingMenu" text="Manipulating Menu" />
+        <ToggleButton disable="true" mnemonicParsing="false" onAction="#toggleComponentsMenu" text="Components Menu" />
         <ChoiceBox fx:id="paintingAreaSelection" disable="true" />
       </items>
     </ToolBar>

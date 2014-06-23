@@ -5,6 +5,7 @@ import graphiceditor.PaintingListenerFactory;
 import graphiceditor.gui.GUIDimensionArea;
 import graphiceditor.gui.GUIPaintingArea;
 import graphiceditor.gui.PaintingArea;
+import graphiceditor.menu.components.GUIComponentsMenu;
 import graphiceditor.menu.manipulating.GUIManipulatingMenu;
 import graphiceditor.shapes.CommonObject3D;
 
@@ -48,7 +49,7 @@ public class PaintingAreaController extends DimensionAreaController implements
 		getUI().resetActualPainting();
 		getUI().removeEventHandler(MouseEvent.MOUSE_MOVED, mouseMoveHandler);
 		getUI().removeEventHandler(MouseEvent.MOUSE_CLICKED, mouseClickHandler);
-		GUIManipulatingMenu.getInstance().updateComponents();
+		GUIComponentsMenu.getInstance().updateComponents();
 	}
 
 	@Override

@@ -1,21 +1,25 @@
 package graphiceditor.menu.dimension;
 
+import graphiceditor.gui.DimensionArea;
+import graphiceditor.menu.AbstractMenuController;
+import graphiceditor.menu.MenuDisabler;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import graphiceditor.gui.DimensionArea;
-import graphiceditor.menu.MenuDisabler;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
+import javafx.scene.control.TitledPane;
 import javafx.scene.control.ToggleButton;
+import javafx.stage.Stage;
 import javafx.util.converter.NumberStringConverter;
 
-public class DimensionMenuController implements Initializable {
+public class DimensionMenuController extends AbstractMenuController {
 
 	private DimensionArea dimensionArea;
-
+	
 	@FXML
 	private Slider slXRotation;
 
@@ -48,7 +52,6 @@ public class DimensionMenuController implements Initializable {
 	
 	@FXML
 	private ToggleButton btShowAxis;
-
 
 	public void showGrid(){
 		dimensionArea.showGrid(btShowGrid.isSelected());
@@ -146,13 +149,19 @@ public class DimensionMenuController implements Initializable {
 	}
 
 	@Override
-	public void initialize(URL arg0, ResourceBundle arg1) {
+	public void initialize(URL url, ResourceBundle bundle) {
 		lbXRotation.textProperty().bindBidirectional(
 				slXRotation.valueProperty(), new NumberStringConverter());
 		lbYRotation.textProperty().bindBidirectional(
 				slYRotation.valueProperty(), new NumberStringConverter());
 		lbZRotation.textProperty().bindBidirectional(
 				slZRotation.valueProperty(), new NumberStringConverter());
+		super.initialize(url, bundle);
+	}
+
+	@Override
+	protected Stage getUI() {
+		return GUIDimensionMenu.getInstance();
 	}
 
 }

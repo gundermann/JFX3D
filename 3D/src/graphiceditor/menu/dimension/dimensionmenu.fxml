@@ -9,7 +9,7 @@
 
 <AnchorPane id="AnchorPane" xmlns:fx="http://javafx.com/fxml">
   <children>
-    <TitledPane fx:id="x1" collapsible="false" text="Dimensions">
+    <TitledPane id="x1" collapsible="false" text="Dimensions">
       <content>
         <AnchorPane id="Content">
           <children>
@@ -55,7 +55,11 @@
                         <Insets bottom="5.0" top="5.0" fx:id="x2" />
                       </GridPane.margin>
                     </ToggleButton>
-                    <ToggleButton fx:id="btShowGrid" mnemonicParsing="false" onAction="#showGrid" text="Show Grid" GridPane.columnIndex="0" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.margin="$x2" GridPane.rowIndex="6" GridPane.valignment="CENTER" />
+                    <ToggleButton fx:id="btShowGrid" mnemonicParsing="false" onAction="#showGrid" text="Show Grid" GridPane.columnIndex="0" GridPane.columnSpan="3" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="CENTER">
+                      <GridPane.margin>
+                        <Insets bottom="5.0" top="5.0" fx:id="x2" />
+                      </GridPane.margin>
+                    </ToggleButton>
                   </children>
                   <columnConstraints>
                     <ColumnConstraints hgrow="SOMETIMES" />
@@ -84,6 +88,9 @@
           </children>
         </AnchorPane>
       </content>
+      <graphic>
+        <ToggleButton blendMode="MULTIPLY" mnemonicParsing="false" onAction="#changeMoving" onMouseMoved="#move" text="M" />
+      </graphic>
     </TitledPane>
   </children>
 </AnchorPane>

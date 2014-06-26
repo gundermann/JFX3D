@@ -2,9 +2,11 @@ package graphiceditor.menu.painting;
 
 import graphiceditor.Painting;
 import graphiceditor.gui.PaintingArea;
+import graphiceditor.menu.AbstractMenuController;
 import javafx.fxml.FXML;
+import javafx.stage.Stage;
 
-public class PaintingMenuController {
+public class PaintingMenuController extends AbstractMenuController{
 
 	private PaintingArea actualPaintingArea;
 
@@ -16,6 +18,11 @@ public class PaintingMenuController {
 
 	public void setPaintingArea(PaintingArea paintingArea) {
 		this.actualPaintingArea = paintingArea;
+	}
+
+	@Override
+	protected Stage getUI() {
+		return GUIPaintingMenu.getInstance();
 	}
 
 	

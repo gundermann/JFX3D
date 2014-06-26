@@ -1,12 +1,14 @@
 package graphiceditor.menu.manipulating;
 
+import graphiceditor.menu.AbstractMenuController;
 import graphiceditor.shapes.CommonObject3D;
 import graphiceditor.shapes.Object3D;
 import graphiceditor.util.NumberToStringConverter;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
-public class ComplexManipulatingMenuController {
+public class ComplexManipulatingMenuController extends AbstractMenuController{
 
 	@FXML
 	public TextField xPosition;
@@ -147,6 +149,11 @@ public class ComplexManipulatingMenuController {
 				painting.getYRotationProperty());
 		zRotation.textProperty().unbindBidirectional(
 				painting.getZRotationProperty());
+	}
+
+	@Override
+	protected Stage getUI() {
+		return GUIManipulatingMenu.getInstance();
 	}
 
 }

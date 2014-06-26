@@ -31,6 +31,9 @@
           </children>
         </AnchorPane>
       </content>
+       <graphic>
+        <ToggleButton blendMode="MULTIPLY" mnemonicParsing="false" onAction="#changeMoving" onMouseMoved="#move" text="M" />
+      </graphic>
     </TitledPane>
   </children>
 </AnchorPane>

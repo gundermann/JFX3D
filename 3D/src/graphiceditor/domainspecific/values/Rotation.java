@@ -1,5 +1,6 @@
 package graphiceditor.domainspecific.values;
 
+import javafx.geometry.Point3D;
 import javafx.scene.transform.Rotate;
 
 public class Rotation extends Rotate {
@@ -24,6 +25,12 @@ public class Rotation extends Rotate {
 	
 	public Axis getRotationAxis(){
 		return rotationAxis;
+	}
+
+	public void setPivot(Point3D pivot) {
+		setPivotX(pivot.getX());
+		setPivotY(pivot.getY());
+		setPivotZ(pivot.getZ());
 	}
 
 }

@@ -29,4 +29,8 @@ public interface DimensionArea {
 
 	void resetDimensions();
 
+	void showGrid(boolean b);
+
+	void showAxis(boolean b);
+
 }

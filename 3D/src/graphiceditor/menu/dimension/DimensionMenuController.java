@@ -42,7 +42,22 @@ public class DimensionMenuController implements Initializable {
 
 	@FXML
 	private Label lbZRotation;
+	
+	@FXML
+	private ToggleButton btShowGrid;
+	
+	@FXML
+	private ToggleButton btShowAxis;
 
+
+	public void showGrid(){
+		dimensionArea.showGrid(btShowGrid.isSelected());
+	}
+	
+	public void showAxis(){
+		dimensionArea.showAxis(btShowAxis.isSelected());
+	}
+	
 	public void setDimensionArea(DimensionArea dimensionArea) {
 		if (this.dimensionArea != null)
 			resetSliders();

@@ -112,5 +112,15 @@ public class DimensionAreaController implements DimensionArea {
 	public void resetDimensions() {
 		gui.resetDimensions();
 	}
+
+	@Override
+	public void showGrid(boolean b) {
+		gui.showGrid(b);
+	}
+
+	@Override
+	public void showAxis(boolean b) {
+		gui.showAxis(b);		
+	}
 	
 }

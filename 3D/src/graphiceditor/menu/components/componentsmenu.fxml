@@ -8,6 +8,14 @@
 
 <AnchorPane id="AnchorPane" xmlns:fx="http://javafx.com/fxml">
   <children>
-    <ListView fx:id="lvComponents" onMouseClicked="#componentSelected" />
+    <TitledPane animated="false" collapsible="false" text="Components" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <content>
+        <AnchorPane id="Content">
+          <children>
+            <ListView fx:id="lvComponents" onMouseClicked="#componentSelected" />
+          </children>
+        </AnchorPane>
+      </content>
+    </TitledPane>
   </children>
 </AnchorPane>

@@ -33,8 +33,8 @@
             <Button mnemonicParsing="false" onAction="#removeWidth" text="-" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="7" />
             <Button mnemonicParsing="false" onAction="#addHeight" text="+" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
             <Button mnemonicParsing="false" onAction="#addWidth" text="+" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="7" />
-            <TextField id="editHeight" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
-            <TextField id="editWidth" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="7" />
+            <TextField fx:id="editHeight" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+            <TextField fx:id="editWidth" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="7" />
             <Label text="Position" GridPane.columnIndex="0" GridPane.columnSpan="3" GridPane.margin="$x1" GridPane.rowIndex="0" GridPane.valignment="CENTER" />
           </children>
           <columnConstraints>
@@ -62,9 +62,9 @@
             <Button mnemonicParsing="false" onAction="#addXRotation" text="X +" GridPane.columnIndex="2" GridPane.rowIndex="1" />
             <Button mnemonicParsing="false" onAction="#addYRotation" text="Y +" GridPane.columnIndex="2" GridPane.rowIndex="2" />
             <Button mnemonicParsing="false" onAction="#addZRotation" text="Z +" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-            <TextField id="xRotation" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-            <TextField id="yRotation" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-            <TextField id="zRotation" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+            <TextField fx:id="xRotation" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="yRotation" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="zRotation" GridPane.columnIndex="1" GridPane.rowIndex="3" />
           </children>
           <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" />
@@ -85,9 +85,9 @@
                 <Insets top="5.0" fx:id="x1" />
               </GridPane.margin>
             </Label>
-            <TextField id="xRotation" maxWidth="50.0" minWidth="50.0" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
-            <TextField id="yRotation" maxWidth="50.0" minWidth="50.0" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
-            <TextField id="zRotation" maxWidth="50.0" minWidth="50.0" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+            <TextField id="xRotation" fx:id="red" maxWidth="50.0" minWidth="50.0" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+            <TextField id="yRotation" fx:id="green" maxWidth="50.0" minWidth="50.0" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+            <TextField id="zRotation" fx:id="blue" maxWidth="50.0" minWidth="50.0" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
             <Label text="Red:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
             <Label text="Green:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
             <Label text="Blue:" GridPane.columnIndex="0" GridPane.rowIndex="3" />

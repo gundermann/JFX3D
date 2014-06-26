@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.paint.*?>
 
-<AnchorPane id="AnchorPane" xmlns:fx="http://javafx.com/fxml" fx:controller="graphiceditor.menu.components.componentsmenuController">
+<AnchorPane id="AnchorPane" xmlns:fx="http://javafx.com/fxml">
   <children>
     <ListView fx:id="lvComponents" onMouseClicked="#componentSelected" />
   </children>

@@ -130,4 +130,13 @@ public class PaintingAreaController extends DimensionAreaController implements
 		return getUI().getAllGraphicObjects();
 	}
 
+
+	@Override
+	public void removeByIndex(List<Integer> list) {
+		for(Integer i : list){
+			getUI().removeByIndex(i);
+		}
+		
+	}
+
 }

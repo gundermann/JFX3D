@@ -27,11 +27,11 @@ public interface CommonObject3D {
 
 	DoubleProperty getZPositionProperty();
 
-	void rotateX(int i);
+	void rotateX(double i);
 
-	void rotateY(int i);
+	void rotateY(double i);
 
-	void rotateZ(int i);
+	void rotateZ(double i);
 
 	DoubleProperty getXRotationProperty();
 

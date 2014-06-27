@@ -82,17 +82,17 @@ public abstract class AbstractObject3DImpl implements CommonObject3D{
 	}
 	
 	@Override
-	public void rotateX(int i) {
+	public void rotateX(double i) {
 		xRotationProperty.set(xRotationProperty.getValue() + i);
 	}
 
 	@Override
-	public void rotateY(int i) {
+	public void rotateY(double i) {
 		yRotationProperty.set(yRotationProperty.getValue() + i);
 	}
 
 	@Override
-	public void rotateZ(int i) {
+	public void rotateZ(double i) {
 		zRotationProperty.set(zRotationProperty.getValue() + i);
 	}
 
@@ -110,6 +110,5 @@ public abstract class AbstractObject3DImpl implements CommonObject3D{
 	public DoubleProperty getZRotationProperty() {
 		return zRotationProperty;
 	}
-	
 	
 }

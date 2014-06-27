@@ -1,5 +1,6 @@
 package graphiceditor.gui;
 
+import graphiceditor.menu.components.GUIComponentsMenu;
 import graphiceditor.shapes.CommonObject3D;
 
 public class GUIPaintingArea extends GUIDimensionArea {
@@ -18,6 +19,11 @@ public class GUIPaintingArea extends GUIDimensionArea {
 	public void resetActualPainting() {
 		actualPainting.setSelected(false);
 		actualPainting = null;
+	}
+
+	public void removeByIndex(Integer indexToRemove) {
+		getAllGraphicObjects().remove(indexToRemove);
+		GUIComponentsMenu.getInstance().updateComponents();
 	}
 
 }

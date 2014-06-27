@@ -146,4 +146,9 @@ public class ComplexObject3DImpl extends AbstractObject3DImpl implements
 		return widthProperty;
 	}
 
+	@Override
+	public List<CommonObject3D> getShapes() {
+		return shapes;
+	}
+
 }

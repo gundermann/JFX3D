@@ -3,6 +3,7 @@ package graphiceditor;
 import java.util.List;
 
 import graphiceditor.shapes.CommonObject3D;
+import graphiceditor.shapes.ComplexObject3D;
 import graphiceditor.shapes.Object3D;
 import graphiceditor.shapes.impl.ComplexObject3DImpl;
 
@@ -39,6 +40,25 @@ public class Object3DBuilder {
 
 	public static CommonObject3D createKomplexShape(List<CommonObject3D> shapes, String title) {
 		return new ComplexObject3DImpl(shapes, title);
+	}
+
+
+	public Object3DBuilder fromOther(Object3D object3d) {
+		graphic.setupX(object3d.getXPositionProperty().get());
+		graphic.setupY(object3d.getYPositionProperty().get());
+		graphic.moveZ(object3d.getZPositionProperty().get());
+		graphic.changeHeightTo(object3d.getHeightProperty().get());
+		graphic.changeWidthTo(object3d.getWidthProperty().get());
+		graphic.rotateX(object3d.getXRotationProperty().get());
+		graphic.rotateY(object3d.getYRotationProperty().get());
+		graphic.rotateZ(object3d.getZRotationProperty().get());
+		return this;
+	}
+
+
+	public static CommonObject3D createKomplexShapeFromOther(
+			ComplexObject3D complexObject3D) {
+		return new ComplexObject3DImpl(complexObject3D.getShapes(), complexObject3D.toString());
 	}
 
 }

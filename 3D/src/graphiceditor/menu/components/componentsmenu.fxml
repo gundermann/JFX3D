@@ -12,11 +12,22 @@
       <content>
         <AnchorPane id="Content">
           <children>
-            <ListView fx:id="lvComponents" onMouseClicked="#componentSelected" />
+            <ListView fx:id="lvComponents" onMouseClicked="#componentSelected">
+              <contextMenu>
+                <ContextMenu onShowing="#checkPossibleActions">
+                  <items>
+                    <MenuItem onAction="#deleteComponent" text="Delete" />
+                    <MenuItem onAction="#copyComponent" text="Copy" />
+                    <MenuItem onAction="#pasteComponent" text="Paste" />
+                    <MenuItem disable="true" mnemonicParsing="false" onAction="#summarize" text="Summarize" fx:id="miSummarize" />
+                  </items>
+                </ContextMenu>
+              </contextMenu>
+            </ListView>
           </children>
         </AnchorPane>
       </content>
-       <graphic>
+      <graphic>
         <ToggleButton blendMode="MULTIPLY" mnemonicParsing="false" onAction="#changeMoving" onMouseMoved="#move" text="M" />
       </graphic>
     </TitledPane>

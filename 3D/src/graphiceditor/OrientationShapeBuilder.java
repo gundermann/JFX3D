@@ -13,6 +13,7 @@ import javafx.scene.shape.RectangleBuilder;
 import javafx.scene.transform.Rotate;
 import javafx.scene.transform.RotateBuilder;
 
+//TODO bad name
 public class OrientationShapeBuilder {
 	
 	private static final double STANDARD_SIZE = 1000;

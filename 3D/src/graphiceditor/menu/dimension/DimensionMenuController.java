@@ -8,6 +8,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
@@ -16,7 +17,7 @@ import javafx.scene.control.ToggleButton;
 import javafx.stage.Stage;
 import javafx.util.converter.NumberStringConverter;
 
-public class DimensionMenuController extends AbstractMenuController {
+public class DimensionMenuController extends AbstractMenuController implements Initializable{
 
 	private DimensionArea dimensionArea;
 	
@@ -156,7 +157,6 @@ public class DimensionMenuController extends AbstractMenuController {
 				slYRotation.valueProperty(), new NumberStringConverter());
 		lbZRotation.textProperty().bindBidirectional(
 				slZRotation.valueProperty(), new NumberStringConverter());
-		super.initialize(url, bundle);
 	}
 
 	@Override

@@ -28,5 +28,7 @@ public interface PaintingArea extends DimensionArea {
 	List<CommonObject3D> getAllGraphicObjects();
 
 	void addAll(List<CommonObject3D> shapesFromLoader);
+	
+	void removeByIndex(List<Integer> list);
 
 }

@@ -1,5 +1,7 @@
 package graphiceditor.gui;
 
+import java.util.List;
+
 import graphiceditor.menu.components.GUIComponentsMenu;
 import graphiceditor.shapes.CommonObject3D;
 
@@ -21,8 +23,8 @@ public class GUIPaintingArea extends GUIDimensionArea {
 		actualPainting = null;
 	}
 
-	public void removeByIndex(Integer indexToRemove) {
-		getAllGraphicObjects().remove(indexToRemove);
+	public void removeAll(List<CommonObject3D> objectsToRemove) {
+		getAllGraphicObjects().removeAll(objectsToRemove);
 		GUIComponentsMenu.getInstance().updateComponents();
 	}
 

@@ -133,9 +133,11 @@ public class PaintingAreaController extends DimensionAreaController implements
 
 	@Override
 	public void removeByIndex(List<Integer> list) {
+		List<CommonObject3D> objectsToRemove = new ArrayList<CommonObject3D>();
 		for(Integer i : list){
-			getUI().removeByIndex(i);
+			objectsToRemove.add(getAllGraphicObjects().get(i));
 		}
+		getUI().removeAll(objectsToRemove);
 		
 	}
 

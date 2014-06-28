@@ -1,7 +1,5 @@
 package graphicpersistenshandler.prefs;
 
-import java.awt.Color;
-
 import graphiceditor.shapes.impl.Rectangle3D;
 
 public class RectPreference implements ShapePreference {
@@ -16,12 +14,11 @@ public class RectPreference implements ShapePreference {
 
 	private double width;
 
-	//TODO use Double
-	private int rotationX;
+	private double rotationX;
 
-	private int rotationY;
+	private double rotationY;
 
-	private int rotationZ;
+	private double rotationZ;
 
 	private int red;
 
@@ -86,7 +83,7 @@ public class RectPreference implements ShapePreference {
 		this.width = width;
 	}
 
-	public int getRotationX() {
+	public double getRotationX() {
 		return rotationX;
 	}
 
@@ -94,7 +91,7 @@ public class RectPreference implements ShapePreference {
 		this.rotationX = rotationX;
 	}
 
-	public int getRotationY() {
+	public double getRotationY() {
 		return rotationY;
 	}
 
@@ -102,7 +99,7 @@ public class RectPreference implements ShapePreference {
 		this.rotationY = rotationY;
 	}
 
-	public int getRotationZ() {
+	public double getRotationZ() {
 		return rotationZ;
 	}
 

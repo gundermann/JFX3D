@@ -2,9 +2,11 @@ package graphiceditor;
 
 import graphiceditor.gui.controller.MainController;
 import graphiceditor.gui.controller.PaintingAreaController;
+import graphiceditor.util.Setup;
+import graphiceditor.util.TextDialog;
 import graphiceditor.util.TextFieldDialog;
 
-public class PaintingAreaFactory {
+public class PaintingAreaFactory implements Setup {
 
 	private static PaintingAreaFactory _instance;
 
@@ -31,7 +33,15 @@ public class PaintingAreaFactory {
 	
 	public void initCreation(MainController mainController) {
 		paintingAreaContainer = mainController;
-		new TextFieldDialog(this);
+		TextFieldDialog.showSetup(this);;
+	}
+
+	@Override
+	public void setText(String text) {
+		if(!createPaintingArea(text)){
+			TextFieldDialog.showSetup(this);
+			new TextDialog();
+		}
 	}
 
 }

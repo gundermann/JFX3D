@@ -1,30 +1,25 @@
 package graphiceditor.util;
 
-import graphiceditor.PaintingAreaFactory;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.TextField;
 
-public class TextFieldDialog extends AbstractDialog{
+public class TextFieldDialog extends AbstractDialog {
 
-	private PaintingAreaFactory paintingAreaFactory;
-	
+	private Setup setup;
+
 	@FXML
 	public TextField tf;
 
-	public TextFieldDialog(PaintingAreaFactory paintingAreaFactory) {
+	public TextFieldDialog(Setup setup) {
 		super();
-		this.paintingAreaFactory = paintingAreaFactory;
+		this.setup = setup;
 	}
 
 	@FXML
-	public void ok(){
-		if(paintingAreaFactory.createPaintingArea(tf.getText())){
-			getStage().close();
-		}
-		else{
-			new TextDialog();
-		}
+	public void ok() {
+		setup.setText(tf.getText());
+		getStage().close();
 	}
 
 	@FXML
@@ -34,6 +29,10 @@ public class TextFieldDialog extends AbstractDialog{
 
 	@Override
 	protected FXMLLoader initLoader() {
-		return new FXMLLoader( getClass().getResource( "fxml/tfDialog.fxml" ) );
+		return new FXMLLoader(getClass().getResource("fxml/tfDialog.fxml"));
+	}
+
+	public static void showSetup(Setup setup) {
+		new TextFieldDialog(setup);
 	}
 }

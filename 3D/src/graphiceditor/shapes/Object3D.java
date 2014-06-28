@@ -5,6 +5,8 @@ import graphiceditor.domainspecific.values.observable.ShapeColor;
 public interface Object3D extends CommonObject3D {
 
 	ShapeColor getColor();
+	
+	void setColor(ShapeColor color);
 
 	void setupX(double x);
 

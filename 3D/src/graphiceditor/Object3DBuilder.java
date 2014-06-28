@@ -52,6 +52,7 @@ public class Object3DBuilder {
 		graphic.rotateX(object3d.getXRotationProperty().get());
 		graphic.rotateY(object3d.getYRotationProperty().get());
 		graphic.rotateZ(object3d.getZRotationProperty().get());
+		graphic.setColor(object3d.getColor());
 		return this;
 	}
 

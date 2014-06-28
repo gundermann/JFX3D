@@ -87,7 +87,7 @@ public class RectPreference implements ShapePreference {
 		return rotationX;
 	}
 
-	public void setRotationX(int rotationX) {
+	public void setRotationX(double rotationX) {
 		this.rotationX = rotationX;
 	}
 
@@ -95,7 +95,7 @@ public class RectPreference implements ShapePreference {
 		return rotationY;
 	}
 
-	public void setRotationY(int rotationY) {
+	public void setRotationY(double rotationY) {
 		this.rotationY = rotationY;
 	}
 
@@ -103,7 +103,7 @@ public class RectPreference implements ShapePreference {
 		return rotationZ;
 	}
 
-	public void setRotationZ(int rotationZ) {
+	public void setRotationZ(double rotationZ) {
 		this.rotationZ = rotationZ;
 	}
 

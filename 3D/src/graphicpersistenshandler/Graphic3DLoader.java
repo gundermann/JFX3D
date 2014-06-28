@@ -77,11 +77,11 @@ public class Graphic3DLoader extends AbstractGraphic3DPersister {
 						.getAttribute(WIDTH)));
 				pixelPreference.setHeight(Double.parseDouble(element
 						.getAttribute(HEIGHT)));
-				pixelPreference.setRotationX(Integer.parseInt(element
+				pixelPreference.setRotationX(Double.parseDouble(element
 						.getAttribute(XR)));
-				pixelPreference.setRotationY(Integer.parseInt(element
+				pixelPreference.setRotationY(Double.parseDouble(element
 						.getAttribute(YR)));
-				pixelPreference.setRotationZ(Integer.parseInt(element
+				pixelPreference.setRotationZ(Double.parseDouble(element
 						.getAttribute(ZR)));
 				 Color rgb = hex2Rgb(element.getAttribute(COLOR));
 				 pixelPreference.setRed(rgb.getRed());

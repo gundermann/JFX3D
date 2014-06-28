@@ -33,6 +33,12 @@ public abstract class AbstractPaintableObject3D extends AbstractObject3DImpl
 	public ShapeColor getColor() {
 		return color;
 	}
+	
+	@Override
+	public void setColor(ShapeColor color) {
+		this.color = color;
+		node.fillProperty().bind(color);
+	}
 
 	@Override
 	public void setSelected(boolean selected) {

@@ -19,14 +19,14 @@ public class OrientationShapeBuilder {
 	private static final double STANDARD_SIZE = 1000;
 
 	public static List<Node> createGridShapes(Point3D pivot) {
-		List<Node> levels = new ArrayList<Node>();
+		List<Node> grids = new ArrayList<Node>();
 		Rectangle xyLevel = RectangleBuilder.create().x(pivot.getX())
-				.y(pivot.getY() - STANDARD_SIZE).fill(Color.LIGHTBLUE).build();
+				.y(pivot.getY() - STANDARD_SIZE).fill(Color.rgb(0, 100, 100, 0.09)).build();
 		xyLevel.setHeight(STANDARD_SIZE);
 		xyLevel.setWidth(STANDARD_SIZE);
 
 		Rectangle xzLevel = RectangleBuilder.create().x(pivot.getX())
-				.y(pivot.getY()).fill(Color.LIGHTBLUE).build();
+				.y(pivot.getY()).fill(Color.rgb(0, 100, 100, 0.09)).build();
 		xzLevel.setHeight(STANDARD_SIZE);
 		xzLevel.setWidth(STANDARD_SIZE);
 		xzLevel.getTransforms().add(
@@ -34,17 +34,18 @@ public class OrientationShapeBuilder {
 						.pivotX(pivot.getX()).pivotY(pivot.getY()).build());
 
 		Rectangle yzLevel = RectangleBuilder.create().x(pivot.getX())
-				.y(pivot.getY() - STANDARD_SIZE).fill(Color.LIGHTBLUE).build();
+				.y(pivot.getY() - STANDARD_SIZE).fill(Color.rgb(0, 100, 100, 0.09)).build();
 		yzLevel.setHeight(STANDARD_SIZE);
 		yzLevel.setWidth(STANDARD_SIZE);
 		yzLevel.getTransforms().add(
 				RotateBuilder.create().angle(90).axis(Rotate.Y_AXIS)
 						.pivotX(pivot.getX()).pivotY(pivot.getY()).build());
 
-		levels.add(xyLevel);
-		levels.add(xzLevel);
-		levels.add(yzLevel);
-		return levels;
+		
+		grids.add(xyLevel);
+		grids.add(xzLevel);
+		grids.add(yzLevel);
+		return grids;
 	}
 
 	public static List<Node> createAxisShapes(Point3D pivot) {

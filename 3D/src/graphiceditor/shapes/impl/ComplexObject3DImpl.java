@@ -24,8 +24,14 @@ public class ComplexObject3DImpl extends AbstractObject3DImpl implements
 		super(title);
 		this.shapes = shapes;
 		shape = GroupBuilder.create().build();
-		for (CommonObject3D o : shapes) {
-			shape.getChildren().add(o.asNode());
+		for (CommonObject3D common : shapes) {
+			if (common instanceof ComplexObject3D) {
+				for (CommonObject3D shapeFromComplex : ((ComplexObject3D) common).getShapes()) {
+					shape.getChildren().add(shapeFromComplex.asNode());
+				}
+			} else {
+				shape.getChildren().add(common.asNode());
+			}
 		}
 		try {
 			shape.layoutXProperty().set(
@@ -128,7 +134,8 @@ public class ComplexObject3DImpl extends AbstractObject3DImpl implements
 	public DoubleProperty getHeightProperty() {
 		DoubleProperty heightProperty = new SimpleDoubleProperty();
 		try {
-			heightProperty.set(maximum(shapes, CommonObject3D.class.getMethod("getHeightProperty", null)));
+			heightProperty.set(maximum(shapes,
+					CommonObject3D.class.getMethod("getHeightProperty", null)));
 		} catch (NoSuchMethodException | SecurityException e) {
 			e.printStackTrace();
 		}
@@ -139,7 +146,8 @@ public class ComplexObject3DImpl extends AbstractObject3DImpl implements
 	public DoubleProperty getWidthProperty() {
 		DoubleProperty widthProperty = new SimpleDoubleProperty();
 		try {
-			widthProperty.set(maximum(shapes, CommonObject3D.class.getMethod("getWidthProperty", null)));
+			widthProperty.set(maximum(shapes,
+					CommonObject3D.class.getMethod("getWidthProperty", null)));
 		} catch (NoSuchMethodException | SecurityException e) {
 			e.printStackTrace();
 		}

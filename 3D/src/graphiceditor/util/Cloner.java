@@ -1,5 +1,8 @@
 package graphiceditor.util;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import graphiceditor.Object3DBuilder;
 import graphiceditor.shapes.CommonObject3D;
 import graphiceditor.shapes.ComplexObject3D;
@@ -34,7 +37,12 @@ public class Cloner {
 
 	private  CommonObject3D createCopyOfComplexObject3D(
 			ComplexObject3D complexObject3D) {
-		return Object3DBuilder.createKomplexShapeFromOther(complexObject3D);
+		List<CommonObject3D> object3DList = new ArrayList<CommonObject3D>();
+		for(CommonObject3D partOfcomples : complexObject3D.getShapes()){
+			object3DList.add(createCopy(partOfcomples));
+		}
+		
+		return Object3DBuilder.createKomplexShape(object3DList , complexObject3D.toString());
 	}
 
 }

@@ -56,10 +56,4 @@ public class Object3DBuilder {
 		return this;
 	}
 
-
-	public static CommonObject3D createKomplexShapeFromOther(
-			ComplexObject3D complexObject3D) {
-		return new ComplexObject3DImpl(complexObject3D.getShapes(), complexObject3D.toString());
-	}
-
 }

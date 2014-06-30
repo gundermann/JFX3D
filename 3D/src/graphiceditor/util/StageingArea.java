@@ -7,7 +7,7 @@ import java.util.List;
 
 public class StageingArea {
 	
-	public static List<CommonObject3D> stagedObjects;
+	public List<CommonObject3D> stagedObjects;
 	
 	public static StageingArea _instance;
 	
@@ -22,7 +22,7 @@ public class StageingArea {
 			List<Integer> list) {
 		stagedObjects = new ArrayList<CommonObject3D>();
 		for(int i = 0; i< list.size();i++){
-			stagedObjects.add(Cloner.getInstance().createCopy(objectList.get(i)));
+			stagedObjects.add(Cloner.getInstance().createCopy(objectList.get(list.get(i))));
 		}
 	}
 

@@ -1,43 +1,36 @@
 package graphicpersistenshandler;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import graphiceditor.shapes.CommonObject3D;
 import graphiceditor.shapes.ComplexObject3D;
-import graphiceditor.shapes.impl.ComplexObject3DImpl;
 import graphiceditor.shapes.impl.Rectangle3D;
+import graphicpersistenshandler.prefs.CommonShapePreference;
+import graphicpersistenshandler.prefs.ComplexPref;
+import graphicpersistenshandler.prefs.ComplexShapePreference;
 import graphicpersistenshandler.prefs.RectPreference;
 import graphicpersistenshandler.prefs.ShapePreference;
 
+import java.util.List;
+import java.util.Map;
+
 public class PreferenceFactory {
 
-	private static int currentComplexId = 0;
-
-	public static List<ShapePreference> createPrefFromObject3D(CommonObject3D object3d) {
-		if(object3d instanceof ComplexObject3D){
-			currentComplexId++;
-			return createComplexPref((ComplexObject3D) object3d);
+	private static PreferenceFactory _instance;
+	
+	public static PreferenceFactory getInstance() {
+		if (_instance == null){
+			_instance = new PreferenceFactory();
 		}
+		return _instance;
+	}
+	
+	public ShapePreference createPrefFromObject3D(CommonObject3D object3d) {
 		if(object3d instanceof Rectangle3D){
 			return createRectPref((Rectangle3D) object3d);
 		}
 		return null;
 	}
 
-	private static List<ShapePreference> createComplexPref(ComplexObject3D object3d) {
-		List<ShapePreference> prefList = new ArrayList<ShapePreference>();
-		for(CommonObject3D shape : object3d.getShapes()){
-			List<ShapePreference> pref = createPrefFromObject3D(shape);
-			prefList.addAll(pref);
-		}
-		for (ShapePreference pref : prefList) {
-			pref.setComplexId(currentComplexId);
-		}
-		return prefList;
-	}
-
-	private static List<ShapePreference> createRectPref(Rectangle3D object3d) {
+	private ShapePreference createRectPref(Rectangle3D object3d) {
 		RectPreference pref = new RectPreference();
 		pref.setBeginningX(object3d.getXPositionProperty().get());
 		pref.setBeginningY(object3d.getYPositionProperty().get());
@@ -50,9 +43,25 @@ public class PreferenceFactory {
 		pref.setRed(object3d.getColor().getR().getValue().intValue());
 		pref.setGreen(object3d.getColor().getG().getValue().intValue());
 		pref.setBlue(object3d.getColor().getB().getValue().intValue());
-		List<ShapePreference> prefList = new ArrayList<ShapePreference>();
-		prefList.add(pref);
-		return prefList ;
+		return pref;
+	}
+
+	public ComplexShapePreference createPrefFromComplexObject3D(
+			ComplexObject3D graphicObject) {
+		return new ComplexPref(graphicObject);
+	}
+
+	public ComplexShapePreference createComplexPrefFromPrefMap(String title, 
+			List<ShapePreference> graphicObjectsPrefs) {
+		return new ComplexPref(title, graphicObjectsPrefs);
+	}
+
+	public ShapePreference createPrefFromPrefMap(String prefType,
+			Map<String, String> prefMap) {
+		if(prefType.equals("rect")){
+			return new RectPreference(prefMap);
+		}
+		return null;
 	}
 
 }

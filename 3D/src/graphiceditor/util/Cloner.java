@@ -41,7 +41,6 @@ public class Cloner {
 		for(CommonObject3D partOfcomples : complexObject3D.getShapes()){
 			object3DList.add(createCopy(partOfcomples));
 		}
-		
 		return Object3DBuilder.createKomplexShape(object3DList , complexObject3D.toString());
 	}
 

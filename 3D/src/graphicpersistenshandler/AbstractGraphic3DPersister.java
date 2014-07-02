@@ -2,9 +2,12 @@ package graphicpersistenshandler;
 
 public abstract class AbstractGraphic3DPersister {
 
+	
 	protected static final String RECT = "rect";
 	
 	protected static final String ROOT = "shape_definition";
+	
+	protected static final String COMPLEX = "complex";
 	
 	protected static final String X = "x-coordinate";
 

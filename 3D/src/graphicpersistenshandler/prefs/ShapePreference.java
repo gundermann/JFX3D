@@ -1,8 +1,9 @@
 package graphicpersistenshandler.prefs;
 
-import graphiceditor.shapes.Object3D;
+import java.util.Map;
 
-public interface ShapePreference {
+public interface ShapePreference extends CommonShapePreference{
 
-	public Object3D createShape();
+	public Map<String, String> getPreferences();
+
 }

@@ -2,6 +2,7 @@ package graphicloader.test;
 
 import static org.junit.Assert.assertTrue;
 import graphicpersistenshandler.Graphic3DLoader;
+import graphicpersistenshandler.prefs.CommonShapePreference;
 import graphicpersistenshandler.prefs.RectPreference;
 import graphicpersistenshandler.prefs.ShapePreference;
 
@@ -24,13 +25,13 @@ public class Grapic3DLoaderTest {
 
   @Test
   public void testPreferenceCount() {
-    List<ShapePreference> preferencesFromFile = loader.loadPreferencesFromFile( testFile );
+    List<CommonShapePreference> preferencesFromFile = loader.loadPreferencesFromFile( testFile );
     assertTrue( "Falsche Anzahl gelesen", preferencesFromFile.size() == 1 );
   }
 
   @Test
   public void testPixelPreferencesFromPixel() {
-    List<ShapePreference> preferencesFromFile = loader.loadPreferencesFromFile( testFile );
+    List<CommonShapePreference> preferencesFromFile = loader.loadPreferencesFromFile( testFile );
     RectPreference pixelPreference = (RectPreference) preferencesFromFile.get( 0 );
     assertTrue( "Falsche X-Coordiante", pixelPreference.getBeginningX() == 123 );
     assertTrue( "Falsche Y-Coordiante", pixelPreference.getBeginningY() == 321 );

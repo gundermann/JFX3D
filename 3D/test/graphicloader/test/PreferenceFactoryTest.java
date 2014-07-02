@@ -7,6 +7,8 @@ import graphicpersistenshandler.PreferenceFactory;
 import graphicpersistenshandler.prefs.RectPreference;
 import graphicpersistenshandler.prefs.ShapePreference;
 
+import java.util.List;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -29,8 +31,9 @@ public class PreferenceFactoryTest {
 
 	@Test
 	public void testPreferencesCreationFromRectangle() {
-		ShapePreference preferences = PreferenceFactory
+		ShapePreference preferences = PreferenceFactory.getInstance()
 				.createPrefFromObject3D(object3D);
+		
 		
 		assertTrue("Falsche X-Coordiante",
 				((RectPreference) preferences).getBeginningX() == 100);

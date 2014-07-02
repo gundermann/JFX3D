@@ -4,10 +4,10 @@ import graphiceditor.shapes.CommonObject3D;
 import graphiceditor.shapes.ComplexObject3D;
 import graphiceditor.shapes.impl.Rectangle3D;
 import graphicpersistenshandler.prefs.CommonShapePreference;
-import graphicpersistenshandler.prefs.ComplexPref;
 import graphicpersistenshandler.prefs.ComplexShapePreference;
-import graphicpersistenshandler.prefs.RectPreference;
 import graphicpersistenshandler.prefs.ShapePreference;
+import graphicpersistenshandler.prefs.impl.ComplexPref;
+import graphicpersistenshandler.prefs.impl.RectPreference;
 
 import java.util.List;
 import java.util.Map;

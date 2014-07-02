@@ -3,8 +3,8 @@ package graphicloader.test;
 import static org.junit.Assert.assertTrue;
 import graphicpersistenshandler.Graphic3DLoader;
 import graphicpersistenshandler.prefs.CommonShapePreference;
-import graphicpersistenshandler.prefs.RectPreference;
 import graphicpersistenshandler.prefs.ShapePreference;
+import graphicpersistenshandler.prefs.impl.RectPreference;
 
 import java.io.File;
 import java.util.List;

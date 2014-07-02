@@ -3,8 +3,8 @@ package graphicpersistenshandler;
 import graphiceditor.shapes.CommonObject3D;
 import graphicpersistenshandler.prefs.CommonShapePreference;
 import graphicpersistenshandler.prefs.ComplexShapePreference;
-import graphicpersistenshandler.prefs.RectPreference;
 import graphicpersistenshandler.prefs.ShapePreference;
+import graphicpersistenshandler.prefs.impl.RectPreference;
 
 import java.awt.Color;
 import java.io.File;

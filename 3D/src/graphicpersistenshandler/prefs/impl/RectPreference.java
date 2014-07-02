@@ -1,9 +1,10 @@
-package graphicpersistenshandler.prefs;
+package graphicpersistenshandler.prefs.impl;
 
 import java.util.Map;
 
 import graphiceditor.shapes.CommonObject3D;
 import graphiceditor.shapes.impl.Rectangle3D;
+import graphicpersistenshandler.prefs.AbstractShapePreference;
 
 public class RectPreference extends AbstractShapePreference {
 	

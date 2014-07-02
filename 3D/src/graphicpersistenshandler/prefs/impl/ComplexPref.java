@@ -1,9 +1,12 @@
-package graphicpersistenshandler.prefs;
+package graphicpersistenshandler.prefs.impl;
 
 import graphiceditor.Object3DBuilder;
 import graphiceditor.shapes.CommonObject3D;
 import graphiceditor.shapes.ComplexObject3D;
 import graphicpersistenshandler.PreferenceFactory;
+import graphicpersistenshandler.prefs.CommonShapePreference;
+import graphicpersistenshandler.prefs.ComplexShapePreference;
+import graphicpersistenshandler.prefs.ShapePreference;
 
 import java.util.ArrayList;
 import java.util.List;

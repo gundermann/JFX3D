@@ -4,8 +4,8 @@ import static org.junit.Assert.assertTrue;
 import graphiceditor.shapes.Object3D;
 import graphiceditor.shapes.impl.Rectangle3D;
 import graphicpersistenshandler.PreferenceFactory;
-import graphicpersistenshandler.prefs.RectPreference;
 import graphicpersistenshandler.prefs.ShapePreference;
+import graphicpersistenshandler.prefs.impl.RectPreference;
 
 import java.util.List;
 

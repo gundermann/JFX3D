@@ -5,8 +5,8 @@ import graphiceditor.shapes.CommonObject3D;
 import graphiceditor.shapes.ComplexObject3D;
 import graphicpersistenshandler.prefs.CommonShapePreference;
 import graphicpersistenshandler.prefs.ComplexShapePreference;
-import graphicpersistenshandler.prefs.RectPreference;
 import graphicpersistenshandler.prefs.ShapePreference;
+import graphicpersistenshandler.prefs.impl.RectPreference;
 
 import java.io.File;
 import java.io.IOException;

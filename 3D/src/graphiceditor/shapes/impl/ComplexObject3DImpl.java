@@ -24,6 +24,7 @@ public class ComplexObject3DImpl extends AbstractObject3DImpl implements
 		super(title);
 		this.shapes = shapes;
 		shape = GroupBuilder.create().build();
+		shape.setStyle("-fx-background-color: rgba(0, 100, 100, 0);");
 		for (CommonObject3D common : shapes) {
 			if (common instanceof ComplexObject3D) {
 				for (CommonObject3D shapeFromComplex : ((ComplexObject3D) common).getShapes()) {
@@ -36,13 +37,13 @@ public class ComplexObject3DImpl extends AbstractObject3DImpl implements
 		try {
 			shape.layoutXProperty().set(
 					minimum(shapes,
-							Shape.class.getMethod("layoutXProperty", null)));
+							CommonObject3D.class.getMethod("getXPositionProperty", null)));
 			shape.layoutYProperty().set(
 					minimum(shapes,
-							Shape.class.getMethod("layoutYProperty", null)));
+							CommonObject3D.class.getMethod("getYPositionProperty", null)));
 			shape.translateZProperty().set(
 					minimum(shapes,
-							Shape.class.getMethod("translateZProperty", null)));
+							CommonObject3D.class.getMethod("getZPositionProperty", null)));
 			resetShapesProperties();
 		} catch (NoSuchMethodException | SecurityException e) {
 			e.printStackTrace();
@@ -64,11 +65,11 @@ public class ComplexObject3DImpl extends AbstractObject3DImpl implements
 	}
 
 	private double minimum(List<CommonObject3D> shapes, Method method) {
-		double min = 1000;
+		double min = Integer.MAX_VALUE;
 		for (CommonObject3D commonObject3D : shapes) {
 			try {
 				double possibleMin = ((DoubleProperty) method.invoke(
-						commonObject3D.asNode(), null)).get();
+						commonObject3D, null)).get();
 				if (min > possibleMin)
 					min = possibleMin;
 			} catch (IllegalAccessException | IllegalArgumentException
@@ -158,5 +159,5 @@ public class ComplexObject3DImpl extends AbstractObject3DImpl implements
 	public List<CommonObject3D> getShapes() {
 		return shapes;
 	}
-
+	
 }

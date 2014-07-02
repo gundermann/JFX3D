@@ -1,11 +1,10 @@
 package graphiceditor;
 
-import java.util.List;
-
 import graphiceditor.shapes.CommonObject3D;
-import graphiceditor.shapes.ComplexObject3D;
 import graphiceditor.shapes.Object3D;
 import graphiceditor.shapes.impl.ComplexObject3DImpl;
+
+import java.util.List;
 
 public class Object3DBuilder {
 	private  Object3D graphic;

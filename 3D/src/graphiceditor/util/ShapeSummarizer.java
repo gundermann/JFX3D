@@ -40,8 +40,4 @@ public class ShapeSummarizer implements Setup {
 		
 	}
 
-	public CommonObject3D summazire(List<CommonObject3D> partObjectList, String title) {
-		return Object3DBuilder.createKomplexShape(partObjectList, title);
-	}
-
 }

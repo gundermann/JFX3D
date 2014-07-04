@@ -26,25 +26,18 @@ public class ComplexObject3DImpl extends AbstractObject3DImpl implements
 		shape = GroupBuilder.create().build();
 		shape.setStyle("-fx-background-color: rgba(0, 0, 0, 0);");
 		for (CommonObject3D common : shapes) {
-			if (common instanceof ComplexObject3D) {
-				for (CommonObject3D shapeFromComplex : ((ComplexObject3D) common).getShapes()) {
-					shape.getChildren().add(shapeFromComplex.asNode());
-				}
-			} else {
-				shape.getChildren().add(common.asNode());
-			}
+			shape.getChildren().add(common.asNode());
 		}
 		try {
-			moveX(
-					minimum(shapes,
-							CommonObject3D.class.getMethod("getXPositionProperty", null)));
-			moveY(
-					minimum(shapes,
-							CommonObject3D.class.getMethod("getYPositionProperty", null)));
-			moveZ(
-					minimum(shapes,
-							CommonObject3D.class.getMethod("getZPositionProperty", null)));
+			moveX(minimum(shapes, CommonObject3D.class.getMethod(
+					"getXPositionProperty", null)));
+			moveY(minimum(shapes, CommonObject3D.class.getMethod(
+					"getYPositionProperty", null)));
+			moveZ(minimum(shapes, CommonObject3D.class.getMethod(
+					"getZPositionProperty", null)));
 			resetShapesProperties();
+			refreshTransforms();
+			shape.autosize();
 		} catch (NoSuchMethodException | SecurityException e) {
 			e.printStackTrace();
 		}
@@ -159,5 +152,5 @@ public class ComplexObject3DImpl extends AbstractObject3DImpl implements
 	public List<CommonObject3D> getShapes() {
 		return shapes;
 	}
-	
+
 }

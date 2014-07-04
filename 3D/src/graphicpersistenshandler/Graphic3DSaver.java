@@ -31,7 +31,6 @@ import org.w3c.dom.Element;
 
 public class Graphic3DSaver extends AbstractGraphic3DPersister {
 
-	
 	private static final String NAME = "name";
 	private static Graphic3DSaver _instance;
 
@@ -67,11 +66,8 @@ public class Graphic3DSaver extends AbstractGraphic3DPersister {
 			Element root = doc.createElement(ROOT);
 			doc.appendChild(root);
 			for (ShapePreference pref : pixelPreferences) {
-				Element element;
-				if(pref instanceof ComplexShapePreference)
-					element = buildComplexElement((ComplexShapePreference) pref, doc);
-				else
-					element = buildSingleElement((ShapePreference) pref, doc);
+				Element element = buildElement( pref, doc);
+				
 				root.appendChild(element);
 			}
 			return doc;
@@ -81,10 +77,22 @@ public class Graphic3DSaver extends AbstractGraphic3DPersister {
 		return null;
 	}
 
-	private Element buildComplexElement(ComplexShapePreference pref, Document doc) {
+	private Element buildElement(ShapePreference pref, Document doc) {
+		Element element;
+		if (pref instanceof ComplexShapePreference)
+			element = buildComplexElement(
+					(ComplexShapePreference) pref, doc);
+		else
+			element = buildSingleElement((ShapePreference) pref, doc);
+		
+		return element;
+	}
+
+	private Element buildComplexElement(ComplexShapePreference pref,
+			Document doc) {
 		Element element = buildSingleElement(pref, doc);
-		for(ShapePreference singlePref : pref.getGraphicPrefs()){
-			Element singleElement = buildSingleElement(singlePref, doc);
+		for (ShapePreference singlePref : pref.getGraphicPrefs()) {
+			Element singleElement = buildElement(singlePref, doc);
 			element.appendChild(singleElement);
 		}
 		return element;
@@ -92,32 +100,30 @@ public class Graphic3DSaver extends AbstractGraphic3DPersister {
 
 	private Element buildSingleElement(ShapePreference pref, Document doc) {
 		Element element = doc.createElement(pref.getPrefType());
-		for(String attr : pref.getPreferences().keySet()){
+		for (String attr : pref.getPreferences().keySet()) {
 			element.setAttribute(attr, pref.getPreferences().get(attr));
-			
+
 		}
-//		element.setAttribute(X,
-//				String.valueOf(((RectPreference) pref).getBeginningX()));
-//		element.setAttribute(Y,
-//				String.valueOf(((RectPreference) pref).getBeginningY()));
-//		element.setAttribute(Z,
-//				String.valueOf(((RectPreference) pref).getBeginningZ()));
-//		element.setAttribute(WIDTH,
-//				String.valueOf(((RectPreference) pref).getWidth()));
-//		element.setAttribute(HEIGHT,
-//				String.valueOf(((RectPreference) pref).getHeight()));
-//		element.setAttribute(XR,
-//				String.valueOf(((RectPreference) pref).getRotationX()));
-//		element.setAttribute(YR,
-//				String.valueOf(((RectPreference) pref).getRotationY()));
-//		element.setAttribute(ZR,
-//				String.valueOf(((RectPreference) pref).getRotationZ()));
-//		element.setAttribute(COLOR,Rgb2hex(((RectPreference) pref)));
+		// element.setAttribute(X,
+		// String.valueOf(((RectPreference) pref).getBeginningX()));
+		// element.setAttribute(Y,
+		// String.valueOf(((RectPreference) pref).getBeginningY()));
+		// element.setAttribute(Z,
+		// String.valueOf(((RectPreference) pref).getBeginningZ()));
+		// element.setAttribute(WIDTH,
+		// String.valueOf(((RectPreference) pref).getWidth()));
+		// element.setAttribute(HEIGHT,
+		// String.valueOf(((RectPreference) pref).getHeight()));
+		// element.setAttribute(XR,
+		// String.valueOf(((RectPreference) pref).getRotationX()));
+		// element.setAttribute(YR,
+		// String.valueOf(((RectPreference) pref).getRotationY()));
+		// element.setAttribute(ZR,
+		// String.valueOf(((RectPreference) pref).getRotationZ()));
+		// element.setAttribute(COLOR,Rgb2hex(((RectPreference) pref)));
 		return element;
 	}
 
-	
-	
 	public void initSaving(PaintingArea paintingArea) {
 		FileChooser fc = new FileChooser();
 		List<String> extentions = new ArrayList<String>();
@@ -136,15 +142,13 @@ public class Graphic3DSaver extends AbstractGraphic3DPersister {
 	public void savePaintingArea(PaintingArea paintingArea, File file) {
 		List<ShapePreference> shapePreferences = new ArrayList<ShapePreference>();
 		for (CommonObject3D graphicObject : paintingArea.getAllGraphicObjects()) {
-			if(graphicObject instanceof ComplexObject3D){
-				shapePreferences.add(
-						PreferenceFactory.getInstance()
-								.createPrefFromComplexObject3D((ComplexObject3D) graphicObject));
-			}
-			else{
-				shapePreferences.add(
-			PreferenceFactory.getInstance()
-					.createPrefFromObject3D(graphicObject));
+			if (graphicObject instanceof ComplexObject3D) {
+				shapePreferences.add(PreferenceFactory.getInstance()
+						.createPrefFromComplexObject3D(
+								(ComplexObject3D) graphicObject));
+			} else {
+				shapePreferences.add(PreferenceFactory.getInstance()
+						.createPrefFromObject3D(graphicObject));
 			}
 		}
 		savePreferencesToFile(shapePreferences, file);

@@ -94,7 +94,14 @@ public class GUIDimensionArea extends Stage {
 			allGraphicObjects.add(shape);
 			GUIComponentsMenu.getInstance().updateComponents();
 		}
-
+	}
+	
+	public void remove(CommonObject3D shape){
+		if (getAllGraphicObjects().contains(shape)) {
+			mainPane.getChildren().remove(shape.asNode());
+			allGraphicObjects.remove(shape);
+			GUIComponentsMenu.getInstance().updateComponents();
+		}
 	}
 
 	public DoubleProperty getZRotationProperty() {

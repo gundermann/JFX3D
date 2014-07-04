@@ -23,6 +23,9 @@ public class PreferenceFactory {
 	}
 	
 	public ShapePreference createPrefFromObject3D(CommonObject3D object3d) {
+		if(object3d instanceof ComplexObject3D){
+			return createPrefFromComplexObject3D((ComplexObject3D) object3d);
+		}
 		if(object3d instanceof Rectangle3D){
 			return createRectPref((Rectangle3D) object3d);
 		}

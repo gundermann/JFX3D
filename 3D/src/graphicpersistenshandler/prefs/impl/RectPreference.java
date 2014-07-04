@@ -1,12 +1,12 @@
 package graphicpersistenshandler.prefs.impl;
 
-import java.util.Map;
-
 import graphiceditor.shapes.CommonObject3D;
 import graphiceditor.shapes.impl.Rectangle3D;
-import graphicpersistenshandler.prefs.AbstractShapePreference;
+import graphicpersistenshandler.prefs.AbstractSingleShapePreference;
 
-public class RectPreference extends AbstractShapePreference {
+import java.util.Map;
+
+public class RectPreference extends AbstractSingleShapePreference {
 	
 	protected static final String WIDTH = "width";
 
@@ -24,8 +24,8 @@ public class RectPreference extends AbstractShapePreference {
 	@Override
 	public CommonObject3D createShape() {
 		Rectangle3D rect = new Rectangle3D();
-		rect.setupX(getBeginningX());
-		rect.setupY(getBeginningY());
+		rect.moveX(getBeginningX());
+		rect.moveY(getBeginningY());
 		rect.moveZ(getBeginningZ());
 		rect.getWidthProperty().set(getWidth());
 		rect.getHeightProperty().set(getHeight());

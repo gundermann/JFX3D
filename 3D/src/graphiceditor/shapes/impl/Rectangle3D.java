@@ -1,28 +1,13 @@
 package graphiceditor.shapes.impl;
 
-import graphiceditor.domainspecific.values.Axis;
-import graphiceditor.domainspecific.values.observable.AngleProperty;
 import javafx.beans.property.DoubleProperty;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
-import javafx.scene.transform.Rotate;
 
 public class Rectangle3D extends AbstractPaintableObject3D {
 
 	public Rectangle3D(){
 		super("Rectangle");
-	}
-	
-	public void setupX(double x) {
-		((Rectangle) node).setX(0);
-		((Rectangle) node).layoutXProperty().set(x);
-		refreshTransforms();
-	}
-
-	public void setupY(double y) {
-		((Rectangle) node).setY(0);
-		((Rectangle) node).layoutYProperty().set(y);
-		refreshTransforms();
 	}
 
 	public void changeWidthTo(double newWidth) {
@@ -50,32 +35,19 @@ public class Rectangle3D extends AbstractPaintableObject3D {
 		return Rectangle.class;
 	}
 
-
-	@Override
-	protected void refreshTransforms() {
-		rotationBundle.clear();
-		rotationBundle.addRotationOfAxis(new Axis(Rotate.X_AXIS,
-				new AngleProperty(xRotationProperty)));
-		rotationBundle.addRotationOfAxis(new Axis(Rotate.Y_AXIS,
-				new AngleProperty(yRotationProperty)));
-		rotationBundle.addRotationOfAxis(new Axis(Rotate.Z_AXIS,
-				new AngleProperty(zRotationProperty)));
-		super.refreshTransforms();
-	}
-
 	@Override
 	public void paint(double x, double y, double initinalX, double initinalY) {
 		if (y > initinalY)
 			changeHeightTo(y - initinalY);
 		else {
 			changeHeightTo(initinalY - y);
-			getYPositionProperty().set(y);
+			moveY(y-getYPositionProperty().get());
 		}
 		if (x > initinalX)
 			changeWidthTo(x - initinalX);
 		else {
 			changeWidthTo(initinalX - x);
-			getXPositionProperty().set(x);
+			moveX(x-getXPositionProperty().get());
 		}
 	}
 

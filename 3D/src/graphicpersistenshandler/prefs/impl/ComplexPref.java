@@ -4,42 +4,44 @@ import graphiceditor.Object3DBuilder;
 import graphiceditor.shapes.CommonObject3D;
 import graphiceditor.shapes.ComplexObject3D;
 import graphicpersistenshandler.PreferenceFactory;
-import graphicpersistenshandler.prefs.CommonShapePreference;
+import graphicpersistenshandler.prefs.AbstractShapePreference;
 import graphicpersistenshandler.prefs.ComplexShapePreference;
 import graphicpersistenshandler.prefs.ShapePreference;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
-public class ComplexPref implements ComplexShapePreference {
+public class ComplexPref extends AbstractShapePreference implements
+		ComplexShapePreference {
 
 	private List<ShapePreference> prefs = new ArrayList<ShapePreference>();
-	
-	private String title = "Complex";
 
-	public ComplexPref(String title , List<ShapePreference> graphicObjects){
-		this.title = title;
+	public ComplexPref(Map<String, String> prefs, List<ShapePreference> graphicObjects) {
+		setPrefValues(prefs);
 		this.prefs = graphicObjects;
 	}
 
 	public ComplexPref(ComplexObject3D graphicObject) {
-		this.title = graphicObject.toString();
+		setTitle(graphicObject.toString());
 		List<ShapePreference> graphicList = new ArrayList<ShapePreference>();
-		for(CommonObject3D graphic : graphicObject.getShapes()){
-			graphicList.add(PreferenceFactory.getInstance().createPrefFromObject3D(graphic));
+		for (CommonObject3D graphic : graphicObject.getShapes()) {
+			graphicList.add(PreferenceFactory.getInstance()
+					.createPrefFromObject3D(graphic));
 		}
-			
-		this.prefs = graphicList ;
+		this.prefs = graphicList;
+
+		setBeginningX(graphicObject.getXPositionProperty().get());
+		setBeginningY(graphicObject.getYPositionProperty().get());
+		setBeginningZ(graphicObject.getZPositionProperty().get());
+		setRotationX(graphicObject.getXRotationProperty().get());
+		setRotationY(graphicObject.getYRotationProperty().get());
+		setRotationZ(graphicObject.getZRotationProperty().get());
 	}
-	
 
 	@Override
 	public CommonObject3D createShape() {
-		List<CommonObject3D> commonGraphicObjects = new ArrayList<CommonObject3D>();
-		for(CommonShapePreference pref : prefs){
-			commonGraphicObjects.add(pref.createShape());
-		}
-		return Object3DBuilder.createKomplexShape(commonGraphicObjects, title);
+		return Object3DBuilder.createKomplexShapeFromPref(this);
 	}
 
 	@Override
@@ -51,6 +53,4 @@ public class ComplexPref implements ComplexShapePreference {
 	public List<ShapePreference> getGraphicPrefs() {
 		return prefs;
 	}
-
-
 }

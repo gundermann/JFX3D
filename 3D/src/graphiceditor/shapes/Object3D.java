@@ -8,9 +8,9 @@ public interface Object3D extends CommonObject3D {
 	
 	void setColor(ShapeColor color);
 
-	void setupX(double x);
-
-	void setupY(double y);
+//	void setupX(double x);
+//
+//	void setupY(double y);
 	
 	void changeHeightTo(double d);
 

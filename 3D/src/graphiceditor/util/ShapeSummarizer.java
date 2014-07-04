@@ -14,30 +14,29 @@ public class ShapeSummarizer implements Setup {
 	private List<Integer> selectedIndices;
 
 	public static ShapeSummarizer getInstance() {
-		if(_instance==null)
+		if (_instance == null)
 			_instance = new ShapeSummarizer();
 		return _instance;
 	}
 
 	public void summazire(PaintingArea actualPaintingArea,
 			List<Integer> selectedIndices) {
-		
 		this.actualPaintingArea = actualPaintingArea;
 		this.selectedIndices = selectedIndices;
 		TextFieldDialog.showSetup(this);
-		
 	}
 
 	@Override
 	public void setText(String text) {
 		List<CommonObject3D> shapes = new ArrayList<CommonObject3D>();
-		for(Integer i : selectedIndices){
+		for (Integer i : selectedIndices) {
 			shapes.add(actualPaintingArea.getAllGraphicObjects().get(i));
 		}
 		actualPaintingArea.removeByIndex(selectedIndices);
-		
-		actualPaintingArea.add(Object3DBuilder.createKomplexShape(shapes, text));
-		
+
+		actualPaintingArea
+				.add(Object3DBuilder.createKomplexShape(shapes, text));
+
 	}
 
 }

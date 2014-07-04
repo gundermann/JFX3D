@@ -3,10 +3,8 @@ package graphicpersistenshandler;
 import graphiceditor.gui.PaintingArea;
 import graphiceditor.shapes.CommonObject3D;
 import graphiceditor.shapes.ComplexObject3D;
-import graphicpersistenshandler.prefs.CommonShapePreference;
 import graphicpersistenshandler.prefs.ComplexShapePreference;
 import graphicpersistenshandler.prefs.ShapePreference;
-import graphicpersistenshandler.prefs.impl.RectPreference;
 
 import java.io.File;
 import java.io.IOException;
@@ -44,7 +42,7 @@ public class Graphic3DSaver extends AbstractGraphic3DPersister {
 		return _instance;
 	}
 
-	public void savePreferencesToFile(List<CommonShapePreference> prefs, File file) {
+	public void savePreferencesToFile(List<ShapePreference> prefs, File file) {
 		Document doc = buildDoc(prefs);
 
 		try {
@@ -58,7 +56,7 @@ public class Graphic3DSaver extends AbstractGraphic3DPersister {
 		}
 	}
 
-	private Document buildDoc(List<CommonShapePreference> pixelPreferences) {
+	private Document buildDoc(List<ShapePreference> pixelPreferences) {
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 		DocumentBuilder dBuilder;
 		Document doc;
@@ -68,7 +66,7 @@ public class Graphic3DSaver extends AbstractGraphic3DPersister {
 
 			Element root = doc.createElement(ROOT);
 			doc.appendChild(root);
-			for (CommonShapePreference pref : pixelPreferences) {
+			for (ShapePreference pref : pixelPreferences) {
 				Element element;
 				if(pref instanceof ComplexShapePreference)
 					element = buildComplexElement((ComplexShapePreference) pref, doc);
@@ -84,8 +82,7 @@ public class Graphic3DSaver extends AbstractGraphic3DPersister {
 	}
 
 	private Element buildComplexElement(ComplexShapePreference pref, Document doc) {
-		Element element = doc.createElement(pref.getPrefType());
-		element.setAttribute(NAME, pref.toString());
+		Element element = buildSingleElement(pref, doc);
 		for(ShapePreference singlePref : pref.getGraphicPrefs()){
 			Element singleElement = buildSingleElement(singlePref, doc);
 			element.appendChild(singleElement);
@@ -137,7 +134,7 @@ public class Graphic3DSaver extends AbstractGraphic3DPersister {
 	}
 
 	public void savePaintingArea(PaintingArea paintingArea, File file) {
-		List<CommonShapePreference> shapePreferences = new ArrayList<CommonShapePreference>();
+		List<ShapePreference> shapePreferences = new ArrayList<ShapePreference>();
 		for (CommonObject3D graphicObject : paintingArea.getAllGraphicObjects()) {
 			if(graphicObject instanceof ComplexObject3D){
 				shapePreferences.add(

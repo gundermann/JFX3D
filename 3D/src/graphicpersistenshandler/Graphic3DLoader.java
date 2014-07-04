@@ -1,12 +1,9 @@
 package graphicpersistenshandler;
 
 import graphiceditor.shapes.CommonObject3D;
-import graphicpersistenshandler.prefs.CommonShapePreference;
 import graphicpersistenshandler.prefs.ComplexShapePreference;
 import graphicpersistenshandler.prefs.ShapePreference;
-import graphicpersistenshandler.prefs.impl.RectPreference;
 
-import java.awt.Color;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -40,8 +37,8 @@ public class Graphic3DLoader extends AbstractGraphic3DPersister {
 		return _instance;
 	}
 
-	public List<CommonShapePreference> loadPreferencesFromFile(File file) {
-		List<CommonShapePreference> pixelPreferenceList = new ArrayList<CommonShapePreference>();
+	public List<ShapePreference> loadPreferencesFromFile(File file) {
+		List<ShapePreference> pixelPreferenceList = new ArrayList<ShapePreference>();
 		DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
 		try {
 			DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
@@ -56,7 +53,7 @@ public class Graphic3DLoader extends AbstractGraphic3DPersister {
 			}
 			
 			for (int temp = 0; temp < graphicList.getLength(); temp++) {
-				CommonShapePreference convertedPreference = convertToPreference(graphicList
+				ShapePreference convertedPreference = convertToPreference(graphicList
 						.item(temp));
 				if (convertedPreference != null)
 					pixelPreferenceList.add(convertedPreference);
@@ -70,8 +67,8 @@ public class Graphic3DLoader extends AbstractGraphic3DPersister {
 
 	private ComplexShapePreference convertToComplexPreference(Node item) {
 		List<ShapePreference> listOfPreferenceMaps =  extractComplex(item.getChildNodes());
-		String title = ((Element)item).getAttribute(NAME);
-		return PreferenceFactory.getInstance().createComplexPrefFromPrefMap(title, listOfPreferenceMaps);
+		Map<String, String> preferenceMap = extract((Element)item);
+		return PreferenceFactory.getInstance().createComplexPrefFromPrefMap(preferenceMap, listOfPreferenceMaps);
 	}
 
 	private List<ShapePreference> extractComplex(
@@ -84,8 +81,8 @@ public class Graphic3DLoader extends AbstractGraphic3DPersister {
 		return listOfPreferenceMap;
 	}
 
-	private CommonShapePreference convertToPreference(Node item) {
-		CommonShapePreference preference = null;
+	private ShapePreference convertToPreference(Node item) {
+		ShapePreference preference = null;
 		if (item.getNodeName().equals(COMPLEX)) {
 			preference =  convertToComplexPreference(item);
 		}
@@ -129,7 +126,7 @@ public class Graphic3DLoader extends AbstractGraphic3DPersister {
 	}
 
 	public List<CommonObject3D> getShapesFromLoader(File file) {
-		List<CommonShapePreference> preferences = loadPreferencesFromFile(file);
+		List<ShapePreference> preferences = loadPreferencesFromFile(file);
 		return Graphic3DConverter.getInstance().convertPreferencesTo3DGraphics(preferences);
 	}
 

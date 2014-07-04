@@ -1,7 +1,5 @@
 package graphicpersistenshandler.prefs;
 
-import graphicpersistenshandler.util.ColorConverter;
-
 import java.util.HashMap;
 import java.util.Map;
 
@@ -18,19 +16,13 @@ public abstract class AbstractShapePreference implements ShapePreference {
 	protected static final String YR = "yr";
 
 	protected static final String ZR = "zr";
-
-	private static final String COLOR = "color";
 	
-	private int red = 0;
-	
-	private int green = 0;
-	
-	private int blue = 0;
+	protected static final String NAME ="name";
 	
 	private Map<String, String> preferenceMap = new HashMap<String, String>();
 	
 	public double getBeginningX() {
-		return Double.parseDouble(preferenceMap.get(X));
+		return Double.parseDouble(getPrefValue(X));
 	}
 
 	public void setBeginningX(double beginningX) {
@@ -38,7 +30,7 @@ public abstract class AbstractShapePreference implements ShapePreference {
 		}
 
 	public double getBeginningY() {
-		return Double.parseDouble(preferenceMap.get(Y));
+		return Double.parseDouble(getPrefValue(Y));
 	}
 
 	public void setBeginningY(double beginningY) {
@@ -46,7 +38,7 @@ public abstract class AbstractShapePreference implements ShapePreference {
 	}
 
 	public double getBeginningZ() {
-		return Double.parseDouble(preferenceMap.get(Z));
+		return Double.parseDouble(getPrefValue(Z));
 	}
 
 	public void setBeginningZ(double beginningZ) {
@@ -54,7 +46,7 @@ public abstract class AbstractShapePreference implements ShapePreference {
 	}
 	
 	public double getRotationX() {
-		return Double.parseDouble(preferenceMap.get(XR));
+		return Double.parseDouble(getPrefValue(XR));
 	}
 
 	public void setRotationX(double rotationX) {
@@ -62,7 +54,7 @@ public abstract class AbstractShapePreference implements ShapePreference {
 	}
 
 	public double getRotationY() {
-		return Double.parseDouble(preferenceMap.get(YR));
+		return Double.parseDouble(getPrefValue(YR));
 	}
 
 	public void setRotationY(double rotationY) {
@@ -70,7 +62,7 @@ public abstract class AbstractShapePreference implements ShapePreference {
 	}
 
 	public double getRotationZ() {
-		return Double.parseDouble(preferenceMap.get(ZR));
+		return Double.parseDouble(getPrefValue(ZR));
 	}
 
 	public void setRotationZ(double rotationZ) {
@@ -86,55 +78,23 @@ public abstract class AbstractShapePreference implements ShapePreference {
 	}
 	
 	protected String getPrefValue(String key){
-		return preferenceMap.get(key);
+		return preferenceMap.get(key) != null ? preferenceMap.get(key) : "0";
 	}
 
-	public int getColor() {
-		return Integer.parseInt(preferenceMap.get(COLOR));
-	}
-
-	public void setColor(String color) {
-		setValueForPreference(COLOR, color);	
-	}
-	
 	@Override
 	public Map<String, String> getPreferences() {
 		return preferenceMap ;
 	}
 
-	public int getRed() {
-		return ColorConverter.getInstance().hex2Rgb(getPrefValue(COLOR)).getRed();
-	}
-	
-	public int getBlue() {
-		return ColorConverter.getInstance().hex2Rgb(getPrefValue(COLOR)).getBlue();
-	}
-
-	public int getGreen() {
-		return ColorConverter.getInstance().hex2Rgb(getPrefValue(COLOR)).getGreen();
-	}
-	
-	public void setRed(int intValue) {
-		red=intValue;
-		updateColor();
-	}
-
-	private void updateColor() {
-		setValueForPreference(COLOR, ColorConverter.getInstance().Rgb2hex(red, green, blue));
-	}
-
-	public void setGreen(int intValue) {
-		green=intValue;
-		updateColor();		
-	}
-
-	public void setBlue(int intValue) {
-		blue=intValue;
-		updateColor();		
-	}
-	
 	public void setPrefValues(Map<String, String> map) {
 		this.preferenceMap = map;
 	}
 
+	public void setTitle(String title){
+		setValueForPreference(NAME, title);
+	}
+	
+	public String getTitle(){
+		return getPrefValue(NAME);
+	}
 }

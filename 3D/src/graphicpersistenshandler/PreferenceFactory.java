@@ -3,7 +3,6 @@ package graphicpersistenshandler;
 import graphiceditor.shapes.CommonObject3D;
 import graphiceditor.shapes.ComplexObject3D;
 import graphiceditor.shapes.impl.Rectangle3D;
-import graphicpersistenshandler.prefs.CommonShapePreference;
 import graphicpersistenshandler.prefs.ComplexShapePreference;
 import graphicpersistenshandler.prefs.ShapePreference;
 import graphicpersistenshandler.prefs.impl.ComplexPref;
@@ -51,9 +50,9 @@ public class PreferenceFactory {
 		return new ComplexPref(graphicObject);
 	}
 
-	public ComplexShapePreference createComplexPrefFromPrefMap(String title, 
+	public ComplexShapePreference createComplexPrefFromPrefMap(Map<String, String> prefs, 
 			List<ShapePreference> graphicObjectsPrefs) {
-		return new ComplexPref(title, graphicObjectsPrefs);
+		return new ComplexPref(prefs, graphicObjectsPrefs);
 	}
 
 	public ShapePreference createPrefFromPrefMap(String prefType,

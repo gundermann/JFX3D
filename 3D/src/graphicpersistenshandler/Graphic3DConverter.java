@@ -1,7 +1,7 @@
 package graphicpersistenshandler;
 
 import graphiceditor.shapes.CommonObject3D;
-import graphicpersistenshandler.prefs.CommonShapePreference;
+import graphicpersistenshandler.prefs.ShapePreference;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,9 +18,9 @@ public class Graphic3DConverter {
 	}
 
 	public List<CommonObject3D> convertPreferencesTo3DGraphics(
-			List<CommonShapePreference> prefs) {
+			List<ShapePreference> prefs) {
 		List<CommonObject3D> graphicObjects = new ArrayList<CommonObject3D>();
-		for (CommonShapePreference preference : prefs) {
+		for (ShapePreference preference : prefs) {
 				CommonObject3D point = preference.createShape();
 				graphicObjects.add(point);
 		}

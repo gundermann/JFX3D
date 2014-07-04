@@ -24,7 +24,7 @@ public class ComplexObject3DImpl extends AbstractObject3DImpl implements
 		super(title);
 		this.shapes = shapes;
 		shape = GroupBuilder.create().build();
-		shape.setStyle("-fx-background-color: rgba(0, 100, 100, 0);");
+		shape.setStyle("-fx-background-color: rgba(0, 0, 0, 0);");
 		for (CommonObject3D common : shapes) {
 			if (common instanceof ComplexObject3D) {
 				for (CommonObject3D shapeFromComplex : ((ComplexObject3D) common).getShapes()) {
@@ -35,13 +35,13 @@ public class ComplexObject3DImpl extends AbstractObject3DImpl implements
 			}
 		}
 		try {
-			shape.layoutXProperty().set(
+			moveX(
 					minimum(shapes,
 							CommonObject3D.class.getMethod("getXPositionProperty", null)));
-			shape.layoutYProperty().set(
+			moveY(
 					minimum(shapes,
 							CommonObject3D.class.getMethod("getYPositionProperty", null)));
-			shape.translateZProperty().set(
+			moveZ(
 					minimum(shapes,
 							CommonObject3D.class.getMethod("getZPositionProperty", null)));
 			resetShapesProperties();

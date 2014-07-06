@@ -36,12 +36,19 @@ public class Cloner {
 	}
 
 	private  CommonObject3D createCopyOfComplexObject3D(
-			ComplexObject3D complexObject3D) {
+			ComplexObject3D original) {
 		List<CommonObject3D> object3DList = new ArrayList<CommonObject3D>();
-		for(CommonObject3D partOfcomples : complexObject3D.getShapes()){
-			object3DList.add(createCopy(partOfcomples));
+		for(CommonObject3D partOfcomplex : original.getShapes()){
+			object3DList.add(createCopy(partOfcomplex));
 		}
-		return Object3DBuilder.createKomplexShape(object3DList , complexObject3D.toString());
+		 CommonObject3D duplicate = Object3DBuilder.createKomplexShape(object3DList , original.toString());
+		 duplicate.getXPositionProperty().set(original.getXPositionProperty().get());
+		 duplicate.getYPositionProperty().set(original.getYPositionProperty().get());
+		 duplicate.getZPositionProperty().set(original.getZPositionProperty().get());
+		 duplicate.getXRotationProperty().set(original.getXRotationProperty().get());
+		 duplicate.getYRotationProperty().set(original.getYRotationProperty().get());
+		 duplicate.getZRotationProperty().set(original.getZRotationProperty().get());
+		 return duplicate;
 	}
 
 }

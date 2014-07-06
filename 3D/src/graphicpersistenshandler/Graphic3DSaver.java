@@ -31,7 +31,6 @@ import org.w3c.dom.Element;
 
 public class Graphic3DSaver extends AbstractGraphic3DPersister {
 
-	private static final String NAME = "name";
 	private static Graphic3DSaver _instance;
 
 	public static Graphic3DSaver getInstance() {
@@ -104,23 +103,6 @@ public class Graphic3DSaver extends AbstractGraphic3DPersister {
 			element.setAttribute(attr, pref.getPreferences().get(attr));
 
 		}
-		// element.setAttribute(X,
-		// String.valueOf(((RectPreference) pref).getBeginningX()));
-		// element.setAttribute(Y,
-		// String.valueOf(((RectPreference) pref).getBeginningY()));
-		// element.setAttribute(Z,
-		// String.valueOf(((RectPreference) pref).getBeginningZ()));
-		// element.setAttribute(WIDTH,
-		// String.valueOf(((RectPreference) pref).getWidth()));
-		// element.setAttribute(HEIGHT,
-		// String.valueOf(((RectPreference) pref).getHeight()));
-		// element.setAttribute(XR,
-		// String.valueOf(((RectPreference) pref).getRotationX()));
-		// element.setAttribute(YR,
-		// String.valueOf(((RectPreference) pref).getRotationY()));
-		// element.setAttribute(ZR,
-		// String.valueOf(((RectPreference) pref).getRotationZ()));
-		// element.setAttribute(COLOR,Rgb2hex(((RectPreference) pref)));
 		return element;
 	}
 

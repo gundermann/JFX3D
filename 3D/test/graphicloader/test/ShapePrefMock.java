@@ -11,8 +11,8 @@ public class ShapePrefMock {
 	public static ShapePreference createMock() {
 		ShapePreference pref = Mockito.mock(ShapePreference.class);
 		Object3D object = new Rectangle3D();
-		object.setupX(100);
-		object.setupY(100);
+		object.moveX(100);
+		object.moveY(100);
 		object.moveZ(100);
 		object.changeHeightTo(100);
 		object.changeWidthTo(100);

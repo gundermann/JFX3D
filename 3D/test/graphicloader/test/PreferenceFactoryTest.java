@@ -7,8 +7,6 @@ import graphicpersistenshandler.PreferenceFactory;
 import graphicpersistenshandler.prefs.ShapePreference;
 import graphicpersistenshandler.prefs.impl.RectPreference;
 
-import java.util.List;
-
 import org.junit.Before;
 import org.junit.Test;
 
@@ -19,8 +17,8 @@ public class PreferenceFactoryTest {
 	@Before
 	public void setup() {
 		object3D = new Rectangle3D();
-		object3D.setupX(100);
-		object3D.setupY(100);
+		object3D.moveX(100);
+		object3D.moveY(100);
 		object3D.moveZ(100);
 		object3D.changeHeightTo(100);
 		object3D.changeWidthTo(100);

@@ -3,6 +3,7 @@ package graphiceditor.util;
 import graphiceditor.Object3DBuilder;
 import graphiceditor.gui.PaintingArea;
 import graphiceditor.shapes.CommonObject3D;
+import graphiceditor.shapes.ComplexObject3D;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,6 +38,15 @@ public class ShapeSummarizer implements Setup {
 		actualPaintingArea
 				.add(Object3DBuilder.createKomplexShape(shapes, text));
 
+	}
+
+	public void split(PaintingArea actualPaintingArea,
+			List<Integer> selectedIndices) {
+		this.actualPaintingArea = actualPaintingArea;
+		this.selectedIndices = selectedIndices;
+		ComplexObject3D complexGraphic = (ComplexObject3D) actualPaintingArea.getActualPainting();
+		actualPaintingArea.addAll(complexGraphic.getShapes());
+		actualPaintingArea.removeByIndex(selectedIndices);
 	}
 
 }

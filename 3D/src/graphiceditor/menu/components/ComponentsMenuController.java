@@ -3,6 +3,7 @@ package graphiceditor.menu.components;
 import graphiceditor.gui.PaintingArea;
 import graphiceditor.menu.AbstractMenuController;
 import graphiceditor.menu.manipulating.GUIManipulatingMenu;
+import graphiceditor.shapes.ComplexObject3D;
 import graphiceditor.util.ShapeSummarizer;
 import graphiceditor.util.StageingArea;
 
@@ -17,14 +18,18 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.control.SelectionMode;
 import javafx.stage.Stage;
 
-public class ComponentsMenuController extends AbstractMenuController implements Initializable{
+public class ComponentsMenuController extends AbstractMenuController implements
+		Initializable {
 
 	@FXML
 	private ListView<String> lvComponents;
 
 	@FXML
 	private MenuItem miSummarize;
-	
+
+	@FXML
+	private MenuItem miSplit;
+
 	private PaintingArea actualPaintingArea;
 
 	public void updateComponents() {
@@ -36,51 +41,61 @@ public class ComponentsMenuController extends AbstractMenuController implements 
 		this.actualPaintingArea = paintingArea;
 		updateComponents();
 	}
-	
+
 	@FXML
-	public void checkPossibleActions(){
-			miSummarize.setDisable(!(getSelectedIndices().size() > 1));
+	public void checkPossibleActions() {
+		miSummarize.setDisable(!(getSelectedIndices().size() > 1));
+		miSplit.setDisable(!(actualPaintingArea.getActualPainting() instanceof ComplexObject3D));
 	}
-	
+
 	@FXML
-	public void summarize(){
-		ShapeSummarizer.getInstance().summazire(actualPaintingArea, getSelectedIndices());
+	public void summarize() {
+		ShapeSummarizer.getInstance().summazire(actualPaintingArea,
+				getSelectedIndices());
 	}
 
 	@FXML
 	public void componentSelected() {
-		if (getSelectedIndices().size() ==1) {
-			actualPaintingArea.setActualPaintingById(getSelectedIndices().get(0));
+		if (getSelectedIndices().size() == 1) {
+			actualPaintingArea.setActualPaintingById(getSelectedIndices()
+					.get(0));
 			GUIManipulatingMenu.getInstance().setActualPainting(
 					actualPaintingArea.getActualPainting());
 		}
 	}
-	
+
 	@FXML
-	public void deleteComponent(){
+	public void deleteComponent() {
 		if (!lvComponents.getSelectionModel().isEmpty()) {
 			actualPaintingArea.removeByIndex(getSelectedIndices());
 		}
 	}
-	
+
 	@FXML
-	public void copyComponent(){
+	public void copyComponent() {
 		if (!lvComponents.getSelectionModel().isEmpty()) {
-			StageingArea.getInstance().copy(actualPaintingArea.getAllGraphicObjects(), getSelectedIndices());
-		}
-	}
-	
-	@FXML
-	public void pasteComponent(){
-		if (StageingArea.getInstance().hasStagedObject()) {
-			actualPaintingArea.addAll( StageingArea.getInstance().paste());
+			StageingArea.getInstance().copy(
+					actualPaintingArea.getAllGraphicObjects(),
+					getSelectedIndices());
 		}
 	}
 
-	public List<Integer> getSelectedIndices(){
-		return lvComponents.getSelectionModel().getSelectedIndices();
+	@FXML
+	public void pasteComponent() {
+		if (StageingArea.getInstance().hasStagedObject()) {
+			actualPaintingArea.addAll(StageingArea.getInstance().paste());
+		}
+	}
+
+	@FXML
+	public void split(){
+		ShapeSummarizer.getInstance().split(actualPaintingArea, getSelectedIndices());
 	}
 	
+	public List<Integer> getSelectedIndices() {
+		return lvComponents.getSelectionModel().getSelectedIndices();
+	}
+
 	@Override
 	protected Stage getUI() {
 		return GUIComponentsMenu.getInstance();
@@ -88,7 +103,8 @@ public class ComponentsMenuController extends AbstractMenuController implements 
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		lvComponents.getSelectionModel().selectionModeProperty().set(SelectionMode.MULTIPLE);
+		lvComponents.getSelectionModel().selectionModeProperty()
+				.set(SelectionMode.MULTIPLE);
 	}
 
 }

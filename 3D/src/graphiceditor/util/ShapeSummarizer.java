@@ -37,7 +37,6 @@ public class ShapeSummarizer implements Setup {
 
 		actualPaintingArea
 				.add(Object3DBuilder.createKomplexShape(shapes, text));
-
 	}
 
 	public void split(PaintingArea actualPaintingArea,

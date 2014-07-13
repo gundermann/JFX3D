@@ -28,6 +28,9 @@ import org.xml.sax.SAXException;
 public class Graphic3DLoader extends AbstractGraphic3DPersister {
 
 	private static final String NAME = "name";
+
+	private double processing = 0;
+	
 	private static Graphic3DLoader _instance;
 
 	public static Graphic3DLoader getInstace() {
@@ -51,13 +54,13 @@ public class Graphic3DLoader extends AbstractGraphic3DPersister {
 			if (graphicList.item(0).getNodeName().equals(ROOT)) {
 				graphicList = graphicList.item(0).getChildNodes();
 			}
-			
+
 			for (int temp = 0; temp < graphicList.getLength(); temp++) {
 				ShapePreference convertedPreference = convertToPreference(graphicList
 						.item(temp));
 				if (convertedPreference != null)
 					pixelPreferenceList.add(convertedPreference);
-
+				System.out.println("Process: " + temp+"/"+graphicList.getLength());
 			}
 		} catch (SAXException | IOException | ParserConfigurationException e) {
 			e.printStackTrace();
@@ -66,17 +69,20 @@ public class Graphic3DLoader extends AbstractGraphic3DPersister {
 	}
 
 	private ComplexShapePreference convertToComplexPreference(Node item) {
-		List<ShapePreference> listOfPreferenceMaps =  extractComplex(item.getChildNodes());
-		Map<String, String> preferenceMap = extract((Element)item);
-		return PreferenceFactory.getInstance().createComplexPrefFromPrefMap(preferenceMap, listOfPreferenceMaps);
+		List<ShapePreference> listOfPreferenceMaps = extractComplex(item
+				.getChildNodes());
+		Map<String, String> preferenceMap = extract((Element) item);
+		return PreferenceFactory.getInstance().createComplexPrefFromPrefMap(
+				preferenceMap, listOfPreferenceMaps);
 	}
 
-	private List<ShapePreference> extractComplex(
-			NodeList childNodes) {
+	private List<ShapePreference> extractComplex(NodeList childNodes) {
 		List<ShapePreference> listOfPreferenceMap = new ArrayList<ShapePreference>();
-		for(int i = 0; i< childNodes.getLength();i++){
-			listOfPreferenceMap.add((ShapePreference) convertToPreference(childNodes.item(i)));
-			
+		for (int i = 0; i < childNodes.getLength(); i++) {
+			listOfPreferenceMap
+					.add((ShapePreference) convertToPreference(childNodes
+							.item(i)));
+
 		}
 		return listOfPreferenceMap;
 	}
@@ -84,32 +90,32 @@ public class Graphic3DLoader extends AbstractGraphic3DPersister {
 	private ShapePreference convertToPreference(Node item) {
 		ShapePreference preference = null;
 		if (item.getNodeName().equals(COMPLEX)) {
-			preference =  convertToComplexPreference(item);
-		}
-		else{
-			if(item.getNodeType() == Node.ELEMENT_NODE){
-			Element element = (Element) item;
-			Map<String, String> prefMap = extract(element);
-//				pixelPreference.setBeginningX(Double.parseDouble(element
-//						.getAttribute(X)));
-//				pixelPreference.setBeginningY(Double.parseDouble(element
-//						.getAttribute(Y)));
-//				pixelPreference.setBeginningZ(Double.parseDouble(element
-//						.getAttribute(Z)));
-//				pixelPreference.setWidth(Double.parseDouble(element
-//						.getAttribute(WIDTH)));
-//				pixelPreference.setHeight(Double.parseDouble(element
-//						.getAttribute(HEIGHT)));
-//				pixelPreference.setRotationX(Double.parseDouble(element
-//						.getAttribute(XR)));
-//				pixelPreference.setRotationY(Double.parseDouble(element
-//						.getAttribute(YR)));
-//				pixelPreference.setRotationZ(Double.parseDouble(element
-//						.getAttribute(ZR)));
-//				pixelPreference.setRed(rgb.getRed());
-//				pixelPreference.setGreen(rgb.getGreen());
-//				pixelPreference.setBlue(rgb.getBlue());
-			preference =PreferenceFactory.getInstance().createPrefFromPrefMap(item.getNodeName(), prefMap);
+			preference = convertToComplexPreference(item);
+		} else {
+			if (item.getNodeType() == Node.ELEMENT_NODE) {
+				Element element = (Element) item;
+				Map<String, String> prefMap = extract(element);
+				// pixelPreference.setBeginningX(Double.parseDouble(element
+				// .getAttribute(X)));
+				// pixelPreference.setBeginningY(Double.parseDouble(element
+				// .getAttribute(Y)));
+				// pixelPreference.setBeginningZ(Double.parseDouble(element
+				// .getAttribute(Z)));
+				// pixelPreference.setWidth(Double.parseDouble(element
+				// .getAttribute(WIDTH)));
+				// pixelPreference.setHeight(Double.parseDouble(element
+				// .getAttribute(HEIGHT)));
+				// pixelPreference.setRotationX(Double.parseDouble(element
+				// .getAttribute(XR)));
+				// pixelPreference.setRotationY(Double.parseDouble(element
+				// .getAttribute(YR)));
+				// pixelPreference.setRotationZ(Double.parseDouble(element
+				// .getAttribute(ZR)));
+				// pixelPreference.setRed(rgb.getRed());
+				// pixelPreference.setGreen(rgb.getGreen());
+				// pixelPreference.setBlue(rgb.getBlue());
+				preference = PreferenceFactory.getInstance()
+						.createPrefFromPrefMap(item.getNodeName(), prefMap);
 			}
 		}
 		return preference;
@@ -118,16 +124,17 @@ public class Graphic3DLoader extends AbstractGraphic3DPersister {
 	private Map<String, String> extract(Element e) {
 		Map<String, String> prefMap = new HashMap<String, String>();
 		NamedNodeMap attributes = e.getAttributes();
-		for(int i = 0; i< attributes.getLength();i++){
+		for (int i = 0; i < attributes.getLength(); i++) {
 			Node item = attributes.item(i);
 			prefMap.put(item.getNodeName(), item.getNodeValue());
 		}
-		return prefMap ;
+		return prefMap;
 	}
 
 	public List<CommonObject3D> getShapesFromLoader(File file) {
 		List<ShapePreference> preferences = loadPreferencesFromFile(file);
-		return Graphic3DConverter.getInstance().convertPreferencesTo3DGraphics(preferences);
+		return Graphic3DConverter.getInstance().convertPreferencesTo3DGraphics(
+				preferences);
 	}
 
 	public File initLoading() {

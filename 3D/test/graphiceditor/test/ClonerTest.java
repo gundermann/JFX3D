@@ -2,10 +2,10 @@ package graphiceditor.test;
 
 import static org.junit.Assert.assertTrue;
 import graphiceditor.Object3DBuilder;
-import graphiceditor.shapes.CommonObject3D;
-import graphiceditor.shapes.ComplexObject3D;
-import graphiceditor.shapes.Object3D;
-import graphiceditor.shapes.impl.Rectangle3D;
+import graphiceditor.business.CommonObject3D;
+import graphiceditor.business.ComplexObject3D;
+import graphiceditor.business.Object3D;
+import graphiceditor.business.impl.Rectangle3D;
 import graphiceditor.util.Cloner;
 
 import org.junit.Before;

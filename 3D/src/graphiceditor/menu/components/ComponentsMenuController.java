@@ -1,9 +1,9 @@
 package graphiceditor.menu.components;
 
+import graphiceditor.business.ComplexObject3D;
 import graphiceditor.gui.PaintingArea;
 import graphiceditor.menu.AbstractMenuController;
-import graphiceditor.menu.manipulating.GUIManipulatingMenu;
-import graphiceditor.shapes.ComplexObject3D;
+import graphiceditor.menu.manipulation.GUIManipulatingMenu;
 import graphiceditor.util.ShapeSummarizer;
 import graphiceditor.util.StageingArea;
 

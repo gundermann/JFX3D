@@ -1,7 +1,7 @@
-package graphiceditor.shapes.impl;
+package graphiceditor.business.impl;
 
+import graphiceditor.business.Object3D;
 import graphiceditor.domainspecific.values.observable.ShapeColor;
-import graphiceditor.shapes.Object3D;
 import javafx.scene.shape.Shape;
 
 public abstract class AbstractPaintableObject3D extends AbstractObject3DImpl

@@ -1,4 +1,4 @@
-package graphiceditor.shapes.impl;
+package graphiceditor.business.impl;
 
 import javafx.beans.property.DoubleProperty;
 import javafx.scene.shape.Rectangle;

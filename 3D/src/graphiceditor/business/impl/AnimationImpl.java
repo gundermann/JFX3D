@@ -1,8 +1,9 @@
-package animation.business;
+package graphiceditor.business.impl;
+
+import graphiceditor.business.Animation;
+import graphiceditor.domainspecific.values.observable.AnimationProperty;
 
 import java.util.List;
-
-import animation.domainspecific.AnimationProperty;
 
 public class AnimationImpl implements Animation{
 
@@ -10,8 +11,9 @@ public class AnimationImpl implements Animation{
 
 	@Override
 	public void run() {
-		// TODO Auto-generated method stub
-		
+		for(AnimationProperty animationProp : properties){
+			
+		}
 	}
 
 	@Override

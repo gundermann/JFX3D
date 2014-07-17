@@ -2,8 +2,8 @@ package graphicloader.test;
 
 import org.mockito.Mockito;
 
-import graphiceditor.shapes.Object3D;
-import graphiceditor.shapes.impl.Rectangle3D;
+import graphiceditor.business.Object3D;
+import graphiceditor.business.impl.Rectangle3D;
 import graphicpersistenshandler.prefs.ShapePreference;
 
 public class ShapePrefMock {

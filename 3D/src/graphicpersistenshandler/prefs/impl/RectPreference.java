@@ -1,7 +1,7 @@
 package graphicpersistenshandler.prefs.impl;
 
-import graphiceditor.shapes.CommonObject3D;
-import graphiceditor.shapes.impl.Rectangle3D;
+import graphiceditor.business.CommonObject3D;
+import graphiceditor.business.impl.Rectangle3D;
 import graphicpersistenshandler.prefs.AbstractSingleShapePreference;
 
 import java.util.Map;

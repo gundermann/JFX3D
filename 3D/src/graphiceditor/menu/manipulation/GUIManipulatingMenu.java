@@ -1,8 +1,8 @@
-package graphiceditor.menu.manipulating;
+package graphiceditor.menu.manipulation;
 
+import graphiceditor.business.CommonObject3D;
+import graphiceditor.business.Object3D;
 import graphiceditor.menu.AbstractGUIMenu;
-import graphiceditor.shapes.CommonObject3D;
-import graphiceditor.shapes.Object3D;
 
 import java.io.IOException;
 
@@ -30,14 +30,18 @@ public class GUIManipulatingMenu extends AbstractGUIMenu {
 	private Scene scene;
 
 	public GUIManipulatingMenu() {
+		setupScene();
+		if (controller == null)
+			switchToComplexMode();
+		show();
+	}
+	
+	public void setupScene(){
 		scene = SceneBuilder.create().build();
 		setScene(scene);
 		initStyle(StageStyle.UNDECORATED);
 		setX(0);
 		setY(510);
-		if (controller == null)
-			switchToComplexMode();
-		show();
 	}
 
 	public void setActualPainting(CommonObject3D painting) {
@@ -48,7 +52,7 @@ public class GUIManipulatingMenu extends AbstractGUIMenu {
 		controller.setActualPainting(painting);
 	}
 
-	private void switchToComplexMode() {
+	protected void switchToComplexMode() {
 		controller = new ComplexManipulatingMenuController();
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(
 				"complexmanipulatingmenu.fxml"));
@@ -56,15 +60,19 @@ public class GUIManipulatingMenu extends AbstractGUIMenu {
 		AnchorPane page;
 		try {
 			page = (AnchorPane) fxmlLoader.load();
-			scene.setRoot(page);
-			setScene(scene);
-			setHeight(500);
+			updateScene(page);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
 
-	private void switchToObject3DMode() {
+	public void updateScene(AnchorPane page) {
+		scene.setRoot(page);
+		setScene(scene);
+		setHeight(500);
+	}
+
+	protected void switchToObject3DMode() {
 		controller = new ManipulatingMenuController();
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(
 				"manipulatingmenu.fxml"));
@@ -72,9 +80,7 @@ public class GUIManipulatingMenu extends AbstractGUIMenu {
 		AnchorPane page;
 		try {
 			page = (AnchorPane) fxmlLoader.load();
-			scene = SceneBuilder.create().root(page).build();
-			setScene(scene);
-			setHeight(500);
+			updateScene(page);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

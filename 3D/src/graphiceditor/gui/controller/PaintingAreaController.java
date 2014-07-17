@@ -1,13 +1,13 @@
 package graphiceditor.gui.controller;
 
-import graphiceditor.Painting;
 import graphiceditor.PaintingListenerFactory;
+import graphiceditor.business.CommonObject3D;
+import graphiceditor.business.Painting;
 import graphiceditor.gui.GUIDimensionArea;
 import graphiceditor.gui.GUIPaintingArea;
 import graphiceditor.gui.PaintingArea;
 import graphiceditor.menu.components.GUIComponentsMenu;
-import graphiceditor.menu.manipulating.GUIManipulatingMenu;
-import graphiceditor.shapes.CommonObject3D;
+import graphiceditor.menu.manipulation.GUIManipulatingMenu;
 
 import java.util.ArrayList;
 import java.util.List;

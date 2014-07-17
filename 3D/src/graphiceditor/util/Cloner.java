@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import graphiceditor.Object3DBuilder;
-import graphiceditor.shapes.CommonObject3D;
-import graphiceditor.shapes.ComplexObject3D;
-import graphiceditor.shapes.Object3D;
+import graphiceditor.business.CommonObject3D;
+import graphiceditor.business.ComplexObject3D;
+import graphiceditor.business.Object3D;
 
 public class Cloner {
 	

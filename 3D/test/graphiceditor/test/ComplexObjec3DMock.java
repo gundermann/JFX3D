@@ -1,6 +1,6 @@
 package graphiceditor.test;
 
-import graphiceditor.shapes.ComplexObject3D;
+import graphiceditor.business.ComplexObject3D;
 
 public class ComplexObjec3DMock {
 

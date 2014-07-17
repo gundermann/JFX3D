@@ -1,8 +1,8 @@
 package graphiceditor;
 
-import graphiceditor.shapes.CommonObject3D;
-import graphiceditor.shapes.Object3D;
-import graphiceditor.shapes.impl.ComplexObject3DImpl;
+import graphiceditor.business.CommonObject3D;
+import graphiceditor.business.Object3D;
+import graphiceditor.business.impl.ComplexObject3DImpl;
 import graphicpersistenshandler.prefs.ShapePreference;
 import graphicpersistenshandler.prefs.impl.ComplexPref;
 

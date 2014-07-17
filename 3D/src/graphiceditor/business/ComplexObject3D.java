@@ -1,4 +1,4 @@
-package graphiceditor.shapes;
+package graphiceditor.business;
 
 import java.util.List;
 

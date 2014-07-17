@@ -1,7 +1,7 @@
-package graphiceditor.shapes.impl;
+package graphiceditor.business.impl;
 
-import graphiceditor.shapes.CommonObject3D;
-import graphiceditor.shapes.ComplexObject3D;
+import graphiceditor.business.CommonObject3D;
+import graphiceditor.business.ComplexObject3D;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;

@@ -1,8 +1,8 @@
 package graphiceditor.handler;
 
 import graphiceditor.Object3DBuilder;
+import graphiceditor.business.Object3D;
 import graphiceditor.gui.PaintingArea;
-import graphiceditor.shapes.Object3D;
 import javafx.scene.input.MouseEvent;
 
 public class PaintingStartHandler implements PaintingHandler {

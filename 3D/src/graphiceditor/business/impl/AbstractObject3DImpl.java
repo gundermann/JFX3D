@@ -1,10 +1,10 @@
-package graphiceditor.shapes.impl;
+package graphiceditor.business.impl;
 
+import graphiceditor.business.CommonObject3D;
 import graphiceditor.domainspecific.RotationBundle;
 import graphiceditor.domainspecific.values.Axis;
 import graphiceditor.domainspecific.values.observable.AngleProperty;
 import graphiceditor.domainspecific.values.observable.RotationProperty;
-import graphiceditor.shapes.CommonObject3D;
 import javafx.beans.property.DoubleProperty;
 import javafx.collections.ObservableList;
 import javafx.scene.transform.Rotate;

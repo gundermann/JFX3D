@@ -1,7 +1,8 @@
 package graphiceditor;
 
-import graphiceditor.shapes.Object3D;
-import graphiceditor.shapes.impl.Rectangle3D;
+import graphiceditor.business.Object3D;
+import graphiceditor.business.Painting;
+import graphiceditor.business.impl.Rectangle3D;
 
 import java.util.HashMap;
 import java.util.Map;

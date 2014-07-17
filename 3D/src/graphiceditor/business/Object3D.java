@@ -1,4 +1,4 @@
-package graphiceditor.shapes;
+package graphiceditor.business;
 
 import graphiceditor.domainspecific.values.observable.ShapeColor;
 

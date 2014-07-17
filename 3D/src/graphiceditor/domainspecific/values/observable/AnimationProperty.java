@@ -1,8 +1,8 @@
-package animation.domainspecific;
+package graphiceditor.domainspecific.values.observable;
 
 import java.util.List;
 
-import graphiceditor.shapes.CommonObject3D;
+import graphiceditor.business.CommonObject3D;
 
 public class AnimationProperty {
 

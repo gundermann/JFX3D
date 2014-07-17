@@ -1,6 +1,6 @@
-package graphiceditor.menu.manipulating;
+package graphiceditor.menu.manipulation;
 
-import graphiceditor.shapes.Object3D;
+import graphiceditor.business.Object3D;
 import graphiceditor.util.NumberToStringConverter;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;

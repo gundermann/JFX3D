@@ -1,4 +1,4 @@
-package animation.domainspecific;
+package graphiceditor.domainspecific.values.observable;
 
 public class ChangeGraphicProperty {
 

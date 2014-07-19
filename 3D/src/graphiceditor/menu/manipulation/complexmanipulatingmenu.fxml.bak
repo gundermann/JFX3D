@@ -10,7 +10,7 @@
 
 <AnchorPane id="AnchorPane" xmlns:fx="http://javafx.com/fxml">
   <children>
-    <TitledPane animated="false" text="untitled">
+    <TitledPane animated="false" collapsible="false" text="Manipulate - Complex">
       <content>
         <AnchorPane id="Content">
           <children>
@@ -57,7 +57,11 @@
                     <Button id="removeZRotation" mnemonicParsing="false" onAction="#removeZRotation" text="Z -" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
                     <Button mnemonicParsing="false" onAction="#addXRotation" text="X +" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
                     <Button mnemonicParsing="false" onAction="#addYRotation" text="Y +" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-                    <Button mnemonicParsing="false" onAction="#addZRotation" text="Z +" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+                    <Button mnemonicParsing="false" onAction="#addZRotation" text="Z +" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                      <GridPane.margin>
+                        <Insets />
+                      </GridPane.margin>
+                    </Button>
                     <TextField fx:id="xRotation" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                     <TextField fx:id="yRotation" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                     <TextField fx:id="zRotation" GridPane.columnIndex="1" GridPane.rowIndex="3" />
@@ -74,6 +78,7 @@
                     <RowConstraints vgrow="SOMETIMES" />
                   </rowConstraints>
                 </GridPane>
+                <ToggleButton fx:id="tbAnimationMenu" mnemonicParsing="false" onAction="#toggleAnimationMenu" text="Animation Menu" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
               </children>
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" />
@@ -87,6 +92,9 @@
           </children>
         </AnchorPane>
       </content>
+      <graphic>
+        <ToggleButton blendMode="MULTIPLY" mnemonicParsing="false" onAction="#changeMoving" onMouseMoved="#move" text="M" />
+      </graphic>
     </TitledPane>
   </children>
 </AnchorPane>

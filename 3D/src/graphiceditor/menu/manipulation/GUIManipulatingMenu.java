@@ -27,7 +27,7 @@ public class GUIManipulatingMenu extends AbstractGUIMenu {
 	}
 
 	private ComplexManipulatingMenuController controller;
-	private Scene scene;
+	protected Scene scene;
 
 	public GUIManipulatingMenu() {
 		setupScene();
@@ -50,6 +50,7 @@ public class GUIManipulatingMenu extends AbstractGUIMenu {
 		else
 			switchToComplexMode();
 		controller.setActualPainting(painting);
+		GUIAnimationManipulationMenu.getInstance().setActualPainting(painting);
 	}
 
 	protected void switchToComplexMode() {
@@ -84,7 +85,6 @@ public class GUIManipulatingMenu extends AbstractGUIMenu {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
 	}
 
 }

@@ -6,6 +6,7 @@ import graphiceditor.menu.AbstractMenuController;
 import graphiceditor.util.NumberToStringConverter;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleButton;
 import javafx.stage.Stage;
 
 public class ComplexManipulatingMenuController extends AbstractMenuController{
@@ -24,6 +25,9 @@ public class ComplexManipulatingMenuController extends AbstractMenuController{
 	public TextField zRotation;
 
 	protected CommonObject3D painting;
+	
+	@FXML
+	private ToggleButton btAnimationMenu;
 
 	@FXML
 	public void componentSelected() {
@@ -156,4 +160,12 @@ public class ComplexManipulatingMenuController extends AbstractMenuController{
 		return GUIManipulatingMenu.getInstance();
 	}
 
+	@FXML
+	public void toggleAnimationMenu(){
+		if (!btAnimationMenu.isSelected()) {
+			GUIAnimationManipulationMenu.getInstance().setVisible(false);
+		} else {
+			GUIAnimationManipulationMenu.getInstance().setVisible(true);
+		}
+	}
 }

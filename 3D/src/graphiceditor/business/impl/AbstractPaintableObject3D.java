@@ -1,6 +1,8 @@
 package graphiceditor.business.impl;
 
 import graphiceditor.business.Object3D;
+import graphiceditor.domainspecific.Property;
+import graphiceditor.domainspecific.PropertyChange;
 import graphiceditor.domainspecific.values.observable.ShapeColor;
 import javafx.scene.shape.Shape;
 
@@ -30,11 +32,13 @@ public abstract class AbstractPaintableObject3D extends AbstractObject3DImpl
 	}
 
 	@Override
+	@Property(name = "color")
 	public ShapeColor getColor() {
 		return color;
 	}
 	
 	@Override
+	@PropertyChange(name = "color")
 	public void setColor(ShapeColor color) {
 		this.color = color;
 		node.fillProperty().bind(color);

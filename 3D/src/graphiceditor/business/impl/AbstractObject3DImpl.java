@@ -1,6 +1,8 @@
 package graphiceditor.business.impl;
 
 import graphiceditor.business.CommonObject3D;
+import graphiceditor.domainspecific.Property;
+import graphiceditor.domainspecific.PropertyChange;
 import graphiceditor.domainspecific.RotationBundle;
 import graphiceditor.domainspecific.values.Axis;
 import graphiceditor.domainspecific.values.observable.AngleProperty;
@@ -52,61 +54,73 @@ public abstract class AbstractObject3DImpl implements CommonObject3D{
 	}
 	
 	@Override
+	@Property(name = "x-position")
 	public DoubleProperty getXPositionProperty() {
 		return asNode().layoutXProperty();
 	}
 	
 	@Override
+	@Property(name = "y-position")
 	public DoubleProperty getYPositionProperty() {
 		return asNode().layoutYProperty();
 	}
 	
 	@Override
+	@Property(name = "z-position")
 	public DoubleProperty getZPositionProperty() {
 		return asNode().translateZProperty();
 	}
 	
 	@Override
+	@PropertyChange(name = "x-position")
 	public void moveX(double i) {
 		asNode().layoutXProperty().set(asNode().layoutXProperty().get()+i);
 	}
 
 	@Override
+	@PropertyChange(name = "z-position")
 	public void moveZ(double i) {
 		asNode().translateZProperty().set(asNode().translateZProperty().get()+i);;
 	}
 
 	@Override
+	@PropertyChange(name = "y-position")
 	public void moveY(double i) {
 		asNode().layoutYProperty().set(asNode().layoutYProperty().get()+i);
 	}
 	
 	@Override
+	@PropertyChange(name = "x-rotation")
 	public void rotateX(double i) {
 		xRotationProperty.set(xRotationProperty.getValue() + i);
 	}
 
 	@Override
+	@PropertyChange(name = "y-rotation")
 	public void rotateY(double i) {
 		yRotationProperty.set(yRotationProperty.getValue() + i);
 	}
 
 	@Override
+	@PropertyChange(name = "z-rotation")
 	public void rotateZ(double i) {
 		zRotationProperty.set(zRotationProperty.getValue() + i);
 	}
 
 	@Override
+	@Property(name = "x-rotation")
 	public DoubleProperty getXRotationProperty() {
 		return xRotationProperty;
 	}
 
 	@Override
+	@Property(name = "y-rotation")
 	public DoubleProperty getYRotationProperty() {
 		return yRotationProperty;
 	}
 
 	@Override
+	@Property(name = "z-rotation")
 	public DoubleProperty getZRotationProperty() {
 		return zRotationProperty;
 	}

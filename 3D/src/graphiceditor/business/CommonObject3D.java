@@ -1,5 +1,6 @@
 package graphiceditor.business;
 
+import graphiceditor.domainspecific.Property;
 import javafx.beans.property.DoubleProperty;
 import javafx.scene.Node;
 

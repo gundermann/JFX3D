@@ -1,5 +1,7 @@
 package graphiceditor.business.impl;
 
+import graphiceditor.domainspecific.Property;
+import graphiceditor.domainspecific.PropertyChange;
 import javafx.beans.property.DoubleProperty;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
@@ -10,22 +12,26 @@ public class Rectangle3D extends AbstractPaintableObject3D {
 		super("Rectangle");
 	}
 
+	@PropertyChange(name = "height")
 	public void changeWidthTo(double newWidth) {
 		((Rectangle) node).widthProperty().set(newWidth);
 		refreshTransforms();
 	}
 
+	@PropertyChange(name = "width")
 	public void changeHeightTo(double newHeight) {
 		((Rectangle) node).heightProperty().set(newHeight);
 		refreshTransforms();
 	}
 
 	@Override
+	@Property(name = "height")
 	public DoubleProperty getHeightProperty() {
 		return ((Rectangle) node).heightProperty();
 	}
 
 	@Override
+	@Property(name = "width")
 	public DoubleProperty getWidthProperty() {
 		return ((Rectangle) node).widthProperty();
 	}

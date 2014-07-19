@@ -1,4 +1,4 @@
-package graphiceditor.menu.manipulation.animation;
+package graphiceditor.menu.manipulation;
 
 
 public class ComplexAnimationManipulatingMenuController

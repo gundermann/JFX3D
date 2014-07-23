@@ -7,6 +7,8 @@ import graphiceditor.menu.AbstractGUIMenu;
 import java.io.IOException;
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
+import java.util.HashMap;
+import java.util.Map;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -25,6 +27,8 @@ public class GUIAnimationManipulationMenu extends AbstractGUIMenu {
 
 	private BorderPane mainPane;
 
+	private Map<Label, TextField> animationSettingUiElements ;
+	
 	public static GUIAnimationManipulationMenu getInstance() {
 		if (_instance == null) {
 			_instance = new GUIAnimationManipulationMenu();
@@ -35,7 +39,7 @@ public class GUIAnimationManipulationMenu extends AbstractGUIMenu {
 		return _instance;
 	}
 
-	private ComplexAnimationManipulatingMenuController animationController;
+	private AnimationManipulationMenuController animationController;
 
 	private ComplexManipulatingMenuController manipulationController;
 
@@ -45,6 +49,7 @@ public class GUIAnimationManipulationMenu extends AbstractGUIMenu {
 
 	public GUIAnimationManipulationMenu() {
 		mainPane = new BorderPane();
+		animationSettingUiElements = new HashMap<Label, TextField>();
 		scene = SceneBuilder.create().root(mainPane).build();
 		setScene(scene);
 		setTitle("Animation");
@@ -66,7 +71,8 @@ public class GUIAnimationManipulationMenu extends AbstractGUIMenu {
 				Label label = new Label(annotation.name().toUpperCase()+": ");
 				TextField tf = new TextField();
 				pane.add(label, 0, i);
-				pane.add(label, 1, i);
+				pane.add(tf, 1, i);
+				animationSettingUiElements.put(label, tf);
 				i++;
 			}
 		}
@@ -82,6 +88,7 @@ public class GUIAnimationManipulationMenu extends AbstractGUIMenu {
 	private AnchorPane initAnimationControlPanel() {
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(
 				"animationcontrollpanel.fxml"));
+		animationController = new AnimationManipulationMenuController();
 		fxmlLoader.setController(animationController);
 		AnchorPane page = new AnchorPane();
 		try {
@@ -90,6 +97,14 @@ public class GUIAnimationManipulationMenu extends AbstractGUIMenu {
 			e.printStackTrace();
 		}
 		return page;
+	}
+
+	public Map<Label, TextField> getUiElementsForAnimationSettings() {
+		return animationSettingUiElements;
+	}
+
+	public CommonObject3D getActualPainting() {
+		return actualPainting;
 	}
 
 }

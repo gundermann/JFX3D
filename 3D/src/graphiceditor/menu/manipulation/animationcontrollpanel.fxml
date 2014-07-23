@@ -27,7 +27,7 @@
                     <Insets />
                   </GridPane.margin>
                 </TextField>
-                <Button id="animationOption" mnemonicParsing="false" text="Show" GridPane.columnIndex="3" GridPane.margin="$x1" GridPane.rowIndex="0" />
+                <Button id="animationOption" mnemonicParsing="false" onAction="#showAnimation" text="Show" GridPane.columnIndex="3" GridPane.margin="$x1" GridPane.rowIndex="0" />
               </children>
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" />

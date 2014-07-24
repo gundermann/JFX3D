@@ -1,8 +1,8 @@
 package graphiceditor.menu.manipulation;
 
 import graphiceditor.AnimationFactory;
-import graphiceditor.AnimationHandler;
 import graphiceditor.business.Animation;
+import graphiceditor.util.AnimationHandler;
 
 import java.util.HashMap;
 import java.util.Map;

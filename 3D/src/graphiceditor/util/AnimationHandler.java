@@ -1,4 +1,4 @@
-package graphiceditor;
+package graphiceditor.util;
 
 import graphiceditor.business.Animation;
 

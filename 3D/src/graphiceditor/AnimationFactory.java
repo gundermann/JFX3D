@@ -20,13 +20,14 @@ public class AnimationFactory {
 	}
 
 	public Animation createAnimation(Map<String, Double> propertyMap,
-			CommonObject3D graphic3D) {
+			CommonObject3D graphic3D, Double time) {
 		AnimationProperty property = new AnimationProperty(graphic3D);
 		for (String propertyName : propertyMap.keySet()) {
 			ChangeGraphicProperty changeGraphicProperty = createChangeGraphicProperty(
 					propertyName, propertyMap.get(propertyName));
 			property.addChangeGraphicProperty(changeGraphicProperty);
 		}
+		property.setTime(time);
 		Animation animation = new AnimationImpl();
 		animation.addProperty(property);
 		return animation;

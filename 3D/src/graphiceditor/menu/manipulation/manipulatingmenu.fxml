@@ -110,6 +110,11 @@
                     <RowConstraints vgrow="SOMETIMES" />
                   </rowConstraints>
                 </GridPane>
+                <ToggleButton id="tbAnimationMenu" mnemonicParsing="false" onAction="#toggleAnimationMenu" text="Animation Menu" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+                  <GridPane.margin>
+                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                  </GridPane.margin>
+                </ToggleButton>
               </children>
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" />
@@ -118,12 +123,13 @@
                 <RowConstraints vgrow="SOMETIMES" />
                 <RowConstraints vgrow="SOMETIMES" />
                 <RowConstraints vgrow="SOMETIMES" />
+                <RowConstraints vgrow="SOMETIMES" />
               </rowConstraints>
             </GridPane>
           </children>
         </AnchorPane>
       </content>
-       <graphic>
+      <graphic>
         <ToggleButton blendMode="MULTIPLY" mnemonicParsing="false" onAction="#changeMoving" onMouseMoved="#move" text="M" />
       </graphic>
     </TitledPane>

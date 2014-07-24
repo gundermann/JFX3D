@@ -1,6 +1,7 @@
 package graphiceditor.menu.manipulation;
 
 import graphiceditor.AnimationFactory;
+import graphiceditor.AnimationHandler;
 import graphiceditor.business.Animation;
 
 import java.util.HashMap;
@@ -12,10 +13,17 @@ import javafx.scene.control.TextField;
 
 public class AnimationManipulationMenuController {
 
+	@FXML 
+	public TextField tfTime;
+	
 	@FXML
 	public void showAnimation() {
-		Animation animation = AnimationFactory.getInstance().createAnimation(extractAnimationProperties(), getUI().getActualPainting());
-		new Thread(animation).start();
+		Animation animation = AnimationFactory.getInstance().createAnimation(extractAnimationProperties(), getUI().getActualPainting(), getTime());
+		AnimationHandler.getInstance().startAnimation(animation);
+	}
+
+	private Double getTime() {
+		return Double.valueOf(tfTime.getText());
 	}
 
 	private Map<String, Double> extractAnimationProperties() {

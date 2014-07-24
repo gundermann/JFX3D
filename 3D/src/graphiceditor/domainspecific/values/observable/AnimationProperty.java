@@ -34,6 +34,11 @@ public class AnimationProperty {
 	public List<ChangeGraphicProperty> getChangedProperties() {
 		return changedProperties;
 	}
+
+	public void setTime(double time) {
+		this.time = time;
+	}
+	
 	
 
 	

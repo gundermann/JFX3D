@@ -5,7 +5,6 @@ import graphiceditor.domainspecific.Property;
 import graphiceditor.menu.AbstractGUIMenu;
 
 import java.io.IOException;
-import java.lang.annotation.Annotation;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
@@ -40,8 +39,6 @@ public class GUIAnimationManipulationMenu extends AbstractGUIMenu {
 	}
 
 	private AnimationManipulationMenuController animationController;
-
-	private ComplexManipulatingMenuController manipulationController;
 
 	private Scene scene;
 

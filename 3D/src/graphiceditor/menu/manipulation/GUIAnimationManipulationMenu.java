@@ -19,6 +19,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.Region;
 
 public class GUIAnimationManipulationMenu extends AbstractGUIMenu {
 
@@ -26,8 +27,8 @@ public class GUIAnimationManipulationMenu extends AbstractGUIMenu {
 
 	private BorderPane mainPane;
 
-	private Map<Label, TextField> animationSettingUiElements ;
-	
+	private Map<Label, TextField> animationSettingUiElements;
+
 	public static GUIAnimationManipulationMenu getInstance() {
 		if (_instance == null) {
 			_instance = new GUIAnimationManipulationMenu();
@@ -56,31 +57,35 @@ public class GUIAnimationManipulationMenu extends AbstractGUIMenu {
 	}
 
 	private Node initPropertyChangingUIFromActualObject3D() {
-		if(actualPainting == null)
-			return new Pane();
-		
 		GridPane pane = new GridPane();
 		int i = 0;
-		Method[] annotations = actualPainting.getClass().getMethods();
-		for (Method method : annotations) {
-			Property annotation = method.getAnnotation(Property.class);
-			if(annotation != null){
-				Label label = new Label(annotation.name().toUpperCase()+": ");
-				TextField tf = new TextField();
-				pane.add(label, 0, i);
-				pane.add(tf, 1, i);
-				animationSettingUiElements.put(label, tf);
-				i++;
+		if (actualPainting != null) {
+			Method[] annotations = actualPainting.getClass().getMethods();
+			for (Method method : annotations) {
+				Property annotation = method.getAnnotation(Property.class);
+				if (annotation != null) {
+					Label label = new Label(annotation.name().toUpperCase()
+							+ ": ");
+					TextField tf = new TextField();
+					pane.add(label, 0, i);
+					pane.add(tf, 1, i);
+					animationSettingUiElements.put(label, tf);
+					i++;
+				}
 			}
 		}
- 		return pane;
+		resize(i * 30);
+		return pane;
+	}
+
+	private void resize(int height) {
+		setHeight(100 + height);
 	}
 
 	public void setActualPainting(CommonObject3D painting) {
 		this.actualPainting = painting;
 		mainPane.setCenter(initPropertyChangingUIFromActualObject3D());
 	}
-
 
 	private AnchorPane initAnimationControlPanel() {
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(

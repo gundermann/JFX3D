@@ -1,12 +1,12 @@
 package graphiceditor.gui.controller;
 
 import graphiceditor.PaintingAreaFactory;
+import graphiceditor.business.CommonObject3D;
 import graphiceditor.gui.PaintingArea;
 import graphiceditor.menu.components.GUIComponentsMenu;
 import graphiceditor.menu.dimension.GUIDimensionMenu;
-import graphiceditor.menu.manipulating.GUIManipulatingMenu;
+import graphiceditor.menu.manipulation.GUIManipulatingMenu;
 import graphiceditor.menu.painting.GUIPaintingMenu;
-import graphiceditor.shapes.CommonObject3D;
 import graphiceditor.util.ComplexGraphicInserter;
 import graphicpersistenshandler.Graphic3DLoader;
 import graphicpersistenshandler.Graphic3DSaver;
@@ -43,6 +43,9 @@ public class MainController implements Initializable {
 
 	@FXML
 	private ToggleButton btComponentsMenu;
+	
+	@FXML
+	private ToggleButton btAniamtionMenu;
 
 	@FXML
 	public void initNewObject() {
@@ -138,7 +141,7 @@ public class MainController implements Initializable {
 			GUIComponentsMenu.getInstance().setVisible(true);
 		}
 	}
-
+	
 	@FXML
 	public void close() {
 		Platform.exit();

@@ -1,7 +1,7 @@
 package graphicpersistenshandler.prefs.impl;
 
-import graphiceditor.shapes.CommonObject3D;
-import graphiceditor.shapes.impl.Rectangle3D;
+import graphiceditor.business.CommonObject3D;
+import graphiceditor.business.impl.Rectangle3D;
 import graphicpersistenshandler.prefs.AbstractSingleShapePreference;
 
 import java.util.Map;
@@ -24,14 +24,14 @@ public class RectPreference extends AbstractSingleShapePreference {
 	@Override
 	public CommonObject3D createShape() {
 		Rectangle3D rect = new Rectangle3D();
-		rect.moveX(getBeginningX());
-		rect.moveY(getBeginningY());
-		rect.moveZ(getBeginningZ());
+		rect.moveToX(getBeginningX());
+		rect.moveToY(getBeginningY());
+		rect.moveToZ(getBeginningZ());
 		rect.getWidthProperty().set(getWidth());
 		rect.getHeightProperty().set(getHeight());
-		rect.rotateX(getRotationX());
-		rect.rotateY(getRotationY());
-		rect.rotateZ(getRotationZ());
+		rect.rotateXTo(getRotationX());
+		rect.rotateYTo(getRotationY());
+		rect.rotateZTo(getRotationZ());
 		rect.getColor().getR().set(getRed());
 		rect.getColor().getG().set(getGreen());
 		rect.getColor().getB().set(getBlue());

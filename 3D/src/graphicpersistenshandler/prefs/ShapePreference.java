@@ -1,6 +1,6 @@
 package graphicpersistenshandler.prefs;
 
-import graphiceditor.shapes.CommonObject3D;
+import graphiceditor.business.CommonObject3D;
 
 import java.util.Map;
 

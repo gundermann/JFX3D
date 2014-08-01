@@ -1,6 +1,6 @@
 package graphiceditor.util;
 
-import graphiceditor.shapes.CommonObject3D;
+import graphiceditor.business.CommonObject3D;
 
 import java.util.ArrayList;
 import java.util.List;

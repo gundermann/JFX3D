@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?language javascript?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+
+<AnchorPane id="AnchorPane" xmlns:fx="http://javafx.com/fxml">
+  <children>
+    <AnchorPane id="Content" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+      <children>
+        <GridPane AnchorPane.leftAnchor="0.0">
+          <children>
+            <GridPane GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="0">
+              <children>
+                <Label text="Time:" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                  <GridPane.margin>
+                    <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" fx:id="x1" />
+                  </GridPane.margin>
+                </Label>
+                <Label text="ms" GridPane.columnIndex="2" GridPane.margin="$x1" GridPane.rowIndex="0" />
+                <TextField fx:id="tfTime" maxWidth="150.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                  <GridPane.margin>
+                    <Insets />
+                  </GridPane.margin>
+                </TextField>
+                <Button id="animationOption" mnemonicParsing="false" onAction="#showAnimation" text="Show" GridPane.columnIndex="3" GridPane.margin="$x1" GridPane.rowIndex="0" />
+              </children>
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" />
+                <ColumnConstraints hgrow="SOMETIMES" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+            </GridPane>
+            <Button fx:id="btSave" mnemonicParsing="false" onAction="#saveAnimation" text="Save" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+            <Button fx:id="btDiscard" mnemonicParsing="false" text="Discard" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+          </children>
+          <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" />
+            <ColumnConstraints hgrow="SOMETIMES" />
+          </columnConstraints>
+          <rowConstraints>
+            <RowConstraints vgrow="SOMETIMES" />
+            <RowConstraints vgrow="SOMETIMES" />
+          </rowConstraints>
+        </GridPane>
+      </children>
+    </AnchorPane>
+  </children>
+</AnchorPane>

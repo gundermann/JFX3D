@@ -1,8 +1,8 @@
 package graphicloader.test;
 
 import static org.junit.Assert.assertTrue;
-import graphiceditor.shapes.CommonObject3D;
-import graphiceditor.shapes.Object3D;
+import graphiceditor.business.CommonObject3D;
+import graphiceditor.business.Object3D;
 import graphicpersistenshandler.Graphic3DConverter;
 import graphicpersistenshandler.prefs.ShapePreference;
 

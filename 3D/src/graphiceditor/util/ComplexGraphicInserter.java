@@ -1,8 +1,8 @@
 package graphiceditor.util;
 
 import graphiceditor.Object3DBuilder;
+import graphiceditor.business.CommonObject3D;
 import graphiceditor.gui.PaintingArea;
-import graphiceditor.shapes.CommonObject3D;
 import graphicpersistenshandler.Graphic3DLoader;
 
 import java.io.File;

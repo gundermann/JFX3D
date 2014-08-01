@@ -1,10 +1,10 @@
 package graphiceditor.gui;
 
 import graphiceditor.OrientationShapeBuilder;
+import graphiceditor.business.CommonObject3D;
 import graphiceditor.domainspecific.RotationBundle;
 import graphiceditor.domainspecific.values.observable.RotationProperty;
 import graphiceditor.menu.components.GUIComponentsMenu;
-import graphiceditor.shapes.CommonObject3D;
 
 import java.util.ArrayList;
 import java.util.List;

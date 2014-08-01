@@ -1,8 +1,8 @@
 package graphicloader.test;
 
 import static org.junit.Assert.assertTrue;
-import graphiceditor.shapes.Object3D;
-import graphiceditor.shapes.impl.Rectangle3D;
+import graphiceditor.business.Object3D;
+import graphiceditor.business.impl.Rectangle3D;
 import graphicpersistenshandler.PreferenceFactory;
 import graphicpersistenshandler.prefs.ShapePreference;
 import graphicpersistenshandler.prefs.impl.RectPreference;
@@ -17,14 +17,14 @@ public class PreferenceFactoryTest {
 	@Before
 	public void setup() {
 		object3D = new Rectangle3D();
-		object3D.moveX(100);
-		object3D.moveY(100);
-		object3D.moveZ(100);
+		object3D.moveToX(100);
+		object3D.moveToY(100);
+		object3D.moveToZ(100);
 		object3D.changeHeightTo(100);
 		object3D.changeWidthTo(100);
-		object3D.rotateX(90);
-		object3D.rotateY(90);
-		object3D.rotateZ(90);
+		object3D.rotateXTo(90);
+		object3D.rotateYTo(90);
+		object3D.rotateZTo(90);
 	}
 
 	@Test

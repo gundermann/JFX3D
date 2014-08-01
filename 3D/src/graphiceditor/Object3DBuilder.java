@@ -1,8 +1,8 @@
 package graphiceditor;
 
-import graphiceditor.shapes.CommonObject3D;
-import graphiceditor.shapes.Object3D;
-import graphiceditor.shapes.impl.ComplexObject3DImpl;
+import graphiceditor.business.CommonObject3D;
+import graphiceditor.business.Object3D;
+import graphiceditor.business.impl.ComplexObject3DImpl;
 import graphicpersistenshandler.prefs.ShapePreference;
 import graphicpersistenshandler.prefs.impl.ComplexPref;
 
@@ -25,13 +25,13 @@ public class Object3DBuilder {
 	
 
 	public Object3DBuilder x(double x) {
-		graphic.moveX(x);
+		graphic.moveToX(x);
 		return this;
 	}
 	
 
 	public Object3DBuilder y(double y) {
-		graphic.moveY(y);
+		graphic.moveToY(y);
 		return this;
 	}
 	
@@ -46,14 +46,14 @@ public class Object3DBuilder {
 
 
 	public Object3DBuilder fromOther(Object3D object3d) {
-		graphic.moveX(object3d.getXPositionProperty().get());
-		graphic.moveY(object3d.getYPositionProperty().get());
-		graphic.moveZ(object3d.getZPositionProperty().get());
+		graphic.moveToX(object3d.getXPositionProperty().get());
+		graphic.moveToY(object3d.getYPositionProperty().get());
+		graphic.moveToZ(object3d.getZPositionProperty().get());
 		graphic.changeHeightTo(object3d.getHeightProperty().get());
 		graphic.changeWidthTo(object3d.getWidthProperty().get());
-		graphic.rotateX(object3d.getXRotationProperty().get());
-		graphic.rotateY(object3d.getYRotationProperty().get());
-		graphic.rotateZ(object3d.getZRotationProperty().get());
+		graphic.rotateXTo(object3d.getXRotationProperty().get());
+		graphic.rotateYTo(object3d.getYRotationProperty().get());
+		graphic.rotateZTo(object3d.getZRotationProperty().get());
 		graphic.setColor(object3d.getColor());
 		return this;
 	}
@@ -65,12 +65,12 @@ public class Object3DBuilder {
 			commonGraphicObjects.add(pref.createShape());
 		}
 		CommonObject3D complexShape = createKomplexShape(commonGraphicObjects, complexPref.getTitle());
-		complexShape.moveX(complexPref.getBeginningX());
-		complexShape.moveY(complexPref.getBeginningY());
-		complexShape.moveZ(complexPref.getBeginningZ());
-		complexShape.rotateX(complexPref.getRotationX());
-		complexShape.rotateY(complexPref.getRotationY());
-		complexShape.rotateZ(complexPref.getRotationZ());
+		complexShape.moveToX(complexPref.getBeginningX());
+		complexShape.moveToY(complexPref.getBeginningY());
+		complexShape.moveToZ(complexPref.getBeginningZ());
+		complexShape.rotateXTo(complexPref.getRotationX());
+		complexShape.rotateYTo(complexPref.getRotationY());
+		complexShape.rotateZTo(complexPref.getRotationZ());
 		return complexShape;
 	}
 

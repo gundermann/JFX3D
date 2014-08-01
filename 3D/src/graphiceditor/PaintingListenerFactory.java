@@ -1,11 +1,11 @@
 package graphiceditor;
 
+import graphiceditor.business.Object3D;
 import graphiceditor.gui.PaintingArea;
 import graphiceditor.handler.PaintingFinishedHandler;
 import graphiceditor.handler.PaintingHandler;
 import graphiceditor.handler.PaintingStartHandler;
 import graphiceditor.handler.ShapePaintingHandler;
-import graphiceditor.shapes.Object3D;
 
 public class PaintingListenerFactory {
 

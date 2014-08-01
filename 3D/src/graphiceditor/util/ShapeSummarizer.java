@@ -1,9 +1,9 @@
 package graphiceditor.util;
 
 import graphiceditor.Object3DBuilder;
+import graphiceditor.business.CommonObject3D;
+import graphiceditor.business.ComplexObject3D;
 import graphiceditor.gui.PaintingArea;
-import graphiceditor.shapes.CommonObject3D;
-import graphiceditor.shapes.ComplexObject3D;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,7 +37,6 @@ public class ShapeSummarizer implements Setup {
 
 		actualPaintingArea
 				.add(Object3DBuilder.createKomplexShape(shapes, text));
-
 	}
 
 	public void split(PaintingArea actualPaintingArea,
@@ -47,9 +46,9 @@ public class ShapeSummarizer implements Setup {
 		ComplexObject3D complexGraphic = (ComplexObject3D) actualPaintingArea.getActualPainting();
 		List<CommonObject3D> splitedShapes = complexGraphic.getShapes();
 		for(CommonObject3D shape : splitedShapes){
-			shape.moveX(complexGraphic.getXPositionProperty().get());
-			shape.moveY(complexGraphic.getYPositionProperty().get());
-			shape.moveZ(complexGraphic.getZPositionProperty().get());
+			shape.moveToX(complexGraphic.getXPositionProperty().get());
+			shape.moveToY(complexGraphic.getYPositionProperty().get());
+			shape.moveToZ(complexGraphic.getZPositionProperty().get());
 		}
 		actualPaintingArea.removeByIndex(selectedIndices);
 		actualPaintingArea.addAll(splitedShapes );

@@ -54,6 +54,7 @@ public class PaintingAreaController extends DimensionAreaController implements
 
 	@Override
 	public void startPainting() {
+		getUI().toFront();
 		setMouseClickHandler(PaintingListenerFactory.getInstance()
 				.createPaintingFinishListener(this));
 		setMouseMoveHandler(PaintingListenerFactory.getInstance()

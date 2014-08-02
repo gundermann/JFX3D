@@ -1,5 +1,6 @@
 package graphiceditor;
 
+import graphiceditor.gui.GUIMain;
 import graphiceditor.gui.controller.MainController;
 import graphiceditor.gui.controller.PaintingAreaController;
 import graphiceditor.util.Setup;
@@ -22,7 +23,9 @@ public class PaintingAreaFactory implements Setup {
 		if(paintingAreaContainer.doesNameExist(name)){
 			return false;
 		}
-		paintingAreaContainer.addArea(new PaintingAreaController(name));
+		PaintingAreaController paintingAreaController = new PaintingAreaController(name);
+		paintingAreaContainer.addArea(paintingAreaController);
+		GUIMain.getInstance().setPaintingArea(paintingAreaController);
 		return true;
 	}
 

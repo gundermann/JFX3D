@@ -16,6 +16,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.SelectionMode;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class ComponentsMenuController extends AbstractMenuController implements
@@ -97,7 +98,7 @@ public class ComponentsMenuController extends AbstractMenuController implements
 	}
 
 	@Override
-	protected Stage getUI() {
+	protected AnchorPane getUI() {
 		return GUIComponentsMenu.getInstance();
 	}
 

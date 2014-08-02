@@ -12,6 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.control.ToggleButton;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.converter.NumberStringConverter;
 
@@ -158,7 +159,7 @@ public class DimensionMenuController extends AbstractMenuController implements I
 	}
 
 	@Override
-	protected Stage getUI() {
+	protected AnchorPane getUI() {
 		return GUIDimensionMenu.getInstance();
 	}
 

@@ -14,13 +14,13 @@ import javafx.geometry.Point3D;
 import javafx.geometry.Point3DBuilder;
 import javafx.scene.Node;
 import javafx.scene.PerspectiveCameraBuilder;
-import javafx.scene.Scene;
-import javafx.scene.SceneBuilder;
+import javafx.scene.SceneAntialiasing;
+import javafx.scene.SubScene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
-import javafx.stage.Stage;
+import javafx.scene.paint.Color;
 
-public class GUIDimensionArea extends Stage {
+public class GUIDimensionArea extends SubScene {
 
 	private final RotationBundle rotationBundle;
 
@@ -38,25 +38,27 @@ public class GUIDimensionArea extends Stage {
 
 	private final Point3D pivot;
 
-	private AnchorPane mainPane;
+	private static AnchorPane mainPane;
 
 	public GUIDimensionArea() {
-		Scene scene = SceneBuilder.create().root(createRoot())
-				.camera(PerspectiveCameraBuilder.create().build())
-				.depthBuffer(true).build();
-		setScene(scene);
+		super(createRoot(), 500, 500, true, SceneAntialiasing.BALANCED);
+		setCamera(PerspectiveCameraBuilder.create().build());
+//		Scene scene = SceneBuilder.create().root(createRoot())
+//				.camera(PerspectiveCameraBuilder.create().build())
+//				.depthBuffer(true).build();
+//		setScene(scene);
 		setProperties();
-		show();
+//		show();
 		pivot = Point3DBuilder.create().x(this.getWidth() / 2)
 				.y(this.getHeight() / 2).z(0).build();
-
+setHeight(500);
+setWidth(500);
 		rotationBundle = new RotationBundle(pivot);
 		rotationBundle.setXAxisRotation(rootAngleX);
 		rotationBundle.setYAxisRotation(rootAngleY);
 		rotationBundle.setZAxisRotation(rootAngleZ);
-		
 		mainPane.getTransforms().addAll(rotationBundle.getRotations());
-		centerOnScreen();
+		
 	}
 
 	public List<CommonObject3D> getAllGraphicObjects() {
@@ -64,24 +66,25 @@ public class GUIDimensionArea extends Stage {
 	}
 
 	private void setProperties() {
-		mainPane.prefWidthProperty().bind(getScene().widthProperty());
-		mainPane.prefHeightProperty().bind(getScene().heightProperty());
+//		mainPane.prefWidthProperty().bind(getScene().widthProperty());
+//		mainPane.prefHeightProperty().bind(getScene().heightProperty());
 	}
 
-	public AnchorPane createRoot() {
+	public static AnchorPane createRoot() {
 		mainPane = new AnchorPane();
+		mainPane.setStyle("-fx-background-color: #FFFFFF");
 		return mainPane;
 	}
 
 	public void setMainPane(AnchorPane mainPane) {
-		hide();
-		this.mainPane = mainPane;
-		Scene scene = SceneBuilder.create().root(mainPane)
-				.camera(PerspectiveCameraBuilder.create().build())
-				.depthBuffer(true).build();
-		setScene(scene);
-		setProperties();
-		show();
+//		hide();
+//		this.mainPane = mainPane;
+//		Scene scene = SceneBuilder.create().root(mainPane)
+//				.camera(PerspectiveCameraBuilder.create().build())
+//				.depthBuffer(true).build();
+//		setScene(scene);
+//		setProperties();
+//		show();
 	}
 
 	public Pane getMainPane() {

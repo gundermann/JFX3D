@@ -4,6 +4,7 @@ import graphiceditor.business.Painting;
 import graphiceditor.gui.PaintingArea;
 import graphiceditor.menu.AbstractMenuController;
 import javafx.fxml.FXML;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 public class PaintingMenuController extends AbstractMenuController{
@@ -21,7 +22,7 @@ public class PaintingMenuController extends AbstractMenuController{
 	}
 
 	@Override
-	protected Stage getUI() {
+	protected AnchorPane getUI() {
 		return GUIPaintingMenu.getInstance();
 	}
 

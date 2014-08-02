@@ -35,13 +35,13 @@ public class GUIManipulatingMenu extends AbstractGUIMenu {
 		setupScene();
 		initPropertiesFromActualObject3D();
 	}
-	
-	public void setupScene(){
-		scene = SceneBuilder.create().build();
-		setScene(scene);
+
+	public void setupScene() {
+		// scene = SceneBuilder.create().build();
+		// setScene(scene);
 		setWidth(150);
-		setX(0);
-		setY(510);
+		// setX(0);
+		// setY(510);
 	}
 
 	public void setActualPainting(CommonObject3D painting) {
@@ -54,33 +54,36 @@ public class GUIManipulatingMenu extends AbstractGUIMenu {
 		GridPane grid = new GridPane();
 		int i = 0;
 		if (actualPainting != null) {
-			for (String name : PropertyHelper.getInstance().getPropertyNames(actualPainting)) {
-					Label label = new Label(name);
-					grid.add(label, 0, i);
-					i++;
-					grid.addRow(i, initPropertyChangeingUI(name));
-					i++;
+			for (String name : PropertyHelper.getInstance().getPropertyNames(
+					actualPainting)) {
+				Label label = new Label(name);
+				grid.add(label, 0, i);
+				i++;
+				grid.addRow(i, initPropertyChangeingUI(name));
+				i++;
 			}
 		}
 		updateScene(grid);
-		resize(i*26);
+		resize(i * 26);
 	}
 
 	private void resize(int height) {
 		setHeight(height);
-		if(height>0){
-			setVisible(true);
-			show();
-		}else{
-			setVisible(false);
-		}
+		// if(height>0){
+		// setVisible(true);
+		// // show();
+		// }else{
+		// setVisible(false);
+		// }
 	}
 
 	private Node initPropertyChangeingUI(String name) {
-		DoubleProperty property = PropertyHelper.getInstance().getProperty(name, actualPainting);
+		DoubleProperty property = PropertyHelper.getInstance().getProperty(
+				name, actualPainting);
 		GridPane grid = new GridPane();
 		TextField tf = new TextField();
-		tf.textProperty().bindBidirectional(property, new NumberToStringConverter());
+		tf.textProperty().bindBidirectional(property,
+				new NumberToStringConverter());
 		SubtractionButton btMinus = new SubtractionButton(name, actualPainting);
 		AdditionButton btPlus = new AdditionButton(name, actualPainting);
 		grid.add(btMinus, 0, 0);
@@ -90,8 +93,13 @@ public class GUIManipulatingMenu extends AbstractGUIMenu {
 	}
 
 	public void updateScene(GridPane page) {
-		scene.setRoot(page);
-		setScene(scene);
+		getChildren().clear();
+		getChildren().add(page);
+	}
+
+	@Override
+	public String getTitle() {
+		return "Manipulating";
 	}
 
 }

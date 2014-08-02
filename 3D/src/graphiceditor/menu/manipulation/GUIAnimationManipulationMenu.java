@@ -11,7 +11,6 @@ import java.util.Map;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.SceneBuilder;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -45,12 +44,12 @@ public class GUIAnimationManipulationMenu extends AbstractGUIMenu {
 	public GUIAnimationManipulationMenu() {
 		mainPane = new BorderPane();
 		animationSettingUiElements = new HashMap<Label, TextField>();
-		scene = SceneBuilder.create().root(mainPane).build();
-		setScene(scene);
-		setTitle("Animation");
+		getChildren().add(mainPane);
+//		scene = SceneBuilder.create().root(mainPane).build();
+//		setScene(scene);
 		mainPane.setCenter(initPropertyChangingUIFromActualObject3D());
 		mainPane.setBottom(initAnimationControlPanel());
-		show();
+//		show();
 	}
 
 	private Node initPropertyChangingUIFromActualObject3D() {
@@ -101,6 +100,11 @@ public class GUIAnimationManipulationMenu extends AbstractGUIMenu {
 
 	public CommonObject3D getActualPainting() {
 		return actualPainting;
+	}
+
+	@Override
+	public String getTitle() {
+		return "Animation";
 	}
 
 }

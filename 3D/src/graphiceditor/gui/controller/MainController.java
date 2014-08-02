@@ -2,6 +2,7 @@ package graphiceditor.gui.controller;
 
 import graphiceditor.PaintingAreaFactory;
 import graphiceditor.business.CommonObject3D;
+import graphiceditor.gui.GUIMain;
 import graphiceditor.gui.PaintingArea;
 import graphiceditor.menu.components.GUIComponentsMenu;
 import graphiceditor.menu.dimension.GUIDimensionMenu;

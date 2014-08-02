@@ -3,6 +3,7 @@ package graphiceditor.menu;
 import java.awt.Button;
 
 import javafx.fxml.FXML;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import com.sun.glass.ui.Application;
@@ -29,14 +30,14 @@ public abstract class AbstractMenuController {
 
 	@FXML
 	public void move() {
-		if (moveable) {
-			Robot robot = Application.GetApplication().createRobot();
-			getUI().setX(robot.getMouseX() - 25);
-			getUI().setY(robot.getMouseY() - 15);
-			robot.mouseMove(Double.valueOf(getUI().getX() + 25).intValue(),
-					Double.valueOf(getUI().getY() + 15).intValue());
-		}
+//		if (moveable) {
+//			Robot robot = Application.GetApplication().createRobot();
+//			getUI().setX(robot.getMouseX() - 25);
+//			getUI().setY(robot.getMouseY() - 15);
+//			robot.mouseMove(Double.valueOf(getUI().getX() + 25).intValue(),
+//					Double.valueOf(getUI().getY() + 15).intValue());
+//		}
 	}
 
-	abstract protected Stage getUI();
+	abstract protected AnchorPane getUI();
 }

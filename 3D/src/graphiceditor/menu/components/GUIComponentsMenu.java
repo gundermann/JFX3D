@@ -26,13 +26,14 @@ public class GUIComponentsMenu extends AbstractGUIMenu{
 	    AnchorPane page;
 	    try {
 	      page = (AnchorPane) fxmlLoader.load();
-	      Scene scene = SceneBuilder.create().root( page ).camera( PerspectiveCameraBuilder.create().build() )
-	          .depthBuffer( true ).build();
-	      setScene( scene );
-	      initStyle( StageStyle.UNDECORATED );
-	      setY( 70 );
-	      show();
-	      setX( Toolkit.getDefaultToolkit().getScreenSize().getWidth()-getWidth() );
+	      getChildren().add(page);
+//	      Scene scene = SceneBuilder.create().root( page ).camera( PerspectiveCameraBuilder.create().build() )
+//	          .depthBuffer( true ).build();
+//	      setScene( scene );
+//	      initStyle( StageStyle.UNDECORATED );
+//	      setY( 70 );
+//	      show();
+//	      setX( Toolkit.getDefaultToolkit().getScreenSize().getWidth()-getWidth() );
 	    }
 	    catch ( IOException e ) {
 	      e.printStackTrace();
@@ -54,12 +55,17 @@ public class GUIComponentsMenu extends AbstractGUIMenu{
 	    controller.setPaintingArea( paintingArea );
 	  }
 
-	  public void setDisable( boolean disable ) {
-	    getScene().getRoot().setDisable( disable );
-	  }
+//	  public void setDisable( boolean disable ) {
+//	    getScene().getRoot().setDisable( disable );
+//	  }
 
 	public void updateComponents() {
 		controller.updateComponents();
+	}
+
+	@Override
+	public String getTitle() {
+		return "Components";
 	}
 
 

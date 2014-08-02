@@ -6,8 +6,6 @@ import java.awt.Toolkit;
 import java.io.IOException;
 
 import javafx.fxml.FXMLLoader;
-import javafx.scene.PerspectiveCamera;
-import javafx.scene.PerspectiveCameraBuilder;
 import javafx.scene.Scene;
 import javafx.scene.SceneBuilder;
 import javafx.scene.layout.AnchorPane;
@@ -27,9 +25,7 @@ public class GUIMain extends Stage {
 		try {
 			page = (AnchorPane) fxmlLoader.load();
 			border = new BorderPane();
-			PerspectiveCamera cam = PerspectiveCameraBuilder.create().build();
-			Scene scene = SceneBuilder.create().root(border).camera(cam)
-					.depthBuffer(true).build();
+			Scene scene = SceneBuilder.create().root(border).build();
 			setScene(scene);
 			border.setTop(page);
 			border.setLeft(MenuBar.getInstance());

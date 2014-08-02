@@ -13,12 +13,12 @@ import java.util.List;
 import javafx.beans.property.DoubleProperty;
 import javafx.geometry.Point3D;
 import javafx.geometry.Point3DBuilder;
+import javafx.scene.Group;
+import javafx.scene.GroupBuilder;
 import javafx.scene.Node;
 import javafx.scene.PerspectiveCameraBuilder;
 import javafx.scene.SceneAntialiasing;
 import javafx.scene.SubScene;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 
 public class GUIDimensionArea extends SubScene {
@@ -39,10 +39,10 @@ public class GUIDimensionArea extends SubScene {
 
 	private final Point3D pivot;
 
-	private static AnchorPane mainPane;
+	private static Group mainPane;
 
 	public GUIDimensionArea() {
-		super(createRoot(), Toolkit.getDefaultToolkit().getScreenSize().getWidth()-280, Toolkit.getDefaultToolkit().getScreenSize().getHeight()-70, true, SceneAntialiasing.BALANCED);
+		super(createRoot(), Toolkit.getDefaultToolkit().getScreenSize().getWidth()-280, Toolkit.getDefaultToolkit().getScreenSize().getHeight()-70, true, SceneAntialiasing.DISABLED);
 		setCamera(PerspectiveCameraBuilder.create().build());
 		pivot = Point3DBuilder.create().x(this.getWidth() / 2)
 				.y(this.getHeight() / 2).z(0).build();
@@ -50,6 +50,7 @@ public class GUIDimensionArea extends SubScene {
 		rotationBundle.setXAxisRotation(rootAngleX);
 		rotationBundle.setYAxisRotation(rootAngleY);
 		rotationBundle.setZAxisRotation(rootAngleZ);
+		setFill(Color.WHITE);
 		mainPane.getTransforms().addAll(rotationBundle.getRotations());
 	}
 
@@ -57,14 +58,12 @@ public class GUIDimensionArea extends SubScene {
 		return allGraphicObjects;
 	}
 
-	public static AnchorPane createRoot() {
-		mainPane = new AnchorPane();
-		mainPane.setStyle("-fx-background-color: #FFFFFF");
+	public static Group createRoot() {
+		mainPane = GroupBuilder.create().build();
 		return mainPane;
 	}
 
-
-	public Pane getMainPane() {
+	public Group getMainPane() {
 		return mainPane;
 	}
 

@@ -34,7 +34,6 @@
         <ToggleButton id="btPaintingArea" fx:id="btPaintingMenu" disable="true" mnemonicParsing="false" onAction="#togglePaintingMenu" text="Painting Menu" />
         <ToggleButton fx:id="btManipulatingMenu" disable="true" mnemonicParsing="false" onAction="#toggleManipulatingMenu" text="Manipulating Menu" />
         <ToggleButton fx:id="btComponentsMenu" disable="true" mnemonicParsing="false" onAction="#toggleComponentsMenu" text="Components Menu" />
-        <ToggleButton fx:id="btAnimationMenu" disable="true" mnemonicParsing="false" onAction="#toggleAnimationMenu" text="Animation Menu" />
         <ChoiceBox fx:id="paintingAreaSelection" disable="true" />
       </items>
     </ToolBar>

@@ -27,14 +27,6 @@ public class GUIDimensionMenu extends AbstractGUIMenu {
 		try {
 			page = (AnchorPane) fxmlLoader.load();
 			getChildren().add(page);
-			// Scene scene = SceneBuilder.create().root( page ).camera(
-			// PerspectiveCameraBuilder.create().build() )
-			// .depthBuffer( true ).build();
-			// setScene( scene );
-			// initStyle( StageStyle.UNDECORATED );
-			// setX( 0 );
-			// setY( 70 );
-			// show();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

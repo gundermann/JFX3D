@@ -16,6 +16,7 @@ import javafx.geometry.Point3DBuilder;
 import javafx.scene.Group;
 import javafx.scene.GroupBuilder;
 import javafx.scene.Node;
+import javafx.scene.PerspectiveCamera;
 import javafx.scene.PerspectiveCameraBuilder;
 import javafx.scene.SceneAntialiasing;
 import javafx.scene.SubScene;
@@ -43,7 +44,7 @@ public class GUIDimensionArea extends SubScene {
 
 	public GUIDimensionArea() {
 		super(createRoot(), Toolkit.getDefaultToolkit().getScreenSize().getWidth()-280, Toolkit.getDefaultToolkit().getScreenSize().getHeight()-70, true, SceneAntialiasing.DISABLED);
-		setCamera(PerspectiveCameraBuilder.create().build());
+		setCamera(new PerspectiveCamera(false));
 		pivot = Point3DBuilder.create().x(this.getWidth() / 2)
 				.y(this.getHeight() / 2).z(0).build();
 		rotationBundle = new RotationBundle(pivot);

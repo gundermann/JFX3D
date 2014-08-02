@@ -89,7 +89,7 @@
         </AnchorPane>
       </content>
       <graphic>
-        <ToggleButton blendMode="MULTIPLY" mnemonicParsing="false" onMouseMoved="#move" text="M" />
+        <ToggleButton blendMode="MULTIPLY" mnemonicParsing="false" onAction="#changeMoving" onMouseMoved="#move" text="M" />
       </graphic>
     </TitledPane>
   </children>

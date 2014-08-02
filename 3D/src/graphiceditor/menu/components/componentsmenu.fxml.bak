@@ -8,29 +8,18 @@
 
 <AnchorPane id="AnchorPane" xmlns:fx="http://javafx.com/fxml">
   <children>
-    <TitledPane animated="false" collapsible="false" text="Components" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-      <content>
-        <AnchorPane id="Content">
-          <children>
-            <ListView fx:id="lvComponents" onMouseClicked="#componentSelected">
-              <contextMenu>
-                <ContextMenu onShowing="#checkPossibleActions">
-                  <items>
-                    <MenuItem onAction="#deleteComponent" text="Delete" />
-                    <MenuItem onAction="#copyComponent" text="Copy" />
-                    <MenuItem onAction="#pasteComponent" text="Paste" />
-                    <MenuItem disable="true" mnemonicParsing="false" onAction="#summarize" text="Summarize" fx:id="miSummarize" />
-                    <MenuItem mnemonicParsing="false" onAction="#split" text="Split" />
-                  </items>
-                </ContextMenu>
-              </contextMenu>
-            </ListView>
-          </children>
-        </AnchorPane>
-      </content>
-      <graphic>
-        <ToggleButton blendMode="MULTIPLY" mnemonicParsing="false" onAction="#changeMoving" onMouseMoved="#move" text="M" />
-      </graphic>
-    </TitledPane>
+    <ListView fx:id="lvComponents" onMouseClicked="#componentSelected" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <contextMenu>
+        <ContextMenu onShowing="#checkPossibleActions">
+          <items>
+            <MenuItem onAction="#deleteComponent" text="Delete" />
+            <MenuItem onAction="#copyComponent" text="Copy" />
+            <MenuItem onAction="#pasteComponent" text="Paste" />
+            <MenuItem disable="true" mnemonicParsing="false" onAction="#summarize" text="Summarize" fx:id="miSummarize" />
+            <MenuItem mnemonicParsing="false" onAction="#split" text="Split" fx:id="miSplit" />
+          </items>
+        </ContextMenu>
+      </contextMenu>
+    </ListView>
   </children>
 </AnchorPane>

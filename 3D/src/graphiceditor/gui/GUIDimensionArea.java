@@ -6,6 +6,7 @@ import graphiceditor.domainspecific.RotationBundle;
 import graphiceditor.domainspecific.values.observable.RotationProperty;
 import graphiceditor.menu.components.GUIComponentsMenu;
 
+import java.awt.Toolkit;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,33 +42,19 @@ public class GUIDimensionArea extends SubScene {
 	private static AnchorPane mainPane;
 
 	public GUIDimensionArea() {
-		super(createRoot(), 500, 500, true, SceneAntialiasing.BALANCED);
+		super(createRoot(), Toolkit.getDefaultToolkit().getScreenSize().getWidth()-280, Toolkit.getDefaultToolkit().getScreenSize().getHeight()-70, true, SceneAntialiasing.BALANCED);
 		setCamera(PerspectiveCameraBuilder.create().build());
-//		Scene scene = SceneBuilder.create().root(createRoot())
-//				.camera(PerspectiveCameraBuilder.create().build())
-//				.depthBuffer(true).build();
-//		setScene(scene);
-		setProperties();
-//		show();
 		pivot = Point3DBuilder.create().x(this.getWidth() / 2)
 				.y(this.getHeight() / 2).z(0).build();
-setHeight(500);
-setWidth(500);
 		rotationBundle = new RotationBundle(pivot);
 		rotationBundle.setXAxisRotation(rootAngleX);
 		rotationBundle.setYAxisRotation(rootAngleY);
 		rotationBundle.setZAxisRotation(rootAngleZ);
 		mainPane.getTransforms().addAll(rotationBundle.getRotations());
-		
 	}
 
 	public List<CommonObject3D> getAllGraphicObjects() {
 		return allGraphicObjects;
-	}
-
-	private void setProperties() {
-//		mainPane.prefWidthProperty().bind(getScene().widthProperty());
-//		mainPane.prefHeightProperty().bind(getScene().heightProperty());
 	}
 
 	public static AnchorPane createRoot() {
@@ -76,16 +63,6 @@ setWidth(500);
 		return mainPane;
 	}
 
-	public void setMainPane(AnchorPane mainPane) {
-//		hide();
-//		this.mainPane = mainPane;
-//		Scene scene = SceneBuilder.create().root(mainPane)
-//				.camera(PerspectiveCameraBuilder.create().build())
-//				.depthBuffer(true).build();
-//		setScene(scene);
-//		setProperties();
-//		show();
-	}
 
 	public Pane getMainPane() {
 		return mainPane;

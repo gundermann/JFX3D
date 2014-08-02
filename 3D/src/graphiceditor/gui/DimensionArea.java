@@ -2,12 +2,8 @@ package graphiceditor.gui;
 
 import graphiceditor.business.CommonObject3D;
 import javafx.beans.property.Property;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
 
 public interface DimensionArea {
-
-	Pane getMainPane();
 
 	void add(CommonObject3D shape);
 
@@ -16,8 +12,6 @@ public interface DimensionArea {
 	void enableXRotation();
 
 	void enableYRotation();
-
-	void setMainPane(AnchorPane mainPane);
 
 	void disableRotation();
 

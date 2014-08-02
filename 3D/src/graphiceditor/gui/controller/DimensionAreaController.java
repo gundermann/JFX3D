@@ -32,11 +32,6 @@ public class DimensionAreaController implements DimensionArea {
 	}
 
 	@Override
-	public Pane getMainPane() {
-		return gui.getMainPane();
-	}
-
-	@Override
 	public void add(CommonObject3D shape) {
 		gui.add(shape);
 	}
@@ -57,11 +52,6 @@ public class DimensionAreaController implements DimensionArea {
 				this.mouseDragRotationHandler);
 		gui.addEventHandler(MouseEvent.MOUSE_RELEASED,
 				this.mouseReleaseRotationHandler);
-	}
-
-	@Override
-	public void setMainPane(AnchorPane mainPane) {
-		gui.setMainPane(mainPane);
 	}
 
 	@Override
@@ -122,5 +112,5 @@ public class DimensionAreaController implements DimensionArea {
 	public void showAxis(boolean b) {
 		gui.showAxis(b);		
 	}
-	
+
 }

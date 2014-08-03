@@ -43,15 +43,19 @@ public class ShapeSummarizer implements Setup {
 			List<Integer> selectedIndices) {
 		this.actualPaintingArea = actualPaintingArea;
 		this.selectedIndices = selectedIndices;
-		ComplexObject3D complexGraphic = (ComplexObject3D) actualPaintingArea.getActualPainting();
+		ComplexObject3D complexGraphic = (ComplexObject3D) actualPaintingArea
+				.getActualPainting();
 		List<CommonObject3D> splitedShapes = complexGraphic.getShapes();
-		for(CommonObject3D shape : splitedShapes){
-			shape.moveToX(complexGraphic.getXPositionProperty().get());
-			shape.moveToY(complexGraphic.getYPositionProperty().get());
-			shape.moveToZ(complexGraphic.getZPositionProperty().get());
+		for (CommonObject3D shape : splitedShapes) {
+			shape.moveToX(complexGraphic.getXPositionProperty().get()
+					+ shape.getXPositionProperty().get());
+			shape.moveToY(complexGraphic.getYPositionProperty().get()
+					+ shape.getYPositionProperty().get());
+			shape.moveToZ(complexGraphic.getZPositionProperty().get()
+					+ shape.getZPositionProperty().get());
 		}
 		actualPaintingArea.removeByIndex(selectedIndices);
-		actualPaintingArea.addAll(splitedShapes );
+		actualPaintingArea.addAll(splitedShapes);
 	}
 
 }

@@ -8,8 +8,6 @@ import graphiceditor.handler.AbstractMouseDragRotationHandler;
 import javafx.beans.property.Property;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
 
 public class DimensionAreaController implements DimensionArea {
 

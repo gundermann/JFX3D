@@ -42,7 +42,7 @@ public class MainController implements Initializable {
 
 	@FXML
 	private ToggleButton btComponentsMenu;
-	
+
 	@FXML
 	private ToggleButton btAniamtionMenu;
 
@@ -85,8 +85,8 @@ public class MainController implements Initializable {
 	public void load() {
 		File file = Graphic3DLoader.getInstace().initLoading();
 		PaintingAreaFactory.getInstance().load(this, file.getName());
-		List<CommonObject3D> shapesFromLoader = Graphic3DLoader.getInstace()
-				.getShapesFromLoader(file);
+		final List<CommonObject3D> shapesFromLoader = Graphic3DLoader
+				.getInstace().getShapesFromLoader(file);
 		getSelectedPaintingArea().addAll(shapesFromLoader);
 	}
 
@@ -95,7 +95,6 @@ public class MainController implements Initializable {
 		Graphic3DSaver.getInstance().initSaving(getSelectedPaintingArea());
 	}
 
-	
 	@FXML
 	public void close() {
 		Platform.exit();

@@ -116,8 +116,11 @@ public class PaintingAreaController extends DimensionAreaController implements
 
 	@Override
 	public void addAll(List<CommonObject3D> objects) {
+		//FIXME Workaround for lost gos in z direction
+		getYRotationProperty().setValue(getYRotationProperty().getValue().doubleValue() + 25);
 		for (CommonObject3D object3D : objects) {
 			add(object3D);
+			object3D.setSelected(true);
 		}
 	}
 

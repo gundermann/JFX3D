@@ -14,10 +14,8 @@ import javafx.beans.property.DoubleProperty;
 import javafx.geometry.Point3D;
 import javafx.geometry.Point3DBuilder;
 import javafx.scene.Group;
-import javafx.scene.GroupBuilder;
 import javafx.scene.Node;
 import javafx.scene.PerspectiveCamera;
-import javafx.scene.PerspectiveCameraBuilder;
 import javafx.scene.SceneAntialiasing;
 import javafx.scene.SubScene;
 import javafx.scene.paint.Color;
@@ -60,7 +58,7 @@ public class GUIDimensionArea extends SubScene {
 	}
 
 	public static Group createRoot() {
-		mainPane = GroupBuilder.create().build();
+		mainPane = new Group();
 		return mainPane;
 	}
 
@@ -73,6 +71,7 @@ public class GUIDimensionArea extends SubScene {
 			mainPane.getChildren().add(shape.asNode());
 			allGraphicObjects.add(shape);
 			GUIComponentsMenu.getInstance().updateComponents();
+			mainPane.requestLayout();
 		}
 	}
 	

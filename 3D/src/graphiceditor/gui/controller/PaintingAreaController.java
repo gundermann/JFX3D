@@ -54,7 +54,7 @@ public class PaintingAreaController extends DimensionAreaController implements
 
 	@Override
 	public void startPainting() {
-		getUI().toFront();
+//		getUI().toFront();
 		setMouseClickHandler(PaintingListenerFactory.getInstance()
 				.createPaintingFinishListener(this));
 		setMouseMoveHandler(PaintingListenerFactory.getInstance()
@@ -120,7 +120,6 @@ public class PaintingAreaController extends DimensionAreaController implements
 		getYRotationProperty().setValue(getYRotationProperty().getValue().doubleValue() + 25);
 		for (CommonObject3D object3D : objects) {
 			add(object3D);
-			object3D.setSelected(true);
 		}
 	}
 

@@ -18,6 +18,7 @@ public class PaintingStartHandler implements PaintingHandler {
 	public void handle(MouseEvent event) {
 		Object3D shape =  Object3DBuilder.create(shapeClass).
 				x(event.getX()).y(event.getY()).build();
+		System.out.printf("Actual painting [%f, %f, %f]\n",shape.getXPositionProperty().get(), shape.getYPositionProperty().get(), shape.getXPositionProperty().get());
 		paintingArea.setActualPainting(shape);
 		paintingArea.startPainting();
 	}

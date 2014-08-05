@@ -15,6 +15,7 @@ public class ShapePaintingHandler implements PaintingHandler {
 	@Override
 	public void handle(MouseEvent event) {
 		shape.paint(event.getX(), event.getY(), initinalX, initinalY);
+		System.out.printf("Actual painting [%f, %f, %f]\n",shape.getXPositionProperty().get(), shape.getYPositionProperty().get(), shape.getXPositionProperty().get());
 	}
 
 	@Override

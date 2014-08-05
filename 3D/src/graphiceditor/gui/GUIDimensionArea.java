@@ -41,7 +41,7 @@ public class GUIDimensionArea extends SubScene {
 	private static Group mainPane;
 
 	public GUIDimensionArea() {
-		super(createRoot(), Toolkit.getDefaultToolkit().getScreenSize().getWidth()-280, Toolkit.getDefaultToolkit().getScreenSize().getHeight()-70, true, SceneAntialiasing.DISABLED);
+		super(createRoot(), Toolkit.getDefaultToolkit().getScreenSize().getWidth()-280, Toolkit.getDefaultToolkit().getScreenSize().getHeight()-70, true, SceneAntialiasing.BALANCED);
 		setCamera(new PerspectiveCamera(false));
 		pivot = Point3DBuilder.create().x(this.getWidth() / 2)
 				.y(this.getHeight() / 2).z(0).build();
@@ -71,7 +71,6 @@ public class GUIDimensionArea extends SubScene {
 			mainPane.getChildren().add(shape.asNode());
 			allGraphicObjects.add(shape);
 			GUIComponentsMenu.getInstance().updateComponents();
-			mainPane.requestLayout();
 		}
 	}
 	

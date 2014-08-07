@@ -5,7 +5,6 @@ import graphiceditor.gui.PaintingArea;
 import graphiceditor.menu.AbstractMenuController;
 import javafx.fxml.FXML;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
 
 public class PaintingMenuController extends AbstractMenuController{
 
@@ -15,6 +14,11 @@ public class PaintingMenuController extends AbstractMenuController{
 	@FXML
 	public void selectPaintRect() {
 		actualPaintingArea.initPainting(Painting.Rectangle);
+	}
+	
+	@FXML
+	public void selectPaintEllipse() {
+		actualPaintingArea.initPainting(Painting.Ellipse);
 	}
 
 	public void setPaintingArea(PaintingArea paintingArea) {

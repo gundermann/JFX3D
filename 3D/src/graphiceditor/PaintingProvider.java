@@ -2,6 +2,7 @@ package graphiceditor;
 
 import graphiceditor.business.Object3D;
 import graphiceditor.business.Painting;
+import graphiceditor.business.impl.Ellipse;
 import graphiceditor.business.impl.Rectangle3D;
 
 import java.util.HashMap;
@@ -13,6 +14,8 @@ public class PaintingProvider {
 		Map<Painting, Class<? extends Object3D>> paintingStartListener = new HashMap<Painting, Class<? extends Object3D>>();
 		paintingStartListener.put(Painting.Rectangle,
 				Rectangle3D.class);
+		paintingStartListener.put(Painting.Ellipse,
+				Ellipse.class);
 		return paintingStartListener;
 	}
 

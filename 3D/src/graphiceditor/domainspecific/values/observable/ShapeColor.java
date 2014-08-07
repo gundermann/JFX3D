@@ -1,6 +1,7 @@
 package graphiceditor.domainspecific.values.observable;
 
 import graphiceditor.domainspecific.Property;
+import graphiceditor.domainspecific.PropertyChange;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.beans.value.ObservableValueBase;
@@ -35,6 +36,21 @@ public class ShapeColor extends ObservableValueBase<Paint> implements ChangeList
 	@Property(name = "blue", hasChildren = false)
 	public ColorProperty getB() {
 		return b;
+	}
+	
+	
+	@PropertyChange(name = "red", hasChildren = false)
+	public void setR(double r) {
+		this.r.set(r);
+	}
+
+	@PropertyChange(name = "green", hasChildren = false)
+	public void setG(double g) {
+		this.g.set(g);
+	}
+	@PropertyChange(name = "blue", hasChildren = false)
+	public void setB(double b) {
+		this.b.set(b);
 	}
 
 	@Override

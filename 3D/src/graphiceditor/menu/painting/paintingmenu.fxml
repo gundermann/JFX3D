@@ -11,6 +11,7 @@
     <GridPane prefHeight="159.0" prefWidth="179.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
       <children>
         <Button mnemonicParsing="false" onAction="#selectPaintRect" text="Rect" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="0" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+        <Button mnemonicParsing="false" onAction="#selectPaintEllipse" text="Ellipse" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
       </children>
       <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />

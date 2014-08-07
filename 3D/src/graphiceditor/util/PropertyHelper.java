@@ -29,7 +29,7 @@ public class PropertyHelper {
 			Property annotation = method.getAnnotation(Property.class);
 			if (annotation != null) {
 				if (annotation.hasChildren()) {
-					propertyNames.addAll(extractChildren(annotation, method,
+					propertyNames.addAll(extractChildren( method,
 							actualPainting));
 				} else {
 					propertyNames.add(annotation.name().toUpperCase());
@@ -39,7 +39,7 @@ public class PropertyHelper {
 		return propertyNames;
 	}
 	
-	private List<String> extractChildren(Property annotation, Method method,
+	private List<String> extractChildren(Method method,
 			Object object) {
 		List<String> names = new ArrayList<String>();
 		try {
@@ -83,22 +83,44 @@ public class PropertyHelper {
 		return null;
 	}
 
-	public void invokeChangingMethod(String name, double newValue, CommonObject3D actualPainting) {
-		Method[] methods = actualPainting.getClass().getMethods();
+	public void invokeChangingMethod(String propertyName, double newValue, Object o) {
+		Method[] methods = o.getClass().getMethods();
 		for (Method method : methods) {
 			PropertyChange annotation = method.getAnnotation(PropertyChange.class);
-			if(annotation != null && annotation.name().equals(name.toLowerCase())){
-				try {
-					method.invoke(actualPainting, newValue);
-					return;
-				} catch (IllegalAccessException | IllegalArgumentException
-						| InvocationTargetException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
+			if(annotation != null){
+				if(annotation.hasChildren()){
+					try {
+						Object childrenObject = getPropertyMethod(annotation, o).invoke(o, null);
+						invokeChangingMethod(propertyName, newValue, childrenObject);
+					} catch (IllegalAccessException | IllegalArgumentException
+							| InvocationTargetException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				}
+				else if( annotation.name().equals(propertyName.toLowerCase())){
+					try {
+						method.invoke(o, newValue);
+						return;
+					} catch (IllegalAccessException | IllegalArgumentException
+							| InvocationTargetException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+			}
 			}
 		}
 		
+	}
+
+	private Method getPropertyMethod(PropertyChange propertyChange, Object o) {
+		Method[] methods = o.getClass().getMethods();
+		for (Method method : methods) {
+			Property property = method.getAnnotation(Property.class);
+			if(property != null && property.name().equals(propertyChange.name()))
+				return method;
+		}
+		return null;
 	}
 
 }

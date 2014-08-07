@@ -38,18 +38,18 @@ public class Ellipse extends AbstractPaintableObject3D {
 	@Override
 	public void paint(double x, double y, double initinalX, double initinalY) {
 		if (y > initinalY) {
-			changeHeightTo(y - initinalY);
-			moveToY(initinalY + (y - initinalY));
+			changeHeightTo((y - initinalY)/2);
+			moveToY(initinalY + (y - initinalY)/2);
 		} else {
-			changeHeightTo(initinalY - y);
-			moveToY(initinalY - (initinalY - y));
+			changeHeightTo((initinalY - y)/2);
+			moveToY(initinalY - (initinalY - y)/2);
 		}
 		if (x > initinalX) {
-			changeWidthTo(x - initinalX);
-			moveToX(initinalX + (x - initinalX));
+			changeWidthTo((x - initinalX)/2);
+			moveToX(initinalX + (x - initinalX)/2);
 		} else {
-			changeWidthTo(initinalX - x);
-			moveToX(initinalX - (initinalX - x));
+			changeWidthTo((initinalX - x)/2);
+			moveToX(initinalX - (initinalX - x)/2);
 		}
 	}
 

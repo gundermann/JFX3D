@@ -2,10 +2,12 @@ package graphicpersistenshandler;
 
 import graphiceditor.business.CommonObject3D;
 import graphiceditor.business.ComplexObject3D;
+import graphiceditor.business.impl.Ellipse3D;
 import graphiceditor.business.impl.Rectangle3D;
 import graphicpersistenshandler.prefs.ComplexShapePreference;
 import graphicpersistenshandler.prefs.ShapePreference;
 import graphicpersistenshandler.prefs.impl.ComplexPref;
+import graphicpersistenshandler.prefs.impl.EllipsePreference;
 import graphicpersistenshandler.prefs.impl.RectPreference;
 
 import java.util.List;
@@ -29,7 +31,26 @@ public class PreferenceFactory {
 		if(object3d instanceof Rectangle3D){
 			return createRectPref((Rectangle3D) object3d);
 		}
+		if(object3d instanceof Ellipse3D){
+			return createEllipsePref((Ellipse3D) object3d);
+		}
 		return null;
+	}
+
+	private ShapePreference createEllipsePref(Ellipse3D object3d) {
+		EllipsePreference ep = new EllipsePreference();
+		ep.setBeginningX(object3d.getXPositionProperty().get());
+		ep.setBeginningY(object3d.getYPositionProperty().get());
+		ep.setBeginningZ(object3d.getZPositionProperty().get());
+		ep.setHeight(object3d.getHeightProperty().get());
+		ep.setWidth(object3d.getWidthProperty().get());
+		ep.setRotationX(object3d.getXRotationProperty().getValue().intValue());
+		ep.setRotationY(object3d.getYRotationProperty().getValue().intValue());
+		ep.setRotationZ(object3d.getZRotationProperty().getValue().intValue());
+		ep.setRed(object3d.getColor().getR().getValue().intValue());
+		ep.setGreen(object3d.getColor().getG().getValue().intValue());
+		ep.setBlue(object3d.getColor().getB().getValue().intValue());
+		return ep;
 	}
 
 	private ShapePreference createRectPref(Rectangle3D object3d) {
@@ -62,6 +83,9 @@ public class PreferenceFactory {
 			Map<String, String> prefMap) {
 		if(prefType.equals("rect")){
 			return new RectPreference(prefMap);
+		}
+		if(prefType.equals("ell")){
+			return new EllipsePreference(prefMap);
 		}
 		return null;
 	}

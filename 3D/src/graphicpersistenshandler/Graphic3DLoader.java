@@ -95,25 +95,6 @@ public class Graphic3DLoader extends AbstractGraphic3DPersister {
 			if (item.getNodeType() == Node.ELEMENT_NODE) {
 				Element element = (Element) item;
 				Map<String, String> prefMap = extract(element);
-				// pixelPreference.setBeginningX(Double.parseDouble(element
-				// .getAttribute(X)));
-				// pixelPreference.setBeginningY(Double.parseDouble(element
-				// .getAttribute(Y)));
-				// pixelPreference.setBeginningZ(Double.parseDouble(element
-				// .getAttribute(Z)));
-				// pixelPreference.setWidth(Double.parseDouble(element
-				// .getAttribute(WIDTH)));
-				// pixelPreference.setHeight(Double.parseDouble(element
-				// .getAttribute(HEIGHT)));
-				// pixelPreference.setRotationX(Double.parseDouble(element
-				// .getAttribute(XR)));
-				// pixelPreference.setRotationY(Double.parseDouble(element
-				// .getAttribute(YR)));
-				// pixelPreference.setRotationZ(Double.parseDouble(element
-				// .getAttribute(ZR)));
-				// pixelPreference.setRed(rgb.getRed());
-				// pixelPreference.setGreen(rgb.getGreen());
-				// pixelPreference.setBlue(rgb.getBlue());
 				preference = PreferenceFactory.getInstance()
 						.createPrefFromPrefMap(item.getNodeName(), prefMap);
 			}

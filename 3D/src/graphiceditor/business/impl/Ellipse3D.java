@@ -5,9 +5,9 @@ import graphiceditor.domainspecific.PropertyChange;
 import javafx.beans.property.DoubleProperty;
 import javafx.scene.shape.Shape;
 
-public class Ellipse extends AbstractPaintableObject3D {
+public class Ellipse3D extends AbstractPaintableObject3D {
 
-	public Ellipse() {
+	public Ellipse3D() {
 		super("Ellipse");
 	}
 

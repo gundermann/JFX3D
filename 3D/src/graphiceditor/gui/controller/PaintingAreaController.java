@@ -7,11 +7,11 @@ import graphiceditor.gui.GUIDimensionArea;
 import graphiceditor.gui.GUIPaintingArea;
 import graphiceditor.gui.PaintingArea;
 import graphiceditor.menu.components.GUIComponentsMenu;
-import graphiceditor.menu.manipulation.GUIManipulatingMenu;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import preferencemenu.gui.GUIManipulatingMenu;
 import javafx.event.EventHandler;
 import javafx.scene.input.MouseEvent;
 

@@ -39,8 +39,8 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
             </GridPane>
-            <Button fx:id="btSave" mnemonicParsing="false" onAction="#saveAnimation" text="Save" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-            <Button fx:id="btDiscard" mnemonicParsing="false" text="Discard" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+            <Button fx:id="btSave" mnemonicParsing="false" onAction="#saveAnimation" text="Save" visible="false" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+            <Button fx:id="btDiscard" mnemonicParsing="false" text="Discard" visible="false" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
           </children>
           <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" />

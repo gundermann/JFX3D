@@ -1,14 +1,12 @@
-package graphiceditor.util;
-
-import graphiceditor.business.CommonObject3D;
-import graphiceditor.domainspecific.Property;
-import graphiceditor.domainspecific.PropertyChange;
+package preferencemenu;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 
+import preferencemenu.util.Property;
+import preferencemenu.util.PropertyChange;
 import javafx.beans.property.DoubleProperty;
 
 public class PropertyHelper {

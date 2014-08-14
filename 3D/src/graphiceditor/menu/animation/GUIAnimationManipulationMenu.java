@@ -2,7 +2,6 @@ package graphiceditor.menu.animation;
 
 import graphiceditor.business.CommonObject3D;
 import graphiceditor.menu.AbstractGUIMenu;
-import graphiceditor.util.PropertyHelper;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -10,12 +9,12 @@ import java.util.Map;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
+import preferencemenu.PropertyHelper;
 
 public class GUIAnimationManipulationMenu extends AbstractGUIMenu {
 

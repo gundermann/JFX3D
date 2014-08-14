@@ -4,7 +4,7 @@ import java.util.Map;
 
 import graphiceditor.business.Animation;
 import graphiceditor.business.CommonObject3D;
-import graphiceditor.business.impl.AnimationImpl;
+import graphiceditor.business.impl.SingleAnimationImpl;
 import graphiceditor.domainspecific.values.observable.AnimationProperty;
 import graphiceditor.domainspecific.values.observable.ChangeGraphicProperty;
 
@@ -28,7 +28,7 @@ public class AnimationFactory {
 			property.addChangeGraphicProperty(changeGraphicProperty);
 		}
 		property.setTime(time);
-		Animation animation = new AnimationImpl();
+		Animation animation = new SingleAnimationImpl();
 		animation.addProperty(property);
 		return animation;
 	}

@@ -1,8 +1,8 @@
 package graphiceditor.business.impl;
 
+import preferencemenu.util.Property;
+import preferencemenu.util.PropertyChange;
 import graphiceditor.business.Object3D;
-import graphiceditor.domainspecific.Property;
-import graphiceditor.domainspecific.PropertyChange;
 import graphiceditor.domainspecific.values.observable.ShapeColor;
 import javafx.scene.shape.Shape;
 

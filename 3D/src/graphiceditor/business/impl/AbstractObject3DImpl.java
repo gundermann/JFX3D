@@ -1,8 +1,8 @@
 package graphiceditor.business.impl;
 
+import preferencemenu.util.Property;
+import preferencemenu.util.PropertyChange;
 import graphiceditor.business.CommonObject3D;
-import graphiceditor.domainspecific.Property;
-import graphiceditor.domainspecific.PropertyChange;
 import graphiceditor.domainspecific.RotationBundle;
 import graphiceditor.domainspecific.values.Axis;
 import graphiceditor.domainspecific.values.observable.AngleProperty;

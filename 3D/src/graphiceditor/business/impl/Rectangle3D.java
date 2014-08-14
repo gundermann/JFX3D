@@ -1,7 +1,7 @@
 package graphiceditor.business.impl;
 
-import graphiceditor.domainspecific.Property;
-import graphiceditor.domainspecific.PropertyChange;
+import preferencemenu.util.Property;
+import preferencemenu.util.PropertyChange;
 import javafx.beans.property.DoubleProperty;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;

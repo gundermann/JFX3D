@@ -1,7 +1,7 @@
 package graphiceditor.domainspecific.values.observable;
 
-import graphiceditor.domainspecific.Property;
-import graphiceditor.domainspecific.PropertyChange;
+import preferencemenu.util.Property;
+import preferencemenu.util.PropertyChange;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.beans.value.ObservableValueBase;

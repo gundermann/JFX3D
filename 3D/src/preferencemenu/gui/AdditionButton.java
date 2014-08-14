@@ -1,11 +1,12 @@
-package graphiceditor.util;
+package preferencemenu.gui;
 
 import graphiceditor.business.CommonObject3D;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
+import preferencemenu.PropertyHelper;
 
-public class AdditionButton extends Button implements EventHandler<MouseEvent> {
+class AdditionButton extends Button implements EventHandler<MouseEvent> {
 
 	private String name;
 	private CommonObject3D actualPainting;

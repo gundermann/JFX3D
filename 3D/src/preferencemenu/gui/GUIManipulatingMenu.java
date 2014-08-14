@@ -1,18 +1,15 @@
-package graphiceditor.menu.manipulation;
+package preferencemenu.gui;
 
 import graphiceditor.business.CommonObject3D;
 import graphiceditor.menu.AbstractGUIMenu;
-import graphiceditor.menu.animation.GUIAnimationManipulationMenu;
-import graphiceditor.util.AdditionButton;
 import graphiceditor.util.NumberToStringConverter;
-import graphiceditor.util.PropertyHelper;
-import graphiceditor.util.SubtractionButton;
 import javafx.beans.property.DoubleProperty;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import preferencemenu.PropertyHelper;
 
 public class GUIManipulatingMenu extends AbstractGUIMenu {
 
@@ -33,7 +30,7 @@ public class GUIManipulatingMenu extends AbstractGUIMenu {
 
 	public GUIManipulatingMenu() {
 		setupScene();
-		initPropertiesFromActualObject3D();
+		initPropertiesFromActualObject();
 	}
 
 	public void setupScene() {
@@ -42,11 +39,10 @@ public class GUIManipulatingMenu extends AbstractGUIMenu {
 
 	public void setActualPainting(CommonObject3D painting) {
 		this.actualPainting = painting;
-		initPropertiesFromActualObject3D();
-		GUIAnimationManipulationMenu.getInstance().setActualPainting(painting);
+		initPropertiesFromActualObject();
 	}
 
-	private void initPropertiesFromActualObject3D() {
+	private void initPropertiesFromActualObject() {
 		GridPane grid = new GridPane();
 		int i = 0;
 		if (actualPainting != null) {
@@ -89,7 +85,7 @@ public class GUIManipulatingMenu extends AbstractGUIMenu {
 
 	@Override
 	public String getTitle() {
-		return "Manipulating";
+		return "Preferences";
 	}
 
 }

@@ -1,5 +1,7 @@
 package graphiceditor.util;
 
+import com.sun.javafx.application.PlatformImpl;
+
 import graphiceditor.business.Animation;
 
 public class AnimationHandler {
@@ -13,7 +15,7 @@ public class AnimationHandler {
 	}
 
 	public void startAnimation(Animation animation) {
-		animation.start();
+		PlatformImpl.startup(animation);
 	}
 
 }

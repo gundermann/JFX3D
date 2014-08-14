@@ -4,7 +4,6 @@ import graphiceditor.business.ComplexObject3D;
 import graphiceditor.gui.PaintingArea;
 import graphiceditor.menu.AbstractMenuController;
 import graphiceditor.menu.animation.GUIAnimationManipulationMenu;
-import graphiceditor.menu.manipulation.GUIManipulatingMenu;
 import graphiceditor.util.ShapeSummarizer;
 import graphiceditor.util.StageingArea;
 
@@ -12,6 +11,7 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import preferencemenu.gui.GUIManipulatingMenu;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;

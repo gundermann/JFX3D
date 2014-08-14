@@ -3,11 +3,12 @@ package graphiceditor.menu;
 import graphiceditor.menu.animation.GUIAnimationManipulationMenu;
 import graphiceditor.menu.components.GUIComponentsMenu;
 import graphiceditor.menu.dimension.GUIDimensionMenu;
-import graphiceditor.menu.manipulation.GUIManipulatingMenu;
 import graphiceditor.menu.painting.GUIPaintingMenu;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import preferencemenu.gui.GUIManipulatingMenu;
 
 public class MenuCollector {
 

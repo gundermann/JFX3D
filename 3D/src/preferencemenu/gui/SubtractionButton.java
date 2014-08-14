@@ -1,11 +1,12 @@
-package graphiceditor.util;
+package preferencemenu.gui;
 
 import graphiceditor.business.CommonObject3D;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
+import preferencemenu.PropertyHelper;
 
-public class SubtractionButton extends Button implements EventHandler<ActionEvent> {
+class SubtractionButton extends Button implements EventHandler<ActionEvent> {
 
 	private String name;
 	private CommonObject3D actualPainting;

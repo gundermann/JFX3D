@@ -3,6 +3,7 @@ package graphiceditor.menu.components;
 import graphiceditor.business.ComplexObject3D;
 import graphiceditor.gui.PaintingArea;
 import graphiceditor.menu.AbstractMenuController;
+import graphiceditor.menu.animation.GUIAnimationManipulationMenu;
 import graphiceditor.menu.manipulation.GUIManipulatingMenu;
 import graphiceditor.util.ShapeSummarizer;
 import graphiceditor.util.StageingArea;
@@ -62,6 +63,8 @@ public class ComponentsMenuController extends AbstractMenuController implements
 					.get(0));
 			GUIManipulatingMenu.getInstance().setActualPainting(
 					actualPaintingArea.getActualPainting());
+			GUIAnimationManipulationMenu.getInstance().setActualPainting(
+					actualPaintingArea.getActualPainting());
 		}
 	}
 
@@ -89,10 +92,16 @@ public class ComponentsMenuController extends AbstractMenuController implements
 	}
 
 	@FXML
-	public void split(){
-		ShapeSummarizer.getInstance().split(actualPaintingArea, getSelectedIndices());
+	public void split() {
+		ShapeSummarizer.getInstance().split(actualPaintingArea,
+				getSelectedIndices());
 	}
-	
+
+	@FXML
+	public void openAnimationView() {
+		
+	}
+
 	public List<Integer> getSelectedIndices() {
 		return lvComponents.getSelectionModel().getSelectedIndices();
 	}

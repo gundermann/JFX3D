@@ -63,4 +63,23 @@ public class AnimationImpl implements Animation {
 		properties.add(property);
 	}
 
+	@Override
+	public void start() {
+		for (AnimationProperty property : properties) {
+			double starttime = System.currentTimeMillis();
+			double endtime = starttime + property.getTime();
+			List<ChangeGraphicProperty> partialChanges = extractPartialChanges(property);
+			CommonObject3D animatedObject = property.getAnimatedObject();
+			while (endtime > starttime) {
+				ShapeManipulater.getInstance().invokeChange(partialChanges, animatedObject);
+				try {
+					Thread.sleep(100);
+					endtime = endtime -100;
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+		}		
+	}
+
 }

@@ -1,4 +1,4 @@
-package graphiceditor.menu.manipulation;
+package graphiceditor.menu.animation;
 
 import graphiceditor.AnimationFactory;
 import graphiceditor.business.Animation;

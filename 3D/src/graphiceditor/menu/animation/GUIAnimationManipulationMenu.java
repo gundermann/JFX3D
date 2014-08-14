@@ -1,4 +1,4 @@
-package graphiceditor.menu.manipulation;
+package graphiceditor.menu.animation;
 
 import graphiceditor.business.CommonObject3D;
 import graphiceditor.menu.AbstractGUIMenu;
@@ -37,19 +37,14 @@ public class GUIAnimationManipulationMenu extends AbstractGUIMenu {
 
 	private AnimationManipulationMenuController animationController;
 
-	private Scene scene;
-
 	private CommonObject3D actualPainting;
 
 	public GUIAnimationManipulationMenu() {
 		mainPane = new BorderPane();
 		animationSettingUiElements = new HashMap<Label, TextField>();
 		getChildren().add(mainPane);
-//		scene = SceneBuilder.create().root(mainPane).build();
-//		setScene(scene);
 		mainPane.setCenter(initPropertyChangingUIFromActualObject3D());
 		mainPane.setBottom(initAnimationControlPanel());
-//		show();
 	}
 
 	private Node initPropertyChangingUIFromActualObject3D() {

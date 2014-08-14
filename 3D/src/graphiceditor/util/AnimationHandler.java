@@ -13,7 +13,7 @@ public class AnimationHandler {
 	}
 
 	public void startAnimation(Animation animation) {
-		new Thread(animation).start();		
+		animation.start();
 	}
 
 }

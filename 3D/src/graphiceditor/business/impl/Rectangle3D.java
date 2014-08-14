@@ -15,13 +15,11 @@ public class Rectangle3D extends AbstractPaintableObject3D {
 	@PropertyChange(name = "width", hasChildren = false)
 	public void changeWidthTo(double newWidth) {
 		((Rectangle) node).widthProperty().set(newWidth);
-//		refreshTransforms();
 	}
 
 	@PropertyChange(name = "height", hasChildren = false)
 	public void changeHeightTo(double newHeight) {
 		((Rectangle) node).heightProperty().set(newHeight);
-//		refreshTransforms();
 	}
 
 	@Override

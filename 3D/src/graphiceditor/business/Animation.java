@@ -6,6 +6,4 @@ public interface Animation extends Runnable{
 
 	void addProperty(AnimationProperty property);
 
-	void start();
-	
 }

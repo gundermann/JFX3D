@@ -22,7 +22,7 @@
                   </GridPane.margin>
                 </Label>
                 <Label text="ms" GridPane.columnIndex="2" GridPane.margin="$x1" GridPane.rowIndex="0" />
-                <TextField fx:id="tfTime" maxWidth="150.0" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                <TextField fx:id="tfTime" maxWidth="100.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="0">
                   <GridPane.margin>
                     <Insets />
                   </GridPane.margin>

@@ -17,7 +17,6 @@
             <MenuItem onAction="#pasteComponent" text="Paste" />
             <MenuItem disable="true" mnemonicParsing="false" onAction="#summarize" text="Summarize" fx:id="miSummarize" />
             <MenuItem mnemonicParsing="false" onAction="#split" text="Split" fx:id="miSplit" />
-            <MenuItem mnemonicParsing="false" onAction="#openAnimationView" text="Animation..." fx:id="miAnimation" />
           </items>
         </ContextMenu>
       </contextMenu>

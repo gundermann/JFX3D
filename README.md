@@ -1,7 +1,7 @@
 JFX3D
 =====
 What do you need:
-- JRE7
+- JRE8
 - JavaFX library
 
 

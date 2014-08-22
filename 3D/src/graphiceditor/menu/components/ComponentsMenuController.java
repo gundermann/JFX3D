@@ -11,14 +11,13 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import preferencemenu.gui.GUIManipulatingMenu;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.Stage;
+import preferencemenu.gui.GUIManipulatingMenu;
 
 public class ComponentsMenuController extends AbstractMenuController implements
 		Initializable {
@@ -58,14 +57,11 @@ public class ComponentsMenuController extends AbstractMenuController implements
 
 	@FXML
 	public void componentSelected() {
-		if (getSelectedIndices().size() == 1) {
-			actualPaintingArea.setActualPaintingById(getSelectedIndices()
-					.get(0));
+			actualPaintingArea.setActualPaintingById(getSelectedIndices().get(0));
 			GUIManipulatingMenu.getInstance().setActualPainting(
 					actualPaintingArea.getActualPainting());
 			GUIAnimationManipulationMenu.getInstance().setActualPainting(
 					actualPaintingArea.getActualPainting());
-		}
 	}
 
 	@FXML

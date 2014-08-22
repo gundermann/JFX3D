@@ -1,6 +1,6 @@
 package graphiceditor.gui;
 
-import graphiceditor.OrientationShapeBuilder;
+import graphiceditor.LevelShapeFactory;
 import graphiceditor.business.CommonObject3D;
 import graphiceditor.domainspecific.RotationBundle;
 import graphiceditor.domainspecific.values.observable.RotationProperty;
@@ -120,7 +120,7 @@ public class GUIDimensionArea extends SubScene {
 		if(!active && gridShapes != null){
 			mainPane.getChildren().removeAll(gridShapes);
 		}else{
-			gridShapes = OrientationShapeBuilder.createGridShapes(pivot);
+			gridShapes = LevelShapeFactory.createGridShapes(pivot);
 			mainPane.getChildren().addAll(gridShapes);
 		}
 	}
@@ -129,7 +129,7 @@ public class GUIDimensionArea extends SubScene {
 		if(!active && axisShapes != null){
 			mainPane.getChildren().removeAll(axisShapes);
 		}else{
-			axisShapes = OrientationShapeBuilder.createAxisShapes(pivot);
+			axisShapes = LevelShapeFactory.createAxisShapes(pivot);
 			mainPane.getChildren().addAll(axisShapes);
 		}
 	}

@@ -1,10 +1,12 @@
 package graphiceditor.gui;
 
+import graphiceditor.gui.controller.MainController;
 import graphiceditor.menu.MenuBar;
 
 import java.awt.Toolkit;
 import java.io.IOException;
 
+import javafx.beans.property.ReadOnlyDoubleProperty;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.SceneBuilder;
@@ -17,10 +19,13 @@ public class GUIMain extends Stage {
 
 	private static GUIMain _instance;
 	private BorderPane border;
+	private MainController controller;
 
 	public GUIMain() {
+		controller = new MainController();
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(
 				"fxml/main.fxml"));
+		fxmlLoader.setController(controller);
 		AnchorPane page;
 		try {
 			page = (AnchorPane) fxmlLoader.load();
@@ -49,6 +54,10 @@ public class GUIMain extends Stage {
 
 	public void setPaintingArea(PaintingArea paintingAreaController) {
 		border.setCenter(paintingAreaController.getUI());
+	}
+
+	public void addProgressProperty(ReadOnlyDoubleProperty progressProperty) {
+		controller.setCurrentProgress(progressProperty);
 	}
 
 }

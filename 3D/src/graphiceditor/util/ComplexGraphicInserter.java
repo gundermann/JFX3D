@@ -21,7 +21,7 @@ public class ComplexGraphicInserter {
 
 	public void insertFromFile(PaintingArea paintingArea) {
 		File file = Graphic3DLoader.getInstace().initLoading();
-		List<CommonObject3D> shapes = Graphic3DLoader.getInstace().getShapesFromLoader(file);
+		List<CommonObject3D> shapes = Graphic3DLoader.getInstace().loadShapes(file);
 		CommonObject3D komplexShape = Object3DBuilder.createKomplexShape(shapes, file.getName());
 		paintingArea.add(komplexShape);
 	}

@@ -17,11 +17,14 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 import javafx.application.Platform;
+import javafx.beans.property.ReadOnlyDoubleProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ProgressBar;
+import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.ToggleButton;
 
 public class MainController implements Initializable {
@@ -45,6 +48,12 @@ public class MainController implements Initializable {
 
 	@FXML
 	private ToggleButton btAniamtionMenu;
+
+	@FXML
+	private ProgressBar progressBar;
+	
+	@FXML
+	private ProgressIndicator progressIndicator;
 
 	@FXML
 	public void initNewObject() {
@@ -83,10 +92,10 @@ public class MainController implements Initializable {
 
 	@FXML
 	public void load() {
-		File file = Graphic3DLoader.getInstace().initLoading();
+		final File file = Graphic3DLoader.getInstace().initLoading();
 		PaintingAreaFactory.getInstance().load(this, file.getName());
 		final List<CommonObject3D> shapesFromLoader = Graphic3DLoader
-				.getInstace().getShapesFromLoader(file);
+				.getInstace().loadShapes(file);
 		getSelectedPaintingArea().addAll(shapesFromLoader);
 	}
 
@@ -121,5 +130,10 @@ public class MainController implements Initializable {
 		} else {
 			return false;
 		}
+	}
+
+	public void setCurrentProgress(ReadOnlyDoubleProperty progressProperty) {
+		progressIndicator.progressProperty().bind(progressProperty);
+		progressBar.progressProperty().bind(progressProperty);
 	}
 }

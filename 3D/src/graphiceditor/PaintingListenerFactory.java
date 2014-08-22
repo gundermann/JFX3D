@@ -1,6 +1,5 @@
 package graphiceditor;
 
-import graphiceditor.business.Object3D;
 import graphiceditor.gui.PaintingArea;
 import graphiceditor.handler.PaintingFinishedHandler;
 import graphiceditor.handler.PaintingHandler;
@@ -18,9 +17,9 @@ public class PaintingListenerFactory {
   }
 
   public PaintingHandler createPaintingStartListener( PaintingArea paintingArea ) {
-    Class<? extends Object3D> shapeClass = PaintingProvider.getPaintingClasses().get(
+    Object3DFactory factoryFormPaintingMode = PaintingProvider.getInstance().getFactoryFormPaintingMode().get(
         paintingArea.getPaintingMode() );
-    PaintingStartHandler paintingStartHandler = new PaintingStartHandler(shapeClass);
+    PaintingStartHandler paintingStartHandler = new PaintingStartHandler(factoryFormPaintingMode);
     paintingStartHandler.setPaintingArea(paintingArea);
     return paintingStartHandler;
   }

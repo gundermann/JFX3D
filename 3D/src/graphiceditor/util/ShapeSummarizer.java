@@ -1,6 +1,6 @@
 package graphiceditor.util;
 
-import graphiceditor.Object3DBuilder;
+import graphiceditor.ComplexObject3DFactory;
 import graphiceditor.business.CommonObject3D;
 import graphiceditor.business.ComplexObject3D;
 import graphiceditor.gui.PaintingArea;
@@ -36,7 +36,7 @@ public class ShapeSummarizer implements Setup {
 		actualPaintingArea.removeByIndex(selectedIndices);
 
 		actualPaintingArea
-				.add(Object3DBuilder.createKomplexShape(shapes, text));
+				.add(ComplexObject3DFactory.getInstance().createKomplexShape(shapes, text));
 	}
 
 	public void split(PaintingArea actualPaintingArea,

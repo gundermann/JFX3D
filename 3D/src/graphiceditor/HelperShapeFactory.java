@@ -13,20 +13,19 @@ import javafx.scene.shape.RectangleBuilder;
 import javafx.scene.transform.Rotate;
 import javafx.scene.transform.RotateBuilder;
 
-//TODO bad name
-public class LevelShapeFactory {
+public class HelperShapeFactory {
 	
 	private static final double STANDARD_SIZE = 1000;
 	
-	private static LevelShapeFactory _instance;
+	private static HelperShapeFactory _instance;
 	
-	public static LevelShapeFactory getInstance(){
+	public static HelperShapeFactory getInstance(){
 		if(_instance == null)
-			_instance = new LevelShapeFactory();
+			_instance = new HelperShapeFactory();
 		return _instance;
 	}
 
-	public static List<Node> createGridShapes(Point3D pivot) {
+	public List<Node> createGridShapes(Point3D pivot) {
 		List<Node> grids = new ArrayList<Node>();
 		Rectangle xyLevel = RectangleBuilder.create().x(pivot.getX())
 				.y(pivot.getY() - STANDARD_SIZE).fill(Color.rgb(0, 100, 100, 0.09)).build();
@@ -56,7 +55,7 @@ public class LevelShapeFactory {
 		return grids;
 	}
 
-	public static List<Node> createAxisShapes(Point3D pivot) {
+	public List<Node> createAxisShapes(Point3D pivot) {
 		List<Node> shapes = new ArrayList<Node>();
 		Line xAxisShape = LineBuilder.create().startX(pivot.getX())
 				.startY(pivot.getY()).endX(pivot.getX() + STANDARD_SIZE)

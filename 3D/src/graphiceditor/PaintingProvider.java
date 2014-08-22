@@ -1,22 +1,28 @@
 package graphiceditor;
 
-import graphiceditor.business.Object3D;
 import graphiceditor.business.Painting;
-import graphiceditor.business.impl.Ellipse3D;
-import graphiceditor.business.impl.Rectangle3D;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class PaintingProvider {
 
-	public static Map<Painting, Class<? extends Object3D>> getPaintingClasses() {
-		Map<Painting, Class<? extends Object3D>> paintingStartListener = new HashMap<Painting, Class<? extends Object3D>>();
+
+	private static PaintingProvider _instance;
+
+	public Map<Painting, Object3DFactory> getFactoryFormPaintingMode() {
+		Map<Painting, Object3DFactory> paintingStartListener = new HashMap<Painting, Object3DFactory>();
 		paintingStartListener.put(Painting.Rectangle,
-				Rectangle3D.class);
+				Rectangle3DFactory.getInstance());
 		paintingStartListener.put(Painting.Ellipse,
-				Ellipse3D.class);
+				Ellipse3DFactory.getInstance());
 		return paintingStartListener;
+	}
+
+	public static PaintingProvider getInstance() {
+		if(_instance == null)
+			_instance = new PaintingProvider();
+		return _instance;
 	}
 
 }

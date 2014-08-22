@@ -1,6 +1,6 @@
 package graphiceditor.gui;
 
-import graphiceditor.LevelShapeFactory;
+import graphiceditor.HelperShapeFactory;
 import graphiceditor.business.CommonObject3D;
 import graphiceditor.domainspecific.RotationBundle;
 import graphiceditor.domainspecific.values.observable.RotationProperty;
@@ -25,7 +25,7 @@ public class GUIDimensionArea extends SubScene {
 	private final RotationBundle rotationBundle;
 
 	private List<Node> gridShapes;
-	
+
 	private List<Node> axisShapes;
 
 	private final RotationProperty rootAngleX = new RotationProperty();
@@ -41,7 +41,9 @@ public class GUIDimensionArea extends SubScene {
 	private static Group mainPane;
 
 	public GUIDimensionArea() {
-		super(createRoot(), Toolkit.getDefaultToolkit().getScreenSize().getWidth()-280, Toolkit.getDefaultToolkit().getScreenSize().getHeight()-70, true, SceneAntialiasing.BALANCED);
+		super(createRoot(), Toolkit.getDefaultToolkit().getScreenSize()
+				.getWidth() - 280, Toolkit.getDefaultToolkit().getScreenSize()
+				.getHeight() - 70, true, SceneAntialiasing.DISABLED);
 		setCamera(new PerspectiveCamera(false));
 		pivot = Point3DBuilder.create().x(this.getWidth() / 2)
 				.y(this.getHeight() / 2).z(0).build();
@@ -73,8 +75,8 @@ public class GUIDimensionArea extends SubScene {
 			GUIComponentsMenu.getInstance().updateComponents();
 		}
 	}
-	
-	public void remove(CommonObject3D shape){
+
+	public void remove(CommonObject3D shape) {
 		if (getAllGraphicObjects().contains(shape)) {
 			mainPane.getChildren().remove(shape.asNode());
 			allGraphicObjects.remove(shape);
@@ -117,19 +119,21 @@ public class GUIDimensionArea extends SubScene {
 	}
 
 	public void showGrid(boolean active) {
-		if(!active && gridShapes != null){
+		if (!active && gridShapes != null) {
 			mainPane.getChildren().removeAll(gridShapes);
-		}else{
-			gridShapes = LevelShapeFactory.createGridShapes(pivot);
+		} else {
+			gridShapes = HelperShapeFactory.getInstance()
+					.createGridShapes(pivot);
 			mainPane.getChildren().addAll(gridShapes);
 		}
 	}
 
 	public void showAxis(boolean active) {
-		if(!active && axisShapes != null){
+		if (!active && axisShapes != null) {
 			mainPane.getChildren().removeAll(axisShapes);
-		}else{
-			axisShapes = LevelShapeFactory.createAxisShapes(pivot);
+		} else {
+			axisShapes = HelperShapeFactory.getInstance()
+					.createAxisShapes(pivot);
 			mainPane.getChildren().addAll(axisShapes);
 		}
 	}

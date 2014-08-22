@@ -1,5 +1,7 @@
 package graphiceditor.business.impl;
 
+import graphiceditor.Object3DFactory;
+import graphiceditor.Rectangle3DFactory;
 import preferencemenu.util.Property;
 import preferencemenu.util.PropertyChange;
 import javafx.beans.property.DoubleProperty;
@@ -53,6 +55,11 @@ public class Rectangle3D extends AbstractPaintableObject3D {
 			changeWidthTo(initinalX - x);
 			moveToX(x);
 		}
+	}
+
+	@Override
+	public Object3DFactory getFactory() {
+		return Rectangle3DFactory.getInstance();
 	}
 
 

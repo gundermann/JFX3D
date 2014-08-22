@@ -1,5 +1,7 @@
 package graphiceditor.business.impl;
 
+import graphiceditor.Ellipse3DFactory;
+import graphiceditor.Object3DFactory;
 import preferencemenu.util.Property;
 import preferencemenu.util.PropertyChange;
 import javafx.beans.property.DoubleProperty;
@@ -56,6 +58,11 @@ public class Ellipse3D extends AbstractPaintableObject3D {
 	@Override
 	protected Class<? extends Shape> getShapeClass() {
 		return javafx.scene.shape.Ellipse.class;
+	}
+
+	@Override
+	public Object3DFactory getFactory() {
+		return Ellipse3DFactory.getInstance();
 	}
 
 }

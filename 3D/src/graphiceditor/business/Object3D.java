@@ -1,5 +1,6 @@
 package graphiceditor.business;
 
+import graphiceditor.Object3DFactory;
 import graphiceditor.domainspecific.values.observable.ShapeColor;
 
 public interface Object3D extends CommonObject3D {
@@ -13,5 +14,7 @@ public interface Object3D extends CommonObject3D {
 	void changeWidthTo(double d);
 
 	void paint(double x, double y, double initinalX, double initinalY);
+
+	Object3DFactory getFactory();
 
 }

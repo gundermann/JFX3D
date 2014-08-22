@@ -1,6 +1,6 @@
 package graphicpersistenshandler.prefs.impl;
 
-import graphiceditor.Object3DBuilder;
+import graphiceditor.ComplexObject3DFactory;
 import graphiceditor.business.CommonObject3D;
 import graphiceditor.business.ComplexObject3D;
 import graphicpersistenshandler.PreferenceFactory;
@@ -41,7 +41,7 @@ public class ComplexPref extends AbstractShapePreference implements
 
 	@Override
 	public CommonObject3D createShape() {
-		return Object3DBuilder.createKomplexShapeFromPref(this);
+		return ComplexObject3DFactory.getInstance().createKomplexShapeFromPref(this);
 	}
 
 	@Override

@@ -111,4 +111,9 @@ public class DimensionAreaController implements DimensionArea {
 		gui.showAxis(b);		
 	}
 
+	@Override
+	public Property<Number> getZoomProperty() {
+		return gui.getZoomProperty();
+	}
+
 }

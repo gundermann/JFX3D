@@ -56,6 +56,9 @@
                 <Insets bottom="5.0" top="5.0" fx:id="x2" />
               </GridPane.margin>
             </ToggleButton>
+            <Slider fx:id="slZoom" max="200.0" min="-100.0" GridPane.columnIndex="2" GridPane.rowIndex="7" />
+            <Label text="Zoom:" GridPane.columnIndex="0" GridPane.rowIndex="7" />
+            <Label id="lboom" fx:id="lbZoom" text="0" GridPane.columnIndex="1" GridPane.rowIndex="7" />
           </children>
           <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" />
@@ -63,6 +66,7 @@
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           </columnConstraints>
           <rowConstraints>
+            <RowConstraints vgrow="SOMETIMES" />
             <RowConstraints vgrow="SOMETIMES" />
             <RowConstraints vgrow="SOMETIMES" />
             <RowConstraints vgrow="SOMETIMES" />

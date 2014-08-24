@@ -4,6 +4,7 @@ import graphiceditor.HelperShapeFactory;
 import graphiceditor.business.CommonObject3D;
 import graphiceditor.domainspecific.RotationBundle;
 import graphiceditor.domainspecific.values.observable.RotationProperty;
+import graphiceditor.domainspecific.values.observable.ZoomProperty;
 import graphiceditor.menu.components.GUIComponentsMenu;
 
 import java.awt.Toolkit;
@@ -11,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.Property;
 import javafx.geometry.Point3D;
 import javafx.geometry.Point3DBuilder;
 import javafx.scene.Group;
@@ -33,6 +35,8 @@ public class GUIDimensionArea extends SubScene {
 	private final RotationProperty rootAngleY = new RotationProperty();
 
 	private final RotationProperty rootAngleZ = new RotationProperty();
+	
+	private ZoomProperty zoomProperty ;
 
 	private final List<CommonObject3D> allGraphicObjects = new ArrayList<CommonObject3D>();
 
@@ -53,6 +57,7 @@ public class GUIDimensionArea extends SubScene {
 		rotationBundle.setZAxisRotation(rootAngleZ);
 		setFill(Color.WHITE);
 		mainPane.getTransforms().addAll(rotationBundle.getRotations());
+		zoomProperty = new ZoomProperty(mainPane.translateZProperty());
 	}
 
 	public List<CommonObject3D> getAllGraphicObjects() {
@@ -116,6 +121,7 @@ public class GUIDimensionArea extends SubScene {
 		rootAngleX.set(0);
 		rootAngleY.set(0);
 		rootAngleZ.set(0);
+		zoomProperty.set(0);
 	}
 
 	public void showGrid(boolean active) {
@@ -136,5 +142,9 @@ public class GUIDimensionArea extends SubScene {
 					.createAxisShapes(pivot);
 			mainPane.getChildren().addAll(axisShapes);
 		}
+	}
+
+	public Property<Number> getZoomProperty() {
+		return zoomProperty;
 	}
 }

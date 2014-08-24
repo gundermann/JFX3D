@@ -16,10 +16,11 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.converter.NumberStringConverter;
 
-public class DimensionMenuController extends AbstractMenuController implements Initializable{
+public class DimensionMenuController extends AbstractMenuController implements
+		Initializable {
 
 	private DimensionArea dimensionArea;
-	
+
 	@FXML
 	private Slider slXRotation;
 
@@ -28,6 +29,9 @@ public class DimensionMenuController extends AbstractMenuController implements I
 
 	@FXML
 	private Slider slZRotation;
+
+	@FXML
+	private Slider slZoom;
 
 	@FXML
 	private ToggleButton btXRotation;
@@ -46,21 +50,24 @@ public class DimensionMenuController extends AbstractMenuController implements I
 
 	@FXML
 	private Label lbZRotation;
-	
+
+	@FXML
+	private Label lbZoom;
+
 	@FXML
 	private ToggleButton btShowGrid;
-	
+
 	@FXML
 	private ToggleButton btShowAxis;
 
-	public void showGrid(){
+	public void showGrid() {
 		dimensionArea.showGrid(btShowGrid.isSelected());
 	}
-	
-	public void showAxis(){
+
+	public void showAxis() {
 		dimensionArea.showAxis(btShowAxis.isSelected());
 	}
-	
+
 	public void setDimensionArea(DimensionArea dimensionArea) {
 		if (this.dimensionArea != null)
 			resetSliders();
@@ -69,6 +76,8 @@ public class DimensionMenuController extends AbstractMenuController implements I
 	}
 
 	private void updateSliders() {
+		slZoom.valueProperty().bindBidirectional(
+				dimensionArea.getZoomProperty());
 		slXRotation.valueProperty().setValue(
 				dimensionArea.getXRotationProperty().getValue());
 		slYRotation.valueProperty().setValue(
@@ -84,12 +93,15 @@ public class DimensionMenuController extends AbstractMenuController implements I
 	}
 
 	private void resetSliders() {
+		slZoom.valueProperty().unbindBidirectional(
+				dimensionArea.getZoomProperty());
 		slXRotation.valueProperty().unbindBidirectional(
 				dimensionArea.getXRotationProperty());
 		slYRotation.valueProperty().unbindBidirectional(
 				dimensionArea.getYRotationProperty());
 		slZRotation.valueProperty().unbindBidirectional(
 				dimensionArea.getZRotationProperty());
+		slZoom.setValue(0);
 		slXRotation.valueProperty().set(0);
 		slYRotation.valueProperty().set(0);
 		slZRotation.valueProperty().set(0);
@@ -156,6 +168,9 @@ public class DimensionMenuController extends AbstractMenuController implements I
 				slYRotation.valueProperty(), new NumberStringConverter());
 		lbZRotation.textProperty().bindBidirectional(
 				slZRotation.valueProperty(), new NumberStringConverter());
+		lbZoom.textProperty().bindBidirectional(slZoom.valueProperty(),
+				new NumberStringConverter());
+
 	}
 
 	@Override

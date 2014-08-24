@@ -27,4 +27,6 @@ public interface DimensionArea {
 
 	void showAxis(boolean b);
 
+	Property<Number> getZoomProperty();
+
 }

@@ -29,7 +29,7 @@ public class Graphic3DConverter {
 			Object3DFactory factoryFormPreference = PreferenceProvider
 					.getInstance().getFactoryFormPreference(
 							preference.getType());
-			CommonObject3D object3D = factoryFormPreference.create(0, 0);
+			CommonObject3D object3D = factoryFormPreference.createPlainObject3D();
 			transferPreferences(preference, object3D);
 			graphicObjects.add(object3D);
 		}

@@ -21,7 +21,7 @@ public class ComplexObject3DFactory extends Object3DFactory{
 	
 	
 	@Override
-	protected CommonObject3D createPlainObject3D() {
+	public CommonObject3D createPlainObject3D() {
 		return new ComplexObject3DImpl();
 	}
 

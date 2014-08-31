@@ -18,7 +18,7 @@ abstract public class Object3DFactory {
 		return o3d;
 	}
 
-	abstract protected CommonObject3D createPlainObject3D();
+	abstract public CommonObject3D createPlainObject3D();
 
 	public CommonObject3D fromOther(Object3D object3d){
 		CommonObject3D newObject3D = object3d.getFactory().create(0, 0);

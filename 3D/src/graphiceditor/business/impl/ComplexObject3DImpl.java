@@ -5,29 +5,31 @@ import graphiceditor.business.ComplexObject3D;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.List;
 
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.scene.Group;
-import javafx.scene.GroupBuilder;
 import javafx.scene.Node;
 import javafx.scene.shape.Shape;
 
 public class ComplexObject3DImpl extends AbstractObject3DImpl implements
 		ComplexObject3D {
 
-	private List<CommonObject3D> shapes;
+	private List<CommonObject3D> childrenShapes;
 	private Group shape;
 
 	public ComplexObject3DImpl() {
 		super("complex");
+		shape = new Group();
+		childrenShapes = new ArrayList<CommonObject3D>();
 	}
 
 	public ComplexObject3DImpl(List<CommonObject3D> shapes, String title) {
 		super(title);
-		this.shapes = shapes;
-		shape = GroupBuilder.create().build();
+		this.childrenShapes = shapes;
+		shape = new Group();
 		shape.setStyle("-fx-background-color: rgba(0, 0, 0, 0);");
 		for (CommonObject3D common : shapes) {
 			shape.getChildren().add(common.asNode());
@@ -49,7 +51,7 @@ public class ComplexObject3DImpl extends AbstractObject3DImpl implements
 
 
 	private void resetShapesProperties() {
-		for (CommonObject3D cO3D : shapes) {
+		for (CommonObject3D cO3D : childrenShapes) {
 			cO3D.getXPositionProperty().set(
 					cO3D.getXPositionProperty().get()
 							- getXPositionProperty().get());
@@ -85,7 +87,7 @@ public class ComplexObject3DImpl extends AbstractObject3DImpl implements
 
 	@Override
 	public void setSelected(boolean selected) {
-		for (CommonObject3D o : shapes) {
+		for (CommonObject3D o : childrenShapes) {
 			o.setSelected(selected);
 		}
 	}
@@ -95,9 +97,9 @@ public class ComplexObject3DImpl extends AbstractObject3DImpl implements
 		double maxHeight = 0;
 		double maxWidth = 0;
 		try {
-			maxHeight = maximum(shapes,
+			maxHeight = maximum(childrenShapes,
 					Shape.class.getMethod("heightProperty", null));
-			maxWidth = maximum(shapes,
+			maxWidth = maximum(childrenShapes,
 					Shape.class.getMethod("widthProperty", null));
 		} catch (NoSuchMethodException | SecurityException e) {
 			e.printStackTrace();
@@ -105,7 +107,7 @@ public class ComplexObject3DImpl extends AbstractObject3DImpl implements
 		double heightRealtion = height / maxHeight;
 		double widthRealtion = width / maxWidth;
 
-		for (CommonObject3D objec3D : shapes) {
+		for (CommonObject3D objec3D : childrenShapes) {
 			objec3D.getHeightProperty().set(
 					objec3D.getHeightProperty().get() * heightRealtion);
 			objec3D.getWidthProperty().set(
@@ -133,7 +135,7 @@ public class ComplexObject3DImpl extends AbstractObject3DImpl implements
 	public DoubleProperty getHeightProperty() {
 		DoubleProperty heightProperty = new SimpleDoubleProperty();
 		try {
-			heightProperty.set(maximum(shapes,
+			heightProperty.set(maximum(childrenShapes,
 					CommonObject3D.class.getMethod("getHeightProperty", null)));
 		} catch (NoSuchMethodException | SecurityException e) {
 			e.printStackTrace();
@@ -145,7 +147,7 @@ public class ComplexObject3DImpl extends AbstractObject3DImpl implements
 	public DoubleProperty getWidthProperty() {
 		DoubleProperty widthProperty = new SimpleDoubleProperty();
 		try {
-			widthProperty.set(maximum(shapes,
+			widthProperty.set(maximum(childrenShapes,
 					CommonObject3D.class.getMethod("getWidthProperty", null)));
 		} catch (NoSuchMethodException | SecurityException e) {
 			e.printStackTrace();
@@ -155,12 +157,16 @@ public class ComplexObject3DImpl extends AbstractObject3DImpl implements
 
 	@Override
 	public List<CommonObject3D> getShapes() {
-		return shapes;
+		return childrenShapes;
 	}
 
 	@Override
 	public void setShapes(List<CommonObject3D> childrenShapes) {
-		this.shapes = childrenShapes;
+		this.childrenShapes = childrenShapes;
+		shape.getChildren().clear();
+		for(CommonObject3D childrenShape : childrenShapes){
+			shape.getChildren().add(childrenShape.asNode());
+		}
 	}
 
 }

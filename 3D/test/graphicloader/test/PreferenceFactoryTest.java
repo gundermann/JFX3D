@@ -4,8 +4,7 @@ import static org.junit.Assert.assertTrue;
 import graphiceditor.business.Object3D;
 import graphiceditor.business.impl.Rectangle3D;
 import graphicpersistenshandler.PreferenceFactory;
-import graphicpersistenshandler.prefs.IShapePreference;
-import graphicpersistenshandler.prefs.impl.RectPreference;
+import graphicpersistenshandler.prefs.ShapePreference;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -29,12 +28,12 @@ public class PreferenceFactoryTest {
 
 	@Test
 	public void testPreferencesCreationFromRectangle() {
-		IShapePreference preferences = PreferenceFactory.getInstance()
+		ShapePreference preferences = PreferenceFactory.getInstance()
 				.createPrefFromObject3D(object3D);
 		
 		
 		assertTrue("Falsche X-Coordiante",
-				((RectPreference) preferences).getBeginningX() == 100);
+				Double.parseDouble(preferences.getProperties().get("X-POSITION")) == 100);
 		assertTrue("Falsche Y-Coordiante",
 				((RectPreference) preferences).getBeginningY() == 100);
 		assertTrue("Falsche Z-Coordiante", ((RectPreference) preferences).getBeginningZ() == 100);

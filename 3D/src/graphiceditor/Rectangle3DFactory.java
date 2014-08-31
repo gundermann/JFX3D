@@ -8,7 +8,7 @@ public class Rectangle3DFactory extends Object3DFactory {
 	private static Object3DFactory _instance;
 
 	@Override
-	protected Object3D createPlainObject3D() {
+	public Object3D createPlainObject3D() {
 		return new Rectangle3D();
 	}
 

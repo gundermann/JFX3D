@@ -4,12 +4,12 @@ import org.mockito.Mockito;
 
 import graphiceditor.business.Object3D;
 import graphiceditor.business.impl.Rectangle3D;
-import graphicpersistenshandler.prefs.ShapePreference;
+import graphicpersistenshandler.prefs.IShapePreference;
 
 public class ShapePrefMock {
 
-	public static ShapePreference createMock() {
-		ShapePreference pref = Mockito.mock(ShapePreference.class);
+	public static IShapePreference createMock() {
+		IShapePreference pref = Mockito.mock(IShapePreference.class);
 		Object3D object = new Rectangle3D();
 		object.moveToX(100);
 		object.moveToY(100);

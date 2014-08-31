@@ -1,7 +1,7 @@
 package graphiceditor.handler;
 
 import graphiceditor.Object3DFactory;
-import graphiceditor.business.Object3D;
+import graphiceditor.business.CommonObject3D;
 import graphiceditor.gui.PaintingArea;
 import javafx.scene.input.MouseEvent;
 
@@ -16,7 +16,7 @@ public class PaintingStartHandler implements PaintingHandler {
 
 	@Override
 	public void handle(MouseEvent event) {
-		Object3D shape =  factory.create(event.getX(),event.getY());
+		CommonObject3D shape =  factory.create(event.getX(),event.getY());
 		System.out.printf("Actual painting [%f, %f, %f]\n",shape.getXPositionProperty().get(), shape.getYPositionProperty().get(), shape.getXPositionProperty().get());
 		paintingArea.setActualPainting(shape);
 		paintingArea.startPainting();

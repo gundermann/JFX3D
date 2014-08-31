@@ -1,14 +1,23 @@
 package graphicpersistenshandler.prefs;
 
-import graphiceditor.business.CommonObject3D;
-
 import java.util.Map;
 
-public interface ShapePreference {
+public class ShapePreference {
 
-	public Map<String, String> getPreferences();
+	private Map<String, String> properties;
+	private String prefType;
 
-	public String getPrefType();
+	public ShapePreference(String prefType, Map<String, String> prefMap) {
+		this.prefType = prefType;
+		properties = prefMap;
+	}
 
-	public CommonObject3D createShape();
+	public String getType() {
+		return prefType;
+	}
+
+	public Map<String, String> getProperties() {
+		return properties;
+	}
+
 }

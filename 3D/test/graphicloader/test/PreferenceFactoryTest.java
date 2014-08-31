@@ -4,7 +4,7 @@ import static org.junit.Assert.assertTrue;
 import graphiceditor.business.Object3D;
 import graphiceditor.business.impl.Rectangle3D;
 import graphicpersistenshandler.PreferenceFactory;
-import graphicpersistenshandler.prefs.ShapePreference;
+import graphicpersistenshandler.prefs.IShapePreference;
 import graphicpersistenshandler.prefs.impl.RectPreference;
 
 import org.junit.Before;
@@ -29,7 +29,7 @@ public class PreferenceFactoryTest {
 
 	@Test
 	public void testPreferencesCreationFromRectangle() {
-		ShapePreference preferences = PreferenceFactory.getInstance()
+		IShapePreference preferences = PreferenceFactory.getInstance()
 				.createPrefFromObject3D(object3D);
 		
 		

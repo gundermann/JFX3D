@@ -20,6 +20,10 @@ public class ComplexObject3DImpl extends AbstractObject3DImpl implements
 	private List<CommonObject3D> shapes;
 	private Group shape;
 
+	public ComplexObject3DImpl() {
+		super("complex");
+	}
+
 	public ComplexObject3DImpl(List<CommonObject3D> shapes, String title) {
 		super(title);
 		this.shapes = shapes;
@@ -42,6 +46,7 @@ public class ComplexObject3DImpl extends AbstractObject3DImpl implements
 			e.printStackTrace();
 		}
 	}
+
 
 	private void resetShapesProperties() {
 		for (CommonObject3D cO3D : shapes) {
@@ -151,6 +156,11 @@ public class ComplexObject3DImpl extends AbstractObject3DImpl implements
 	@Override
 	public List<CommonObject3D> getShapes() {
 		return shapes;
+	}
+
+	@Override
+	public void setShapes(List<CommonObject3D> childrenShapes) {
+		this.shapes = childrenShapes;
 	}
 
 }

@@ -98,9 +98,9 @@ public class Graphic3DSaver extends AbstractGraphic3DPersister {
 	}
 
 	private Element buildSingleElement(ShapePreference pref, Document doc) {
-		Element element = doc.createElement(pref.getPrefType());
-		for (String attr : pref.getPreferences().keySet()) {
-			element.setAttribute(attr, pref.getPreferences().get(attr));
+		Element element = doc.createElement(pref.getType());
+		for (String attr : pref.getProperties().keySet()) {
+			element.setAttribute(attr, pref.getProperties().get(attr));
 
 		}
 		return element;

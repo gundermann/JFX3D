@@ -12,6 +12,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javafx.concurrent.Task;
+
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -22,8 +24,6 @@ import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
-
-import javafx.concurrent.Task;
 
 public class LoadingTask extends Task<List<ShapePreference>> {
 
@@ -84,7 +84,7 @@ public class LoadingTask extends Task<List<ShapePreference>> {
 		List<ShapePreference> listOfPreferenceMap = new ArrayList<ShapePreference>();
 		for (int i = 0; i < childNodes.getLength(); i++) {
 			listOfPreferenceMap
-					.add((ShapePreference) convertToPreference(childNodes
+					.add(convertToPreference(childNodes
 							.item(i)));
 
 		}

@@ -4,7 +4,7 @@ import static org.junit.Assert.assertTrue;
 import graphiceditor.business.CommonObject3D;
 import graphiceditor.business.Object3D;
 import graphicpersistenshandler.Graphic3DConverter;
-import graphicpersistenshandler.prefs.ShapePreference;
+import graphicpersistenshandler.prefs.IShapePreference;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +15,7 @@ public class Graphic3DFactoryTest {
 
 	@Test
 	public void factoryTest() {
-		List<ShapePreference> mockedPrefs = new ArrayList<ShapePreference>();
+		List<IShapePreference> mockedPrefs = new ArrayList<IShapePreference>();
 		
 		mockedPrefs.add(ShapePrefMock.createMock());
 

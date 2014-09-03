@@ -17,7 +17,7 @@ public class PaintingListenerFactory {
   }
 
   public PaintingHandler createPaintingStartListener( PaintingArea paintingArea ) {
-    Object3DFactory factoryFormPaintingMode = PaintingProvider.getInstance().getFactoryFormPaintingMode().get(
+    Object3DFactory factoryFormPaintingMode = FactoryPaintingAssoziator.getInstance().getFactoryFormPaintingMode().get(
         paintingArea.getPaintingMode() );
     PaintingStartHandler paintingStartHandler = new PaintingStartHandler(factoryFormPaintingMode);
     paintingStartHandler.setPaintingArea(paintingArea);

@@ -29,4 +29,8 @@ abstract public class Object3DFactory {
 		}
 		return newObject3D;
 	}
+
+	public String getType(){
+		return this.getClass().getName();
+	}
 }

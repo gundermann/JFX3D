@@ -29,6 +29,8 @@ import javax.xml.transform.stream.StreamResult;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
+import com.sun.javafx.geom.Shape;
+
 public class Graphic3DSaver extends AbstractGraphic3DPersister {
 
 	private static Graphic3DSaver _instance;
@@ -65,8 +67,8 @@ public class Graphic3DSaver extends AbstractGraphic3DPersister {
 			Element root = doc.createElement(ROOT);
 			doc.appendChild(root);
 			for (ShapePreference pref : pixelPreferences) {
-				Element element = buildElement( pref, doc);
-				
+				Element element = buildElement(pref, doc);
+
 				root.appendChild(element);
 			}
 			return doc;
@@ -79,17 +81,17 @@ public class Graphic3DSaver extends AbstractGraphic3DPersister {
 	private Element buildElement(ShapePreference pref, Document doc) {
 		Element element;
 		if (pref instanceof ComplexShapePreference)
-			element = buildComplexElement(
-					(ComplexShapePreference) pref, doc);
+			element = buildComplexElement((ComplexShapePreference) pref, doc);
 		else
 			element = buildSingleElement((ShapePreference) pref, doc);
-		
+
 		return element;
 	}
 
 	private Element buildComplexElement(ComplexShapePreference pref,
 			Document doc) {
 		Element element = buildSingleElement(pref, doc);
+		element.setAttribute(ShapePreference.nameProperty, pref.getName());
 		for (ShapePreference singlePref : pref.getGraphicPrefs()) {
 			Element singleElement = buildElement(singlePref, doc);
 			element.appendChild(singleElement);

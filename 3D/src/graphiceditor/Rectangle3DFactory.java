@@ -18,4 +18,9 @@ public class Rectangle3DFactory extends Object3DFactory {
 		return _instance;
 	}
 
+	@Override
+	public String getType() {
+		return "Rectangle";
+	}
+
 }

@@ -1,5 +1,7 @@
 package graphiceditor.business.impl;
 
+import graphiceditor.ComplexObject3DFactory;
+import graphiceditor.Object3DFactory;
 import graphiceditor.business.CommonObject3D;
 import graphiceditor.business.ComplexObject3D;
 
@@ -167,6 +169,11 @@ public class ComplexObject3DImpl extends AbstractObject3DImpl implements
 		for(CommonObject3D childrenShape : childrenShapes){
 			shape.getChildren().add(childrenShape.asNode());
 		}
+	}
+
+	@Override
+	public Object3DFactory getFactory() {
+		return ComplexObject3DFactory.getInstance();
 	}
 
 }

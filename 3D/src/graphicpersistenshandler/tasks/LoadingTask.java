@@ -76,8 +76,18 @@ public class LoadingTask extends Task<List<ShapePreference>> {
 		List<ShapePreference> listOfPreferenceMaps = extractComplex(item
 				.getChildNodes());
 		Map<String, String> preferenceMap = extract((Element) item);
-		return PreferenceFactory.getInstance().createComplexPrefFromPrefMap(
+		return PreferenceFactory.getInstance().createComplexPrefFromPrefMap(extractName((Element) item),
 				preferenceMap, listOfPreferenceMaps);
+	}
+
+	private String extractName(Element e) {
+		NamedNodeMap attributes = e.getAttributes();
+		for (int i = 0; i < attributes.getLength(); i++) {
+			Node item = attributes.item(i);
+			if(item.getNodeName().equals(ShapePreference.nameProperty))
+				return item.getNodeValue();
+		}
+		return "";
 	}
 
 	private List<ShapePreference> extractComplex(NodeList childNodes) {
@@ -100,7 +110,7 @@ public class LoadingTask extends Task<List<ShapePreference>> {
 				Element element = (Element) item;
 				Map<String, String> prefMap = extract(element);
 				preference = PreferenceFactory.getInstance()
-						.createPrefFromPrefMap(item.getNodeName(), prefMap);
+						.createPrefFromPrefMap(extractName(element), item.getNodeName(), prefMap);
 			}
 		}
 		return preference;
@@ -111,6 +121,7 @@ public class LoadingTask extends Task<List<ShapePreference>> {
 		NamedNodeMap attributes = e.getAttributes();
 		for (int i = 0; i < attributes.getLength(); i++) {
 			Node item = attributes.item(i);
+			if(!item.getNodeName().equals(ShapePreference.nameProperty))
 			prefMap.put(item.getNodeName(), item.getNodeValue());
 		}
 		return prefMap;

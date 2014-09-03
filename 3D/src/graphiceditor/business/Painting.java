@@ -1,6 +1,5 @@
 package graphiceditor.business;
 
 public enum Painting {
-  Rectangle,Ellipse, None
-
+	Rectangle, Ellipse, None;
 }

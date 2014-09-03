@@ -26,7 +26,7 @@ public class PreferenceFactory {
 
 	public ShapePreference createPrefFromObject3D(CommonObject3D object3d) {
 		Map<String, String> prefMap = getTransferedPreferencedFromObject3D(object3d);
-		ShapePreference preference = new ShapePreference(object3d.toString(),
+		ShapePreference preference = new ShapePreference(object3d.toString(), object3d.getFactory().getType(),
 				prefMap);
 		return preference;
 	}
@@ -53,18 +53,18 @@ public class PreferenceFactory {
 					.createPrefFromObject3D(commonObject3D);
 			prefs.add(childrenProperty);
 		}
-		return new ComplexShapePreference(transferedPreferencedFromObject3D,
+		return new ComplexShapePreference(complexObject.toString(), transferedPreferencedFromObject3D,
 				prefs);
 	}
 
 	public ComplexShapePreference createComplexPrefFromPrefMap(
-			Map<String, String> prefs, List<ShapePreference> graphicObjectsPrefs) {
-		return new ComplexShapePreference(prefs, graphicObjectsPrefs);
+			String name, Map<String, String> prefs, List<ShapePreference> graphicObjectsPrefs) {
+		return new ComplexShapePreference(name, prefs, graphicObjectsPrefs);
 	}
 
 	public ShapePreference createPrefFromPrefMap(String prefType,
-			Map<String, String> prefMap) {
-		return new ShapePreference(prefType, prefMap);
+			String name, Map<String, String> prefMap) {
+		return new ShapePreference(name, prefType, prefMap);
 	}
 
 }

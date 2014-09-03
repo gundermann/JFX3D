@@ -1,5 +1,6 @@
 package graphiceditor.business;
 
+import graphiceditor.Object3DFactory;
 import javafx.beans.property.DoubleProperty;
 import javafx.scene.Node;
 
@@ -38,4 +39,6 @@ public interface CommonObject3D {
 	DoubleProperty getYRotationProperty();
 
 	DoubleProperty getZRotationProperty();
+	
+	Object3DFactory getFactory();
 }

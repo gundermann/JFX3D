@@ -7,8 +7,8 @@ public class ComplexShapePreference extends ShapePreference  {
 
 	private List<ShapePreference> prefs;
 
-	public ComplexShapePreference(Map<String, String> prefMap, List<ShapePreference> children) {
-		super("complex", prefMap);
+	public ComplexShapePreference(String name, Map<String, String> prefMap, List<ShapePreference> children) {
+		super("complex", name, prefMap);
 		prefs = children;
 	}
 

@@ -5,10 +5,10 @@ import graphiceditor.business.Painting;
 import java.util.HashMap;
 import java.util.Map;
 
-public class PaintingProvider {
+public class FactoryPaintingAssoziator {
 
 
-	private static PaintingProvider _instance;
+	private static FactoryPaintingAssoziator _instance;
 
 	public Map<Painting, Object3DFactory> getFactoryFormPaintingMode() {
 		Map<Painting, Object3DFactory> paintingStartListener = new HashMap<Painting, Object3DFactory>();
@@ -19,9 +19,9 @@ public class PaintingProvider {
 		return paintingStartListener;
 	}
 
-	public static PaintingProvider getInstance() {
+	public static FactoryPaintingAssoziator getInstance() {
 		if(_instance == null)
-			_instance = new PaintingProvider();
+			_instance = new FactoryPaintingAssoziator();
 		return _instance;
 	}
 

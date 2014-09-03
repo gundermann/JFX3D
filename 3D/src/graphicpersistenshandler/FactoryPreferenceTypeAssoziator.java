@@ -8,13 +8,13 @@ import graphiceditor.Rectangle3DFactory;
 import java.util.HashMap;
 import java.util.Map;
 
-public class PreferenceProvider {
+public class FactoryPreferenceTypeAssoziator {
 
-	private static PreferenceProvider _instance;
+	private static FactoryPreferenceTypeAssoziator _instance;
 
-	public static PreferenceProvider getInstance() {
+	public static FactoryPreferenceTypeAssoziator getInstance() {
 		if (_instance == null)
-			_instance = new PreferenceProvider();
+			_instance = new FactoryPreferenceTypeAssoziator();
 		return _instance;
 	}
 

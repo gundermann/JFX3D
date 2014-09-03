@@ -25,4 +25,9 @@ public class ComplexObject3DFactory extends Object3DFactory{
 		return new ComplexObject3DImpl();
 	}
 
+	@Override
+	public String getType() {
+		return "complex";
+	}
+
 }

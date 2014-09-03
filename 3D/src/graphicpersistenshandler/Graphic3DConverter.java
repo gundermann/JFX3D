@@ -26,7 +26,7 @@ public class Graphic3DConverter {
 			List<ShapePreference> prefs) {
 		List<CommonObject3D> graphicObjects = new ArrayList<CommonObject3D>();
 		for (ShapePreference preference : prefs) {
-			Object3DFactory factoryFormPreference = PreferenceProvider
+			Object3DFactory factoryFormPreference = FactoryPreferenceTypeAssoziator
 					.getInstance().getFactoryFormPreference(
 							preference.getType());
 			CommonObject3D object3D = factoryFormPreference.createPlainObject3D();
@@ -44,8 +44,10 @@ public class Graphic3DConverter {
 			PropertyHelper.getInstance().invokeChangingMethod(propertyName,
 					value, object3d);
 		}
-		if(preference instanceof ComplexShapePreference)
+		if(preference instanceof ComplexShapePreference){
+			object3d.setTitle(preference.getName());
 			transferPropertiesOfChildren(object3d, ((ComplexShapePreference) preference).getGraphicPrefs());
+		}
 			
 	}
 

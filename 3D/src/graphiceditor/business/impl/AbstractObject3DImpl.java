@@ -93,7 +93,7 @@ public abstract class AbstractObject3DImpl implements CommonObject3D{
 	@Override
 	@PropertyChange(name = "x-rotation", hasChildren = false)
 	public void rotateXTo(double i) {
-		xRotationProperty.set( i);
+		xRotationProperty.set(i);
 	}
 
 	@Override

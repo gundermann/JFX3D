@@ -29,8 +29,6 @@ import javax.xml.transform.stream.StreamResult;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
-import com.sun.javafx.geom.Shape;
-
 public class Graphic3DSaver extends AbstractGraphic3DPersister {
 
 	private static Graphic3DSaver _instance;

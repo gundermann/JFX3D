@@ -13,7 +13,7 @@ public abstract class AbstractPropertyButton extends Button implements EventHand
 	public AbstractPropertyButton(String caption, String name, CommonObject3D o) {
 		super(caption);
 		this.name = name;
-		this.object = object;
+		this.object = o;
 		setOnMouseClicked(this);
 	}
 

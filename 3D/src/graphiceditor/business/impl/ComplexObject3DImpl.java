@@ -33,15 +33,15 @@ public class ComplexObject3DImpl extends AbstractObject3DImpl implements
 		this.childrenShapes = shapes;
 		shape = new Group();
 		shape.setStyle("-fx-background-color: rgba(0, 0, 0, 0);");
-		for (CommonObject3D common : shapes) {
-			shape.getChildren().add(common.asNode());
+		for(CommonObject3D childrenShape : childrenShapes){
+			shape.getChildren().add(childrenShape.asNode());
 		}
 		try {
-			moveToX(minimum(shapes, CommonObject3D.class.getMethod(
+			moveToX(minimum(childrenShapes, CommonObject3D.class.getMethod(
 					"getXPositionProperty", null)));
-			moveToY(minimum(shapes, CommonObject3D.class.getMethod(
+			moveToY(minimum(childrenShapes, CommonObject3D.class.getMethod(
 					"getYPositionProperty", null)));
-			moveToZ(minimum(shapes, CommonObject3D.class.getMethod(
+			moveToZ(minimum(childrenShapes, CommonObject3D.class.getMethod(
 					"getZPositionProperty", null)));
 			resetShapesProperties();
 			refreshTransforms();
@@ -169,6 +169,10 @@ public class ComplexObject3DImpl extends AbstractObject3DImpl implements
 		for(CommonObject3D childrenShape : childrenShapes){
 			shape.getChildren().add(childrenShape.asNode());
 		}
+		
+		
+		//nicht abziehen sondern raufaddieren
+		refreshTransforms();
 	}
 
 	@Override

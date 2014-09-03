@@ -38,15 +38,15 @@ public class Graphic3DConverter {
 
 	private void transferPreferences(ShapePreference preference,
 			CommonObject3D object3d) {
+		if(preference instanceof ComplexShapePreference){
+			object3d.setTitle(preference.getName());
+			transferPropertiesOfChildren(object3d, ((ComplexShapePreference) preference).getGraphicPrefs());
+		}
 		for (String propertyName : preference.getProperties().keySet()) {
 			double value = Double.parseDouble(preference.getProperties().get(
 					propertyName));
 			PropertyHelper.getInstance().invokeChangingMethod(propertyName,
 					value, object3d);
-		}
-		if(preference instanceof ComplexShapePreference){
-			object3d.setTitle(preference.getName());
-			transferPropertiesOfChildren(object3d, ((ComplexShapePreference) preference).getGraphicPrefs());
 		}
 			
 	}

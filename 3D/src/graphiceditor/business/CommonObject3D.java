@@ -8,6 +8,11 @@ public interface CommonObject3D {
 
 	void setTitle(String name);
 
+	/**
+	 * Returns the javafx-shape-class
+	 * 
+	 * @return
+	 */
 	Node asNode();
 
 	void moveToX(double i);
@@ -16,6 +21,11 @@ public interface CommonObject3D {
 
 	void moveToY(double i);
 
+	/**
+	 * Adds a border to the 3D object. So that it looks like it is in focus.
+	 * 
+	 * @param selected
+	 */
 	void setSelected(boolean selected);
 
 	DoubleProperty getHeightProperty();
@@ -39,6 +49,11 @@ public interface CommonObject3D {
 	DoubleProperty getYRotationProperty();
 
 	DoubleProperty getZRotationProperty();
-	
+
+	/**
+	 * Returns the factory implemented for this 3D object
+	 * 
+	 * @return
+	 */
 	Object3DFactory getFactory();
 }

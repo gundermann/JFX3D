@@ -47,8 +47,9 @@ public class GUIDimensionArea extends SubScene {
 	public GUIDimensionArea() {
 		super(createRoot(), Toolkit.getDefaultToolkit().getScreenSize()
 				.getWidth() - 280, Toolkit.getDefaultToolkit().getScreenSize()
-				.getHeight() - 70, true, SceneAntialiasing.DISABLED);
-		setCamera(new PerspectiveCamera(false));
+				.getHeight() - 70, true, SceneAntialiasing.BALANCED);
+		
+		setCamera(new PerspectiveCamera());
 		pivot = Point3DBuilder.create().x(this.getWidth() / 2)
 				.y(this.getHeight() / 2).z(0).build();
 		rotationBundle = new RotationBundle(pivot);

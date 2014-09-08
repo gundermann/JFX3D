@@ -24,6 +24,10 @@ public abstract class AbstractPaintableObject3D extends AbstractObject3DImpl
 		}
 	}
 
+	/**
+	 * Return the javafx-shape-class which represents the 3D object.
+	 * @return
+	 */
 	abstract protected Class<? extends Shape> getShapeClass();
 
 	@Override

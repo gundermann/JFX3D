@@ -2,6 +2,7 @@ package graphicpersistenshandler;
 
 import graphiceditor.business.CommonObject3D;
 import graphiceditor.business.ComplexObject3D;
+import graphiceditor.business.impl.ComplexObject3DImpl;
 import graphicpersistenshandler.prefs.ComplexShapePreference;
 import graphicpersistenshandler.prefs.ShapePreference;
 
@@ -50,8 +51,7 @@ public class PreferenceFactory {
 		Map<String, String> transferedPreferencedFromObject3D = getTransferedPreferenceFromObject3D(complexObject);
 		List<ShapePreference> prefs = new ArrayList<ShapePreference>();
 		for (CommonObject3D commonObject3D : complexObject.getShapes()) {
-			ShapePreference childrenProperty = PreferenceFactory.getInstance()
-					.createPrefFromObject3D(commonObject3D);
+			ShapePreference childrenProperty =createPref(commonObject3D);
 			prefs.add(childrenProperty);
 		}
 		return new ComplexShapePreference(complexObject.toString(),
@@ -66,6 +66,17 @@ public class PreferenceFactory {
 	public ShapePreference createPrefFromPrefMap(String prefType, String name,
 			Map<String, String> prefMap) {
 		return new ShapePreference(name, prefType, prefMap);
+	}
+
+	public ShapePreference createPref(CommonObject3D graphicObject) {
+		ShapePreference pref;
+		if(graphicObject instanceof ComplexObject3D){
+			pref = createPrefFromComplexObject3D((ComplexObject3D) graphicObject);
+		}
+		else{
+			pref = createPrefFromObject3D(graphicObject);
+		}
+		return pref;
 	}
 
 }

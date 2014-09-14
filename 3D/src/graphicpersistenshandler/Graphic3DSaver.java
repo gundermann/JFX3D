@@ -124,14 +124,8 @@ public class Graphic3DSaver extends AbstractGraphic3DPersister {
 	public void savePaintingArea(PaintingArea paintingArea, File file) {
 		List<ShapePreference> shapePreferences = new ArrayList<ShapePreference>();
 		for (CommonObject3D graphicObject : paintingArea.getAllGraphicObjects()) {
-			if (graphicObject instanceof ComplexObject3D) {
 				shapePreferences.add(PreferenceFactory.getInstance()
-						.createPrefFromComplexObject3D(
-								(ComplexObject3D) graphicObject));
-			} else {
-				shapePreferences.add(PreferenceFactory.getInstance()
-						.createPrefFromObject3D(graphicObject));
-			}
+						.createPref( graphicObject));
 		}
 		savePreferencesToFile(shapePreferences, file);
 	}

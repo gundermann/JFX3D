@@ -1,7 +1,6 @@
 package graphiceditor;
 
 import graphiceditor.business.CommonObject3D;
-import graphiceditor.business.Object3D;
 
 import java.util.List;
 
@@ -20,7 +19,7 @@ abstract public class Object3DFactory {
 
 	abstract public CommonObject3D createPlainObject3D();
 
-	public CommonObject3D fromOther(Object3D object3d){
+	public CommonObject3D fromOther(CommonObject3D object3d){
 		CommonObject3D newObject3D = object3d.getFactory().create(0, 0);
 		List<String> propertyNames = PropertyHelper.getInstance().getPropertyNames(object3d);
 		for (String property : propertyNames) {

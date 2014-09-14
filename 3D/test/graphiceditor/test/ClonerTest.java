@@ -4,7 +4,6 @@ import static org.junit.Assert.assertTrue;
 import graphiceditor.Rectangle3DFactory;
 import graphiceditor.business.CommonObject3D;
 import graphiceditor.business.ComplexObject3D;
-import graphiceditor.business.Object3D;
 import graphiceditor.util.Cloner;
 
 import org.junit.Before;
@@ -12,13 +11,13 @@ import org.junit.Test;
 
 public class ClonerTest {
 
-	private Object3D o;
+	private CommonObject3D o;
 	private ComplexObject3D co;
 
 	@Before
 	public void setup(){
 		o = Rectangle3DFactory.getInstance().create(100,200);
-		co = ComplexObjec3DMock.create();
+		co = ComplexObjec3DMock.getInstance().create();
 	}
 	
 	@Test

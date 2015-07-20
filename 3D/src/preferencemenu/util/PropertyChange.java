@@ -14,5 +14,7 @@ public @interface PropertyChange {
 	String name();
 
 	boolean hasChildren();
+	
+	float valueToBalanceWithView() default 0;
 
 }

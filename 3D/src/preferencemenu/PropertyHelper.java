@@ -69,6 +69,7 @@ public class PropertyHelper {
 					try {
 						DoubleProperty property = getProperty(name, method.invoke(actualPainting, null));
 						if (property != null) {
+							property.add(annotation.valueToBalanceWithView());
 							return property;
 						}
 					} catch (IllegalAccessException | IllegalArgumentException

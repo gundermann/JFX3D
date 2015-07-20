@@ -14,4 +14,6 @@ public @interface Property {
 	String name();
 
 	boolean hasChildren();
+	
+	float valueToBalanceWithView() default 0;
 }

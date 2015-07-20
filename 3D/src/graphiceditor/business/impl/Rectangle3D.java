@@ -14,24 +14,24 @@ public class Rectangle3D extends AbstractPaintableObject3D {
 		super("Rectangle");
 	}
 
-	@PropertyChange(name = "width", hasChildren = false)
+	@PropertyChange(name = "width", hasChildren = false, valueToBalanceWithView = -1)
 	public void changeWidthTo(double newWidth) {
 		((Rectangle) node).widthProperty().set(newWidth);
 	}
 
-	@PropertyChange(name = "height", hasChildren = false)
+	@PropertyChange(name = "height", hasChildren = false, valueToBalanceWithView = -1)
 	public void changeHeightTo(double newHeight) {
 		((Rectangle) node).heightProperty().set(newHeight);
 	}
 
 	@Override
-	@Property(name = "height", hasChildren = false)
+	@Property(name = "height", hasChildren = false, valueToBalanceWithView = 1)
 	public DoubleProperty getHeightProperty() {
 		return ((Rectangle) node).heightProperty();
 	}
 
 	@Override
-	@Property(name = "width", hasChildren = false)
+	@Property(name = "width", hasChildren = false, valueToBalanceWithView = 1)
 	public DoubleProperty getWidthProperty() {
 		return ((Rectangle) node).widthProperty();
 	}

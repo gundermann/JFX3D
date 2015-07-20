@@ -53,7 +53,7 @@ public abstract class AbstractPaintableObject3D extends AbstractObject3DImpl
 		if (selected) {
 			node.setStyle("-fx-stroke: red; -fx-stroke-width: 5; -fx-stroke-dash-array: 12 2 4 2; -fx-stroke-dash-offset: 6; -fx-stroke-line-cap: butt;");
 		} else {
-			node.setStyle("-fx-stroke-width: 0;");
+			node.setStyle("-fx-stroke: red; -fx-stroke-width: 1;");
 		}
 	}
 }

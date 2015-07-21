@@ -14,13 +14,13 @@ public class Ellipse3D extends AbstractPaintableObject3D {
 	}
 
 	@Override
-	@Property(name = "y-radius", hasChildren = false)
+	@Property(name = "y-radius", hasChildren = false, valueToBalanceWithView = 1)
 	public DoubleProperty getHeightProperty() {
 		return ((javafx.scene.shape.Ellipse) node).radiusYProperty();
 	}
 
 	@Override
-	@Property(name = "x-radius", hasChildren = false)
+	@Property(name = "x-radius", hasChildren = false, valueToBalanceWithView = 1)
 	public DoubleProperty getWidthProperty() {
 		return ((javafx.scene.shape.Ellipse) node).radiusXProperty();
 	}
